@@ -1,0 +1,53 @@
+---
+import { Check } from "lucide-astro";
+
+export interface Props {
+    icon: string;
+    title: string;
+    items: string[];
+    highlight?: string;
+    className?: string;
+}
+
+const { icon, title, items, highlight, className = "" } = Astro.props;
+
+// Map icon names to Lucide components
+import { Globe, ShoppingBag, Settings, Bot, Rocket } from "lucide-astro";
+
+const iconMap: Record<string, any> = {
+    globe: Globe,
+    "shopping-bag": ShoppingBag,
+    settings: Settings,
+    bot: Bot,
+    rocket: Rocket,
+};
+
+const IconComponent = iconMap[icon] || Globe;
+---
+
+<article class={`glass-card reveal p-6 md:p-8 h-full group ${className}`}>
+    <!-- Icon -->
+    <div
+        class="w-12 h-12 rounded-xl bg-primary-600/10 flex items-center justify-center mb-4"
+    >
+        <IconComponent class="w-6 h-6 text-primary-400" />
+    </div>
+
+    <!-- Title -->
+    <h3 class="text-xl md:text-2xl font-bold text-main mb-4">{title}</h3>
+
+    <!-- Highlight (optional) -->
+    {highlight && <p class="text-secondary mb-4 text-sm">{highlight}</p>}
+
+    <!-- Items List -->
+    <ul class="space-y-2">
+        {
+            items.map((item) => (
+                <li class="flex items-start gap-2 text-secondary">
+                    <Check class="w-5 h-5 text-primary-400 flex-shrink-0 mt-0.5" />
+                    <span>{item}</span>
+                </li>
+            ))
+        }
+    </ul>
+</article>

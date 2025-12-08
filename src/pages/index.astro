@@ -1,16 +1,164 @@
 ---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
+import ServiceCard from "../components/ServiceCard.astro";
+import TechStack from "../components/TechStack.astro";
+import LocationSection from "../components/LocationSection.astro";
+import CTASection from "../components/CTASection.astro";
+import Footer from "../components/Footer.astro";
+import { Lightbulb } from "lucide-astro";
 
+// Services data - icon names map to Lucide icons in ServiceCard
+const services = [
+	{
+		icon: "globe",
+		title: "Sites web modernes & identités digitales",
+		highlight: "Des sites efficaces orientés conversion :",
+		items: [
+			"Sites vitrines professionnels",
+			"Pages de vente et landing pages",
+			"Sites Wix / Shopify / custom",
+			"Refonte de sites vieillissants",
+			"Design clair, rapide, mobile-first",
+		],
+	},
+	{
+		icon: "shopping-bag",
+		title: "Boutiques & E-commerce Shopify",
+		items: [
+			"Création complète de boutiques",
+			"Optimisation du tunnel d'achat",
+			"Intégrations simples (API, webhooks)",
+			"Pages produit performantes",
+		],
+	},
+	{
+		icon: "settings",
+		title: "Web Apps & mini-SaaS",
+		highlight:
+			"J'aide les solopreneurs à transformer leurs idées en outils concrets :",
+		items: [
+			"Applications web sur mesure",
+			"Back-end Ruby on Rails ou TypeScript",
+			"Dashboards, espaces clients, authentification",
+			"Déploiement simple sur VPS",
+		],
+	},
+	{
+		icon: "bot",
+		title: "Automatisation & optimisation business",
+		highlight: "Gagnez du temps et réduisez les tâches répétitives :",
+		items: [
+			"Automatisation d'opérations métier",
+			"Intégrations entre services (API, scripts)",
+			"Génération automatique de documents, rapports, emails",
+			"Scénarios d'automatisation pour Shopify, CRM, back-office",
+		],
+	},
+	{
+		icon: "rocket",
+		title: "Platform Engineering léger",
+		highlight:
+			"No cloud complexe — solutions simples, robustes et économiques :",
+		items: [
+			"Configuration et gestion VPS (Debian/Ubuntu)",
+			"Déploiement d'applications avec Docker",
+			"Déploiements modernes avec Kamal",
+			"Reverse proxy, HTTPS, monitoring simple",
+			"CI/CD léger avec GitHub Actions",
+			"Sécurisation de base des serveurs",
+		],
+	},
+];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout
+	title="E Informatique | Développeur Web Freelance à Perpignan — Sites, Shopify, SaaS & Automatisation"
+	description="Développeur web freelance spécialisé en création de sites modernes, boutiques Shopify, web apps, automatisation et déploiement VPS. Intervention en présentiel à Perpignan ou à distance partout en France."
+>
+	<Header />
+
+	<main>
+		<!-- Hero Section -->
+		<Hero />
+
+		<!-- Services Section -->
+		<section id="services" class="py-20 md:py-28">
+			<div class="container-custom">
+				<!-- Section Header -->
+				<div class="text-center mb-12 md:mb-16">
+					<div
+						class="w-14 h-14 rounded-xl bg-primary-600/10 flex items-center justify-center mx-auto mb-4"
+					>
+						<Lightbulb class="w-7 h-7 text-primary-400" />
+					</div>
+					<h2 class="section-title text-main">
+						Ce que je construis pour vous
+					</h2>
+					<p class="text-secondary max-w-2xl mx-auto">
+						Des solutions sur mesure pour développer votre activité
+						en ligne et gagner en efficacité.
+					</p>
+				</div>
+
+				<!-- Services Grid -->
+				<div class="grid md:grid-cols-2 lg:grid-cols-6 gap-6 md:gap-8">
+					{
+						services.map((service, index) => {
+							// First 3 items span 2 cols (total 6), Last 2 items span 3 cols (total 6)
+							const spanClass =
+								index < 3
+									? "lg:col-span-2"
+									: "lg:col-span-3 md:col-span-1";
+							// Adjust md behavior: Last item (4) ideally centered if odd layout?
+							// Current map:
+							// 0 1 (md)
+							// 2 3 (md)
+							// 4   (md - centered if span-2, or left if span-1)
+							// Let's make the last item span 2 on md so it's centered alone?
+							const finalClass =
+								index === 4 || (index >= 3 && index % 2 === 0)
+									? `${spanClass} md:col-span-2`
+									: spanClass;
+							// Wait, logic:
+							// 0, 1 -> row 1
+							// 2, 3 -> row 2
+							// 4 -> row 3. So 4 needs span 2 to be centered.
+							// My previous logic was: index === 4 ? ...
+							// Let's stick to the previous logic but cleaned up.
+
+							const actualClass =
+								index === 4
+									? "lg:col-span-3 md:col-span-2"
+									: index < 3
+										? "lg:col-span-2"
+										: "lg:col-span-3";
+
+							return (
+								<ServiceCard
+									icon={service.icon}
+									title={service.title}
+									items={service.items}
+									highlight={service.highlight}
+									className={actualClass}
+								/>
+							);
+						})
+					}
+				</div>
+			</div>
+		</section>
+
+		<!-- Tech Stack Section -->
+		<TechStack />
+
+		<!-- Location Section -->
+		<LocationSection />
+
+		<!-- CTA Section -->
+		<CTASection />
+	</main>
+
+	<Footer />
+</BaseLayout>

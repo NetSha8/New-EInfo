@@ -1,0 +1,191 @@
+---
+import { Star, ArrowRight, MapPin } from "lucide-astro";
+import { Github } from "lucide-astro";
+
+const specialties = [
+    "Sites modernes",
+    "Shopify",
+    "Web Apps & Mini-SaaS",
+    "Automatisation",
+    "Platform Engineering léger",
+];
+---
+
+<section
+    class="relative min-h-screen flex items-center pt-20 md:pt-0 overflow-hidden"
+>
+    <!-- Background - Flat solid -->
+    <div class="absolute inset-0 bg-dark-950"></div>
+
+    <!-- Subtle pattern overlay for texture -->
+    <div
+        class="absolute inset-0 opacity-[0.02]"
+        style="background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSIjZmZmIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxjaXJjbGUgY3g9IjIwIiBjeT0iMjAiIHI9IjEiLz48L2c+PC9zdmc+');"
+    >
+    </div>
+
+    <!-- Content -->
+    <div class="container-custom relative z-10 py-12 md:py-20">
+        <div class="max-w-4xl">
+            <!-- Badge -->
+            <div
+                class="inline-flex items-center gap-2 px-4 py-2 bg-dark-800 border border-dark-600 rounded-full mb-6 animate-slide-up shadow-lg hover:scale-105 transition-transform duration-500"
+            >
+                <Star class="w-5 h-5 text-primary-400" />
+                <span class="text-primary-400 font-medium text-sm md:text-base"
+                    >Développeur Web & Créateur de Solutions Business</span
+                >
+            </div>
+
+            <!-- Title -->
+            <h1
+                class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight animate-slide-up text-main"
+                style="animation-delay: 0.1s;"
+            >
+                Transformez vos idées en
+                <span class="text-primary-400">
+                    solutions digitales performantes</span
+                >
+            </h1>
+
+            <!-- Specialties -->
+            <div
+                class="flex flex-wrap gap-2 md:gap-3 mb-6 animate-slide-up"
+                style="animation-delay: 0.2s;"
+            >
+                {
+                    specialties.map((spec) => (
+                        <span class="tech-badge hover:scale-105 transition-transform">
+                            {spec}
+                        </span>
+                    ))
+                }
+            </div>
+
+            <!-- Description -->
+            <p
+                class="text-lg md:text-xl text-secondary mb-8 max-w-2xl animate-slide-up"
+                style="animation-delay: 0.3s;"
+            >
+                J'aide les <strong class="text-main">solopreneurs</strong>, <strong
+                    class="text-main">petites entreprises</strong
+                > et <strong class="text-main">créateurs</strong>
+                à lancer des sites performants, automatiser leurs activités et déployer
+                des outils modernes — sans complexité inutile.
+            </p>
+
+            <!-- Location -->
+            <p
+                class="flex items-center gap-2 text-secondary mb-8 animate-slide-up"
+                style="animation-delay: 0.4s;"
+            >
+                <MapPin class="w-5 h-5 text-primary-400" />
+                <span
+                    >Intervention en présentiel sur <strong class="text-main"
+                        >Perpignan</strong
+                    > ou à distance partout en <strong class="text-main"
+                        >France</strong
+                    ></span
+                >
+            </p>
+
+            <!-- CTAs -->
+            <div
+                class="flex flex-col sm:flex-row gap-4 animate-slide-up"
+                style="animation-delay: 0.5s;"
+            >
+                <a
+                    href="#contact"
+                    class="btn-primary justify-center hover:scale-105 transition-transform duration-300"
+                >
+                    <ArrowRight class="w-5 h-5" />
+                    <span>Travailler avec moi</span>
+                </a>
+                <a
+                    href="https://github.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn-secondary justify-center hover:scale-105 transition-transform duration-300"
+                >
+                    <Github class="w-5 h-5" />
+                    <span>Voir mon GitHub</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scroll Indicator - Animated Mouse -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:block">
+        <a
+            href="#services"
+            class="flex flex-col items-center gap-2 text-secondary hover:text-primary-400 transition-colors group"
+            aria-label="Scroll down"
+        >
+            <!-- Mouse Container -->
+            <div class="mouse-container">
+                <svg
+                    class="w-6 h-10"
+                    viewBox="0 0 24 40"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <!-- Mouse Body -->
+                    <rect
+                        x="1"
+                        y="1"
+                        width="22"
+                        height="38"
+                        rx="11"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        class="group-hover:stroke-primary-400 transition-colors"
+                    ></rect>
+                    <!-- Scroll Wheel (animated) -->
+                    <rect
+                        class="scroll-wheel"
+                        x="10"
+                        y="8"
+                        width="4"
+                        height="8"
+                        rx="2"
+                        fill="currentColor"></rect>
+                </svg>
+            </div>
+        </a>
+    </div>
+</section>
+
+<style>
+    .mouse-container {
+        animation: float 2s ease-in-out infinite;
+    }
+
+    .scroll-wheel {
+        animation: scroll-wheel 1.5s ease-in-out infinite;
+    }
+
+    @keyframes float {
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-5px);
+        }
+    }
+
+    @keyframes scroll-wheel {
+        0% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        50% {
+            opacity: 0.5;
+            transform: translateY(8px);
+        }
+        100% {
+            opacity: 0;
+            transform: translateY(12px);
+        }
+    }
+</style>

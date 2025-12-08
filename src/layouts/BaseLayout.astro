@@ -1,0 +1,122 @@
+---
+export interface Props {
+    title?: string;
+    description?: string;
+}
+
+const {
+    title = "E Informatique | Développeur Web Freelance à Perpignan",
+    description = "Développeur web freelance spécialisé en création de sites modernes, boutiques Shopify, web apps, automatisation et déploiement VPS. Intervention à Perpignan et partout en France.",
+} = Astro.props;
+
+const siteUrl = "https://einformatique.fr";
+const siteName = "E Informatique";
+---
+
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="robots" content="index, follow" />
+
+        <!-- Primary Meta Tags -->
+        <title>{title}</title>
+        <meta name="title" content={title} />
+        <meta name="description" content={description} />
+        <meta name="author" content={siteName} />
+        <meta
+            name="keywords"
+            content="développeur web, freelance, Perpignan, création site internet, Shopify, automatisation, VPS, Docker, Ruby on Rails, TypeScript, web app, SaaS"
+        />
+
+        <!-- Favicon -->
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={siteUrl} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:site_name" content={siteName} />
+        <meta property="og:locale" content="fr_FR" />
+
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content={siteUrl} />
+        <meta property="twitter:title" content={title} />
+        <meta property="twitter:description" content={description} />
+
+        <!-- Fontshare - Satoshi -->
+        <link
+            href="https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- Global CSS -->
+        <link rel="stylesheet" href="/src/styles/global.css" />
+
+        <!-- Schema.org LocalBusiness -->
+        <script
+            type="application/ld+json"
+            set:html={JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "LocalBusiness",
+                name: siteName,
+                description: description,
+                url: siteUrl,
+                telephone: "",
+                address: {
+                    "@type": "PostalAddress",
+                    addressLocality: "Perpignan",
+                    addressRegion: "Occitanie",
+                    addressCountry: "FR",
+                },
+                areaServed: [
+                    {
+                        "@type": "City",
+                        name: "Perpignan",
+                    },
+                    {
+                        "@type": "Country",
+                        name: "France",
+                    },
+                ],
+                serviceType: [
+                    "Création de sites web",
+                    "Développement Shopify",
+                    "Développement d'applications web",
+                    "Automatisation",
+                    "Déploiement VPS",
+                ],
+                priceRange: "$$",
+            })}
+        />
+    </head>
+    <body class="min-h-screen antialiased">
+        <slot />
+
+        <script>
+            // Simple Intersection Observer for scroll animations
+            const observerOptions = {
+                root: null,
+                rootMargin: "0px",
+                threshold: 0.1,
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("active");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.addEventListener("DOMContentLoaded", () => {
+                const hiddenElements = document.querySelectorAll(".reveal");
+                hiddenElements.forEach((el) => observer.observe(el));
+            });
+        </script>
+    </body>
+</html>

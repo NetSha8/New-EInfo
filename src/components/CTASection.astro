@@ -1,0 +1,41 @@
+---
+import { Phone, ArrowRight } from "lucide-astro";
+---
+
+<section id="contact" class="py-20 md:py-28 relative overflow-hidden">
+    <!-- Background - Flat blue -->
+    <div class="absolute inset-0 bg-primary-600"></div>
+
+    <!-- Subtle pattern overlay -->
+    <div
+        class="absolute inset-0 opacity-5"
+        style="background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSIjZmZmIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxjaXJjbGUgY3g9IjMwIiBjeT0iMzAiIHI9IjIiLz48L2c+PC9zdmc+');"
+    >
+    </div>
+
+    <div class="container-custom relative z-10 text-center">
+        <div
+            class="w-16 h-16 rounded-2xl bg-white/10 flex items-center justify-center mx-auto mb-6"
+        >
+            <Phone class="w-8 h-8 text-white" />
+        </div>
+
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+            Un projet web, une automatisation<br class="hidden md:block" /> ou un
+            SaaS à créer ?
+        </h2>
+
+        <p class="text-lg md:text-xl text-white/80 mb-8 max-w-2xl mx-auto">
+            Discutons de votre projet et trouvons ensemble la meilleure solution
+            pour développer votre activité.
+        </p>
+
+        <a
+            href="mailto:contact@einformatique.fr"
+            class="inline-flex items-center gap-3 px-8 py-4 bg-white text-primary-700 font-bold text-lg rounded-xl hover:bg-gray-100 transition-all hover:scale-105 shadow-xl hover:shadow-2xl"
+        >
+            <ArrowRight class="w-5 h-5" />
+            <span>Contactez-moi maintenant</span>
+        </a>
+    </div>
+</section>

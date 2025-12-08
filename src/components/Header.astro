@@ -1,0 +1,205 @@
+---
+import { Menu, X, Monitor } from "lucide-astro";
+import ThemeToggle from "./ThemeToggle.astro";
+
+const navLinks = [
+    { href: "#services", label: "Services" },
+    { href: "#technologies", label: "Technologies" },
+    { href: "#zone", label: "Zone d'intervention" },
+];
+---
+
+<header
+    class="fixed top-0 left-0 right-0 z-50 bg-dark-950/80 backdrop-blur-md border-b border-dark-800 transition-all duration-300"
+    id="main-header"
+>
+    <nav
+        class="container-custom flex items-center justify-between h-16 md:h-20"
+    >
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-2 group relative z-50">
+            <div class="relative">
+                <div
+                    class="absolute inset-0 bg-primary-500/20 blur-lg rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                >
+                </div>
+                <Monitor
+                    class="w-6 h-6 text-primary-400 relative z-10 transform group-hover:scale-110 transition-transform duration-300"
+                />
+            </div>
+            <span
+                class="font-bold text-lg md:text-xl text-main group-hover:text-primary-400 transition-colors duration-300"
+            >
+                E Informatique
+            </span>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex items-center gap-8">
+            {
+                navLinks.map((link) => (
+                    <a
+                        href={link.href}
+                        class="relative text-secondary hover:text-main font-medium transition-colors duration-300 group/link"
+                    >
+                        {link.label}
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-400 transition-all duration-300 group-hover/link:w-full opacity-0 group-hover/link:opacity-100" />
+                    </a>
+                ))
+            }
+            <a
+                href="/contact"
+                class="btn-primary text-sm py-2 px-4 hover:scale-105 active:scale-95 transition-all duration-300 shadow-[0_0_15px_rgba(var(--color-primary-500),0.3)] hover:shadow-[0_0_25px_rgba(var(--color-primary-500),0.5)]"
+            >
+                Contactez-moi
+            </a>
+            <ThemeToggle />
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <div class="flex items-center gap-4 md:hidden">
+            <ThemeToggle />
+            <button
+                id="mobile-menu-btn"
+                class="relative z-50 p-2 text-secondary hover:text-white transition-colors focus:outline-none"
+                aria-label="Menu"
+            >
+                <div class="relative w-6 h-6 overflow-hidden">
+                    <span
+                        class="absolute inset-0 transition-transform duration-300 flex items-center justify-center transform scale-100 rotate-0"
+                        id="icon-menu"
+                    >
+                        <Menu class="w-6 h-6" />
+                    </span>
+                    <span
+                        class="absolute inset-0 transition-transform duration-300 flex items-center justify-center transform scale-0 rotate-90"
+                        id="icon-close"
+                    >
+                        <X class="w-6 h-6" />
+                    </span>
+                </div>
+            </button>
+        </div>
+    </nav>
+</header>
+
+<!-- Mobile Menu Overlay -->
+<div
+    id="mobile-menu-overlay"
+    class="fixed inset-0 bg-dark-950/80 backdrop-blur-sm z-40 opacity-0 pointer-events-none transition-opacity duration-300 md:hidden"
+>
+</div>
+
+<!-- Mobile Menu Drawer -->
+<div
+    id="mobile-menu-drawer"
+    class="fixed top-0 right-0 h-full w-full bg-[#0a0a0f] z-40 transform translate-x-full transition-transform duration-300 md:hidden flex flex-col"
+>
+    <!-- Logo decoration inside drawer -->
+    <div
+        class="absolute top-0 right-0 p-32 bg-primary-500/5 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none"
+    >
+    </div>
+
+    <div class="flex-1 flex flex-col justify-end p-8 pb-10 space-y-6">
+        <div
+            class="flex flex-col space-y-4 items-end"
+            id="mobile-links-container"
+        >
+            {
+                navLinks.map((link, index) => (
+                    <a
+                        href={link.href}
+                        class="text-2xl font-bold text-secondary hover:text-main hover:text-primary-400 transition-all duration-300 transform translate-y-4 opacity-0"
+                        style={`transition-delay: ${index * 50}ms`}
+                    >
+                        <span class="inline-block hover:-translate-x-2 transition-transform duration-300">
+                            {link.label}
+                        </span>
+                    </a>
+                ))
+            }
+        </div>
+
+        <div
+            class="pt-6 border-t border-dark-800 transform translate-y-4 opacity-0 transition-all duration-300 delay-200"
+            id="mobile-cta"
+        >
+            <a
+                href="/contact"
+                class="btn-primary w-full justify-center text-center py-3 text-lg shadow-lg hover:shadow-primary-500/20"
+            >
+                Contactez-moi
+            </a>
+        </div>
+
+        <div class="text-sm text-secondary text-center pt-4">
+            &copy; {new Date().getFullYear()} E Informatique
+        </div>
+    </div>
+</div>
+
+<script>
+    const menuBtn = document.getElementById("mobile-menu-btn");
+    const overlay = document.getElementById("mobile-menu-overlay");
+    const drawer = document.getElementById("mobile-menu-drawer");
+    const iconMenu = document.getElementById("icon-menu");
+    const iconClose = document.getElementById("icon-close");
+    const body = document.body;
+
+    // Elements to animate
+    const links = document.querySelectorAll("#mobile-links-container a");
+    const cta = document.getElementById("mobile-cta");
+
+    let isMenuOpen = false;
+
+    function toggleMenu() {
+        isMenuOpen = !isMenuOpen;
+
+        if (isMenuOpen) {
+            // Open - Logic
+            overlay?.classList.remove("opacity-0", "pointer-events-none");
+            drawer?.classList.remove("translate-x-full");
+            body.style.overflow = "hidden"; // Prevent background scrolling
+
+            // Icon animation
+            iconMenu?.classList.replace("scale-100", "scale-0");
+            iconMenu?.classList.replace("rotate-0", "rotate-90"); // Optional extra rotation
+            iconClose?.classList.replace("scale-0", "scale-100");
+            iconClose?.classList.replace("rotate-90", "rotate-0");
+
+            // Staggered Text Animation
+            setTimeout(() => {
+                links.forEach((link) => {
+                    link.classList.remove("translate-y-4", "opacity-0");
+                });
+                cta?.classList.remove("translate-y-4", "opacity-0");
+            }, 100);
+        } else {
+            // Close - Logic
+            overlay?.classList.add("opacity-0", "pointer-events-none");
+            drawer?.classList.add("translate-x-full");
+            body.style.overflow = "";
+
+            // Icon animation
+            iconMenu?.classList.replace("scale-0", "scale-100");
+            iconMenu?.classList.replace("rotate-90", "rotate-0");
+            iconClose?.classList.replace("scale-100", "scale-0");
+            iconClose?.classList.replace("rotate-0", "rotate-90");
+
+            // Reset animations
+            links.forEach((link) => {
+                link.classList.add("translate-y-4", "opacity-0");
+            });
+            cta?.classList.add("translate-y-4", "opacity-0"); // Fix logic here
+        }
+    }
+
+    menuBtn?.addEventListener("click", toggleMenu);
+    overlay?.addEventListener("click", toggleMenu);
+
+    // Close menu when clicking a link
+    drawer?.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", toggleMenu);
+    });
+</script>

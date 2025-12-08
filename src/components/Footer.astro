@@ -1,0 +1,35 @@
+---
+import { Monitor, Github } from "lucide-astro";
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="py-8 bg-dark-950 border-t border-dark-800">
+    <div class="container-custom">
+        <div
+            class="flex flex-col md:flex-row items-center justify-between gap-4"
+        >
+            <!-- Logo & Copyright -->
+            <div class="flex items-center gap-2">
+                <Monitor class="w-5 h-5 text-primary-400" />
+                <span class="text-secondary">
+                    © {currentYear}
+                    <strong class="text-main">E Informatique</strong> — Création
+                    Web, Automatisation & Plateforme VPS
+                </span>
+            </div>
+
+            <!-- Links -->
+            <div class="flex items-center gap-6">
+                <a
+                    href="https://github.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-secondary hover:text-primary-400 transition-colors"
+                    aria-label="GitHub"
+                >
+                    <Github class="w-5 h-5" />
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
