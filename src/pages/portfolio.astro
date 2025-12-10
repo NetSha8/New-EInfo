@@ -1,0 +1,182 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import PortfolioCard from "../components/PortfolioCard.astro";
+import { Briefcase, ArrowRight } from "lucide-astro";
+
+const title = "Portfolio | Mes projets et réalisations - E Informatique";
+const description =
+    "Découvrez mes projets et réalisations en développement web, e-commerce Shopify, web apps et automatisation. Exemples concrets de sites modernes et performants.";
+
+const portfolioProjects = [
+    {
+        title: "Riva Solution",
+        description:
+            "Site web vitrine créer avec Wordpress pour une entreprise de mur mobile. Design personnalisé et intégration de formulaires de contact.",
+        image: "/images/portfolio/riva-solution.png",
+        imageAlt: "Riva Solution Site web Wordpress",
+        technologies: ["Wordpress", "Theme Divi", "Hostinger"],
+        link: "https://riva-solution.com/",
+    },
+    {
+        title: "Collioure Acteurs Économiques",
+        description:
+            "Site web presentant les commerçants et artisans de Collioure. Créer avec Wix Sutdio pour une gestion facile par le client.",
+        image: "/images/portfolio/collioure.png",
+        imageAlt: "Site web Collioure Acteurs Économiques",
+        technologies: ["Wix Studio", "Gestion de contenu","Velo by Wix"],
+        link: "https://www.collioureacteurseconomiques.com/",
+    },
+    {
+        title: "Plateforme test pour Electrodepot",
+        description:
+            "Plateforme de test creer pour ElectroDepot afin de valider des concepts avant leur mise en production sur le site principal. La plateforme est une gamification de vente.",
+        image: "/images/portfolio/electrodepot.png",
+        imageAlt: "Site vitrine B2B corporatif",
+        technologies: ["SvelteKit", "TypeScript", "Tailwind CSS", "ShadcnUI", "Netlify"],
+        // Pas de lien - projet privé
+    },
+];
+---
+
+<BaseLayout {title} {description}>
+    <Header />
+
+    <!-- Hero Section -->
+    <section
+        class="pt-32 md:pt-40 pb-12 md:pb-20 bg-gradient-to-b from-dark-900 to-dark-950"
+    >
+        <div class="container-custom">
+            <!-- Header -->
+            <div class="flex items-center gap-3 mb-6">
+                <div
+                    class="w-12 h-12 rounded-xl bg-primary-600/10 flex items-center justify-center"
+                >
+                    <Briefcase class="w-6 h-6 text-primary-400" />
+                </div>
+                <p class="text-primary-400 font-semibold uppercase tracking-wide text-sm">
+                    Mes réalisations
+                </p>
+            </div>
+
+            <!-- Title -->
+            <h1 class="text-4xl md:text-6xl font-bold text-main mb-6 leading-tight">
+                Découvrez mes
+                <span class="bg-gradient-to-r from-primary-400 to-primary-500 bg-clip-text text-transparent">
+                    projets
+                </span>
+            </h1>
+
+            <!-- Subtitle -->
+            <p
+                class="text-lg md:text-xl text-secondary max-w-2xl leading-relaxed mb-8"
+            >
+                Des sites modernes et performants, des applications web intuitives, des
+                boutiques Shopify qui convertissent. Explorez quelques exemples de
+                projets que j'ai eu le plaisir de développer.
+            </p>
+
+            <!-- CTA -->
+            <a
+                href="/contact"
+                class="inline-flex items-center gap-2 bg-primary-600 hover:bg-primary-500 text-white font-semibold px-6 md:px-8 py-3 md:py-4 rounded-xl transition-all duration-300 group/btn hover:scale-105 active:scale-95"
+            >
+                Parlons de votre projet
+                <ArrowRight
+                    class="w-5 h-5 transform group-hover/btn:translate-x-1 transition-transform duration-300"
+                />
+            </a>
+        </div>
+    </section>
+
+    <!-- Portfolio Grid Section -->
+    <section class="py-20 md:py-28 bg-dark-950">
+        <div class="container-custom">
+            <!-- Intro Text -->
+            <div class="mb-16 md:mb-20">
+                <p class="text-secondary text-lg max-w-3xl">
+                    Chaque projet est unique et reflète une approche personnalisée. Que ce
+                    soit un site vitrine épuré, une boutique e-commerce performante ou une
+                    application web sur mesure, je m'investis pour dépasser vos attentes et
+                    créer des solutions qui délivrent des résultats concrets.
+                </p>
+            </div>
+
+            <!-- Portfolio Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+                {
+                    portfolioProjects.map((project, index) => (
+                        <PortfolioCard
+                            title={project.title}
+                            description={project.description}
+                            image={project.image}
+                            imageAlt={project.imageAlt}
+                            technologies={project.technologies}
+                            link={project.link}
+                            className={`delay-${(index + 1) * 100}`}
+                        />
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 md:py-24 bg-dark-900 border-t border-dark-800">
+        <div class="container-custom text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-main mb-6">
+                Intéressé par
+                <span
+                    class="bg-gradient-to-r from-primary-400 to-primary-500 bg-clip-text text-transparent"
+                >
+                    un projet similaire
+                </span>
+                ?
+            </h2>
+            <p class="text-secondary text-lg mb-8 max-w-2xl mx-auto">
+                Vous avez une vision précise ou besoin de conseils ? Contactez-moi pour
+                discuter de vos besoins et définir une solution adaptée.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a
+                    href="/contact"
+                    class="inline-flex items-center justify-center gap-2 bg-primary-600 hover:bg-primary-500 text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 group/btn hover:scale-105"
+                >
+                    Démarrer une discussion
+                    <ArrowRight class="w-5 h-5 transform group-hover/btn:translate-x-1 transition-transform" />
+                </a>
+                <a
+                    href="/services"
+                    class="inline-flex items-center justify-center gap-2 border border-primary-600 text-primary-400 hover:bg-primary-600/10 font-semibold px-8 py-4 rounded-xl transition-all duration-300"
+                >
+                    Voir mes services
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <Footer />
+</BaseLayout>
+
+<style>
+    /* Stagger animation delays */
+    .delay-100 {
+        animation-delay: 100ms;
+    }
+    .delay-200 {
+        animation-delay: 200ms;
+    }
+    .delay-300 {
+        animation-delay: 300ms;
+    }
+    .delay-400 {
+        animation-delay: 400ms;
+    }
+    .delay-500 {
+        animation-delay: 500ms;
+    }
+    .delay-600 {
+        animation-delay: 600ms;
+    }
+</style>

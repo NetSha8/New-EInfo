@@ -1,0 +1,408 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { CheckCircle2, ArrowRight } from "lucide-astro";
+import { Rubyonrails, Typescript, Shopify, Wix } from "simple-icons-astro";
+---
+
+<BaseLayout
+    title="À propos | Elian — Développeur Web & Créateur de Solutions Business"
+    description="Découvrez mon parcours, ma philosophie et comment j'accompagne les solopreneurs et PME avec des solutions web modernes et performantes."
+>
+    <Header />
+
+    <main class="pt-24 pb-20 overflow-hidden">
+        <!-- Hero Section -->
+        <section class="relative py-12 md:py-20">
+            <div class="container-custom">
+                <div class="max-w-4xl space-y-8">
+                    <h1
+                        class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-main reveal"
+                    >
+                        À propos
+                    </h1>
+                    <p
+                        class="text-xl md:text-2xl text-secondary font-medium reveal delay-100"
+                    >
+                        Elian — Développeur Web & Créateur de Solutions Business
+                    </p>
+                    <div
+                        class="pt-8 text-lg text-main/80 space-y-4 reveal delay-200 text-left max-w-3xl leading-relaxed"
+                    >
+                        <p>
+                            Je m’appelle Elian, et j’aide les solopreneurs et
+                            les PME à donner vie à leurs projets digitaux grâce
+                            à des solutions web modernes, performantes et
+                            pensées pour durer.
+                        </p>
+                        <p>
+                            Après plusieurs années en tant que technicien
+                            informatique et administrateur systèmes & réseaux,
+                            j’ai décidé de me reconvertir vers un métier plus
+                            orienté service, création et accompagnement : le
+                            développement web et les solutions business sur
+                            mesure.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Background decoration -->
+            <div
+                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary-500/10 rounded-full blur-[100px] -z-10 pointer-events-none"
+            >
+            </div>
+        </section>
+
+        <!-- Section: De la technique pure au service direct -->
+        <section class="py-16 md:py-24 bg-dark-900/50">
+            <div class="container-custom">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="order-2 md:order-1 reveal">
+                        <h2 class="section-title text-3xl md:text-4xl mb-12">
+                            De la technique pure au service direct
+                        </h2>
+                        <div
+                            class="space-y-4 text-secondary text-lg leading-relaxed"
+                        >
+                            <p>
+                                Mon parcours dans l’informatique m’a appris la
+                                rigueur, la fiabilité et la compréhension
+                                profonde de ce qu’il se passe « derrière » un
+                                projet web : serveurs, sécurité, déploiement,
+                                systèmes…
+                            </p>
+                            <p>
+                                Aujourd’hui, je mets cette expertise au service
+                                de mes clients pour créer :
+                            </p>
+                            <ul class="space-y-3 mt-8">
+                                <li class="flex items-start gap-3">
+                                    <CheckCircle2
+                                        class="w-6 h-6 text-primary-400 shrink-0 mt-0.5"
+                                    />
+                                    <span
+                                        >des sites web modernes (from scratch,
+                                        Wix ou Shopify),</span
+                                    >
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <CheckCircle2
+                                        class="w-6 h-6 text-primary-400 shrink-0 mt-0.5"
+                                    />
+                                    <span
+                                        >des outils digitaux adaptés à leurs
+                                        besoins,</span
+                                    >
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <CheckCircle2
+                                        class="w-6 h-6 text-primary-400 shrink-0 mt-0.5"
+                                    />
+                                    <span
+                                        >des infrastructures simples, robustes
+                                        et faciles à maintenir grâce à un
+                                        Platform Engineering léger : VPS, Nginx,
+                                        Kamal, Docker, automatisations,
+                                        déploiements propres.</span
+                                    >
+                                </li>
+                            </ul>
+                            <p class="pt-6 font-medium text-main">
+                                Cette double compétence — développement +
+                                infrastructure — me permet d’offrir des
+                                solutions complètes, stables et prêtes à
+                                évoluer.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Tech Icons Section -->
+                    <div class="order-1 md:order-2 relative reveal delay-200">
+                        <div
+                            class="aspect-square md:aspect-auto md:h-[500px] rounded-2xl bg-gradient-to-br from-primary-500/20 to-purple-500/20 border border-white/5 backdrop-blur-sm flex items-center justify-center p-0 overflow-hidden"
+                        >
+                            <div
+                                class="grid grid-cols-2 w-full h-full"
+                            >
+                                <!-- Ruby on Rails -->
+                                <div class="flex items-center justify-center">
+                                    <Rubyonrails class="w-32 h-32 simple-icon" style="color: #1A1A1A;" />
+                                </div>
+
+                                <!-- TypeScript -->
+                                <div class="flex items-center justify-center">
+                                    <Typescript class="w-32 h-32 simple-icon" style="color: #1A1A1A;" />
+                                </div>
+
+                                <!-- Shopify -->
+                                <div class="flex items-center justify-center">
+                                    <Shopify class="w-32 h-32 simple-icon" style="color: #1A1A1A;" />
+                                </div>
+
+                                <!-- Wix -->
+                                <div class="flex items-center justify-center">
+                                    <Wix class="w-32 h-32 simple-icon" style="color: #1A1A1A;" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Philosophie -->
+        <section class="py-16 md:py-24">
+            <div class="container-custom">
+                <div class="max-w-3xl space-y-10 reveal">
+                    <h2 class="section-title text-3xl md:text-4xl mb-12">
+                        Ma philosophie : simplicité, performance et sens du
+                        détail
+                    </h2>
+                    <div
+                        class="space-y-6 text-lg text-secondary leading-relaxed"
+                    >
+                        <p>
+                            Je crois profondément que les meilleurs projets sont
+                            ceux qui vont à l’essentiel. Pas de complexité
+                            inutile. Pas de technologie surdimensionnée.
+                        </p>
+                        <p class="text-2xl text-main font-semibold">
+                            Juste ce qu’il faut — bien fait, propre, performant.
+                        </p>
+                        <p>
+                            Chaque pixel, chaque fonctionnalité, chaque
+                            configuration compte. Les détails font la
+                            différence, et je considère qu’un bon projet se
+                            construit justement là : dans ce que les autres ne
+                            voient pas, mais que vos clients ressentent
+                            immédiatement.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Ce que j'apporte -->
+        <section class="py-16 md:py-24 bg-dark-900/50">
+            <div class="container-custom">
+                <div class="max-w-5xl">
+                    <h2 class="section-title text-3xl md:text-4xl mb-16 reveal">
+                        Ce que j’apporte à mes clients
+                    </h2>
+
+                    <div class="grid md:grid-cols-2 gap-8 reveal delay-100">
+                        <div class="glass-card p-8 space-y-6">
+                            <h3 class="text-xl font-bold text-primary-400">
+                                Objectifs
+                            </h3>
+                            <p class="text-secondary text-lg">
+                                Je veux permettre à chacun — même sans
+                                compétences techniques — de :
+                            </p>
+                            <ul class="space-y-3 mt-2">
+                                <li
+                                    class="flex items-center gap-2 text-main text-lg"
+                                >
+                                    <ArrowRight
+                                        class="w-4 h-4 text-primary-400"
+                                    />
+                                    lancer leur projet rapidement,
+                                </li>
+                                <li
+                                    class="flex items-center gap-2 text-main text-lg"
+                                >
+                                    <ArrowRight
+                                        class="w-4 h-4 text-primary-400"
+                                    />
+                                    développer leur activité,
+                                </li>
+                                <li
+                                    class="flex items-center gap-2 text-main text-lg"
+                                >
+                                    <ArrowRight
+                                        class="w-4 h-4 text-primary-400"
+                                    />
+                                    faire évoluer une plateforme existante,
+                                </li>
+                            </ul>
+                            <p
+                                class="text-base font-medium pt-2 text-secondary"
+                            >
+                                ...avec un accompagnement clair et humain.
+                            </p>
+                        </div>
+
+                        <div class="glass-card p-8 space-y-6">
+                            <h3 class="text-xl font-bold text-primary-400">
+                                Réalisation
+                            </h3>
+                            <p class="text-secondary text-lg">
+                                J’aime construire des sites, des extensions, des
+                                thèmes ou des outils qui répondent vraiment à un
+                                besoin, qui tiennent la route techniquement, et
+                                que beaucoup ne pourraient pas se permettre
+                                auprès d'une agence classique.
+                            </p>
+                            <p
+                                class="font-medium text-main pt-4 border-t border-white/5 text-lg"
+                            >
+                                Mon objectif : vous donner des fondations
+                                solides pour créer, vendre et scaler
+                                sereinement.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Pour qui je travaille ? -->
+        <section class="py-16 md:py-24">
+            <div class="container-custom">
+                <h2 class="section-title text-3xl md:text-4xl mb-16 reveal">
+                    Pour qui je travaille ?
+                </h2>
+                <div class="grid md:grid-cols-3 gap-8 reveal delay-100">
+                    <!-- Card 1 -->
+                    <div
+                        class="glass-card p-8 flex flex-col h-full hover:scale-[1.02] transition-transform"
+                    >
+                        <div
+                            class="w-14 h-14 rounded-full bg-primary-500/20 flex items-center justify-center mb-6 text-primary-400 font-bold text-2xl"
+                        >
+                            1
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Solopreneurs</h3>
+                        <p class="text-secondary text-lg">
+                            Ceux qui veulent se lancer ou automatiser leurs
+                            tâches pour gagner du temps et de l'efficacité.
+                        </p>
+                    </div>
+                    <!-- Card 2 -->
+                    <div
+                        class="glass-card p-8 flex flex-col h-full hover:scale-[1.02] transition-transform"
+                    >
+                        <div
+                            class="w-14 h-14 rounded-full bg-primary-500/20 flex items-center justify-center mb-6 text-primary-400 font-bold text-2xl"
+                        >
+                            2
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">PME</h3>
+                        <p class="text-secondary text-lg">
+                            Celles qui cherchent un site professionnel, une
+                            boutique Shopify performante ou un outil métier
+                            sur-mesure.
+                        </p>
+                    </div>
+                    <!-- Card 3 -->
+                    <div
+                        class="glass-card p-8 flex flex-col h-full hover:scale-[1.02] transition-transform"
+                    >
+                        <div
+                            class="w-14 h-14 rounded-full bg-primary-500/20 flex items-center justify-center mb-6 text-primary-400 font-bold text-2xl"
+                        >
+                            3
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">
+                            Entreprises tech
+                        </h3>
+                        <p class="text-secondary text-lg">
+                            Celles qui ont besoin d’un technicien capable de
+                            comprendre à la fois le code et l’infrastructure.
+                        </p>
+                    </div>
+                </div>
+                <div
+                    class="mt-16 text-xl text-secondary reveal delay-200 max-w-3xl"
+                >
+                    <p>
+                        Je travaille à <strong
+                            >Perpignan et sa périphérie</strong
+                        >, mais j’accompagne aussi mes clients <strong
+                            >partout en France à distance</strong
+                        >.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Collaboration -->
+        <section class="py-16 md:py-24 bg-dark-900/50">
+            <div class="container-custom">
+                <div class="max-w-4xl reveal">
+                    <h2 class="section-title text-3xl md:text-4xl mb-12">
+                        Une collaboration simple, claire et efficace
+                    </h2>
+                    <div
+                        class="bg-dark-800/50 rounded-2xl p-8 md:p-12 border border-white/5"
+                    >
+                        <p class="text-xl mb-8 font-medium text-main">
+                            Je m’engage à :
+                        </p>
+                        <div
+                            class="grid md:grid-cols-2 gap-y-6 gap-x-8 text-left max-w-3xl"
+                        >
+                            <div class="flex items-center gap-4">
+                                <CheckCircle2
+                                    class="w-6 h-6 text-green-400 flex-shrink-0"
+                                />
+                                <span class="text-secondary text-lg"
+                                    >Comprendre votre besoin réel</span
+                                >
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <CheckCircle2
+                                    class="w-6 h-6 text-green-400 flex-shrink-0"
+                                />
+                                <span class="text-secondary text-lg"
+                                    >Proposer une solution adaptée</span
+                                >
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <CheckCircle2
+                                    class="w-6 h-6 text-green-400 flex-shrink-0"
+                                />
+                                <span class="text-secondary text-lg"
+                                    >Projet propre, fiable et évolutif</span
+                                >
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <CheckCircle2
+                                    class="w-6 h-6 text-green-400 flex-shrink-0"
+                                />
+                                <span class="text-secondary text-lg"
+                                    >Expliquer les choses simplement</span
+                                >
+                            </div>
+                            <div class="flex items-center gap-4 md:col-span-2">
+                                <CheckCircle2
+                                    class="w-6 h-6 text-green-400 flex-shrink-0"
+                                />
+                                <span class="text-secondary text-lg"
+                                    >Assurer un suivi transparent</span
+                                >
+                            </div>
+                        </div>
+                        <p class="mt-10 text-xl text-main leading-relaxed">
+                            Mon but est que vous puissiez avancer en confiance,
+                            avec un outil qui vous ressemble et qui soutient
+                            réellement votre activité.
+                        </p>
+                        <div class="mt-10">
+                            <a
+                                href="/contact"
+                                class="btn-primary text-lg px-8 py-4"
+                            >
+                                Travaillons ensemble
+                                <ArrowRight class="w-5 h-5" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <Footer />
+</BaseLayout>

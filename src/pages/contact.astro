@@ -1,0 +1,142 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { Mail, MapPin, Phone, Github, Clock3, Sparkles } from "lucide-astro";
+import StatusIndicator from "../components/StatusIndicator.astro";
+---
+
+<BaseLayout
+    title="Contact | Elian — Développeur Web & Créateur de Solutions Business"
+    description="Contactez-moi pour discuter de votre projet web, Shopify ou d'automatisation. Disponibilité et réponse rapide."
+>
+    <Header />
+
+    <main class="relative overflow-hidden min-h-screen pt-32 pb-20">
+        <!-- Ambient shapes for subtle motion -->
+        <div
+            class="pointer-events-none absolute inset-0 -z-10 opacity-70"
+            aria-hidden="true"
+        >
+            <div
+                class="absolute top-10 left-[10%] w-64 h-64 bg-primary-500/10 blur-3xl animate-[pulse_7s_ease-in-out_infinite] rounded-full"
+            ></div>
+            <div
+                class="absolute bottom-16 right-[8%] w-72 h-72 bg-primary-700/10 blur-3xl animate-[pulse_9s_ease-in-out_infinite] rounded-full"
+            ></div>
+            <div
+                class="absolute top-1/3 right-1/2 w-24 h-24 border border-primary-500/30 rounded-full animate-[float_10s_ease-in-out_infinite]"
+            ></div>
+        </div>
+
+        <div class="container-custom">
+            <section
+                class="grid lg:grid-cols-[1.2fr_1fr] gap-12 items-center"
+            >
+                <!-- Intro -->
+                <div class="space-y-8 reveal">
+                    <div class="inline-flex items-center gap-2 text-sm text-secondary uppercase tracking-[0.2em]">
+                        <Sparkles class="w-4 h-4 text-primary-400" />
+                        Contact direct
+                    </div>
+                    <div class="space-y-4">
+                        <h1 class="text-5xl md:text-6xl font-bold leading-tight">
+                            Pas de formulaire.
+                            <br />
+                            Juste une vraie conversation.
+                        </h1>
+                        <p class="text-xl text-secondary max-w-2xl">
+                            Dites-moi ce que vous voulez lancer, optimiser ou automatiser. Je réponds vite, avec des pistes concrètes dès le premier échange.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-3 text-sm text-secondary">
+                        <span class="tech-badge">Réponse sous 24h</span>
+                        <span class="tech-badge">Visio rapide possible</span>
+                        <span class="tech-badge">FR / EN</span>
+                    </div>
+                </div>
+
+                <!-- Cards stack -->
+                <div class="space-y-4">
+                    <a
+                        href="mailto:contact@einformatique.fr"
+                        class="glass-card p-6 flex items-center justify-between gap-4 group reveal delay-100 hover:-translate-y-1"
+                    >
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-primary-500/15 flex items-center justify-center group-hover:bg-primary-500/25 transition-colors">
+                                <Mail class="w-6 h-6 text-primary-400" />
+                            </div>
+                            <div>
+                                <p class="text-sm text-secondary">Email direct</p>
+                                <p class="text-lg font-semibold">contact@einformatique.fr</p>
+                            </div>
+                        </div>
+                        <span class="text-primary-400 text-sm group-hover:translate-x-1 transition-transform">Écrire</span>
+                    </a>
+
+                    <div class="grid sm:grid-cols-2 gap-4 reveal delay-200">
+                        <a
+                            href="tel:+33768535150"
+                            class="glass-card p-6 flex flex-col justify-between hover:-translate-y-1 transition-transform"
+                        >
+                            <div class="flex items-center gap-4 mb-4">
+                                <div class="w-12 h-12 rounded-full bg-primary-500/15 flex items-center justify-center">
+                                    <Phone class="w-6 h-6 text-primary-400" />
+                                </div>
+                                <div>
+                                    <p class="text-sm text-secondary">Téléphone</p>
+                                    <p class="text-lg font-semibold">07 68 53 51 50</p>
+                                </div>
+                            </div>
+                            <p class="text-sm text-secondary mb-4">Je privilégie les messages pour une meilleure facilité de compréhension et un suivi clair de votre demande.</p>
+                            <span class="text-primary-400 text-sm self-start">Appeler</span>
+                        </a>
+
+                        <a
+                            href="https://github.com/NetSha8"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="glass-card p-6 flex flex-col justify-between hover:-translate-y-1 transition-transform"
+                        >
+                            <div class="flex items-center gap-4 mb-4">
+                                <div class="w-12 h-12 rounded-full bg-primary-500/15 flex items-center justify-center">
+                                    <Github class="w-6 h-6 text-primary-400" />
+                                </div>
+                                <div>
+                                    <p class="text-sm text-secondary">GitHub</p>
+                                    <p class="text-lg font-semibold">Portfolio technique</p>
+                                </div>
+                            </div>
+                            <p class="text-sm text-secondary mb-4">Découvrez mes projets, contributions et expertise à travers mon profil GitHub.</p>
+                            <span class="text-primary-400 text-sm self-start">Voir les projets</span>
+                        </a>
+                    </div>
+
+                    <div class="glass-card p-6 flex items-center justify-between gap-4 reveal delay-250">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-primary-500/15 flex items-center justify-center">
+                                <Clock3 class="w-6 h-6 text-primary-400" />
+                            </div>
+                            <div>
+                                <p class="text-sm text-secondary">Disponibilités</p>
+                                <p class="text-lg font-semibold">Lun - Ven · 9h - 18h</p>
+                                <p class="text-sm text-secondary">Fuseau Paris — réponses rapides</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-col items-end gap-1 text-right">
+                            <span class="text-xs text-primary-300 uppercase tracking-[0.15em]">Statut</span>
+                            <StatusIndicator variant="inline" className="justify-end" />
+                        </div>
+                    </div>
+
+                    <div class="glass-card p-5 flex items-center gap-4 text-sm text-secondary reveal delay-300">
+                        <MapPin class="w-5 h-5 text-primary-400" />
+                        Perpignan · France — missions sur site ou full remote
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <Footer />
+</BaseLayout>

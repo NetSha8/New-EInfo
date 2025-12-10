@@ -130,74 +130,76 @@
 }
 
 /* ===== BASE STYLES ===== */
-html {
-  scroll-behavior: smooth;
-}
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
 
-body {
-  font-family: var(--font-sans);
-  background-color: var(--color-dark-950);
-  color: var(--color-text-main);
-  /* Text main */
-  line-height: 1.6;
-  font-size: 1.125rem;
-  /* ~18px for Body */
-  font-weight: 400;
-  /* Regular */
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--color-dark-950);
+    color: var(--color-text-main);
+    /* Text main */
+    line-height: 1.6;
+    font-size: 1.125rem;
+    /* ~18px for Body */
+    font-weight: 400;
+    /* Regular */
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
 
-/* Typography Rules */
-h1 {
-  font-family: var(--font-sans);
-  font-weight: 700;
-  /* Bold */
-  font-size: clamp(3rem, 5vw, 3.5rem);
-  /* 48px - 56px */
-  line-height: 1.1;
-  color: var(--color-text-main);
-}
+  /* Typography Rules */
+  h1 {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    /* Bold */
+    font-size: clamp(3rem, 5vw, 3.5rem);
+    /* 48px - 56px */
+    line-height: 1.1;
+    color: var(--color-text-main);
+  }
 
-h2 {
-  font-family: var(--font-sans);
-  font-weight: 700;
-  /* Bold */
-  font-size: clamp(2rem, 4vw, 2.5rem);
-  /* 32px - 40px */
-  line-height: 1.2;
-  color: var(--color-text-main);
-}
+  h2 {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    /* Bold */
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    /* 32px - 40px */
+    line-height: 1.2;
+    color: var(--color-text-main);
+  }
 
-h3 {
-  font-family: var(--font-sans);
-  font-weight: 500;
-  /* Medium */
-  font-size: clamp(1.5rem, 3vw, 1.75rem);
-  /* 24px - 28px */
-  line-height: 1.3;
-  color: var(--color-text-main);
-}
+  h3 {
+    font-family: var(--font-sans);
+    font-weight: 500;
+    /* Medium */
+    font-size: clamp(1.5rem, 3vw, 1.75rem);
+    /* 24px - 28px */
+    line-height: 1.3;
+    color: var(--color-text-main);
+  }
 
-p {
-  font-size: 1.125rem;
-  /* 18px */
-  font-weight: 400;
-  color: var(--color-text-main);
-}
+  p {
+    font-size: 1.125rem;
+    /* 18px */
+    font-weight: 400;
+    color: var(--color-text-main);
+  }
 
-.text-main {
-  color: var(--color-text-main);
-}
+  .text-main {
+    color: var(--color-text-main);
+  }
 
-small,
-.text-sm,
-.text-small,
-.text-secondary {
-  font-size: 0.9375rem;
-  /* ~15px */
-  font-weight: 400;
-  color: var(--color-text-secondary);
-  /* Text secondaire */
+  small,
+  .text-sm,
+  .text-small,
+  .text-secondary {
+    font-size: 0.9375rem;
+    /* ~15px */
+    font-weight: 400;
+    color: var(--color-text-secondary);
+    /* Text secondaire */
+  }
 }
 
 /* ===== FLAT TEXT HIGHLIGHT ===== */
@@ -352,4 +354,15 @@ small,
 :root[data-theme="light"] .surface-elevated {
   border: 1px solid rgba(0, 0, 0, 0.05);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+}
+
+/* ===== SIMPLE ICONS - THEME SPECIFIC COLORS ===== */
+.simple-icon {
+  /* En light mode, reste avec la couleur par défaut (couleur originale de l'icône) */
+  /* Color défini inline en light mode */
+}
+
+:root:not([data-theme="light"]) .simple-icon {
+  /* En dark mode, change à la couleur du texte principal */
+  color: var(--color-text-main) !important;
 }

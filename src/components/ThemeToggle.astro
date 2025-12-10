@@ -3,23 +3,20 @@ import { Sun, Moon } from "lucide-astro";
 ---
 
 <button
-    id="theme-toggle"
     aria-label="Toggle theme"
-    class="relative p-2 rounded-lg text-secondary hover:bg-dark-800 transition-colors focus:outline-none cursor-pointer overflow-hidden"
+    class="theme-toggle-btn relative p-2 rounded-lg text-secondary hover:bg-dark-800 transition-colors focus:outline-none cursor-pointer overflow-hidden"
 >
     <div class="relative w-6 h-6 flex items-center justify-center">
         <!-- Sun Icon (Shows when Dark - to switch to Light) -->
         <span
-            class="absolute inset-0 flex items-center justify-center transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]"
-            id="icon-sun"
+            class="icon-sun absolute inset-0 flex items-center justify-center transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]"
         >
             <Sun class="w-5 h-5 text-yellow-500" />
         </span>
 
         <!-- Moon Icon (Shows when Light - to switch to Dark) -->
         <span
-            class="absolute inset-0 flex items-center justify-center transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]"
-            id="icon-moon"
+            class="icon-moon absolute inset-0 flex items-center justify-center transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]"
         >
             <Moon class="w-5 h-5 text-primary-600" />
         </span>
@@ -40,89 +37,95 @@ import { Sun, Moon } from "lucide-astro";
     */
 
     /* Default (Dark) State */
-    #icon-sun {
+    .icon-sun {
         transform: rotate(0deg) scale(1);
         opacity: 1;
     }
-    #icon-moon {
+    .icon-moon {
         transform: rotate(-90deg) scale(0);
         opacity: 0;
     }
 
     /* Light Theme Override */
-    :global(html[data-theme="light"]) #icon-sun {
+    :global(html[data-theme="light"]) .icon-sun {
         transform: rotate(90deg) scale(0);
         opacity: 0;
     }
-    :global(html[data-theme="light"]) #icon-moon {
+    :global(html[data-theme="light"]) .icon-moon {
         transform: rotate(0deg) scale(1);
         opacity: 1;
     }
 </style>
 
 <script is:inline>
-    const themeToggleBtn = document.getElementById("theme-toggle");
-
-    // Function to get current theme
-    function getTheme() {
-        if (
-            typeof localStorage !== "undefined" &&
-            localStorage.getItem("theme")
-        ) {
-            return localStorage.getItem("theme");
+    (() => {
+        // Function to get current theme
+        function getTheme() {
+            if (
+                typeof localStorage !== "undefined" &&
+                localStorage.getItem("theme")
+            ) {
+                return localStorage.getItem("theme");
+            }
+            if (window.matchMedia("(prefers-color-scheme: light)").matches) {
+                return "light";
+            }
+            return "dark"; // Default
         }
-        if (window.matchMedia("(prefers-color-scheme: light)").matches) {
-            return "light";
+
+        // Function to set theme
+        function setTheme(theme) {
+            if (theme === "light") {
+                document.documentElement.setAttribute("data-theme", "light");
+            } else {
+                document.documentElement.removeAttribute("data-theme");
+            }
+            localStorage.setItem("theme", theme);
         }
-        return "dark"; // Default
-    }
 
-    // Function to set theme
-    function setTheme(theme) {
-        if (theme === "light") {
-            document.documentElement.setAttribute("data-theme", "light");
-        } else {
-            document.documentElement.removeAttribute("data-theme");
-        }
-        localStorage.setItem("theme", theme);
-    }
+        // Initialize theme once (idempotent, safe to run multiple times)
+        const currentTheme = getTheme();
+        setTheme(currentTheme);
 
-    // Initialize
-    const currentTheme = getTheme();
-    setTheme(currentTheme);
+        // Setup listeners for all buttons
+        function setupButtons() {
+            const buttons = document.querySelectorAll(".theme-toggle-btn");
+            buttons.forEach((btn) => {
+                if (btn.hasAttribute("data-theme-init")) return;
+                btn.setAttribute("data-theme-init", "true");
 
-    // Toggle listener
-    themeToggleBtn?.addEventListener("click", () => {
-        const isLight =
-            document.documentElement.getAttribute("data-theme") === "light";
-        setTheme(isLight ? "dark" : "light");
-    });
-
-    // Listen for view transitions (Astro specific navigation)
-    document.addEventListener("astro:after-swap", () => {
-        const storedTheme = getTheme();
-        setTheme(storedTheme);
-
-        // Re-attach listener after swap if needed, but the script runs inline so it re-executes?
-        // No, inline scripts in Astro are tricky with View Transitions.
-        // Better to delegate the listener or re-attach.
-        const newBtn = document.getElementById("theme-toggle");
-        if (newBtn) {
-            newBtn.addEventListener("click", () => {
-                const isLight =
-                    document.documentElement.getAttribute("data-theme") ===
-                    "light";
-                setTheme(isLight ? "dark" : "light");
+                btn.addEventListener("click", () => {
+                    const isLight =
+                        document.documentElement.getAttribute("data-theme") ===
+                        "light";
+                    setTheme(isLight ? "dark" : "light");
+                });
             });
         }
-    });
 
-    // Handle system preference change
-    window
-        .matchMedia("(prefers-color-scheme: light)")
-        .addEventListener("change", (e) => {
-            if (!localStorage.getItem("theme")) {
-                setTheme(e.matches ? "light" : "dark");
-            }
+        setupButtons();
+
+        // Listen for view transitions (Astro specific navigation)
+        document.addEventListener("astro:after-swap", () => {
+            const storedTheme = getTheme();
+            setTheme(storedTheme);
+            setupButtons();
         });
+
+        // Handle system preference change - ensure we only add this listener once globally ideally,
+        // but adding multiple identical listeners to matchMedia is rare/ok?
+        // Better to check if we already handled it?
+        // Given this script runs per instance, we might add multiple listeners.
+        // For simplicity, let's leave it as is, or use a global flag.
+        if (!window.__themeSystemListenerAdded) {
+            window
+                .matchMedia("(prefers-color-scheme: light)")
+                .addEventListener("change", (e) => {
+                    if (!localStorage.getItem("theme")) {
+                        setTheme(e.matches ? "light" : "dark");
+                    }
+                });
+            window.__themeSystemListenerAdded = true;
+        }
+    })();
 </script>

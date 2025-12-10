@@ -1,0 +1,309 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { Monitor, ShoppingBag, Terminal, Zap, Server, CheckCircle2, ArrowRight } from "lucide-astro";
+
+const title = "Services de Développement Web | Développeur Freelance Perpignan";
+const description = "Services de développement web sur mesure : sites modernes, e-commerce Shopify, web apps, automatisation et platform engineering. Intervention Perpignan et à distance partout en France.";
+
+const services = [
+  {
+    id: "sites-web",
+    title: "Sites web modernes & identités digitales",
+    icon: Monitor,
+    accroche: "Créez votre présence en ligne avec un site professionnel qui attire, rassure et convertit vos visiteurs en clients. Un site rapide, moderne et parfaitement adapté à votre activité.",
+    content: [
+      {
+        subtitle: "Pourquoi investir dans un site web professionnel ?",
+        text: "Votre site web est souvent le premier contact entre vous et vos clients potentiels. En 2025, avoir un site vieillissant ou mal conçu vous fait perdre de la crédibilité et des opportunités commerciales. Un site moderne bien pensé vous positionne comme un professionnel sérieux et inspire confiance dès les premières secondes. Je conçois des sites orientés résultats : chaque élément est pensé pour guider votre visiteur vers l'action que vous souhaitez qu'il accomplisse."
+      },
+      {
+        subtitle: "Ce que je crée pour vous",
+        list: [
+          { title: "Sites vitrines professionnels", desc: "Présentez votre activité, vos services et votre expertise avec clarté." },
+          { title: "Landing pages & pages de vente", desc: "Des pages laser-focus conçues pour convertir." },
+          { title: "Refonte de sites existants", desc: "Modernisation des performances, du design et de l'expérience utilisateur." },
+          { title: "Sites Wix / Shopify / sur mesure", desc: "Solution no-code ou développement custom selon vos besoins." }
+        ]
+      },
+      {
+        subtitle: "Mes garanties qualité",
+        simpleList: [
+          "Design mobile-first parfait sur tous les écrans",
+          "Vitesse de chargement optimisée",
+          "SEO intégré (structure, balises, performance)",
+          "Formulaires de contact accessibles sans friction",
+          "Code propre et maintenable",
+          "HTTPS et sécurité de base"
+        ]
+      }
+    ],
+    techs: ["HTML/CSS moderne", "TypeScript", "Wix", "Responsive Design", "SEO optimisé"]
+  },
+  {
+    id: "ecommerce",
+    title: "Boutiques en ligne & E-commerce Shopify",
+    icon: ShoppingBag,
+    accroche: "Vendez en ligne avec une boutique performante et facile à gérer. De la création complète à l'optimisation de votre tunnel de vente, je vous aide à transformer vos visiteurs en clients fidèles.",
+    content: [
+      {
+        subtitle: "Pourquoi choisir Shopify pour votre e-commerce ?",
+        text: "Shopify est la plateforme e-commerce la plus utilisée au monde pour une bonne raison : elle est puissante, fiable et ne nécessite aucune compétence technique pour gérer votre boutique au quotidien. Je crée des boutiques Shopify clé en main : design professionnel, navigation optimisée, tunnel d'achat fluide et intégrations avec vos outils."
+      },
+      {
+        subtitle: "Ce que je construis pour vous",
+        list: [
+          { title: "Boutique Shopify complète", desc: "Configuration de A à Z : thème, produits, paiements, transporteurs." },
+          { title: "Optimisation du tunnel d'achat", desc: "Réduction des abandons, checkout fluide, upsells et cross-sells." },
+          { title: "Pages produits performantes", desc: "Structure et contenu optimisés pour la conversion." },
+          { title: "Intégrations & automatisations", desc: "Connexion email marketing, CRM, compta, logistique." }
+        ]
+      },
+      {
+        subtitle: "Résultats que vous obtenez",
+        simpleList: [
+          "Boutique opérationnelle rapidement",
+          "Design professionnel inspirant confiance",
+          "Gestion quotidienne autonome et simple",
+          "Paiements sécurisés (CB, PayPal, Apple/Google Pay)",
+          "Mobile-friendly pour les achats sur smartphone",
+          "Évolutivité sans limites techniques"
+        ]
+      },
+      {
+        subtitle: "Automatisations Shopify possibles",
+        text: "J'automatise vos processus e-commerce pour vous faire gagner un temps précieux : emails de relance, synchronisation des stocks, facturation automatique, connexion comptabilité."
+      }
+    ],
+    techs: ["Shopify", "Liquid", "API Shopify", "Webhooks", "Shopify Flow"]
+  },
+  {
+    id: "web-apps",
+    title: "Web Apps & Mini-SaaS sur mesure",
+    icon: Terminal,
+    accroche: "Transformez vos idées en applications web fonctionnelles. Que vous soyez solopreneur avec une vision ou entreprise ayant besoin d'un outil spécifique, je développe des solutions adaptées à vos besoins réels.",
+    content: [
+      {
+        subtitle: "Des outils pensés pour votre activité",
+        text: "Vous avez une idée d'application qui pourrait révolutionner votre façon de travailler ? Je développe des applications web modernes, sécurisées et performantes. Pas de solutions génériques : du sur mesure pensé pour votre cas d'usage précis. De la gestion client au tableau de bord analytique."
+      },
+      {
+        subtitle: "Types d'applications que je crée",
+        list: [
+          { title: "Outils métier sur mesure", desc: "Gestion de projets, suivi clients, planification, facturation, CRM." },
+          { title: "Dashboards & tableaux de bord", desc: "Visualisez vos données business en temps réel, KPIs, rapports." },
+          { title: "Espaces clients & portails", desc: "Accès clients aux commandes, factures, documents." },
+          { title: "Mini-SaaS & outils commercialisables", desc: "Développement de MVP pour valider votre marché." }
+        ]
+      },
+      {
+        subtitle: "Ma stack technique robuste",
+        text: "Technologies modernes et éprouvées : Ruby on Rails ou TypeScript pour le back-end, PostgreSQL pour la fiabilité, authentification sécurisée. Déployé sur des infrastructures simples et économiques (VPS)."
+      },
+      {
+        subtitle: "Garanties qualité",
+        simpleList: [
+          "Code propre, maintenable et évolutif",
+          "Architecture pensée pour la scalabilité",
+          "Sécurité intégrée (Auth, données)",
+          "Interface utilisateur intuitive",
+          "Tests automatisés pour la fiabilité",
+          "Documentation technique complète"
+        ]
+      }
+    ],
+    techs: ["Ruby on Rails", "TypeScript", "PostgreSQL", "APIs RESTful", "React", "Docker"]
+  },
+  {
+    id: "automation",
+    title: "Automatisation & optimisation business",
+    icon: Zap,
+    accroche: "Arrêtez de perdre du temps sur des tâches répétitives. J'automatise vos processus métier pour que vous vous concentriez sur ce qui compte vraiment : développer votre activité.",
+    content: [
+      {
+        subtitle: "Le temps c'est de l'argent, automatisons",
+        text: "Combien d'heures passez-vous à copier-coller des données ou envoyer les mêmes emails ? J'analyse vos processus, identifie les frictions et construis des solutions qui fonctionnent en pilote automatique. Gagnez du temps et réduisez les erreurs humaines."
+      },
+      {
+        subtitle: "Exemples concrets & Domaines d'automatisation",
+        list: [
+          { title: "Facturation & Administratif", desc: "Génération automatique factures, rapports, exports." },
+          { title: "E-commerce", desc: "Gestion commandes, stocks cross-plateformes, relances." },
+          { title: "Marketing & CRM", desc: "Segmentation clients, emails personnalisés, lead scoring." },
+          { title: "Opérations internes", desc: "Notifications Slack/Teams, synchronisation calendriers, backups." }
+        ]
+      },
+      {
+        subtitle: "Bénéfices concrets",
+        simpleList: [
+          "ROI rapide grâce au temps économisé",
+          "Réduction drastique des erreurs manuelles",
+          "Disponibilité 24/7 des process",
+          "Scalabilité sans embauche supplémentaire",
+          "Traçabilité totale des opérations"
+        ]
+      }
+    ],
+    techs: ["APIs REST", "Webhooks", "Scripts automatisés", "CRON jobs", "Integrations", "Python/Ruby"]
+  },
+  {
+    id: "platform",
+    title: "Platform Engineering léger",
+    icon: Server,
+    accroche: "Hébergement, déploiement et infrastructure modernes sans la complexité et les coûts du cloud. Des solutions simples et robustes pour vos applications web.",
+    content: [
+      {
+        subtitle: "Pas de cloud surdimensionné, juste ce qu'il vous faut",
+        text: "Les géants du cloud (AWS, Azure) sont souvent trop complexes et coûteux pour les PME. Je configure des infrastructures simples et performantes sur VPS. Vous obtenez puissance et contrôle sans les factures explosives."
+      },
+      {
+        subtitle: "Ce que je fais pour vous",
+        list: [
+          { title: "Configuration serveurs Linux", desc: "VPS Debian/Ubuntu sécurisés et optimisés." },
+          { title: "Déploiement avec Docker & Kamal", desc: "Environnements isolés et déploiements zero-downtime." },
+          { title: "Infrastructure complète", desc: "Reverse proxy (Nginx), Base de données, CI/CD GitHub Actions." },
+          { title: "Monitoring & Sécurité", desc: "Surveillance serveurs, logs, SSL automatique, Firewall." }
+        ]
+      },
+      {
+        subtitle: "Avantages VPS vs Cloud",
+        simpleList: [
+          "Coûts prévisibles et très faibles",
+          "Performances excellentes (serveurs dédiés)",
+          "Contrôle total (accès root)",
+          "Sécurité renforcée et sauvegardes auto"
+        ]
+      }
+    ],
+    techs: ["Linux", "Docker", "Kamal", "Nginx", "GitHub Actions", "OVH", "Let's Encrypt"]
+  }
+];
+---
+
+<BaseLayout title={title} description={description}>
+  <Header />
+
+  <main class="pt-24 pb-20">
+    <!-- Page Header -->
+    <section class="container-custom mb-20 md:mb-32 text-center">
+      <h1 class="text-4xl md:text-6xl font-bold mb-6 mt-[150px] text-main reveal">
+        Services de développement web <br />
+        <span class="text-highlight">& solutions digitales</span>
+      </h1>
+      <p class="text-xl text-secondary max-w-3xl mx-auto leading-relaxed reveal delay-100 mb-[150px]">
+        Des solutions sur mesure pour développer votre activité en ligne, automatiser vos processus et créer des outils qui vous font gagner du temps et de l'argent. Sans complexité inutile, avec des technologies modernes et éprouvées.
+      </p>
+    </section>
+
+    <!-- Services Content -->
+    <div class="flex flex-col gap-64 pb-32">
+      {services.map((service, index) => (
+        <section id={service.id} class="container-custom scroll-mt-32 ">
+          <div class="grid lg:grid-cols-12 gap-10 lg:gap-24 items-start">
+            <!-- Sticky Title/Icon Column -->
+            <div class={`lg:col-span-5 lg:sticky lg:top-32 h-fit ${index % 2 === 1 ? 'lg:order-last' : ''}`}>
+              <div class="glass-card p-6 md:p-8 relative overflow-hidden group border border-white/5 shadow-xl shadow-black/20">
+                <div class="absolute top-0 right-0 -mr-12 -mt-12 p-24 bg-primary-500/10 rounded-full blur-3xl group-hover:bg-primary-500/20 transition-all duration-700"></div>
+                
+                <div class="w-16 h-16 rounded-2xl bg-primary-600/10 flex items-center justify-center mb-6 text-primary-400 group-hover:scale-110 transition-transform duration-500 border border-primary-500/20">
+                  <service.icon class="w-8 h-8" />
+                </div>
+                
+                <h2 class="text-2xl md:text-3xl font-bold mb-4 leading-tight text-main">{service.title}</h2>
+                <p class="text-secondary text-base md:text-lg mb-6 leading-relaxed font-light">
+                  {service.accroche}
+                </p>
+
+                <div class="flex flex-wrap gap-2">
+                  {service.techs.map(tech => (
+                    <span class="px-3 py-1 rounded-full text-xs font-medium bg-dark-800/80 text-secondary border border-dark-600/50 hover:border-primary-500/30 hover:text-primary-300 transition-colors">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <!-- Content Column -->
+            <div class="lg:col-span-7 space-y-16 lg:py-4">
+              {service.content.map((block) => (
+                <div class="reveal">
+                  <h3 class="text-2xl md:text-3xl font-bold mb-6 flex items-center gap-4 text-main">
+                    <span class="w-12 h-1.5 bg-primary-500 rounded-full shadow-[0_0_10px_rgba(59,130,246,0.5)]"></span>
+                    {block.subtitle}
+                  </h3>
+                  
+                  {block.text && (
+                    <p class="text-secondary text-lg md:text-xl leading-8 mb-8 font-light">
+                      {block.text}
+                    </p>
+                  )}
+
+                  {block.list && (
+                    <div class="grid md:grid-cols-2 gap-6 mt-8">
+                      {block.list.map((item) => (
+                        <div class="surface-elevated p-8 rounded-2xl border border-dark-700/50 hover:border-primary-500/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary-500/5">
+                          <h4 class="text-lg font-bold text-main mb-3">{item.title}</h4>
+                          <p class="text-secondary text-sm leading-relaxed">{item.desc}</p>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
+                  {block.simpleList && (
+                    <ul class="grid sm:grid-cols-2 gap-x-8 gap-y-4 mt-6">
+                      {block.simpleList.map((item) => (
+                        <li class="flex items-start gap-3 text-secondary text-lg">
+                          <CheckCircle2 class="w-6 h-6 text-primary-400 shrink-0 mt-0.5" />
+                          <span class="font-light">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      ))}
+    </div>
+
+    <!-- CTA Section (Footer part of the content) -->
+    <section class="container-custom mt-32">
+      <div class="glass-card p-12 md:p-16 text-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-primary-600/5"></div>
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-primary-500/20 rounded-full blur-3xl"></div>
+        <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-primary-500/20 rounded-full blur-3xl"></div>
+        
+        <div class="relative z-10 max-w-2xl mx-auto">
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">Prêt à démarrer votre projet ?</h2>
+          <p class="text-xl text-secondary mb-10">
+            Discutons de vos besoins et trouvons ensemble la solution la plus adaptée à votre activité.
+          </p>
+          
+          <div class="flex flex-col md:flex-row items-center justify-center gap-6">
+            <a href="/contact" class="btn-primary text-lg px-8 py-4 shadow-lg shadow-primary-500/25">
+              Demander un devis
+              <ArrowRight class="w-5 h-5" />
+            </a>
+          </div>
+
+          <div class="mt-12 pt-8 border-t border-dark-700/50 flex flex-col md:flex-row items-center justify-center gap-4 text-sm text-secondary">
+            <span class="flex items-center gap-2">
+              <div class="w-2 h-2 rounded-full bg-green-500"></div>
+              Perpignan & périphérie
+            </span>
+            <span class="hidden md:block">•</span>
+            <span class="flex items-center gap-2">
+              <div class="w-2 h-2 rounded-full bg-blue-500"></div>
+              À distance partout en France
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>
