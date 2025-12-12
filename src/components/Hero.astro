@@ -1,6 +1,7 @@
 ---
 import { Star, ArrowRight, MapPin } from "lucide-astro";
 import { Github, Dribbble } from "lucide-astro";
+import PixelatedCanvas from "./PixelatedCanvas";
 
 const specialties = [
     "Sites modernes",
@@ -26,105 +27,139 @@ const specialties = [
 
     <!-- Content -->
     <div class="container-custom relative z-10 py-12 md:py-20">
-        <div class="max-w-4xl">
-            <!-- Badge -->
-            <div
-                class="inline-flex items-center gap-2 px-4 py-2 bg-dark-800 border border-dark-600 rounded-full mb-6 animate-slide-up shadow-lg hover:scale-105 transition-transform duration-500"
-            >
-                <Star class="w-5 h-5 text-primary-400" />
-                <span class="text-primary-400 font-medium text-sm md:text-base"
-                    >Développeur Web & Créateur de Solutions Business</span
+        <div
+            class="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-8 lg:gap-8 items-center"
+        >
+            <!-- Left: Text Content -->
+            <div>
+                <!-- Badge -->
+                <div
+                    class="inline-flex items-center gap-2 px-4 py-2 bg-dark-800 border border-dark-600 rounded-full mb-6 animate-slide-up shadow-lg hover:scale-105 transition-transform duration-500"
                 >
+                    <Star class="w-5 h-5 text-primary-400" />
+                    <span
+                        class="text-primary-400 font-medium text-sm md:text-base"
+                        >Développeur Web & Créateur de Solutions Business</span
+                    >
+                </div>
+
+                <!-- Title -->
+                <h1
+                    class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight animate-slide-up text-main"
+                    style="animation-delay: 0.1s;"
+                >
+                    Transformez vos idées en
+                    <span class="text-primary-400">
+                        solutions digitales performantes</span
+                    >
+                </h1>
+
+                <!-- Specialties -->
+                <div
+                    class="flex flex-wrap gap-2 md:gap-3 mb-6 animate-slide-up"
+                    style="animation-delay: 0.2s;"
+                >
+                    {
+                        specialties.map((spec) => (
+                            <span class="tech-badge hover:scale-105 transition-transform">
+                                {spec}
+                            </span>
+                        ))
+                    }
+                </div>
+
+                <!-- Description -->
+                <p
+                    class="text-lg md:text-xl text-secondary mb-8 max-w-2xl animate-slide-up"
+                    style="animation-delay: 0.3s;"
+                >
+                    J'aide les <strong class="text-main">solopreneurs</strong>, <strong
+                        class="text-main">petites entreprises</strong
+                    > et <strong class="text-main">créateurs</strong>
+                    à lancer des sites performants, automatiser leurs activités et
+                    déployer des outils modernes — sans complexité inutile.
+                </p>
+
+                <!-- Location -->
+                <p
+                    class="flex items-center gap-2 text-secondary mb-8 animate-slide-up"
+                    style="animation-delay: 0.4s;"
+                >
+                    <MapPin class="w-5 h-5 text-primary-400" />
+                    <span
+                        >Intervention en présentiel sur <strong
+                            class="text-main">Perpignan</strong
+                        > ou à distance partout en <strong class="text-main"
+                            >France</strong
+                        ></span
+                    >
+                </p>
+
+                <!-- CTAs -->
+                <div
+                    class="flex flex-col sm:flex-row gap-3 animate-slide-up"
+                    style="animation-delay: 0.5s;"
+                >
+                    <a
+                        href="/contact"
+                        class="btn-primary justify-center hover:scale-105 transition-transform duration-300 text-base px-4 py-2"
+                    >
+                        <ArrowRight class="w-5 h-5" />
+                        <span>Travailler avec moi</span>
+                    </a>
+                    <a
+                        href="https://github.com/NetSha8"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn-secondary justify-center hover:scale-105 transition-transform duration-300 text-base px-4 py-2"
+                    >
+                        <Github class="w-4 h-4" />
+                        <span>GitHub</span>
+                    </a>
+                    <a
+                        href="https://dribbble.com/Ens0"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn-secondary justify-center hover:scale-105 transition-transform duration-300 text-base px-4 py-2"
+                    >
+                        <Dribbble class="w-5 h-5" />
+                        <span>Dribbble</span>
+                    </a>
+                </div>
             </div>
 
-            <!-- Title -->
-            <h1
-                class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight animate-slide-up text-main"
-                style="animation-delay: 0.1s;"
-            >
-                Transformez vos idées en
-                <span class="text-primary-400">
-                    solutions digitales performantes</span
-                >
-            </h1>
-
-            <!-- Specialties -->
+            <!-- Right: Pixelated Logo -->
             <div
-                class="flex flex-wrap gap-2 md:gap-3 mb-6 animate-slide-up"
-                style="animation-delay: 0.2s;"
+                class="hidden lg:flex justify-center items-center animate-slide-up"
+                style="animation-delay: 0.6s;"
             >
-                {
-                    specialties.map((spec) => (
-                        <span class="tech-badge hover:scale-105 transition-transform">
-                            {spec}
-                        </span>
-                    ))
-                }
-            </div>
+                <div class="relative pixelated-logo-container">
+                    <!-- Glow effect -->
+                    <div
+                        class="absolute inset-0 bg-primary-400/20 blur-3xl rounded-full scale-75"
+                    >
+                    </div>
 
-            <!-- Description -->
-            <p
-                class="text-lg md:text-xl text-secondary mb-8 max-w-2xl animate-slide-up"
-                style="animation-delay: 0.3s;"
-            >
-                J'aide les <strong class="text-main">solopreneurs</strong>, <strong
-                    class="text-main">petites entreprises</strong
-                > et <strong class="text-main">créateurs</strong>
-                à lancer des sites performants, automatiser leurs activités et déployer
-                des outils modernes — sans complexité inutile.
-            </p>
-
-            <!-- Location -->
-            <p
-                class="flex items-center gap-2 text-secondary mb-8 animate-slide-up"
-                style="animation-delay: 0.4s;"
-            >
-                <MapPin class="w-5 h-5 text-primary-400" />
-                <span
-                    >Intervention en présentiel sur <strong class="text-main"
-                        >Perpignan</strong
-                    > ou à distance partout en <strong class="text-main"
-                        >France</strong
-                    ></span
-                >
-            </p>
-
-            <!-- CTAs -->
-            <div
-                class="flex flex-col sm:flex-row gap-4 animate-slide-up"
-                style="animation-delay: 0.5s;"
-            >
-                <a
-                    href="/contact"
-                    class="btn-primary justify-center hover:scale-105 transition-transform duration-300"
-                >
-                    <ArrowRight class="w-5 h-5" />
-                    <span>Travailler avec moi</span>
-                </a>
-                <a
-                    href="https://github.com/NetSha8"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="btn-secondary justify-center hover:scale-105 transition-transform duration-300"
-                >
-                    <Github class="w-5 h-5" />
-                    <span>Voir mon GitHub</span>
-                </a>
-                <a
-                    href="https://dribbble.com/Ens0"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="btn-secondary justify-center hover:scale-105 transition-transform duration-300"
-                >
-                    <Dribbble class="w-5 h-5" />
-                    <span>Voir mon Dribbble</span>
-                </a>
+                    <PixelatedCanvas
+                        client:visible
+                        src="/images/logo.svg"
+                        width={280}
+                        height={280}
+                        cellSize={5}
+                        dotScale={0.9}
+                        interactive={true}
+                        distortionStrength={25}
+                        distortionRadius={80}
+                    />
+                </div>
             </div>
         </div>
     </div>
 
     <!-- Scroll Indicator - Animated Mouse -->
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:block">
+    <div
+        class="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:block z-20"
+    >
         <a
             href="#services"
             class="flex flex-col items-center gap-2 text-secondary hover:text-primary-400 transition-colors group"
@@ -195,6 +230,26 @@ const specialties = [
         100% {
             opacity: 0;
             transform: translateY(12px);
+        }
+    }
+
+    .pixelated-logo-container {
+        animation: logo-float 4s ease-in-out infinite;
+    }
+
+    @keyframes logo-float {
+        0%,
+        100% {
+            transform: translateY(0) rotate(0deg);
+        }
+        25% {
+            transform: translateY(-10px) rotate(1deg);
+        }
+        50% {
+            transform: translateY(-5px) rotate(0deg);
+        }
+        75% {
+            transform: translateY(-12px) rotate(-1deg);
         }
     }
 </style>
