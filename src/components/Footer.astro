@@ -1,5 +1,5 @@
 ---
-import { Monitor, Github } from "lucide-astro";
+import { Monitor, Github, Dribbble } from "lucide-astro";
 const currentYear = new Date().getFullYear();
 ---
 
@@ -13,8 +13,8 @@ const currentYear = new Date().getFullYear();
                 <Monitor class="w-5 h-5 text-primary-400" />
                 <span class="text-secondary">
                     © {currentYear}
-                    <strong class="text-main">E Informatique</strong> — Création
-                    Web, Automatisation & Plateforme VPS
+                    <strong class="text-main">E Informatique</strong> — Création Web,
+                    Automatisation & Plateforme VPS
                 </span>
             </div>
 
@@ -28,6 +28,15 @@ const currentYear = new Date().getFullYear();
                     aria-label="GitHub"
                 >
                     <Github class="w-5 h-5" />
+                </a>
+                <a
+                    href="https://dribbble.com/Ens0"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-secondary hover:text-primary-400 transition-colors"
+                    aria-label="Dribbble"
+                >
+                    <Dribbble class="w-5 h-5" />
                 </a>
             </div>
         </div>
