@@ -5,7 +5,7 @@ import Footer from "../components/Footer.astro";
 import { Monitor, ShoppingBag, Terminal, Zap, Server, CheckCircle2, ArrowRight } from "lucide-astro";
 
 const title = "Services de Développement Web | Développeur Freelance Perpignan";
-const description = "Services de développement web sur mesure : sites modernes, e-commerce Shopify, web apps, automatisation et platform engineering. Intervention Perpignan et à distance partout en France.";
+const description = "Services de développement web sur mesure : sites modernes, e-commerce WordPress, web apps, automatisation et platform engineering. Intervention Perpignan et à distance partout en France.";
 
 const services = [
   {
@@ -24,7 +24,7 @@ const services = [
           { title: "Sites vitrines professionnels", desc: "Présentez votre activité, vos services et votre expertise avec clarté." },
           { title: "Landing pages & pages de vente", desc: "Des pages laser-focus conçues pour convertir." },
           { title: "Refonte de sites existants", desc: "Modernisation des performances, du design et de l'expérience utilisateur." },
-          { title: "Sites Wix / Shopify / sur mesure", desc: "Solution no-code ou développement custom selon vos besoins." }
+          { title: "Sites Wix / WordPress / sur mesure", desc: "Solution no-code ou développement custom selon vos besoins." }
         ]
       },
       {
@@ -43,40 +43,40 @@ const services = [
   },
   {
     id: "ecommerce",
-    title: "Boutiques en ligne & E-commerce Shopify",
+    title: "Boutiques en ligne & E-commerce WordPress",
     icon: ShoppingBag,
-    accroche: "Vendez en ligne avec une boutique performante et facile à gérer. De la création complète à l'optimisation de votre tunnel de vente, je vous aide à transformer vos visiteurs en clients fidèles.",
+    accroche: "Vendez en ligne avec une boutique performante, sans abonnement mensuel et dont vous êtes 100% propriétaire. Une solution flexible qui grandit avec votre activité.",
     content: [
       {
-        subtitle: "Pourquoi choisir Shopify pour votre e-commerce ?",
-        text: "Shopify est la plateforme e-commerce la plus utilisée au monde pour une bonne raison : elle est puissante, fiable et ne nécessite aucune compétence technique pour gérer votre boutique au quotidien. Je crée des boutiques Shopify clé en main : design professionnel, navigation optimisée, tunnel d'achat fluide et intégrations avec vos outils."
+        subtitle: "Pourquoi choisir WordPress + WooCommerce ?",
+        text: "Contrairement aux plateformes propriétaires qui vous louent votre boutique, WordPress vous offre une liberté totale. Pas de commissions cachées sur les ventes, pas d'abonnements qui augmentent avec votre succès. C'est la solution idéale pour construire un actif numérique durable dont vous avez le contrôle absolu."
       },
       {
         subtitle: "Ce que je construis pour vous",
         list: [
-          { title: "Boutique Shopify complète", desc: "Configuration de A à Z : thème, produits, paiements, transporteurs." },
-          { title: "Optimisation du tunnel d'achat", desc: "Réduction des abandons, checkout fluide, upsells et cross-sells." },
-          { title: "Pages produits performantes", desc: "Structure et contenu optimisés pour la conversion." },
-          { title: "Intégrations & automatisations", desc: "Connexion email marketing, CRM, compta, logistique." }
+          { title: "Boutique WooCommerce sur mesure", desc: "Design personnalisé, expérience utilisateur fluide et mobile-first." },
+          { title: "Migration & Refonte", desc: "Passage de Shopify/Wix vers WordPress pour réduire vos coûts fixes." },
+          { title: "Fonctionnalités avancées", desc: "Abonnements, réservations, espaces membres, B2B." },
+          { title: "Optimisation des performances", desc: "Un site rapide qui plaît à Google et à vos clients." }
         ]
       },
       {
         subtitle: "Résultats que vous obtenez",
         simpleList: [
-          "Boutique opérationnelle rapidement",
-          "Design professionnel inspirant confiance",
-          "Gestion quotidienne autonome et simple",
-          "Paiements sécurisés (CB, PayPal, Apple/Google Pay)",
-          "Mobile-friendly pour les achats sur smartphone",
-          "Évolutivité sans limites techniques"
+          "0% de commission sur vos ventes",
+          "Propriété totale de vos données clients",
+          "Référencement naturel (SEO) supérieur",
+          "Évolutivité illimitée via l'écosystème plugins",
+          "Interfaces d'administration simplifiées",
+          "Pas de frais mensuels de plateforme"
         ]
       },
       {
-        subtitle: "Automatisations Shopify possibles",
-        text: "J'automatise vos processus e-commerce pour vous faire gagner un temps précieux : emails de relance, synchronisation des stocks, facturation automatique, connexion comptabilité."
+        subtitle: "Automatisations E-commerce",
+        text: "Je connecte votre boutique à votre écosystème : synchronisation comptable, emails marketing, gestion de stock automatisée et tableaux de bord personnalisés."
       }
     ],
-    techs: ["Shopify", "Liquid", "API Shopify", "Webhooks", "Shopify Flow"]
+    techs: ["WordPress", "WooCommerce", "PHP", "Stripe/PayPal", "MySQL"]
   },
   {
     id: "web-apps",
@@ -99,7 +99,7 @@ const services = [
       },
       {
         subtitle: "Ma stack technique robuste",
-        text: "Technologies modernes et éprouvées : Node.js avec TypeScript pour le back-end, PostgreSQL pour la fiabilité, authentification sécurisée. Déployé sur des infrastructures simples et économiques (VPS)."
+        text: "Technologies modernes et éprouvées : PHP / Laravel / Symfony pour le back-end, PostgreSQL pour la fiabilité, authentification sécurisée. Déployé sur des infrastructures simples et économiques (VPS)."
       },
       {
         subtitle: "Garanties qualité",
@@ -113,7 +113,7 @@ const services = [
         ]
       }
     ],
-    techs: ["Node.js", "TypeScript", "PostgreSQL", "APIs RESTful", "React", "Docker"]
+    techs: ["PHP", "TypeScript", "PostgreSQL", "APIs RESTful", "React", "Docker"]
   },
   {
     id: "automation",

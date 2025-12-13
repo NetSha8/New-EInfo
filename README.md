@@ -5,7 +5,7 @@ Site web statique réalisé avec [Astro](https://astro.build/) pour présenter m
 ## 🚀 À propos du projet
 
 Ce site est un portfolio simple et statique qui présente :
-- Mes services de développement web (sites vitrines, Shopify, web apps, automatisation)
+- Mes services de développement web (sites vitrines, WordPress, web apps, automatisation)
 - Mes compétences techniques
 - Mes informations de contact
 - Mon approche de travail
