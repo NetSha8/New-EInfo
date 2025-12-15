@@ -2,7 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import { Monitor, ShoppingBag, Terminal, Zap, Server, CheckCircle2, ArrowRight } from "lucide-astro";
+import { Monitor, ShoppingBag, Terminal, Zap, Server, CheckCircle2, ArrowRight, Bot } from "lucide-astro";
 
 const title = "Services de Développement Web | Développeur Freelance Perpignan";
 const description = "Services de développement web sur mesure : sites modernes, e-commerce WordPress, web apps, automatisation et platform engineering. Intervention Perpignan et à distance partout en France.";
@@ -117,35 +117,35 @@ const services = [
   },
   {
     id: "automation",
-    title: "Design UI/UX & intégration front-end",
-    icon: Zap,
-    accroche: "Une interface claire, belle et simple à utiliser — validée sur Figma avant de coder. Wireframes, maquettes, prototype, puis intégration front-end fidèle et accessible.",
+    title: "Automatisation & optimisation business",
+    icon: Bot,
+    accroche: "Gagnez du temps et réduisez les tâches répétitives. J'aide les entreprises à automatiser leurs processus pour plus d'efficacité et de rentabilité.",
     content: [
       {
-        subtitle: "Le temps c'est de l'argent : on valide sur Figma",
-        text: "On commence par cadrer l'expérience : objectifs, parcours, contenus, priorités. Je produis des wireframes puis une maquette Figma avec un prototype cliquable (écrans, états, hiérarchie, navigation). Vous validez rapidement, et on évite les refontes coûteuses une fois le code lancé."
+        subtitle: "Pourquoi automatiser ?",
+        text: "L'automatisation permet de fiabiliser vos données et de libérer du temps précieux. Je connecte vos outils (CRM, Excel, Site web) pour qu'ils travaillent ensemble sans effort manuel. Concentrez-vous sur votre cœur de métier pendant que les robots gèrent l'administratif."
       },
       {
-        subtitle: "Ce que je livre côté design",
+        subtitle: "Mes solutions d'automatisation",
         list: [
-          { title: "Wireframes & user flows", desc: "Structure des pages, priorités, parcours utilisateur, navigation." },
-          { title: "Maquettes UI sur Figma", desc: "Écrans clés, variantes, composants, grille, typographie, spacing." },
-          { title: "Prototype interactif", desc: "Parcours cliquable pour tester et itérer vite avant développement." },
-          { title: "UI kit / design system léger", desc: "Boutons, champs, cards, états (hover/focus/error), tokens." }
+          { title: "Automatisation d'opérations métier", desc: "Traitement de commandes, synchronisation de stocks, onboarding client." },
+          { title: "Intégrations entre services", desc: "Connexion API entre vos logiciels (Stripe, HubSpot, Airtable, etc.) et scripts sur mesure." },
+          { title: "Documents & Rapports auto", desc: "Génération automatique de factures PDF, rapports Excel, et emails personnalisés." },
+          { title: "Scénarios Back-office", desc: "Workflows pour WordPress, CRM et outils internes pour fluidifier votre organisation." }
         ]
       },
       {
-        subtitle: "Intégration front-end (propre & fidèle)",
+        subtitle: "Outils & Expertises",
         simpleList: [
-          "Intégration fidèle aux maquettes (responsive, cohérence visuelle)",
-          "Composants réutilisables pour garder de la vitesse sur la durée",
-          "Accessibilité de base (clavier, focus, contrastes, états)",
-          "Micro-interactions utiles (feedback, chargements, erreurs)",
-          "Moins d'allers-retours grâce à un handoff clair (assets, specs)"
+          "Workflows n8n complexes et robustes",
+          "Analyse & Traitement de données Excel avancé",
+          "Création de templates Excel / Google Sheets",
+          "Scripts d'automatisation sur mesure (Python/JS)",
+          "Tableaux de bord de suivi automatisés"
         ]
       }
     ],
-    techs: ["Figma", "Wireframes", "Prototype", "Design System", "Astro", "Tailwind CSS"]
+    techs: ["n8n", "Excel", "Google Sheets", "API REST", "Python", "JavaScript"]
   },
   {
     id: "platform",
