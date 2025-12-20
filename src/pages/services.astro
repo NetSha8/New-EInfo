@@ -43,40 +43,49 @@ const services = [
   },
   {
     id: "ecommerce",
-    title: "Boutiques en ligne & E-commerce WordPress",
+    title: "E-commerce & Boutiques en ligne",
     icon: ShoppingBag,
-    accroche: "Vendez en ligne avec une boutique performante, sans abonnement mensuel et dont vous êtes 100% propriétaire. Une solution flexible qui grandit avec votre activité.",
+    accroche: "Créez ou améliorez votre boutique en ligne avec la plateforme adaptée à vos besoins. WordPress, Wix ou Shopify : je vous accompagne sur chaque solution.",
     content: [
       {
-        subtitle: "Pourquoi choisir WordPress + WooCommerce ?",
-        text: "Contrairement aux plateformes propriétaires qui vous louent votre boutique, WordPress vous offre une liberté totale. Pas de commissions cachées sur les ventes, pas d'abonnements qui augmentent avec votre succès. C'est la solution idéale pour construire un actif numérique durable dont vous avez le contrôle absolu."
+        subtitle: "Quelle plateforme pour votre projet ?",
+        text: "Chaque plateforme e-commerce a ses forces. WordPress/WooCommerce pour la liberté totale et 0% de commission. Wix pour une mise en ligne rapide et accessible. Shopify pour une solution clé en main puissante. Je vous aide à choisir et à exploiter pleinement le potentiel de chaque outil."
       },
       {
-        subtitle: "Ce que je construis pour vous",
+        subtitle: "WordPress & WooCommerce",
         list: [
-          { title: "Boutique WooCommerce sur mesure", desc: "Design personnalisé, expérience utilisateur fluide et mobile-first." },
-          { title: "Migration & Refonte", desc: "Passage de Shopify/Wix vers WordPress pour réduire vos coûts fixes." },
+          { title: "Boutique sur mesure", desc: "Design personnalisé, expérience utilisateur fluide et mobile-first." },
           { title: "Fonctionnalités avancées", desc: "Abonnements, réservations, espaces membres, B2B." },
-          { title: "Optimisation des performances", desc: "Un site rapide qui plaît à Google et à vos clients." }
+          { title: "0% de commission", desc: "Propriété totale de vos données et de votre boutique." }
         ]
       },
       {
-        subtitle: "Résultats que vous obtenez",
+        subtitle: "Shopify — Thèmes & Extensions",
+        list: [
+          { title: "Création de thèmes personnalisés", desc: "Design unique avec Liquid, Shopify CLI et Dawn." },
+          { title: "Développement d'extensions", desc: "Apps Shopify sur mesure pour étendre les fonctionnalités." },
+          { title: "Personnalisation avancée", desc: "Modifications de thèmes existants et intégrations API." }
+        ]
+      },
+      {
+        subtitle: "Wix E-commerce",
+        list: [
+          { title: "Boutique clé en main", desc: "Configuration complète et optimisée pour la vente." },
+          { title: "Design professionnel", desc: "Templates personnalisés adaptés à votre marque." }
+        ]
+      },
+      {
+        subtitle: "Avantages communs",
         simpleList: [
-          "0% de commission sur vos ventes",
-          "Propriété totale de vos données clients",
-          "Référencement naturel (SEO) supérieur",
-          "Évolutivité illimitée via l'écosystème plugins",
-          "Interfaces d'administration simplifiées",
-          "Pas de frais mensuels de plateforme"
+          "Référencement naturel (SEO) optimisé",
+          "Paiements sécurisés (Stripe, PayPal)",
+          "Interface d'administration intuitive",
+          "Sites rapides et performants",
+          "Formation à l'utilisation"
         ]
-      },
-      {
-        subtitle: "Automatisations E-commerce",
-        text: "Je connecte votre boutique à votre écosystème : synchronisation comptable, emails marketing, gestion de stock automatisée et tableaux de bord personnalisés."
       }
     ],
-    techs: ["WordPress", "WooCommerce", "Node.js", "Stripe/PayPal", "MySQL"]
+    techs: ["WordPress", "WooCommerce", "Shopify", "Wix", "Liquid", "Stripe"]
   },
   {
     id: "web-apps",
@@ -116,36 +125,32 @@ const services = [
     techs: ["Node.js", "TypeScript", "PostgreSQL", "APIs RESTful", "React", "Docker"]
   },
   {
-    id: "automation",
-    title: "Automatisation & optimisation business",
-    icon: Bot,
-    accroche: "Gagnez du temps et réduisez les tâches répétitives. J'aide les entreprises à automatiser leurs processus pour plus d'efficacité et de rentabilité.",
+    id: "performance",
+    title: "Performance & Stack technique optimisée",
+    icon: Zap,
+    accroche: "Je recherche constamment le meilleur ratio performance/qualité. Technologies minimalistes, temps de chargement instantanés, coûts réduits. Chaque ligne de code est pensée pour l'efficacité.",
     content: [
       {
-        subtitle: "Pourquoi automatiser ?",
-        text: "L'automatisation permet de fiabiliser vos données et de libérer du temps précieux. Je connecte vos outils (CRM, Excel, Site web) pour qu'ils travaillent ensemble sans effort manuel. Concentrez-vous sur votre cœur de métier pendant que les robots gèrent l'administratif."
+        subtitle: "Ma philosophie : moins c'est plus",
+        text: "Dans un monde où les sites web deviennent de plus en plus lourds, je prends le contre-pied. J'utilise des technologies qui génèrent uniquement ce qui est nécessaire : pas de JavaScript superflu, pas de dépendances inutiles. Résultat : des sites ultra-rapides qui se chargent instantanément, même en connexion mobile, et des coûts d'hébergement divisés par 10."
       },
       {
-        subtitle: "Mes solutions d'automatisation",
-        list: [
-          { title: "Automatisation d'opérations métier", desc: "Traitement de commandes, synchronisation de stocks, onboarding client." },
-          { title: "Intégrations entre services", desc: "Connexion API entre vos logiciels (Stripe, HubSpot, Airtable, etc.) et scripts sur mesure." },
-          { title: "Documents & Rapports auto", desc: "Génération automatique de factures PDF, rapports Excel, et emails personnalisés." },
-          { title: "Scénarios Back-office", desc: "Workflows pour WordPress, CRM et outils internes pour fluidifier votre organisation." }
-        ]
+        subtitle: "Technologies que je maîtrise",
+        text: "Astro pour des sites statiques ultra-performants (score Lighthouse proche de 100). SvelteKit pour des applications réactives sans virtual DOM. Rust pour des backends ultra-rapides et sécurisés par design. WebAssembly (WASM) pour des performances natives dans le navigateur. TypeScript pour un code robuste et maintenable."
       },
       {
-        subtitle: "Outils & Expertises",
+        subtitle: "Avantages concrets pour vous",
         simpleList: [
-          "Workflows n8n complexes et robustes",
-          "Analyse & Traitement de données Excel avancé",
-          "Création de templates Excel / Google Sheets",
-          "Scripts d'automatisation sur mesure (Python/JS)",
-          "Tableaux de bord de suivi automatisés"
+          "Score Google PageSpeed > 95/100",
+          "Temps de chargement < 1 seconde",
+          "Meilleur référencement SEO (Core Web Vitals)",
+          "Coûts d'hébergement minimaux",
+          "Sites accessibles partout, même en 3G",
+          "Maintenance simplifiée, moins de bugs"
         ]
       }
     ],
-    techs: ["n8n", "Excel", "Google Sheets", "API REST", "Python", "JavaScript"]
+    techs: ["Astro", "SvelteKit", "Rust", "WASM", "TypeScript"]
   },
   {
     id: "platform",
