@@ -2,7 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import { Monitor, ShoppingBag, Terminal, Zap, Server, CheckCircle2, ArrowRight, Bot } from "lucide-astro";
+import { Monitor, Shield, Wrench, Lock, Server, CheckCircle2, ArrowRight } from "lucide-astro";
 
 const title = "Services de Développement Web | Développeur Freelance Perpignan";
 const description = "Services de développement web sur mesure : sites modernes, e-commerce WordPress, web apps, automatisation et platform engineering. Intervention Perpignan et à distance partout en France.";
@@ -42,115 +42,103 @@ const services = [
     techs: ["HTML/CSS moderne", "TypeScript", "Wix", "Responsive Design", "SEO optimisé"]
   },
   {
-    id: "ecommerce",
-    title: "E-commerce & Boutiques en ligne",
-    icon: ShoppingBag,
-    accroche: "Créez ou améliorez votre boutique en ligne avec la plateforme adaptée à vos besoins. WordPress, Wix ou Shopify : je vous accompagne sur chaque solution.",
+    id: "securite-hygiene",
+    title: "Sécurité de base & hygiène numérique",
+    icon: Shield,
+    accroche: "Protégez vos données, vos comptes et votre activité avec des mesures de sécurité simples mais efficaces. Des barrières adaptées à vos besoins réels.",
     content: [
       {
-        subtitle: "Quelle plateforme pour votre projet ?",
-        text: "Chaque plateforme e-commerce a ses forces. WordPress/WooCommerce pour la liberté totale et 0% de commission. Wix pour une mise en ligne rapide et accessible. Shopify pour une solution clé en main puissante. Je vous aide à choisir et à exploiter pleinement le potentiel de chaque outil."
+        subtitle: "Pourquoi l'hygiène numérique est essentielle ?",
+        text: "La majorité des incidents de sécurité viennent de négligences simples : mots de passe faibles, absence de double authentification, mises à jour ignorées. Ces failles sont exploitées quotidiennement par des attaquants automatisés. Mettre en place une hygiène numérique de base vous protège de 90% des menaces courantes, sans complexité excessive."
       },
       {
-        subtitle: "WordPress & WooCommerce",
+        subtitle: "Ce que je mets en place pour vous",
         list: [
-          { title: "Boutique sur mesure", desc: "Design personnalisé, expérience utilisateur fluide et mobile-first." },
-          { title: "Fonctionnalités avancées", desc: "Abonnements, réservations, espaces membres, B2B." },
-          { title: "0% de commission", desc: "Propriété totale de vos données et de votre boutique." }
+          { title: "2FA / MFA sur vos comptes", desc: "Double authentification sur tous vos services critiques (email, banque, cloud)." },
+          { title: "Gestionnaires de mots de passe", desc: "Installation et formation sur Bitwarden, 1Password ou équivalent." },
+          { title: "Sauvegardes automatisées", desc: "Stratégie 3-2-1 : copies locales et cloud de vos données importantes." },
+          { title: "Séparation des accès", desc: "Comptes séparés, permissions minimales, accès révocables." }
         ]
       },
       {
-        subtitle: "Shopify — Thèmes & Extensions",
-        list: [
-          { title: "Création de thèmes personnalisés", desc: "Design unique avec Liquid, Shopify CLI et Dawn." },
-          { title: "Développement d'extensions", desc: "Apps Shopify sur mesure pour étendre les fonctionnalités." },
-          { title: "Personnalisation avancée", desc: "Modifications de thèmes existants et intégrations API." }
-        ]
-      },
-      {
-        subtitle: "Wix E-commerce",
-        list: [
-          { title: "Boutique clé en main", desc: "Configuration complète et optimisée pour la vente." },
-          { title: "Design professionnel", desc: "Templates personnalisés adaptés à votre marque." }
-        ]
-      },
-      {
-        subtitle: "Avantages communs",
+        subtitle: "Bonnes pratiques incluses",
         simpleList: [
-          "Référencement naturel (SEO) optimisé",
-          "Paiements sécurisés (Stripe, PayPal)",
-          "Interface d'administration intuitive",
-          "Sites rapides et performants",
-          "Formation à l'utilisation"
+          "Audit de vos pratiques actuelles",
+          "Plan de mise en conformité progressif",
+          "Formation à la détection du phishing",
+          "Politique de mots de passe robuste",
+          "Mises à jour régulières orchestrées",
+          "Documentation personnalisée"
         ]
       }
     ],
-    techs: ["WordPress", "WooCommerce", "Shopify", "Wix", "Liquid", "Stripe"]
+    techs: ["2FA/MFA", "Bitwarden", "Sauvegardes", "Audit sécurité", "Formation"]
   },
   {
-    id: "web-apps",
-    title: "Web Apps & Mini-SaaS sur mesure",
-    icon: Terminal,
-    accroche: "Transformez vos idées en applications web fonctionnelles. Que vous soyez solopreneur avec une vision ou entreprise ayant besoin d'un outil spécifique, je développe des solutions adaptées à vos besoins réels.",
+    id: "maintenance-particuliers",
+    title: "Maintenance & assistance systèmes (particuliers)",
+    icon: Wrench,
+    accroche: "Dépannage, sécurisation et fiabilisation de vos équipements informatiques. Un accompagnement humain et accessible pour votre quotidien numérique.",
     content: [
       {
-        subtitle: "Des outils pensés pour votre activité",
-        text: "Vous avez une idée d'application qui pourrait révolutionner votre façon de travailler ? Je développe des applications web modernes, sécurisées et performantes. Pas de solutions génériques : du sur mesure pensé pour votre cas d'usage précis. De la gestion client au tableau de bord analytique."
+        subtitle: "Un accompagnement informatique de proximité",
+        text: "Vous rencontrez des lenteurs, des pannes ou des comportements suspects sur votre ordinateur ? Je vous accompagne pour diagnostiquer, réparer et sécuriser vos équipements. Mon approche : des explications claires, des solutions durables, et une vraie pédagogie pour que vous compreniez ce qui se passe."
       },
       {
-        subtitle: "Types d'applications que je crée",
+        subtitle: "Services proposés",
         list: [
-          { title: "Outils métier sur mesure", desc: "Gestion de projets, suivi clients, planification, facturation, CRM." },
-          { title: "Dashboards & tableaux de bord", desc: "Visualisez vos données business en temps réel, KPIs, rapports." },
-          { title: "Espaces clients & portails", desc: "Accès clients aux commandes, factures, documents." },
-          { title: "Mini-SaaS & outils commercialisables", desc: "Développement de MVP pour valider votre marché." }
+          { title: "Dépannage et diagnostic", desc: "Identification et résolution des problèmes matériels et logiciels." },
+          { title: "Sécurisation des postes", desc: "Antivirus, pare-feu, mises à jour, suppression de malwares." },
+          { title: "Optimisation et nettoyage", desc: "Accélération des machines lentes, suppression des bloatwares." },
+          { title: "Configuration réseau", desc: "Box internet, Wi-Fi, imprimantes, NAS, partage réseau." }
         ]
       },
       {
-        subtitle: "Ma stack technique robuste",
-        text: "Technologies modernes et éprouvées : Node.js / Hono / SvelteKit pour le back-end, PostgreSQL pour la fiabilité, authentification sécurisée. Déployé sur des infrastructures simples et économiques (VPS)."
-      },
-      {
-        subtitle: "Garanties qualité",
+        subtitle: "Ce qui est inclus",
         simpleList: [
-          "Code propre, maintenable et évolutif",
-          "Architecture pensée pour la scalabilité",
-          "Sécurité intégrée (Auth, données)",
-          "Interface utilisateur intuitive",
-          "Tests automatisés pour la fiabilité",
-          "Documentation technique complète"
+          "Déplacement à domicile (Perpignan et environs)",
+          "Assistance à distance quand c'est possible",
+          "Sauvegardes et récupération de données",
+          "Conseils d'achat de matériel",
+          "Formation de base incluse",
+          "Suivi post-intervention"
         ]
       }
     ],
-    techs: ["Node.js", "TypeScript", "PostgreSQL", "APIs RESTful", "React", "Docker"]
+    techs: ["Windows", "macOS", "Linux", "Réseaux", "Sécurité poste", "Sauvegardes"]
   },
   {
-    id: "performance",
-    title: "Performance & Stack technique optimisée",
-    icon: Zap,
-    accroche: "Je recherche constamment le meilleur ratio performance/qualité. Technologies minimalistes, temps de chargement instantanés, coûts réduits. Chaque ligne de code est pensée pour l'efficacité.",
+    id: "devsecops",
+    title: "Sécurisation applicative & systèmes (DevSecOps léger)",
+    icon: Lock,
+    accroche: "Intégrez la sécurité dès la conception de vos projets. Hardening, gestion des secrets, CI/CD sécurisé : les bonnes pratiques sans la complexité enterprise.",
     content: [
       {
-        subtitle: "Ma philosophie : moins c'est plus",
-        text: "Dans un monde où les sites web deviennent de plus en plus lourds, je prends le contre-pied. J'utilise des technologies qui génèrent uniquement ce qui est nécessaire : pas de JavaScript superflu, pas de dépendances inutiles. Résultat : des sites ultra-rapides qui se chargent instantanément, même en connexion mobile, et des coûts d'hébergement divisés par 10."
+        subtitle: "Security by design, pas en afterthought",
+        text: "Trop de projets web négligent la sécurité jusqu'à l'incident. Mon approche DevSecOps léger intègre les bonnes pratiques de sécurité dès le départ : secrets bien gérés, dépendances auditées, configurations durcies. Le tout sans transformer votre projet en usine à gaz."
       },
       {
-        subtitle: "Technologies que je maîtrise",
-        text: "Astro pour des sites statiques ultra-performants (score Lighthouse proche de 100). SvelteKit pour des applications réactives sans virtual DOM. Rust pour des backends ultra-rapides et sécurisés par design. WebAssembly (WASM) pour des performances natives dans le navigateur. TypeScript pour un code robuste et maintenable."
+        subtitle: "Ce que je sécurise",
+        list: [
+          { title: "Hardening serveurs et applications", desc: "Configuration minimale et sécurisée de vos infrastructures." },
+          { title: "Gestion des secrets", desc: "Vault, variables d'environnement sécurisées, rotation des clés." },
+          { title: "CI/CD sécurisé", desc: "Pipelines GitHub Actions avec scans de vulnérabilités intégrés." },
+          { title: "Audit et recommandations", desc: "Revue de code, analyse des dépendances, rapport de sécurité." }
+        ]
       },
       {
-        subtitle: "Avantages concrets pour vous",
+        subtitle: "Bonnes pratiques appliquées",
         simpleList: [
-          "Score Google PageSpeed > 95/100",
-          "Temps de chargement < 1 seconde",
-          "Meilleur référencement SEO (Core Web Vitals)",
-          "Coûts d'hébergement minimaux",
-          "Sites accessibles partout, même en 3G",
-          "Maintenance simplifiée, moins de bugs"
+          "Principe du moindre privilège",
+          "HTTPS et certificats automatisés",
+          "Headers de sécurité HTTP",
+          "Protection contre les injections",
+          "Logs et monitoring de sécurité",
+          "Documentation des processus"
         ]
       }
     ],
-    techs: ["Astro", "SvelteKit", "Rust", "WASM", "TypeScript"]
+    techs: ["Docker", "GitHub Actions", "Vault", "Let's Encrypt", "OWASP", "Audit"]
   },
   {
     id: "platform",
