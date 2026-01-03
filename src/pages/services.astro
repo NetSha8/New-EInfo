@@ -172,9 +172,36 @@ const services = [
     techs: ["Linux", "Docker", "Kamal", "Nginx", "GitHub Actions", "OVH", "Let's Encrypt"]
   }
 ];
+
+const schema = services.map((s) => ({
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: s.title,
+    description: s.accroche,
+    provider: {
+        "@type": "LocalBusiness",
+        name: "E Informatique"
+    },
+    areaServed: {
+        "@type": "City",
+        name: "Perpignan"
+    },
+    hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: s.title,
+        itemListElement: s.content[1]?.list?.map((item) => ({
+            "@type": "Offer",
+            itemOffered: {
+                "@type": "Service",
+                name: item.title,
+                description: item.desc
+            }
+        })) || []
+    }
+}));
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title="Mes Services | Création Web, Sécurité & Automatisation - E Informatique" description="Découvrez mes services : développement web, sécurisation de systèmes, maintenance informatique et solutions d'automatisation pour pros et particuliers." schema={schema}>
   <Header />
 
   <main class="pt-24 pb-20">

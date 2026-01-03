@@ -6,9 +6,9 @@ import PortfolioCard from "../components/PortfolioCard.astro";
 import ScrollPathBackground from "../components/ScrollPathBackground";
 import { Briefcase, ArrowRight } from "lucide-astro";
 
-const title = "Portfolio | Mes projets et réalisations - E Informatique";
+const title = "Portfolio | Projets Web & Réalisations - E Informatique";
 const description =
-    "Découvrez mes projets et réalisations en développement web, e-commerce WordPress, web apps et automatisation. Exemples concrets de sites modernes et performants.";
+    "Exemples de sites web, applications et outils sur mesure réalisés pour mes clients. Des solutions concrètes pour des besoins réels.";
 
 const portfolioProjects = [
     {
@@ -47,7 +47,7 @@ const portfolioProjects = [
 ];
 ---
 
-<BaseLayout {title} {description}>
+<BaseLayout title={title} description={description}>
     <ScrollPathBackground client:only="react" />
 
     <div class="relative z-10">

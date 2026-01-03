@@ -2,11 +2,15 @@
 export interface Props {
     title?: string;
     description?: string;
+    schema?: Record<string, any> | Record<string, any>[];
 }
+
+import Schema from "../components/SEO/Schema.astro";
 
 const {
     title = "E Informatique | Développeur Web Freelance à Perpignan",
     description = "Développeur web freelance spécialisé en création de sites modernes, boutiques WordPress, web apps, automatisation et déploiement VPS. Intervention à Perpignan et partout en France.",
+    schema,
 } = Astro.props;
 
 const siteUrl = "https://einformatique.fr";
@@ -65,42 +69,42 @@ import "../styles/global.css";
             crossorigin
         />
 
-        <!-- Schema.org LocalBusiness -->
-        <script
-            type="application/ld+json"
-            set:html={JSON.stringify({
-                "@context": "https://schema.org",
-                "@type": "LocalBusiness",
-                name: siteName,
-                description: description,
-                url: siteUrl,
-                telephone: "",
-                address: {
-                    "@type": "PostalAddress",
-                    addressLocality: "Perpignan",
-                    addressRegion: "Occitanie",
-                    addressCountry: "FR",
-                },
-                areaServed: [
-                    {
-                        "@type": "City",
-                        name: "Perpignan",
-                    },
-                    {
-                        "@type": "Country",
-                        name: "France",
-                    },
-                ],
-                serviceType: [
-                    "Création de sites web",
-                    "Développement WordPress",
-                    "Développement d'applications web",
-                    "Automatisation",
-                    "Déploiement VPS",
-                ],
-                priceRange: "$$",
-            })}
-        />
+        <!-- Schema.org -->
+        {
+            schema && Array.isArray(schema) ? (
+                schema.map((item) => <Schema item={item} />)
+            ) : schema ? (
+                <Schema item={schema} />
+            ) : (
+                <Schema
+                    item={{
+                        "@context": "https://schema.org",
+                        "@type": "LocalBusiness",
+                        name: siteName,
+                        description: description,
+                        url: siteUrl,
+                        telephone: "+33 6 00 00 00 00",
+                        address: {
+                            "@type": "PostalAddress",
+                            addressLocality: "Perpignan",
+                            addressRegion: "Occitanie",
+                            addressCountry: "FR",
+                        },
+                        areaServed: [
+                            {
+                                "@type": "City",
+                                name: "Perpignan",
+                            },
+                            {
+                                "@type": "Country",
+                                name: "France",
+                            },
+                        ],
+                        priceRange: "$$",
+                    }}
+                />
+            )
+        }
     </head>
     <body class="min-h-screen antialiased">
         <slot />

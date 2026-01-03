@@ -73,11 +73,33 @@ const services = [
 		],
 	},
 ];
+
+const schema = {
+	"@context": "https://schema.org",
+	"@type": "LocalBusiness",
+	name: "E Informatique",
+	description:
+		"Expert en création de sites web modernes, boutiques e-commerce et solutions d'automatisation à Perpignan. Transformez votre activité avec des outils performants.",
+	url: "https://einformatique.fr",
+	telephone: "+33 6 00 00 00 00",
+	address: {
+		"@type": "PostalAddress",
+		addressLocality: "Perpignan",
+		addressRegion: "Occitanie",
+		addressCountry: "FR",
+	},
+	service: services.map((s) => ({
+		"@type": "Service",
+		name: s.title,
+		description: s.highlight + " " + s.items.join(", "),
+	})),
+};
 ---
 
 <BaseLayout
-	title="E Informatique | Développeur Web Freelance à Perpignan — Sites, WordPress, SaaS & Automatisation"
-	description="Développeur web freelance spécialisé en création de sites modernes, boutiques WordPress, web apps, automatisation et déploiement VPS. Intervention en présentiel à Perpignan ou à distance partout en France."
+	title="E Informatique | Développeur Web Freelance Perpignan & Solutions Digitales"
+	description="Expert en création de sites web modernes, boutiques e-commerce et solutions d'automatisation à Perpignan. Transformez votre activité avec des outils performants."
+	schema={schema}
 >
 	<Header />
 
