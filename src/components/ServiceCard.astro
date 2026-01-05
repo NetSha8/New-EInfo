@@ -12,7 +12,17 @@ export interface Props {
 const { icon, title, items, highlight, className = "" } = Astro.props;
 
 // Map icon names to Lucide components
-import { Globe, ShoppingBag, Settings, Bot, Rocket } from "lucide-astro";
+import {
+    Globe,
+    ShoppingBag,
+    Settings,
+    Bot,
+    Rocket,
+    Wrench,
+    Zap,
+    Lock,
+    Shield,
+} from "lucide-astro";
 
 const iconMap: Record<string, any> = {
     globe: Globe,
@@ -20,6 +30,10 @@ const iconMap: Record<string, any> = {
     settings: Settings,
     bot: Bot,
     rocket: Rocket,
+    wrench: Wrench,
+    zap: Zap,
+    lock: Lock,
+    shield: Shield,
 };
 
 const IconComponent = iconMap[icon] || Globe;

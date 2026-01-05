@@ -2,7 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import { Monitor, ShoppingBag, Terminal, Zap, Server, CheckCircle2, ArrowRight, Bot } from "lucide-astro";
+import { Monitor, ShoppingBag, Terminal, Zap, Server, CheckCircle2, ArrowRight, Bot, Wrench } from "lucide-astro";
 
 const title = "Services de Développement Web | Développeur Freelance Perpignan";
 const description = "Services de développement web sur mesure : sites modernes, e-commerce WordPress, web apps, automatisation et platform engineering. Intervention Perpignan et à distance partout en France.";
@@ -42,50 +42,37 @@ const services = [
     techs: ["HTML/CSS moderne", "TypeScript", "Wix", "Responsive Design", "SEO optimisé"]
   },
   {
-    id: "ecommerce",
-    title: "E-commerce & Boutiques en ligne",
-    icon: ShoppingBag,
-    accroche: "Créez ou améliorez votre boutique en ligne avec la plateforme adaptée à vos besoins. WordPress, Wix ou Shopify : je vous accompagne sur chaque solution.",
+    id: "maintenance-particuliers",
+    title: "Maintenance & assistance systèmes (particuliers)",
+    icon: Wrench,
+    accroche: "Dépannage, sécurisation et fiabilisation de vos équipements informatiques. Un accompagnement humain et accessible pour votre quotidien numérique.",
     content: [
       {
-        subtitle: "Quelle plateforme pour votre projet ?",
-        text: "Chaque plateforme e-commerce a ses forces. WordPress/WooCommerce pour la liberté totale et 0% de commission. Wix pour une mise en ligne rapide et accessible. Shopify pour une solution clé en main puissante. Je vous aide à choisir et à exploiter pleinement le potentiel de chaque outil."
+        subtitle: "Un accompagnement informatique de proximité",
+        text: "Vous rencontrez des lenteurs, des pannes ou des comportements suspects sur votre ordinateur ? Je vous accompagne pour diagnostiquer, réparer et sécuriser vos équipements. Mon approche : des explications claires, des solutions durables, et une vraie pédagogie pour que vous compreniez ce qui se passe."
       },
       {
-        subtitle: "WordPress & WooCommerce",
+        subtitle: "Services proposés",
         list: [
-          { title: "Boutique sur mesure", desc: "Design personnalisé, expérience utilisateur fluide et mobile-first." },
-          { title: "Fonctionnalités avancées", desc: "Abonnements, réservations, espaces membres, B2B." },
-          { title: "0% de commission", desc: "Propriété totale de vos données et de votre boutique." }
+          { title: "Dépannage et diagnostic", desc: "Identification et résolution des problèmes matériels et logiciels." },
+          { title: "Sécurisation des postes", desc: "Antivirus, pare-feu, mises à jour, suppression de malwares." },
+          { title: "Optimisation et nettoyage", desc: "Accélération des machines lentes, suppression des bloatwares." },
+          { title: "Configuration réseau", desc: "Box internet, Wi-Fi, imprimantes, NAS, partage réseau." }
         ]
       },
       {
-        subtitle: "Shopify — Thèmes & Extensions",
-        list: [
-          { title: "Création de thèmes personnalisés", desc: "Design unique avec Liquid, Shopify CLI et Dawn." },
-          { title: "Développement d'extensions", desc: "Apps Shopify sur mesure pour étendre les fonctionnalités." },
-          { title: "Personnalisation avancée", desc: "Modifications de thèmes existants et intégrations API." }
-        ]
-      },
-      {
-        subtitle: "Wix E-commerce",
-        list: [
-          { title: "Boutique clé en main", desc: "Configuration complète et optimisée pour la vente." },
-          { title: "Design professionnel", desc: "Templates personnalisés adaptés à votre marque." }
-        ]
-      },
-      {
-        subtitle: "Avantages communs",
+        subtitle: "Ce qui est inclus",
         simpleList: [
-          "Référencement naturel (SEO) optimisé",
-          "Paiements sécurisés (Stripe, PayPal)",
-          "Interface d'administration intuitive",
-          "Sites rapides et performants",
-          "Formation à l'utilisation"
+          "Déplacement à domicile (Perpignan et environs)",
+          "Assistance à distance quand c'est possible",
+          "Sauvegardes et récupération de données",
+          "Conseils d'achat de matériel",
+          "Formation de base incluse",
+          "Suivi post-intervention"
         ]
       }
     ],
-    techs: ["WordPress", "WooCommerce", "Shopify", "Wix", "Liquid", "Stripe"]
+    techs: ["Windows", "macOS", "Linux", "Réseaux", "Sécurité poste", "Sauvegardes"]
   },
   {
     id: "web-apps",
