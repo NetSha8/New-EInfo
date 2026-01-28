@@ -2,7 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import { Monitor, ShoppingBag, Terminal, Zap, Server, CheckCircle2, ArrowRight, Bot, Wrench } from "lucide-astro";
+import { Monitor, ShoppingBag, Shield, Zap, Server, CheckCircle2, ArrowRight, Bot, Wrench } from "lucide-astro";
 
 const title = "Services de Développement Web | Développeur Freelance Perpignan";
 const description = "Services de développement web sur mesure : sites modernes, e-commerce WordPress, web apps, automatisation et platform engineering. Intervention Perpignan et à distance partout en France.";
@@ -75,41 +75,36 @@ const services = [
     techs: ["Windows", "macOS", "Linux", "Réseaux", "Sécurité poste", "Sauvegardes"]
   },
   {
-    id: "web-apps",
-    title: "Web Apps & Mini-SaaS sur mesure",
-    icon: Terminal,
-    accroche: "Transformez vos idées en applications web fonctionnelles. Que vous soyez solopreneur avec une vision ou entreprise ayant besoin d'un outil spécifique, je développe des solutions adaptées à vos besoins réels.",
+    id: "cybersecurite",
+    title: "Cybersécurité & Protection numérique",
+    icon: Shield,
+    accroche: "Protégez votre vie numérique et celle de votre entreprise. Je vous accompagne pour sécuriser vos données, vos accès et vos systèmes contre les menaces actuelles.",
     content: [
       {
-        subtitle: "Des outils pensés pour votre activité",
-        text: "Vous avez une idée d'application qui pourrait révolutionner votre façon de travailler ? Je développe des applications web modernes, sécurisées et performantes. Pas de solutions génériques : du sur mesure pensé pour votre cas d'usage précis. De la gestion client au tableau de bord analytique."
+        subtitle: "La cybersécurité, un enjeu pour tous",
+        text: "Particulier ou professionnel, vous êtes une cible potentielle. Phishing, ransomwares, vols de données... Les menaces sont réelles et en constante évolution. Je vous aide à mettre en place des protections efficaces et adaptées à votre niveau de risque, sans complexité inutile."
       },
       {
-        subtitle: "Types d'applications que je crée",
+        subtitle: "Services proposés",
         list: [
-          { title: "Outils métier sur mesure", desc: "Gestion de projets, suivi clients, planification, facturation, CRM." },
-          { title: "Dashboards & tableaux de bord", desc: "Visualisez vos données business en temps réel, KPIs, rapports." },
-          { title: "Espaces clients & portails", desc: "Accès clients aux commandes, factures, documents." },
-          { title: "Mini-SaaS & outils commercialisables", desc: "Développement de MVP pour valider votre marché." }
+          { title: "Audit de sécurité", desc: "Analyse de vos pratiques, identification des failles et recommandations concrètes." },
+          { title: "Configuration 2FA & authentification", desc: "Mise en place de l'authentification à deux facteurs sur tous vos comptes critiques." },
+          { title: "Gestionnaires de mots de passe", desc: "Installation et formation sur Bitwarden, 1Password ou KeePass." },
+          { title: "Développement d'outils de sécurité", desc: "Scripts et outils sur mesure pour automatiser vos contrôles de sécurité." }
         ]
       },
       {
-        subtitle: "Ma stack technique robuste",
-        text: "Technologies modernes et éprouvées : Node.js / Hono / SvelteKit pour le back-end, PostgreSQL pour la fiabilité, authentification sécurisée. Déployé sur des infrastructures simples et économiques (VPS)."
-      },
-      {
-        subtitle: "Garanties qualité",
+        subtitle: "Accompagnement complet",
         simpleList: [
-          "Code propre, maintenable et évolutif",
-          "Architecture pensée pour la scalabilité",
-          "Sécurité intégrée (Auth, données)",
-          "Interface utilisateur intuitive",
-          "Tests automatisés pour la fiabilité",
-          "Documentation technique complète"
+          "Formation et sensibilisation aux bonnes pratiques",
+          "Sécurisation des postes de travail et mobiles",
+          "Configuration VPN et navigation sécurisée",
+          "Sauvegarde chiffrée de vos données sensibles",
+          "Veille sur les fuites de données (Have I Been Pwned)"
         ]
       }
     ],
-    techs: ["Node.js", "TypeScript", "PostgreSQL", "APIs RESTful", "React", "Docker"]
+    techs: ["2FA/MFA", "Bitwarden", "VPN", "Chiffrement", "Python", "Audit sécurité"]
   },
   {
     id: "performance",
@@ -123,7 +118,7 @@ const services = [
       },
       {
         subtitle: "Technologies que je maîtrise",
-        text: "Astro pour des sites statiques ultra-performants (score Lighthouse proche de 100). SvelteKit pour des applications réactives sans virtual DOM. Rust pour des backends ultra-rapides et sécurisés par design. WebAssembly (WASM) pour des performances natives dans le navigateur. TypeScript pour un code robuste et maintenable."
+        text: "Astro pour des sites statiques ultra-performants (score Lighthouse proche de 100). Svelte pour des interfaces réactives sans virtual DOM. C et Python pour des backends ultra-rapides et robustes. TypeScript pour un code front-end maintenable."
       },
       {
         subtitle: "Avantages concrets pour vous",
@@ -137,7 +132,7 @@ const services = [
         ]
       }
     ],
-    techs: ["Astro", "SvelteKit", "Rust", "WASM", "TypeScript"]
+    techs: ["Astro", "Svelte", "C", "Python", "TypeScript"]
   },
   {
     id: "platform",
