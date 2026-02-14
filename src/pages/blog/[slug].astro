@@ -1,0 +1,342 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import BlogCard from "../../components/BlogCard.astro";
+import { ArrowLeft, Calendar, Clock, Tag, ChevronLeft, ChevronRight } from "lucide-astro";
+import { getCollection, type CollectionEntry } from "astro:content";
+
+export async function getStaticPaths() {
+    const blogPosts = await getCollection("blog", ({ data }) => !data.draft);
+    return blogPosts.map((post) => ({
+        params: { slug: post.slug },
+        props: { post },
+    }));
+}
+
+interface Props {
+    post: CollectionEntry<"blog">;
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+
+// Get all posts for navigation
+const allPosts = await getCollection("blog", ({ data }) => !data.draft);
+const sortedPosts = allPosts.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+
+// Get related posts (same category, excluding current)
+const relatedPosts = sortedPosts
+    .filter((p) => p.data.category === post.data.category && p.slug !== post.slug)
+    .slice(0, 2);
+
+// Get prev/next posts
+const currentIndex = sortedPosts.findIndex((p) => p.slug === post.slug);
+const prevPost = currentIndex > 0 ? sortedPosts[currentIndex - 1] : null;
+const nextPost = currentIndex < sortedPosts.length - 1 ? sortedPosts[currentIndex + 1] : null;
+
+const title = `${post.data.title} | Blog E Informatique`;
+const description = post.data.excerpt;
+
+// Helper function to format dates
+function formatDate(dateStr: string): string {
+  return new Date(dateStr).toLocaleDateString("fr-FR", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+}
+---
+
+<BaseLayout title={title} description={description}>
+    <Header />
+
+    <main class="pt-24 md:pt-32">
+        <article class="py-8 md:py-16">
+            <div class="container-custom max-w-4xl">
+                <!-- Back Button -->
+                <a
+                    href="/blog"
+                    class="inline-flex items-center gap-2 text-secondary hover:text-primary-400 transition-colors duration-300 mb-8 reveal"
+                >
+                    <ArrowLeft class="w-4 h-4" />
+                    <span class="text-sm font-medium">Retour au blog</span>
+                </a>
+
+                <!-- Article Header -->
+                <header class="mb-10 reveal delay-100">
+                    <div class="flex flex-wrap items-center gap-3 mb-4">
+                        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-primary-600/15 text-primary-400 border border-primary-500/20">
+                            {post.data.category}
+                        </span>
+                        <div class="flex items-center gap-1.5 text-xs text-secondary">
+                            <Calendar class="w-3.5 h-3.5" />
+                            <time datetime={post.data.date}>{formatDate(post.data.date)}</time>
+                        </div>
+                        <div class="flex items-center gap-1.5 text-xs text-secondary">
+                            <Clock class="w-3.5 h-3.5" />
+                            <span>{post.data.readTime} de lecture</span>
+                        </div>
+                    </div>
+
+                    <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-main leading-tight mb-6">
+                        {post.data.title}
+                    </h1>
+
+                    <p class="text-lg text-secondary leading-relaxed">
+                        {post.data.excerpt}
+                    </p>
+
+                    <!-- Tags -->
+                    <div class="flex flex-wrap gap-2 mt-6">
+                        {
+                            post.data.tags.map((tag) => (
+                                <span class="tech-badge text-xs">
+                                    <Tag class="w-3 h-3" />
+                                    {tag}
+                                </span>
+                            ))
+                        }
+                    </div>
+                </header>
+
+                <!-- Divider -->
+                <div class="h-px bg-dark-700 mb-10 reveal delay-200"></div>
+
+                <!-- Article Content - Markdown rendered -->
+                <div class="prose-blog reveal delay-300">
+                    <Content />
+                </div>
+
+                <!-- Divider -->
+                <div class="h-px bg-dark-700 mt-12 mb-8"></div>
+
+                <!-- Post Navigation -->
+                <nav class="flex flex-col sm:flex-row gap-4 justify-between mb-16">
+                    {prevPost ? (
+                        <a
+                            href={`/blog/${prevPost.slug}`}
+                            class="glass-card p-4 flex items-center gap-3 group/nav flex-1 no-hover"
+                        >
+                            <ChevronLeft class="w-5 h-5 text-secondary group-hover/nav:text-primary-400 transition-colors flex-shrink-0" />
+                            <div class="min-w-0">
+                                <span class="text-xs text-secondary block">Article précédent</span>
+                                <span class="text-sm font-semibold text-main group-hover/nav:text-primary-400 transition-colors truncate block">
+                                    {prevPost.data.title}
+                                </span>
+                            </div>
+                        </a>
+                    ) : <div />}
+                    {nextPost ? (
+                        <a
+                            href={`/blog/${nextPost.slug}`}
+                            class="glass-card p-4 flex items-center gap-3 group/nav flex-1 text-right no-hover"
+                        >
+                            <div class="min-w-0 flex-1">
+                                <span class="text-xs text-secondary block">Article suivant</span>
+                                <span class="text-sm font-semibold text-main group-hover/nav:text-primary-400 transition-colors truncate block">
+                                    {nextPost.data.title}
+                                </span>
+                            </div>
+                            <ChevronRight class="w-5 h-5 text-secondary group-hover/nav:text-primary-400 transition-colors flex-shrink-0" />
+                        </a>
+                    ) : <div />}
+                </nav>
+
+                <!-- Related Posts -->
+                {relatedPosts.length > 0 && (
+                    <section class="mb-16">
+                        <h2 class="text-2xl font-bold text-main mb-8">Articles similaires</h2>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            {relatedPosts.map((related) => (
+                                <BlogCard
+                                    slug={related.slug}
+                                    title={related.data.title}
+                                    excerpt={related.data.excerpt}
+                                    date={related.data.date}
+                                    readTime={related.data.readTime}
+                                    category={related.data.category}
+                                    tags={related.data.tags}
+                                />
+                            ))}
+                        </div>
+                    </section>
+                )}
+            </div>
+        </article>
+    </main>
+
+    <Footer />
+</BaseLayout>
+
+<style is:global>
+    /* Prose styling for markdown content */
+    .prose-blog {
+        color: var(--color-text-main);
+        line-height: 1.75;
+    }
+
+    .prose-blog p {
+        margin-bottom: 1.5rem;
+        font-size: 1rem;
+        line-height: 1.75;
+    }
+
+    @media (min-width: 768px) {
+        .prose-blog p {
+            font-size: 1.125rem;
+        }
+    }
+
+    .prose-blog h2 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--color-text-main);
+        margin-top: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    @media (min-width: 768px) {
+        .prose-blog h2 {
+            font-size: 1.5rem;
+        }
+    }
+
+    .prose-blog h3 {
+        font-size: 1.125rem;
+        font-weight: 700;
+        color: var(--color-text-main);
+        margin-top: 2rem;
+        margin-bottom: 0.75rem;
+    }
+
+    @media (min-width: 768px) {
+        .prose-blog h3 {
+            font-size: 1.25rem;
+        }
+    }
+
+    .prose-blog ul {
+        margin-bottom: 1.5rem;
+        margin-left: 0.25rem;
+    }
+
+    .prose-blog ul li {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.75rem;
+        color: var(--color-text-main);
+        margin-bottom: 0.5rem;
+    }
+
+    .prose-blog ul li::before {
+        content: "";
+        margin-top: 0.5rem;
+        width: 0.375rem;
+        height: 0.375rem;
+        border-radius: 9999px;
+        background-color: var(--color-primary-400);
+        flex-shrink: 0;
+    }
+
+    .prose-blog ol {
+        margin-bottom: 1.5rem;
+        margin-left: 1.5rem;
+        list-style-type: decimal;
+    }
+
+    .prose-blog ol li {
+        color: var(--color-text-main);
+        padding-left: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .prose-blog blockquote {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        border-left: 2px solid var(--color-primary-500);
+        background-color: color-mix(in srgb, var(--color-primary-600), transparent 95%);
+        border-radius: 0 0.75rem 0.75rem 0;
+    }
+
+    .prose-blog blockquote p {
+        color: var(--color-text-main);
+        font-style: italic;
+        line-height: 1.75;
+        margin-bottom: 0;
+    }
+
+    .prose-blog code {
+        font-size: 0.875rem;
+        font-family: ui-monospace, SFMono-Regular, Monaco, Consolas, monospace;
+        background-color: var(--color-dark-800);
+        color: var(--color-primary-400);
+        padding: 0.125rem 0.375rem;
+        border-radius: 0.25rem;
+    }
+
+    .prose-blog pre {
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
+        border-radius: 0.75rem;
+        overflow: hidden;
+        border: 1px solid var(--color-dark-700);
+        background-color: #0d0d0d;
+    }
+
+    .prose-blog pre code {
+        display: block;
+        padding: 1rem;
+        overflow-x: auto;
+        font-size: 0.875rem;
+        line-height: 1.75;
+        background-color: transparent;
+        color: var(--color-dark-500);
+        padding-left: 0;
+        padding-right: 0;
+        border-radius: 0;
+    }
+
+    .prose-blog a {
+        color: var(--color-primary-400);
+        text-decoration: underline;
+        transition: color 0.3s;
+    }
+
+    .prose-blog a:hover {
+        color: var(--color-primary-300);
+    }
+
+    .prose-blog strong {
+        font-weight: 700;
+        color: var(--color-text-main);
+    }
+
+    .prose-blog em {
+        font-style: italic;
+    }
+
+    /* Light mode adjustments */
+    :root[data-theme="light"] .prose-blog pre {
+        background-color: #f3f4f6;
+        border-color: #e5e7eb;
+    }
+
+    :root[data-theme="light"] .prose-blog pre code {
+        color: #1f2937;
+    }
+
+    :root[data-theme="light"] .prose-blog code {
+        background-color: #f3f4f6;
+        color: var(--color-primary-600);
+    }
+
+    /* No hover transform for navigation cards */
+    .no-hover:hover {
+        transform: none;
+    }
+</style>

@@ -110,10 +110,10 @@ import "../styles/global.css";
             const observerOptions = {
                 root: null,
                 rootMargin: "0px",
-                threshold: 0.1,
+                threshold: 0.01,
             };
 
-            const observer = new IntersectionObserver((entries, observer) => {
+            const observer = new IntersectionObserver((entries) => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add("active");
@@ -122,10 +122,30 @@ import "../styles/global.css";
                 });
             }, observerOptions);
 
-            document.addEventListener("DOMContentLoaded", () => {
+            const initObserver = () => {
                 const hiddenElements = document.querySelectorAll(".reveal");
-                hiddenElements.forEach((el) => observer.observe(el));
-            });
+                console.log("Found reveal elements:", hiddenElements.length);
+                hiddenElements.forEach((el) => {
+                    console.log("Observing element:", el);
+                    observer.observe(el);
+                });
+            };
+
+            // Handle both cases: script loads before or after DOMContentLoaded
+            if (document.readyState === "loading") {
+                document.addEventListener("DOMContentLoaded", initObserver);
+            } else {
+                initObserver();
+            }
+
+            // Fallback: if nothing happens, apply active class directly after 100ms
+            setTimeout(() => {
+                const revealElements = document.querySelectorAll(".reveal:not(.active)");
+                if (revealElements.length > 0) {
+                    console.log("Fallback: Adding active class to", revealElements.length, "elements");
+                    revealElements.forEach((el) => el.classList.add("active"));
+                }
+            }, 100);
         </script>
     </body>
 </html>
