@@ -239,6 +239,15 @@
     0 0 0 1px rgba(0, 102, 255, 0.15);
 }
 
+.glass-card--static:hover {
+  transform: none;
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 10px 20px -5px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  border-color: color-mix(in srgb, var(--color-text-main), transparent 92%);
+}
+
 :root:not([data-theme="light"]) .glass-card:hover {
   background: rgba(36, 36, 36, 0.8);
 }

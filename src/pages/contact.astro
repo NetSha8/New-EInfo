@@ -23,7 +23,7 @@ import WorldMapBackground from "../components/WorldMapBackground";
 
     <main class="relative overflow-hidden min-h-screen pt-32 pb-20">
         <!-- Animated world map background -->
-        <WorldMapBackground client:load className="-z-20 opacity-60" />
+        <WorldMapBackground client:load className="-z-20 opacity-70" />
 
         <!-- Ambient shapes for subtle motion -->
         <div
@@ -188,7 +188,7 @@ import WorldMapBackground from "../components/WorldMapBackground";
                     </div>
 
                     <div
-                        class="glass-card p-6 flex items-center justify-between gap-4 reveal delay-250"
+                        class="glass-card glass-card--static p-6 flex items-center justify-between gap-4 reveal delay-250"
                     >
                         <div class="flex items-center gap-4">
                             <div
@@ -221,7 +221,7 @@ import WorldMapBackground from "../components/WorldMapBackground";
                     </div>
 
                     <div
-                        class="glass-card p-5 flex items-center gap-4 text-sm text-secondary reveal delay-300"
+                        class="glass-card glass-card--static p-5 flex items-center gap-4 text-sm text-secondary reveal delay-300"
                     >
                         <MapPin class="w-5 h-5 text-primary-400" />
                         Perpignan · France — missions sur site ou full remote

@@ -4,7 +4,7 @@ import { Wrench } from "lucide-astro";
 const techCategories = [
     {
         title: "Développement Web",
-        techs: ["TypeScript", "Lua", "C", "HTML / CSS moderne"],
+        techs: ["TypeScript", "Elixir", "HTML / CSS moderne"],
     },
     {
         title: "Plateforme / Déploiement",
@@ -45,14 +45,14 @@ const techCategories = [
             {
                 techCategories.map((category, index) => (
                     <div
-                        class={`glass-card reveal p-6 text-center md:text-left delay-${(index + 1) * 100}`}
+                        class={`glass-card glass-card--static reveal p-6 text-center md:text-left delay-${(index + 1) * 100}`}
                     >
                         <h3 class="text-lg font-semibold text-main mb-4">
                             {category.title}
                         </h3>
                         <div class="flex flex-wrap justify-center md:justify-start gap-2">
                             {category.techs.map((tech) => (
-                                <span class="tech-badge hover:scale-105 transition-transform">
+                                <span class="tech-badge">
                                     {tech}
                                 </span>
                             ))}

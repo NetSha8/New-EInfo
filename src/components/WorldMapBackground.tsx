@@ -183,7 +183,7 @@ export default function WorldMapBackground({ className = '' }: WorldMapBackgroun
     const spawnMessage = () => {
         const points = pointsRef.current;
         if (points.length === 0) return;
-        if (messagesRef.current.length >= 8) return; // Cap active messages for performance
+        if (messagesRef.current.length >= 14) return; // Cap active messages for performance
 
         const validPoints = points.filter(p => p.connections.length > 0);
         if (validPoints.length === 0) return;
@@ -198,7 +198,7 @@ export default function WorldMapBackground({ className = '' }: WorldMapBackgroun
             from: idx,
             to: toIdx,
             progress: 0,
-            speed: 0.012 + Math.random() * 0.008
+            speed: 0.008 + Math.random() * 0.007
         });
     };
 
@@ -233,7 +233,7 @@ export default function WorldMapBackground({ className = '' }: WorldMapBackgroun
         if (!ctx) return;
 
         let lastSpawn = 0;
-        const spawnInterval = 800;
+        const spawnInterval = 500;
 
         const animate = (timestamp: number) => {
             ctx.clearRect(0, 0, dimensions.width, dimensions.height);
@@ -252,8 +252,8 @@ export default function WorldMapBackground({ className = '' }: WorldMapBackgroun
 
             // Batch draw all connections
             ctx.beginPath();
-            ctx.strokeStyle = 'rgba(51, 133, 255, 0.12)';
-            ctx.lineWidth = 0.5;
+            ctx.strokeStyle = 'rgba(51, 133, 255, 0.20)';
+            ctx.lineWidth = 0.8;
 
             for (const point of points) {
                 for (const connIdx of point.connections) {
@@ -280,19 +280,26 @@ export default function WorldMapBackground({ className = '' }: WorldMapBackgroun
 
                 const gradient = ctx.createLinearGradient(tailX, tailY, headX, headY);
                 gradient.addColorStop(0, 'rgba(51, 133, 255, 0)');
-                gradient.addColorStop(1, 'rgba(51, 133, 255, 0.9)');
+                gradient.addColorStop(1, 'rgba(51, 133, 255, 1)');
 
                 ctx.beginPath();
                 ctx.strokeStyle = gradient;
-                ctx.lineWidth = 2;
+                ctx.lineWidth = 2.5;
                 ctx.moveTo(tailX, tailY);
                 ctx.lineTo(headX, headY);
                 ctx.stroke();
 
                 // Head glow (simplified)
+                // Outer glow
+                ctx.beginPath();
+                ctx.arc(headX, headY, 7, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(51, 133, 255, 0.25)';
+                ctx.fill();
+
+                // Head dot
                 ctx.beginPath();
                 ctx.arc(headX, headY, 4, 0, Math.PI * 2);
-                ctx.fillStyle = 'rgba(51, 133, 255, 0.8)';
+                ctx.fillStyle = 'rgba(51, 133, 255, 1)';
                 ctx.fill();
 
                 msg.progress += msg.speed;
@@ -302,13 +309,13 @@ export default function WorldMapBackground({ className = '' }: WorldMapBackgroun
             }
 
             // Batch draw all dots (simplified, no individual glow)
-            ctx.fillStyle = 'rgba(51, 133, 255, 0.45)';
+            ctx.fillStyle = 'rgba(51, 133, 255, 0.6)';
             const basePulse = Math.sin(pulseRef.current) * 0.3 + 1;
 
             for (let i = 0; i < points.length; i++) {
                 const point = points[i];
                 const localPulse = Math.sin(pulseRef.current + i * 0.1) * 0.2 + basePulse;
-                const size = 1.5 * localPulse;
+                const size = 2 * localPulse;
 
                 ctx.beginPath();
                 ctx.arc(point.x, point.y, size, 0, Math.PI * 2);
@@ -337,7 +344,7 @@ export default function WorldMapBackground({ className = '' }: WorldMapBackgroun
                 ref={canvasRef}
                 width={dimensions.width}
                 height={dimensions.height}
-                style={{ width: '100%', height: '100%' }}
+                style={{ width: '100%', height: '100%', filter: 'blur(0.8px)' }}
             />
         </div>
     );
