@@ -4,7 +4,16 @@ import { Wrench } from "lucide-astro";
 const techCategories = [
     {
         title: "Développement Web",
-        techs: ["TypeScript", "Elixir", "HTML / CSS moderne"],
+        techs: ["TypeScript", "Pascal", "HTML / CSS moderne"],
+    },
+    {
+        title: "Maintenance & Optimisation",
+        techs: [
+            "WordPress",
+            "Optimisation performance",
+            "Sauvegardes",
+            "Monitoring",
+        ],
     },
     {
         title: "Plateforme / Déploiement",
@@ -18,8 +27,8 @@ const techCategories = [
         ],
     },
     {
-        title: "CMS & E-commerce",
-        techs: ["WordPress", "Wix", "Shopify"],
+        title: "CMS & Frameworks",
+        techs: ["WordPress", "Shopify", "Astro"],
     },
 ];
 ---
@@ -41,7 +50,7 @@ const techCategories = [
         </div>
 
         <!-- Tech Categories - Glass Cards -->
-        <div class="grid md:grid-cols-3 gap-6 md:gap-8">
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {
                 techCategories.map((category, index) => (
                     <div
