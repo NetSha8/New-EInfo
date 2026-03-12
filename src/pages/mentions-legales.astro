@@ -1,0 +1,78 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<BaseLayout
+    title="Mentions légales | E Informatique"
+    description="Mentions légales et informations RGPD du site E Informatique : éditeur, hébergeur OVH, données personnelles et cookies."
+>
+    <Header />
+
+    <main class="pt-28 pb-20">
+        <div class="container-custom max-w-3xl">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Mentions légales</h1>
+            <p class="text-secondary mb-10">Dernière mise à jour : 11 mars 2026.</p>
+
+            <section class="mb-10">
+                <h2 class="text-2xl font-bold mb-4">1. Éditeur du site</h2>
+                <div class="space-y-2 text-secondary">
+                    <p><strong class="text-main">Nom commercial :</strong> E Informatique</p>
+                    <p><strong class="text-main">Responsable de la publication :</strong> Elian</p>
+                    <p><strong class="text-main">Email :</strong> <a href="mailto:elianb.pro@gmail.com" class="text-primary-400 hover:text-primary-300">elianb.pro@gmail.com</a></p>
+                    <p><strong class="text-main">Téléphone :</strong> <a href="tel:+33768535150" class="text-primary-400 hover:text-primary-300">07 68 53 51 50</a></p>
+                    <p><strong class="text-main">Zone d'activité :</strong> Perpignan, France (et à distance)</p>
+                </div>
+            </section>
+
+            <section class="mb-10">
+                <h2 class="text-2xl font-bold mb-4">2. Hébergement</h2>
+                <div class="space-y-2 text-secondary">
+                    <p><strong class="text-main">Hébergeur :</strong> OVH SAS</p>
+                    <p><strong class="text-main">Adresse :</strong> 2 rue Kellermann, 59100 Roubaix, France</p>
+                    <p><strong class="text-main">Téléphone :</strong> 1007 (depuis la France)</p>
+                    <p><strong class="text-main">Site :</strong> <a href="https://www.ovhcloud.com/fr/" target="_blank" rel="noopener noreferrer" class="text-primary-400 hover:text-primary-300">ovhcloud.com</a></p>
+                </div>
+            </section>
+
+            <section class="mb-10">
+                <h2 class="text-2xl font-bold mb-4">3. Données personnelles</h2>
+                <div class="space-y-3 text-secondary">
+                    <p>Ce site ne propose pas de création de compte, de commentaire public ni de newsletter.</p>
+                    <p>Les seules données personnelles susceptibles d'être traitées sont celles que vous transmettez volontairement par email, téléphone, ou via les liens de contact.</p>
+                    <p>Ces données sont utilisées uniquement pour répondre à votre demande commerciale ou technique, et ne sont pas revendues.</p>
+                    <p>Vous pouvez demander l'accès, la rectification ou la suppression de vos données à tout moment via <a href="mailto:elianb.pro@gmail.com" class="text-primary-400 hover:text-primary-300">elianb.pro@gmail.com</a>.</p>
+                </div>
+            </section>
+
+            <section class="mb-10">
+                <h2 class="text-2xl font-bold mb-4">4. Cookies et statistiques</h2>
+                <div class="space-y-3 text-secondary">
+                    <p>Aucun cookie de suivi, de publicité ou de mesure d'audience n'est utilisé sur ce site.</p>
+                    <p>Aucun outil de statistiques (Google Analytics, Matomo ou équivalent) n'est en place.</p>
+                    <p>En l'état, aucune bannière de consentement cookies n'est nécessaire car aucun traceur non essentiel n'est déployé.</p>
+                </div>
+            </section>
+
+            <section class="mb-10">
+                <h2 class="text-2xl font-bold mb-4">5. Propriété intellectuelle</h2>
+                <p class="text-secondary">
+                    Le contenu du site (textes, visuels, structure, code et éléments graphiques) est protégé par le droit d'auteur.
+                    Toute reproduction, représentation, modification ou exploitation, totale ou partielle, sans autorisation préalable,
+                    est interdite.
+                </p>
+            </section>
+
+            <section>
+                <h2 class="text-2xl font-bold mb-4">6. Contact</h2>
+                <p class="text-secondary">
+                    Pour toute question relative aux mentions légales ou au traitement des données :
+                    <a href="mailto:elianb.pro@gmail.com" class="text-primary-400 hover:text-primary-300">elianb.pro@gmail.com</a>.
+                </p>
+            </section>
+        </div>
+    </main>
+
+    <Footer />
+</BaseLayout>
