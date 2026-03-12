@@ -13,9 +13,9 @@ Astro répond à ça directement. Son concept est simple : envoyer du HTML stati
 
 ## Le problème dont personne ne parle vraiment
 
-Quand tu utilises React ou Vue pour faire un site vitrine, tu hérites de tout ce qui vient avec : le virtual DOM, l'hydration, le state management — des trucs super utiles pour une app complexe, mais complètement overkill pour afficher un portfolio ou un blog.
+Quand tu utilises React ou Vue pour faire un site vitrine, tu hérites de tout ce qui vient avec : le virtual DOM, l'hydration, le state management des trucs super utiles pour une app complexe, mais complètement overkill pour afficher un portfolio ou un blog.
 
-Résultat ? Ton site est lent. Les gens attendent 2-3 secondes avant de voir quelque chose. Sur mobile, c'est encore pire. Et Google remarque tout ça — tes scores Lighthouse chutent, ton SEO en souffre.
+Résultat ? Ton site est lent. Les gens attendent 2-3 secondes avant de voir quelque chose. Sur mobile, c'est encore pire. Et Google remarque tout ça tes scores Lighthouse chutent, ton SEO en souffre.
 
 ## Comment Astro résout ça
 
@@ -74,7 +74,7 @@ Tu n'es pas obligé de tout réécrire dans le même framework. Tu peux vraiment
 
 ## Déploiement, c'est une blague
 
-Franchement, c'est mon préféré. Avec Netlify, tu fais juste ça : tu push ton code sur GitHub, et Netlify détecte automatiquement que c'est de l'Astro. Build, déploiement, HTTPS, CDN global — tout se fait tout seul.
+Franchement, c'est mon préféré. Avec Netlify, tu fais juste ça : tu push ton code sur GitHub, et Netlify détecte automatiquement que c'est de l'Astro. Build, déploiement, HTTPS, CDN global tout se fait tout seul.
 
 ```bash
 git add .
@@ -95,9 +95,9 @@ Mais honnêtement, c'est pas nécessaire pour commencer. Même Vercel et Cloudfl
 
 ## Les thèmes : partir d'une base solide
 
-Pas envie de partir de zéro ? Il y a des dizaines de thèmes Astro prêts à l'emploi. Je ne veux pas télécharger un template bizarre avec du code morte partout, donc je regarde sur [astro.build/themes](https://astro.build/themes) — c'est des vrais thèmes maintenus par la communauté.
+Pas envie de partir de zéro ? Il y a des dizaines de thèmes Astro prêts à l'emploi. Je ne veux pas télécharger un template bizarre avec du code morte partout, donc je regarde sur [astro.build/themes](https://astro.build/themes) c'est des vrais thèmes maintenus par la communauté.
 
-Un portfolio, un blog, un site vitrine — tout est là. Tu clones, tu personnalises, c'est bon :
+Un portfolio, un blog, un site vitrine tout est là. Tu clones, tu personnalises, c'est bon :
 
 ```bash
 git clone https://github.com/un-theme-astro.git
@@ -109,15 +109,15 @@ npm run dev
 
 ## Les intégrations : l'écosystème qui faut
 
-Astro permet facilement d'intégrer des trucs externes. Avec les images optimisées, Astro peut compresser et optimiser automatiquement tes images — moins de temps de chargement, c'est du gratuit. Pour les CMS headless, si tu veux gérer le contenu ailleurs (Contentful, Sanity, Strapi), Astro peut récupérer ça et générer des pages statiques — parfait pour un blog évolutif sans redéployer constamment.
+Astro permet facilement d'intégrer des trucs externes. Avec les images optimisées, Astro peut compresser et optimiser automatiquement tes images moins de temps de chargement, c'est du gratuit. Pour les CMS headless, si tu veux gérer le contenu ailleurs (Contentful, Sanity, Strapi), Astro peut récupérer ça et générer des pages statiques parfait pour un blog évolutif sans redéployer constamment.
 
-Tu peux ajouter de l'interactivité React, Vue ou Svelte juste où tu en as besoin, vraiment pratique. Pour les données, tu peux connecter Supabase, Firebase, ou n'importe quelle base pour récupérer des infos au build — idéal pour les listes de projets ou les prix. L'analytics, c'est Fathom, Plausible, ou d'autres outils légers qui ne ralentissent pas ton site. Oublie Google Analytics sur un site performance-first. Les formulaires ? Netlify Forms, Formspree, ou Basin suffisent — pas besoin d'un backend compliqué pour capturer ses données.
+Tu peux ajouter de l'interactivité React, Vue ou Svelte juste où tu en as besoin, vraiment pratique. Pour les données, tu peux connecter Supabase, Firebase, ou n'importe quelle base pour récupérer des infos au build idéal pour les listes de projets ou les prix. L'analytics, c'est Fathom, Plausible, ou d'autres outils légers qui ne ralentissent pas ton site. Oublie Google Analytics sur un site performance-first. Les formulaires ? Netlify Forms, Formspree, ou Basin suffisent pas besoin d'un backend compliqué pour capturer ses données.
 
 Tu peux vraiment composer ton stack comme tu veux.
 
 ## Ressources utiles
 
-Si tu veux en savoir plus, va voir [docs.astro.build](https://docs.astro.build) — c'est la bible avec des exemples concrets. Pour les thèmes gratuits et professionnels, [astro.build/themes](https://astro.build/themes) c'est l'endroit. Et si tu as besoin de support ou simplement d'échanger avec d'autres, [discord.gg/astro](https://discord.gg/astro) — la communauté est super active et accueillante.
+Si tu veux en savoir plus, va voir [docs.astro.build](https://docs.astro.build) c'est la bible avec des exemples concrets. Pour les thèmes gratuits et professionnels, [astro.build/themes](https://astro.build/themes) c'est l'endroit. Et si tu as besoin de support ou simplement d'échanger avec d'autres, [discord.gg/astro](https://discord.gg/astro) la communauté est super active et accueillante.
 
 ## Astro n'est pas pour tout
 
@@ -127,6 +127,6 @@ Mais si tu veux juste un site vitrine, un blog, un portfolio ou une landing page
 
 ## Pour finir
 
-Je suis passé à Astro il y a quelques mois, et franchement je ne reviendrais pas. Les sites chargent en une seconde, le déploiement est trivial, et j'ai jamais eu à penser aux performances — c'est magique.
+Je suis passé à Astro il y a quelques mois, et franchement je ne reviendrais pas. Les sites chargent en une seconde, le déploiement est trivial, et j'ai jamais eu à penser aux performances c'est magique.
 
 C'est rare d'avoir un outil aussi puissant qui simplifie vraiment les choses. Si tu dois construire un site, essaie Astro. Tu vas peut-être trouver ton nouveau framework préféré.

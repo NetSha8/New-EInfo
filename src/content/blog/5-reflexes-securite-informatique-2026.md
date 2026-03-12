@@ -21,20 +21,20 @@ Quand une faille est découverte, les éditeurs (Microsoft, Apple, Google, etc.)
 
 Ça concerne tout :
 
-- **Ton système d'exploitation** — Windows, macOS, Linux, peu importe
-- **Ton navigateur** — Chrome, Firefox, Safari, ils sont mis à jour très souvent pour des raisons de sécurité
-- **Tes applications** — même les trucs que t'utilises tous les jours (Zoom, Slack, Discord…)
-- **Ton téléphone** — iOS et Android poussent des patchs de sécurité chaque mois
+- **Ton système d'exploitation** Windows, macOS, Linux, peu importe
+- **Ton navigateur** Chrome, Firefox, Safari, ils sont mis à jour très souvent pour des raisons de sécurité
+- **Tes applications** même les trucs que t'utilises tous les jours (Zoom, Slack, Discord…)
+- **Ton téléphone** iOS et Android poussent des patchs de sécurité chaque mois
 
 Le réflexe : active les mises à jour automatiques partout. Si tu peux pas, prends 5 minutes chaque semaine pour vérifier. C'est le truc le plus simple et le plus efficace que tu peux faire.
 
 ## 2. Arrête d'utiliser le même mot de passe partout
 
-C'est LE problème numéro un. Et je dis pas ça pour faire la morale — je sais que c'est tentant. T'as un mot de passe que tu retiens bien, du genre `MonChien2024!`, et tu le mets partout. Netflix, Gmail, ta banque, ton forum de jeux vidéo random.
+C'est LE problème numéro un. Et je dis pas ça pour faire la morale je sais que c'est tentant. T'as un mot de passe que tu retiens bien, du genre `MonChien2024!`, et tu le mets partout. Netflix, Gmail, ta banque, ton forum de jeux vidéo random.
 
 Le souci ? Si **un seul** de ces services se fait pirater (et ça arrive tout le temps), les hackers récupèrent ton email + ton mot de passe. Et la première chose qu'ils font, c'est tester cette combinaison **partout ailleurs**. Gmail, Amazon, PayPal, ta banque. C'est automatisé, ça prend deux secondes.
 
-Ça s'appelle le **credential stuffing**, et c'est responsable de la majorité des comptes piratés. Pas besoin de hacker quoi que ce soit — les gens donnent littéralement le même mot de passe pour tout.
+Ça s'appelle le **credential stuffing**, et c'est responsable de la majorité des comptes piratés. Pas besoin de hacker quoi que ce soit les gens donnent littéralement le même mot de passe pour tout.
 
 Et le pire dans tout ça ? Les hackers n'ont même pas besoin de pirater quoi que ce soit eux-mêmes. Les fuites de données sont **revendues** sur le dark web pour quelques euros. Des bases entières avec des millions d'emails + mots de passe, en vente libre.
 
@@ -84,14 +84,14 @@ Il y a plusieurs méthodes :
 
 - **Application d'authentification** (la meilleure) Google Authenticator, Authy, ou Microsoft Authenticator. L'app génère un code qui change toutes les 30 secondes. Même si quelqu'un intercepte un code, il expire quasi immédiatement.
 - **SMS** (mieux que rien) Tu reçois un code par SMS. C'est pas parfait parce que les SMS peuvent être interceptés (SIM swapping), mais c'est 100 fois mieux que rien.
-- **Clé physique** (le top du top) — Une clé USB de sécurité comme une YubiKey. Tu la branches, tu appuies, c'est validé. Impossible à pirater à distance.
+- **Clé physique** (le top du top) Une clé USB de sécurité comme une YubiKey. Tu la branches, tu appuies, c'est validé. Impossible à pirater à distance.
 
 ### Où l'activer en priorité ?
 
-1. **Ton email** — C'est la porte d'entrée à tout. Si quelqu'un a accès à ton email, il peut réinitialiser tous tes autres mots de passe.
-2. **Ta banque** — Pour des raisons évidentes.
-3. **Tes réseaux sociaux** — Instagram, Facebook, Twitter… des cibles fréquentes.
-4. **Tes services cloud** — Google Drive, iCloud, Dropbox… tout ce qui contient tes fichiers.
+1. **Ton email** C'est la porte d'entrée à tout. Si quelqu'un a accès à ton email, il peut réinitialiser tous tes autres mots de passe.
+2. **Ta banque** Pour des raisons évidentes.
+3. **Tes réseaux sociaux** Instagram, Facebook, Twitter… des cibles fréquentes.
+4. **Tes services cloud** Google Drive, iCloud, Dropbox… tout ce qui contient tes fichiers.
 
 La plupart des services proposent la 2FA maintenant. Va dans les paramètres de sécurité, c'est souvent sous "Connexion et sécurité" ou "Vérification en deux étapes". Ça prend 2 minutes par compte.
 
@@ -103,10 +103,10 @@ Le principe : tu reçois un email ou un SMS qui a l'air légitime (ta banque, La
 
 Les signaux d'alerte :
 
-- **L'urgence artificielle** — "Votre compte sera suspendu dans 24h", "Action requise immédiatement". Les vraies entreprises ne t'envoient presque jamais ce genre de message.
-- **L'adresse de l'expéditeur** — `support@netflix-secure-verify.com` c'est pas Netflix. Regarde toujours le vrai domaine.
-- **Les liens bizarres** — Avant de cliquer, survole le lien et regarde l'URL. Si c'est `netflix.com.arnaque.ru`, fuis.
-- **Les demandes d'infos sensibles** — Aucune entreprise légitime ne te demandera ton mot de passe par email. Jamais.
+- **L'urgence artificielle** "Votre compte sera suspendu dans 24h", "Action requise immédiatement". Les vraies entreprises ne t'envoient presque jamais ce genre de message.
+- **L'adresse de l'expéditeur** `support@netflix-secure-verify.com` c'est pas Netflix. Regarde toujours le vrai domaine.
+- **Les liens bizarres** Avant de cliquer, survole le lien et regarde l'URL. Si c'est `netflix.com.arnaque.ru`, fuis.
+- **Les demandes d'infos sensibles** Aucune entreprise légitime ne te demandera ton mot de passe par email. Jamais.
 
 Le réflexe : si tu reçois un email suspect, ne clique sur rien. Va directement sur le site en tapant l'adresse toi même dans ton navigateur. Si c'est vraiment urgent, tu le verras sur ton compte.
 

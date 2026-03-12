@@ -118,7 +118,7 @@ const services = [
       },
       {
         subtitle: "Technologies que je maîtrise",
-        text: "Astro pour des sites statiques ultra-performants (score Lighthouse proche de 100). Svelte pour des interfaces réactives sans virtual DOM. Pascal pour certains outils métier, scripts spécialisés et logiques applicatives robustes. TypeScript pour un code front-end maintenable."
+        text: "Astro pour des sites statiques ultra-performants (score Lighthouse proche de 100). Svelte pour des interfaces réactives sans virtual DOM. C et PHP pour certains outils métier, scripts spécialisés et logiques applicatives robustes. TypeScript pour un code front-end maintenable."
       },
       {
         subtitle: "Avantages concrets pour vous",
@@ -132,7 +132,7 @@ const services = [
         ]
       }
     ],
-    techs: ["Astro", "Svelte", "Pascal", "TypeScript"]
+    techs: ["Astro", "Svelte", "C et PHP", "TypeScript"]
   },
   {
     id: "platform",
@@ -204,7 +204,7 @@ const services = [
 
                 <div class="flex flex-wrap gap-2">
                   {service.techs.map(tech => (
-                    <span class="px-3 py-1 rounded-full text-xs font-medium bg-dark-800/80 text-secondary border border-dark-600/50 hover:border-primary-500/30 hover:text-primary-300 transition-colors">
+                    <span class="px-3 py-1 rounded-full text-xs font-medium bg-dark-800/80 text-secondary border border-dark-600/50 transition-colors">
                       {tech}
                     </span>
                   ))}
@@ -230,7 +230,7 @@ const services = [
                   {block.list && (
                     <div class="grid md:grid-cols-2 gap-6 mt-8">
                       {block.list.map((item) => (
-                        <div class="surface-elevated p-8 rounded-2xl border border-dark-700/50 hover:border-primary-500/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary-500/5">
+                        <div class="surface-elevated p-8 rounded-2xl border border-dark-700/50 transition-all duration-300">
                           <h4 class="text-lg font-bold text-main mb-3">{item.title}</h4>
                           <p class="text-secondary text-sm leading-relaxed">{item.desc}</p>
                         </div>
