@@ -3,7 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { CheckCircle2, ArrowRight } from "lucide-astro";
-import { Php, Typescript, Wordpress } from "simple-icons-astro";
+import { Wordpress, Linux, Gnubash, Rust } from "simple-icons-astro";
 ---
 
 <BaseLayout
@@ -119,19 +119,20 @@ import { Php, Typescript, Wordpress } from "simple-icons-astro";
                     <!-- Tech Icons Section -->
                     <div class="order-1 md:order-2 relative reveal delay-200">
                         <div
-                            class="aspect-square md:aspect-auto md:h-[500px] rounded-2xl bg-gradient-to-br from-primary-500/20 to-purple-500/20 border border-white/5 backdrop-blur-sm flex items-center justify-center p-0 overflow-hidden"
+                            class="aspect-square md:aspect-auto md:h-[500px] rounded-2xl bg-gradient-to-br from-primary-500/20 to-purple-500/20    -white/5 backdrop-blur-sm flex items-center justify-center p-0 overflow-hidden"
                         >
                             <div class="grid grid-cols-2 w-full h-full">
-                                <!-- Linux / Bash / Rust -->
+                                <!-- Linux -->
                                 <div class="flex items-center justify-center">
-                                    <div class="text-main text-center font-semibold text-xl px-4">
-                                        Linux<br />Bash<br />Rust*
-                                    </div>
+                                    <Linux
+                                        class="w-32 h-32 simple-icon"
+                                        style="color: #1A1A1A;"
+                                    />
                                 </div>
 
-                                <!-- TypeScript -->
+                                <!-- Rust -->
                                 <div class="flex items-center justify-center">
-                                    <Typescript
+                                    <Rust
                                         class="w-32 h-32 simple-icon"
                                         style="color: #1A1A1A;"
                                     />
@@ -145,9 +146,9 @@ import { Php, Typescript, Wordpress } from "simple-icons-astro";
                                     />
                                 </div>
 
-                                <!-- PHP -->
+                                <!-- Bash -->
                                 <div class="flex items-center justify-center">
-                                    <Php
+                                    <Gnubash
                                         class="w-32 h-32 simple-icon"
                                         style="color: #1A1A1A;"
                                     />
@@ -250,7 +251,7 @@ import { Php, Typescript, Wordpress } from "simple-icons-astro";
                                 auprès d'une agence classique.
                             </p>
                             <p
-                                class="font-medium text-main pt-4 border-t border-white/5 text-lg"
+                                class="font-medium text-main pt-4  -t  -white/5 text-lg"
                             >
                                 Mon objectif : vous donner des fondations
                                 solides pour créer, vendre et scaler
@@ -271,7 +272,7 @@ import { Php, Typescript, Wordpress } from "simple-icons-astro";
                 <div class="grid md:grid-cols-3 gap-8 reveal delay-100">
                     <!-- Card 1 -->
                     <div
-                        class="glass-card p-8 flex flex-col h-full hover:scale-[1.02] transition-transform"
+                        class="glass-card p-8 flex flex-col h-full "
                     >
                         <div
                             class="w-14 h-14 rounded-full bg-primary-500/20 flex items-center justify-center mb-6 text-primary-400 font-bold text-2xl"
@@ -286,7 +287,7 @@ import { Php, Typescript, Wordpress } from "simple-icons-astro";
                     </div>
                     <!-- Card 2 -->
                     <div
-                        class="glass-card p-8 flex flex-col h-full hover:scale-[1.02] transition-transform"
+                        class="glass-card p-8 flex flex-col h-full "
                     >
                         <div
                             class="w-14 h-14 rounded-full bg-primary-500/20 flex items-center justify-center mb-6 text-primary-400 font-bold text-2xl"
@@ -302,7 +303,7 @@ import { Php, Typescript, Wordpress } from "simple-icons-astro";
                     </div>
                     <!-- Card 3 -->
                     <div
-                        class="glass-card p-8 flex flex-col h-full hover:scale-[1.02] transition-transform"
+                        class="glass-card p-8 flex flex-col h-full "
                     >
                         <div
                             class="w-14 h-14 rounded-full bg-primary-500/20 flex items-center justify-center mb-6 text-primary-400 font-bold text-2xl"
@@ -340,7 +341,7 @@ import { Php, Typescript, Wordpress } from "simple-icons-astro";
                         Une collaboration simple, claire et efficace
                     </h2>
                     <div
-                        class="bg-dark-800/50 rounded-2xl p-8 md:p-12 border border-white/5"
+                        class="bg-dark-800/50 rounded-2xl p-8 md:p-12    -white/5"
                     >
                         <p class="text-xl mb-8 font-medium text-main">
                             Je m’engage à :
