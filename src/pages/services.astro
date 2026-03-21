@@ -2,168 +2,135 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import { Monitor, ShoppingBag, Shield, Zap, Server, CheckCircle2, ArrowRight, Bot, Wrench } from "lucide-astro";
+import { Monitor, Shield, Zap, Server, CheckCircle2, ArrowRight } from "lucide-astro";
 
-const title = "Services de Développement Web | Développeur Freelance Perpignan";
-const description = "Services de développement web sur mesure : sites modernes, e-commerce WordPress, web apps, automatisation et platform engineering. Intervention Perpignan et à distance partout en France.";
+const title = "Services web, infrastructure & sécurité | E Informatique";
+const description = "Services orientés production : sites web et WordPress, infrastructure Linux VPS, automatisation, cybersécurité défensive et optimisation des performances.";
 
 const services = [
   {
     id: "sites-web",
-    title: "Sites web, maintenance & optimisation WordPress",
+    title: "Sites web & WordPress",
     icon: Monitor,
-    accroche: "Création, maintenance et optimisation de sites WordPress et sur mesure. Un site rapide, sécurisé et régulièrement mis à jour pour des résultats durables.",
+    accroche: "Création, maintenance et optimisation de sites web orientés fiabilité, performance et évolutivité.",
     content: [
       {
-        subtitle: "Pourquoi investir dans la maintenance de votre site ?",
-        text: "Un site web non maintenu devient vulnérable, lent et pénalisé par Google. Mises à jour WordPress, optimisation des performances, vérifications de sécurité, sauvegardes régulières… Je prends en charge tout le cycle de vie de votre site pour que vous puissiez vous concentrer sur votre activité."
+        subtitle: "Un site qui tient dans le temps",
+        text: "Je conçois des sites web qui restent rapides, stables et maintenables. L'objectif n'est pas seulement de livrer un site, mais de garder une base propre que vous pouvez faire évoluer sans blocage technique."
       },
       {
         subtitle: "Ce que je fais pour vous",
         list: [
-          { title: "Maintenance WordPress complète", desc: "Mises à jour de WordPress, thèmes et plugins, surveillance et corrections." },
-          { title: "Optimisation des performances", desc: "Accélération du chargement, cache, compression d'images, score PageSpeed." },
-          { title: "Refonte et modernisation", desc: "Remise à niveau de sites vieillissants : performances, sécurité et stabilité." },
-          { title: "Création WordPress / Astro / sur mesure", desc: "Sites administrables ou développement custom selon vos besoins." }
+          { title: "Création WordPress, Astro ou sur mesure", desc: "Site vitrine, site administrable ou base custom selon vos besoins métier." },
+          { title: "Maintenance corrective et évolutive", desc: "Mises à jour, correction de bugs, suivi des composants critiques." },
+          { title: "Optimisation vitesse et Core Web Vitals", desc: "Travail sur le front, les assets, le cache et l'infrastructure web." },
+          { title: "Sécurité et sauvegardes", desc: "Mise en place de sauvegardes et mesures défensives de base." }
         ]
       },
       {
-        subtitle: "Mes garanties qualité",
+        subtitle: "Résultat attendu",
         simpleList: [
-          "Mises à jour régulières et sauvegardes automatiques",
-          "Vitesse de chargement optimisée en continu",
-          "Structure technique propre (balises, Core Web Vitals)",
-          "Sécurisation : HTTPS, pare-feu, monitoring",
-          "Code propre et maintenable",
-          "Rapport mensuel de suivi"
+          "Un site plus fiable en production",
+          "Des temps de chargement plus courts",
+          "Une maintenance claire et planifiable",
+          "Moins d'incidents liés aux mises à jour"
         ]
       }
     ],
-    techs: ["WordPress", "Astro", "Performance", "Maintenance", "Sécurité"]
-  },
-  {
-    id: "maintenance-particuliers",
-    title: "Maintenance & assistance systèmes (particuliers)",
-    icon: Wrench,
-    accroche: "Dépannage, sécurisation et fiabilisation de vos équipements informatiques. Un accompagnement humain et accessible pour votre quotidien numérique.",
-    content: [
-      {
-        subtitle: "Un accompagnement informatique de proximité",
-        text: "Vous rencontrez des lenteurs, des pannes ou des comportements suspects sur votre ordinateur ? Je vous accompagne pour diagnostiquer, réparer et sécuriser vos équipements. Mon approche : des explications claires, des solutions durables, et une vraie pédagogie pour que vous compreniez ce qui se passe."
-      },
-      {
-        subtitle: "Services proposés",
-        list: [
-          { title: "Dépannage et diagnostic", desc: "Identification et résolution des problèmes matériels et logiciels." },
-          { title: "Sécurisation des postes", desc: "Antivirus, pare-feu, mises à jour, suppression de malwares." },
-          { title: "Optimisation et nettoyage", desc: "Accélération des machines lentes, suppression des bloatwares." },
-          { title: "Configuration réseau", desc: "Box internet, Wi-Fi, imprimantes, NAS, partage réseau." }
-        ]
-      },
-      {
-        subtitle: "Ce qui est inclus",
-        simpleList: [
-          "Déplacement à domicile (Perpignan et environs)",
-          "Assistance à distance quand c'est possible",
-          "Sauvegardes et récupération de données",
-          "Conseils d'achat de matériel",
-          "Formation de base incluse",
-          "Suivi post-intervention"
-        ]
-      }
-    ],
-    techs: ["Windows", "macOS", "Linux", "Réseaux", "Sécurité poste", "Sauvegardes"]
-  },
-  {
-    id: "cybersecurite",
-    title: "Cybersécurité & Protection numérique",
-    icon: Shield,
-    accroche: "Protégez votre vie numérique et celle de votre entreprise. Je vous accompagne pour sécuriser vos données, vos accès et vos systèmes contre les menaces actuelles.",
-    content: [
-      {
-        subtitle: "La cybersécurité, un enjeu pour tous",
-        text: "Particulier ou professionnel, vous êtes une cible potentielle. Phishing, ransomwares, vols de données... Les menaces sont réelles et en constante évolution. Je vous aide à mettre en place des protections efficaces et adaptées à votre niveau de risque, sans complexité inutile."
-      },
-      {
-        subtitle: "Services proposés",
-        list: [
-          { title: "Audit de sécurité", desc: "Analyse de vos pratiques, identification des failles et recommandations concrètes." },
-          { title: "Configuration 2FA & authentification", desc: "Mise en place de l'authentification à deux facteurs sur tous vos comptes critiques." },
-          { title: "Gestionnaires de mots de passe", desc: "Installation et formation sur Bitwarden, 1Password ou KeePass." },
-          { title: "Développement d'outils de sécurité", desc: "Scripts et outils sur mesure pour automatiser vos contrôles de sécurité." }
-        ]
-      },
-      {
-        subtitle: "Accompagnement complet",
-        simpleList: [
-          "Formation et sensibilisation aux bonnes pratiques",
-          "Sécurisation des postes de travail et mobiles",
-          "Configuration VPN et navigation sécurisée",
-          "Sauvegarde chiffrée de vos données sensibles",
-          "Veille sur les fuites de données (Have I Been Pwned)"
-        ]
-      }
-    ],
-    techs: ["2FA/MFA", "Bitwarden", "VPN", "Chiffrement", "Linux", "Audit sécurité"]
-  },
-  {
-    id: "performance",
-    title: "Performance & Stack technique optimisée",
-    icon: Zap,
-    accroche: "Je recherche constamment le meilleur ratio performance/qualité. Technologies minimalistes, temps de chargement instantanés, coûts réduits. Chaque ligne de code est pensée pour l'efficacité.",
-    content: [
-      {
-        subtitle: "Ma philosophie : moins c'est plus",
-        text: "Dans un monde où les sites web deviennent de plus en plus lourds, je prends le contre-pied. J'utilise des technologies qui génèrent uniquement ce qui est nécessaire : pas de JavaScript superflu, pas de dépendances inutiles. Résultat : des sites ultra-rapides qui se chargent instantanément, même en connexion mobile, et des coûts d'hébergement divisés par 10."
-      },
-      {
-        subtitle: "Technologies que je maîtrise",
-        text: "Astro pour des sites statiques ultra-performants (score Lighthouse proche de 100). Svelte pour des interfaces réactives sans virtual DOM. C et PHP pour certains outils métier, scripts spécialisés et logiques applicatives robustes. TypeScript pour un code front-end maintenable."
-      },
-      {
-        subtitle: "Avantages concrets pour vous",
-        simpleList: [
-          "Score Google PageSpeed > 95/100",
-          "Temps de chargement < 1 seconde",
-          "Meilleurs Core Web Vitals (Lighthouse)",
-          "Coûts d'hébergement minimaux",
-          "Sites accessibles partout, même en 3G",
-          "Maintenance simplifiée, moins de bugs"
-        ]
-      }
-    ],
-    techs: ["Astro", "Svelte", "C et PHP", "TypeScript"]
+    techs: ["WordPress", "Astro", "TypeScript", "PHP", "Performance"]
   },
   {
     id: "platform",
-    title: "Platform Engineering léger",
+    title: "Platform Engineering & Infrastructure VPS",
     icon: Server,
-    accroche: "Hébergement, déploiement et infrastructure modernes sans la complexité et les coûts du cloud. Des solutions simples et robustes pour vos applications web.",
+    accroche: "Je mets en place une base technique propre pour héberger, déployer et exploiter vos applications web sans complexité inutile.",
     content: [
       {
-        subtitle: "Pas de cloud surdimensionné, juste ce qu'il vous faut",
-        text: "Les géants du cloud (AWS, Azure) sont souvent trop complexes et coûteux pour les PME. Je configure des infrastructures simples et performantes sur VPS. Vous obtenez puissance et contrôle sans les factures explosives."
+        subtitle: "Le différenciateur technique",
+        text: "Un site web ne vaut que par son exploitation réelle. J'interviens sur l'infrastructure Linux et les processus de déploiement pour éviter les mises en prod fragiles, les environnements incohérents et les incidents répétitifs."
       },
       {
-        subtitle: "Ce que je fais pour vous",
+        subtitle: "Ce que je mets en place",
         list: [
-          { title: "Configuration serveurs Linux", desc: "VPS Debian/Ubuntu sécurisés et optimisés." },
-          { title: "Déploiement avec Docker & Kamal", desc: "Environnements isolés et déploiements zero-downtime." },
-          { title: "Infrastructure complète", desc: "Reverse proxy (Nginx), Base de données, CI/CD GitHub Actions." },
-          { title: "Monitoring & Sécurité", desc: "Surveillance serveurs, logs, SSL automatique, Firewall." }
+          { title: "VPS Linux Debian/Ubuntu", desc: "Configuration initiale, base système propre et sécurisée." },
+          { title: "Déploiement Docker et Kamal", desc: "Livraisons plus fiables et rollback simplifié." },
+          { title: "Nginx, HTTPS, DNS", desc: "Configuration web serveur, certificats et routage." },
+          { title: "CI/CD GitHub Actions", desc: "Automatisation des tâches répétitives et déploiements contrôlés." }
         ]
       },
       {
-        subtitle: "Avantages VPS vs Cloud",
+        subtitle: "Bénéfices concrets",
         simpleList: [
-          "Coûts prévisibles et très faibles",
-          "Performances excellentes (serveurs dédiés)",
-          "Contrôle total (accès root)",
-          "Sécurité renforcée et sauvegardes auto"
+          "Mises en production plus prévisibles",
+          "Infrastructure lisible et maintenable",
+          "Moins de dépendance aux manipulations manuelles",
+          "Coûts maîtrisés sur VPS"
         ]
       }
     ],
-    techs: ["Linux", "Docker", "Kamal", "Nginx", "GitHub Actions", "OVH", "Let's Encrypt"]
+    techs: ["Linux", "Docker", "Kamal", "Nginx", "GitHub Actions", "VPS"]
+  },
+  {
+    id: "cybersecurite",
+    title: "Cybersécurité & Hardening serveur",
+    icon: Shield,
+    accroche: "Sécurité défensive pragmatique pour PME : réduire la surface d'attaque et sécuriser l'exploitation de vos services.",
+    content: [
+      {
+        subtitle: "Approche défensive orientée terrain",
+        text: "Je travaille sur les points qui réduisent vraiment le risque : configuration serveur, exposition réseau, droits, services actifs et scripts de contrôle. L'objectif est d'améliorer rapidement votre posture de sécurité sans alourdir votre fonctionnement."
+      },
+      {
+        subtitle: "Services proposés",
+        list: [
+          { title: "Hardening de serveurs Linux", desc: "Renforcement des configurations système et réseau." },
+          { title: "Audit de configuration VPS", desc: "Revue technique avec recommandations priorisées et actionnables." },
+          { title: "Scripts défensifs sur mesure", desc: "Outils automatisés pour contrôles, alertes et vérifications régulières." },
+          { title: "Réponse à incident basique PME", desc: "Première analyse, confinement initial et plan de remédiation court terme." }
+        ]
+      },
+      {
+        subtitle: "Ce que vous gagnez",
+        simpleList: [
+          "Moins de failles de configuration",
+          "Une meilleure hygiène de sécurité opérationnelle",
+          "Des contrôles récurrents automatisés",
+          "Une réaction plus rapide en cas d'incident"
+        ]
+      }
+    ],
+    techs: ["Linux", "Hardening", "Audit VPS", "Scripts Bash", "Sécurité défensive"]
+  },
+  {
+    id: "performance",
+    title: "Performance & Optimisation",
+    icon: Zap,
+    accroche: "J'optimise la performance applicative et système pour améliorer vitesse, stabilité et coût d'exploitation.",
+    content: [
+      {
+        subtitle: "Performance utile",
+        text: "L'optimisation ne se limite pas à un score. Je travaille sur les éléments qui impactent réellement l'expérience utilisateur, la stabilité en charge et la consommation de ressources côté serveur."
+      },
+      {
+        subtitle: "Axes d'optimisation",
+        list: [
+          { title: "Front-end et rendu", desc: "Poids des pages, chargement des assets, parcours critique." },
+          { title: "Back-end et traitement", desc: "Réduction des temps de réponse et simplification des traitements." },
+          { title: "Nginx, cache, compression", desc: "Réglages serveur pour gagner en rapidité et robustesse." },
+          { title: "Suivi de métriques", desc: "Mesure continue pour piloter les améliorations." }
+        ]
+      },
+      {
+        subtitle: "Résultats visés",
+        simpleList: [
+          "Temps de chargement réduits",
+          "Meilleurs Core Web Vitals",
+          "Infrastructure plus stable",
+          "Coût serveur mieux maîtrisé"
+        ]
+      }
+    ],
+    techs: ["Core Web Vitals", "Nginx", "Cache", "Monitoring", "Optimisation"]
   }
 ];
 ---
@@ -175,11 +142,11 @@ const services = [
     <!-- Page Header -->
     <section class="container-custom mb-20 md:mb-32 text-center">
       <h1 class="text-4xl md:text-6xl font-bold mb-6 mt-[150px] text-main reveal">
-        Services de développement web <br />
-        <span class="text-highlight">& solutions digitales</span>
+        Services web, infrastructure <br />
+        <span class="text-highlight">& sécurité défensive</span>
       </h1>
       <p class="text-xl text-secondary max-w-3xl mx-auto leading-relaxed reveal delay-100 mb-[150px]">
-        Des solutions sur mesure pour développer votre activité en ligne, automatiser vos processus et créer des outils qui vous font gagner du temps et de l'argent. Sans complexité inutile, avec des technologies modernes et éprouvées.
+        J'interviens sur le site et sur le système qui le fait tourner : développement web, WordPress, VPS Linux, automatisation et hardening. Objectif : une base technique fiable, maintenable et performante.
       </p>
     </section>
 
