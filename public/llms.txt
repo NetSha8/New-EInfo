@@ -1,0 +1,45 @@
+# E Informatique
+
+> Développeur web freelance & administrateur systèmes basé à Perpignan, France. Création de sites web, WordPress, infrastructure Linux VPS, automatisation, cybersécurité défensive et optimisation des performances.
+
+## À propos
+
+E Informatique est le nom commercial d'Elian, développeur web et administrateur systèmes freelance intervenant à Perpignan et partout en France. Spécialisé dans la création de sites web performants, l'hébergement sur VPS Linux et la sécurisation d'infrastructures pour PME, indépendants et projets web.
+
+## Services
+
+### Sites web & WordPress
+Création, maintenance et optimisation de sites web : sites WordPress, Astro ou sur mesure, maintenance corrective et évolutive, optimisation vitesse et Core Web Vitals, refonte et modernisation, mises à jour, sécurité et sauvegardes.
+
+### Platform Engineering & Infrastructure VPS
+Mise en place VPS Linux Debian/Ubuntu, déploiement Docker et Kamal, configuration Nginx, HTTPS et DNS, CI/CD léger avec GitHub Actions.
+
+### Cybersécurité & Hardening serveur
+Approche défensive pragmatique pour PME et projets web : hardening de serveurs Linux, audit de configuration VPS, scripts et outils défensifs sur mesure, réponse à incident basique pour PME.
+
+### Performance & Optimisation
+Optimisation front et back, réduction des temps de chargement, ajustements Nginx, cache et compression, suivi des métriques techniques.
+
+## Technologies
+
+TypeScript, PHP, React, Astro, WordPress, Docker, Kamal, Nginx, Linux Debian/Ubuntu, GitHub Actions, Tailwind CSS, Node.js, PostgreSQL, MariaDB.
+
+## Localisation
+
+Perpignan, Occitanie, France. Intervention possible partout en France, en remote ou sur site.
+
+## Contact
+
+- Site web : https://einformatique.fr
+- Email : elianb.pro@gmail.com
+- Téléphone : 07 68 53 51 50
+
+## Liens
+
+- [Accueil](https://einformatique.fr/)
+- [Services](https://einformatique.fr/services)
+- [Portfolio](https://einformatique.fr/portfolio)
+- [Blog](https://einformatique.fr/blog)
+- [À propos](https://einformatique.fr/about)
+- [Contact](https://einformatique.fr/contact)
+- [Mentions légales](https://einformatique.fr/mentions-legales)

@@ -37,6 +37,44 @@ const nextPost = currentIndex < sortedPosts.length - 1 ? sortedPosts[currentInde
 
 const title = `${post.data.title} | Blog E Informatique`;
 const description = post.data.excerpt;
+const siteUrl = "https://einformatique.fr";
+
+// BlogPosting structured data for SEO & AI
+const blogPostingSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.data.title,
+    description: post.data.excerpt,
+    datePublished: post.data.date,
+    author: {
+        "@type": "Person",
+        name: "Elian",
+        url: `${siteUrl}/about`,
+    },
+    publisher: {
+        "@type": "Organization",
+        name: "E Informatique",
+        url: siteUrl,
+    },
+    mainEntityOfPage: {
+        "@type": "WebPage",
+        "@id": `${siteUrl}/blog/${post.slug}/`,
+    },
+    keywords: post.data.tags.join(", "),
+    articleSection: post.data.category,
+    inLanguage: "fr-FR",
+};
+
+// BreadcrumbList for navigation SEO
+const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Accueil", item: siteUrl },
+        { "@type": "ListItem", position: 2, name: "Blog", item: `${siteUrl}/blog` },
+        { "@type": "ListItem", position: 3, name: post.data.title, item: `${siteUrl}/blog/${post.slug}/` },
+    ],
+};
 
 // Helper function to format dates
 function formatDate(dateStr: string): string {
@@ -48,8 +86,17 @@ function formatDate(dateStr: string): string {
 }
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout
+    title={title}
+    description={description}
+    ogType="article"
+    articleDate={post.data.date}
+    jsonLd={blogPostingSchema}
+>
     <Header />
+
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 
     <main class="pt-24 md:pt-32">
         <article class="py-8 md:py-16">

@@ -2,15 +2,31 @@
 export interface Props {
     title?: string;
     description?: string;
+    ogImage?: string;
+    ogType?: string;
+    canonicalUrl?: string;
+    articleDate?: string;
+    articleModified?: string;
+    noindex?: boolean;
+    jsonLd?: Record<string, unknown>;
 }
 
 const {
     title = "E Informatique | Développeur Web & Administrateur Systèmes Freelance",
     description = "Sites web, WordPress, infrastructure Linux, automatisation, cybersécurité défensive et déploiement VPS. Intervention à Perpignan et partout en France.",
+    ogImage = "/images/og-default.png",
+    ogType = "website",
+    canonicalUrl,
+    articleDate,
+    articleModified,
+    noindex = false,
+    jsonLd,
 } = Astro.props;
 
 const siteUrl = "https://einformatique.fr";
 const siteName = "E Informatique";
+const currentUrl = canonicalUrl || new URL(Astro.url.pathname, siteUrl).href;
+const ogImageUrl = ogImage.startsWith("http") ? ogImage : new URL(ogImage, siteUrl).href;
 
 import "../styles/global.css";
 ---
@@ -20,34 +36,53 @@ import "../styles/global.css";
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="robots" content="index, follow" />
+        <meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"} />
 
         <!-- Primary Meta Tags -->
         <title>{title}</title>
         <meta name="title" content={title} />
         <meta name="description" content={description} />
-        <meta name="author" content={siteName} />
+        <meta name="author" content="Elian — E Informatique" />
         <meta
             name="keywords"
-            content="développeur web, administrateur systèmes, freelance, Perpignan, WordPress, infrastructure Linux, VPS, Docker, Kamal, Nginx, GitHub Actions, TypeScript, PHP, cybersécurité défensive"
+            content="développeur web, administrateur systèmes, freelance, Perpignan, WordPress, Astro, infrastructure Linux, VPS, Docker, Kamal, Nginx, GitHub Actions, TypeScript, PHP, cybersécurité défensive, création site web, hébergement VPS, optimisation performance web"
         />
+        <meta name="geo.region" content="FR-66" />
+        <meta name="geo.placename" content="Perpignan" />
+        <meta name="geo.position" content="42.6887;2.8948" />
+        <meta name="ICBM" content="42.6887, 2.8948" />
+
+        <!-- Canonical URL -->
+        <link rel="canonical" href={currentUrl} />
 
         <!-- Favicon -->
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
+        <!-- RSS Feed -->
+        <link rel="alternate" type="application/rss+xml" title="Blog E Informatique" href={`${siteUrl}/rss.xml`} />
+
+        <!-- AI / LLMs discoverability -->
+        <link rel="alternate" type="text/plain" href={`${siteUrl}/llms.txt`} title="LLM-friendly site summary" />
+
         <!-- Open Graph / Facebook -->
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={siteUrl} />
+        <meta property="og:type" content={ogType} />
+        <meta property="og:url" content={currentUrl} />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
+        <meta property="og:image" content={ogImageUrl} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <meta property="og:site_name" content={siteName} />
         <meta property="og:locale" content="fr_FR" />
+        {articleDate && <meta property="article:published_time" content={articleDate} />}
+        {articleModified && <meta property="article:modified_time" content={articleModified} />}
 
         <!-- Twitter -->
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content={siteUrl} />
-        <meta property="twitter:title" content={title} />
-        <meta property="twitter:description" content={description} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content={currentUrl} />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content={ogImageUrl} />
 
         <!-- Preload Critical Fonts -->
         <link
@@ -65,21 +100,34 @@ import "../styles/global.css";
             crossorigin
         />
 
-        <!-- Schema.org LocalBusiness -->
+        <!-- Schema.org LocalBusiness (default) -->
         <script
             type="application/ld+json"
             set:html={JSON.stringify({
                 "@context": "https://schema.org",
                 "@type": "LocalBusiness",
+                "@id": `${siteUrl}/#business`,
                 name: siteName,
                 description: description,
                 url: siteUrl,
-                telephone: "",
+                telephone: "07 68 53 51 50",
+                email: "elianb.pro@gmail.com",
+                founder: {
+                    "@type": "Person",
+                    name: "Elian",
+                    jobTitle: "Développeur Web & Administrateur Systèmes",
+                },
                 address: {
                     "@type": "PostalAddress",
                     addressLocality: "Perpignan",
                     addressRegion: "Occitanie",
+                    postalCode: "66000",
                     addressCountry: "FR",
+                },
+                geo: {
+                    "@type": "GeoCoordinates",
+                    latitude: "42.6887",
+                    longitude: "2.8948",
                 },
                 areaServed: [
                     {
@@ -95,12 +143,46 @@ import "../styles/global.css";
                     "Création de sites web",
                     "Développement WordPress",
                     "Développement d'applications web",
-                    "Automatisation",
-                    "Déploiement VPS",
+                    "Infrastructure VPS Linux",
+                    "Automatisation et CI/CD",
+                    "Cybersécurité défensive",
+                    "Optimisation de performances web",
+                    "Déploiement Docker et Kamal",
+                ],
+                knowsAbout: [
+                    "TypeScript", "PHP", "React", "Astro", "WordPress",
+                    "Docker", "Kamal", "Nginx", "Linux", "GitHub Actions",
+                    "Tailwind CSS", "PostgreSQL", "MariaDB", "Cybersécurité",
                 ],
                 priceRange: "$$",
+                sameAs: [],
             })}
         />
+
+        <!-- Schema.org WebSite (for sitelinks search) -->
+        <script
+            type="application/ld+json"
+            set:html={JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                "@id": `${siteUrl}/#website`,
+                name: siteName,
+                url: siteUrl,
+                description: "Développeur web freelance & administrateur systèmes à Perpignan. Sites web, WordPress, infrastructure Linux VPS, cybersécurité défensive.",
+                inLanguage: "fr-FR",
+                publisher: {
+                    "@id": `${siteUrl}/#business`,
+                },
+            })}
+        />
+
+        <!-- Custom JSON-LD (page-specific) -->
+        {jsonLd && (
+            <script
+                type="application/ld+json"
+                set:html={JSON.stringify(jsonLd)}
+            />
+        )}
     </head>
     <body class="min-h-screen antialiased">
         <slot />

@@ -1,0 +1,106 @@
+# E Informatique — Informations complètes
+
+> Développeur web freelance & administrateur systèmes basé à Perpignan, France. Création de sites web, WordPress, infrastructure Linux VPS, automatisation, cybersécurité défensive et optimisation des performances.
+
+## Identité
+
+- **Nom commercial** : E Informatique
+- **Fondateur** : Elian
+- **Statut** : Freelance / Indépendant
+- **Localisation** : Perpignan, Pyrénées-Orientales, Occitanie, France
+- **Zone d'intervention** : Perpignan et toute la France (remote ou sur site)
+- **Site web** : https://einformatique.fr
+- **Email** : elianb.pro@gmail.com
+- **Téléphone** : 07 68 53 51 50
+
+## Résumé des compétences
+
+Elian est un développeur web et administrateur systèmes freelance qui accompagne les PME, indépendants et porteurs de projets web dans la création de sites performants, la mise en place d'infrastructures VPS Linux solides, et la sécurisation de leurs environnements numériques. Son approche est pragmatique, orientée production et résultats concrets.
+
+## Services détaillés
+
+### 1. Sites web & WordPress
+- Création de sites vitrines, blogs, et sites administrables sous WordPress, Astro, ou sur mesure
+- Maintenance corrective (correction de bugs, mises à jour) et évolutive (nouvelles fonctionnalités)
+- Optimisation des performances web : Core Web Vitals, temps de chargement, scores Lighthouse
+- Refonte et modernisation de sites existants
+- Sécurité WordPress : mises à jour, sauvegardes automatisées, durcissement
+
+### 2. Platform Engineering & Infrastructure VPS
+- Mise en place de serveurs VPS Linux (Debian, Ubuntu) chez OVH et autres hébergeurs
+- Conteneurisation avec Docker et déploiement via Kamal
+- Configuration Nginx comme reverse proxy, avec HTTPS (Let's Encrypt) et gestion DNS
+- Mise en place de pipelines CI/CD légers avec GitHub Actions
+- Automatisation de tâches système (scripts Bash, cron jobs)
+
+### 3. Cybersécurité défensive & Hardening serveur
+- Hardening de serveurs Linux : configuration SSH, pare-feu (ufw/iptables), fail2ban
+- Audit de configuration VPS et recommandations de sécurité
+- Développement de scripts et outils défensifs sur mesure
+- Réponse à incident basique pour PME
+- Veille sécurité et accompagnement pragmatique
+
+### 4. Performance & Optimisation
+- Optimisation front-end : compression d'images, lazy loading, minification, tree-shaking
+- Optimisation back-end : requêtes SQL, cache applicatif, configuration serveur
+- Ajustements Nginx : cache, gzip/brotli, headers de sécurité
+- Suivi des métriques techniques et rapports de performance
+
+## Stack technique
+
+### Langages
+- TypeScript, JavaScript, PHP, Bash, SQL, HTML, CSS
+
+### Frameworks & outils front
+- Astro, React, Tailwind CSS, WordPress
+
+### Infrastructure & DevOps
+- Docker, Kamal, Nginx, Linux Debian/Ubuntu, GitHub Actions
+
+### Bases de données
+- PostgreSQL, MariaDB, MySQL
+
+### Hébergement
+- OVH, VPS Linux
+
+## Public cible
+
+- PME et TPE souhaitant un site web professionnel et performant
+- Indépendants et freelances ayant besoin d'une présence web solide
+- Porteurs de projets web nécessitant une infrastructure technique fiable
+- Entreprises cherchant à sécuriser et optimiser leur infrastructure existante
+
+## Pourquoi choisir E Informatique ?
+
+- **Approche pragmatique** : Solutions adaptées au besoin réel, sans sur-ingénierie
+- **Orienté production** : Tout ce qui est livré est pensé pour tourner en production
+- **Transparence** : Communication claire et directe sur les choix techniques
+- **Performance** : Sites rapides, scores Lighthouse élevés, infrastructure optimisée
+- **Sécurité** : Approche défensive intégrée dès la conception
+- **Disponibilité** : Intervention rapide, support réactif
+
+## Tarification
+
+Gamme de prix : $$ (tarifs freelance compétitifs, devis sur demande)
+
+## Blog technique
+
+Le blog E Informatique traite de sujets techniques liés au développement web, à l'infrastructure, à la performance et à la sécurité. Articles écrits par Elian, basés sur son expérience terrain.
+
+### Articles récents
+- "Pourquoi j'ai choisi Astro pour mon site en 2026" — Retour d'expérience sur Astro comme framework SSG pour sites vitrines
+- "5 réflexes sécurité informatique en 2026" — Conseils pratiques de cybersécurité pour PME
+
+## Mentions légales
+
+Site hébergé chez OVH. Pas de cookies, pas de trackers, pas de collecte de données personnelles. Conforme RGPD.
+
+## Liens
+
+- [Accueil](https://einformatique.fr/)
+- [Services](https://einformatique.fr/services)
+- [Portfolio](https://einformatique.fr/portfolio)
+- [Blog](https://einformatique.fr/blog)
+- [À propos](https://einformatique.fr/about)
+- [Contact](https://einformatique.fr/contact)
+- [Mentions légales](https://einformatique.fr/mentions-legales)
