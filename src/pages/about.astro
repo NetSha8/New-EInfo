@@ -118,41 +118,33 @@ import { Wordpress, Linux, Gnubash, Rust } from "simple-icons-astro";
                     </div>
                     <!-- Tech Icons Section -->
                     <div class="order-1 md:order-2 relative reveal delay-200">
-                        <div
-                            class="aspect-square md:aspect-auto md:h-[500px] rounded-2xl bg-gradient-to-br from-primary-500/20 to-purple-500/20    -white/5 backdrop-blur-sm flex items-center justify-center p-0 overflow-hidden"
-                        >
-                            <div class="grid grid-cols-2 w-full h-full">
-                                <!-- Linux -->
-                                <div class="flex items-center justify-center">
-                                    <Linux
-                                        class="w-32 h-32 simple-icon"
-                                        style="color: #1A1A1A;"
-                                    />
-                                </div>
+                        <div class="grid grid-cols-2 gap-2">
+                            <!-- Linux -->
+                            <div class="glass-card flex items-center justify-center aspect-square p-6">
+                                <Linux
+                                    class="w-24 h-24 md:w-28 md:h-28 text-primary-600"
+                                />
+                            </div>
 
-                                <!-- Rust -->
-                                <div class="flex items-center justify-center">
-                                    <Rust
-                                        class="w-32 h-32 simple-icon"
-                                        style="color: #1A1A1A;"
-                                    />
-                                </div>
+                            <!-- Rust -->
+                            <div class="glass-card flex items-center justify-center aspect-square p-6">
+                                <Rust
+                                    class="w-24 h-24 md:w-28 md:h-28 text-primary-600"
+                                />
+                            </div>
 
-                                <!-- WordPress -->
-                                <div class="flex items-center justify-center">
-                                    <Wordpress
-                                        class="w-32 h-32 simple-icon"
-                                        style="color: #1A1A1A;"
-                                    />
-                                </div>
+                            <!-- WordPress -->
+                            <div class="glass-card flex items-center justify-center aspect-square p-6">
+                                <Wordpress
+                                    class="w-24 h-24 md:w-28 md:h-28 text-primary-600"
+                                />
+                            </div>
 
-                                <!-- Bash -->
-                                <div class="flex items-center justify-center">
-                                    <Gnubash
-                                        class="w-32 h-32 simple-icon"
-                                        style="color: #1A1A1A;"
-                                    />
-                                </div>
+                            <!-- Bash -->
+                            <div class="glass-card flex items-center justify-center aspect-square p-6">
+                                <Gnubash
+                                    class="w-24 h-24 md:w-28 md:h-28 text-primary-600"
+                                />
                             </div>
                         </div>
                     </div>
@@ -197,8 +189,8 @@ import { Wordpress, Linux, Gnubash, Rust } from "simple-icons-astro";
                         Ce que j’apporte à mes clients
                     </h2>
 
-                    <div class="grid md:grid-cols-2 gap-8 reveal delay-100">
-                        <div class="glass-card p-8 space-y-6">
+                    <div class="grid md:grid-cols-2 gap-2 reveal delay-100">
+                        <div class="glass-card glass-card--static card-glow p-8 space-y-6">
                             <h3 class="text-xl font-bold text-primary-400">
                                 Objectifs
                             </h3>
@@ -239,7 +231,7 @@ import { Wordpress, Linux, Gnubash, Rust } from "simple-icons-astro";
                             </p>
                         </div>
 
-                        <div class="glass-card p-8 space-y-6">
+                        <div class="glass-card glass-card--static card-glow p-8 space-y-6">
                             <h3 class="text-xl font-bold text-primary-400">
                                 Réalisation
                             </h3>
@@ -269,10 +261,10 @@ import { Wordpress, Linux, Gnubash, Rust } from "simple-icons-astro";
                 <h2 class="section-title text-3xl md:text-4xl mb-16 reveal">
                     Pour qui je travaille ?
                 </h2>
-                <div class="grid md:grid-cols-3 gap-8 reveal delay-100">
+                <div class="grid md:grid-cols-3 gap-2 reveal delay-100">
                     <!-- Card 1 -->
                     <div
-                        class="glass-card p-8 flex flex-col h-full "
+                        class="glass-card glass-card--static card-glow p-8 flex flex-col h-full "
                     >
                         <div
                             class="w-14 h-14 rounded-full bg-primary-500/20 flex items-center justify-center mb-6 text-primary-400 font-bold text-2xl"
@@ -287,7 +279,7 @@ import { Wordpress, Linux, Gnubash, Rust } from "simple-icons-astro";
                     </div>
                     <!-- Card 2 -->
                     <div
-                        class="glass-card p-8 flex flex-col h-full "
+                        class="glass-card glass-card--static card-glow p-8 flex flex-col h-full "
                     >
                         <div
                             class="w-14 h-14 rounded-full bg-primary-500/20 flex items-center justify-center mb-6 text-primary-400 font-bold text-2xl"
@@ -303,7 +295,7 @@ import { Wordpress, Linux, Gnubash, Rust } from "simple-icons-astro";
                     </div>
                     <!-- Card 3 -->
                     <div
-                        class="glass-card p-8 flex flex-col h-full "
+                        class="glass-card glass-card--static card-glow p-8 flex flex-col h-full "
                     >
                         <div
                             class="w-14 h-14 rounded-full bg-primary-500/20 flex items-center justify-center mb-6 text-primary-400 font-bold text-2xl"
@@ -412,3 +404,43 @@ import { Wordpress, Linux, Gnubash, Rust } from "simple-icons-astro";
 
     <Footer />
 </BaseLayout>
+
+<style>
+    .card-glow {
+        position: relative;
+        overflow: hidden;
+    }
+    .card-glow::before {
+        content: '';
+        position: absolute;
+        top: var(--glow-y, -100px);
+        left: var(--glow-x, -100px);
+        width: 250px;
+        height: 250px;
+        background: radial-gradient(circle, rgba(51, 133, 255, 0.08) 0%, transparent 70%);
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: 0;
+    }
+    .card-glow:hover::before {
+        opacity: 1;
+    }
+    .card-glow > * {
+        position: relative;
+        z-index: 1;
+    }
+</style>
+
+<script>
+    document.querySelectorAll('.card-glow').forEach((card) => {
+        card.addEventListener('mousemove', (e) => {
+            const el = card as HTMLElement;
+            const rect = el.getBoundingClientRect();
+            const mEvent = e as MouseEvent;
+            el.style.setProperty('--glow-x', `${mEvent.clientX - rect.left}px`);
+            el.style.setProperty('--glow-y', `${mEvent.clientY - rect.top}px`);
+        });
+    });
+</script>

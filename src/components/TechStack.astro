@@ -49,11 +49,11 @@ const techCategories = [
         </div>
 
         <!-- Tech Categories - Glass Cards -->
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-2">
             {
                 techCategories.map((category, index) => (
                     <div
-                        class={`glass-card glass-card--static reveal p-6 md:p-8 text-left delay-${(index + 1) * 100} hover:-translate-y-1 transition-transform`}
+                        class={`glass-card reveal p-6 md:p-8 text-left delay-${(index + 1) * 100}`}
                     >
                         <h3 class="text-xl font-bold text-main mb-6">
                             {category.title}

@@ -1,6 +1,6 @@
 ---
 import { Star, ArrowRight, MapPin } from "lucide-astro";
-import { Github, Dribbble } from "lucide-astro";
+import { Github } from "lucide-astro";
 import PixelatedCanvas from "./PixelatedCanvas";
 
 const specialties = [
@@ -34,7 +34,7 @@ const specialties = [
             <div>
                 <!-- Badge -->
                 <div
-                    class="inline-flex items-center gap-2 px-4 py-2 bg-dark-800 border border-dark-600 rounded-full mb-6 animate-slide-up shadow-lg hover:scale-105 transition-transform duration-500"
+                    class="inline-flex items-center gap-2 px-4 py-2 bg-dark-800    -dark-600 rounded-full mb-6 animate-slide-up  -lg transition-all duration-300"
                 >
                     <Star class="w-5 h-5 text-primary-400" />
                     <span
@@ -59,7 +59,7 @@ const specialties = [
                 >
                     {
                         specialties.map((spec) => (
-                            <span class="tech-badge hover:scale-105 transition-transform">
+                            <span class="tech-badge">
                                 {spec}
                             </span>
                         ))
@@ -98,7 +98,7 @@ const specialties = [
                 >
                     <a
                         href="/contact"
-                        class="btn-primary justify-center hover:scale-105 transition-transform duration-300 text-base px-4 py-2"
+                        class="btn-primary justify-center text-base px-4 py-2"
                     >
                         <ArrowRight class="w-5 h-5" />
                         <span>Travailler avec moi</span>
@@ -107,29 +107,20 @@ const specialties = [
                         href="https://github.com/NetSha8"
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="btn-secondary justify-center hover:scale-105 transition-transform duration-300 text-base px-4 py-2"
+                        class="btn-secondary justify-center text-base px-4 py-2"
                     >
                         <Github class="w-4 h-4" />
                         <span>GitHub</span>
-                    </a>
-                    <a
-                        href="https://dribbble.com/Ens0"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="btn-secondary justify-center hover:scale-105 transition-transform duration-300 text-base px-4 py-2"
-                    >
-                        <Dribbble class="w-5 h-5" />
-                        <span>Dribbble</span>
                     </a>
                 </div>
             </div>
 
             <!-- Right: Pixelated Logo -->
             <div
-                class="hidden lg:flex justify-center items-center animate-slide-up"
+                class="hidden lg:flex justify-end items-center animate-slide-up -mr-8"
                 style="animation-delay: 0.6s;"
             >
-                <div class="relative pixelated-logo-container">
+                <div class="relative pixelated-logo-container p-12">
                     <!-- Glow effect -->
                     <div
                         class="absolute inset-0 bg-primary-400/20 blur-3xl rounded-full scale-75"
@@ -139,8 +130,8 @@ const specialties = [
                     <PixelatedCanvas
                         client:visible
                         src="/images/logo.svg"
-                        width={280}
-                        height={280}
+                        width={360}
+                        height={360}
                         cellSize={5}
                         dotScale={0.9}
                         interactive={true}
@@ -230,22 +221,6 @@ const specialties = [
     }
 
     .pixelated-logo-container {
-        animation: logo-float 4s ease-in-out infinite;
-    }
-
-    @keyframes logo-float {
-        0%,
-        100% {
-            transform: translateY(0) rotate(0deg);
-        }
-        25% {
-            transform: translateY(-10px) rotate(1deg);
-        }
-        50% {
-            transform: translateY(-5px) rotate(0deg);
-        }
-        75% {
-            transform: translateY(-12px) rotate(-1deg);
-        }
+        /* Static - no floating animation */
     }
 </style>

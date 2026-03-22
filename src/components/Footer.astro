@@ -1,5 +1,5 @@
 ---
-import { Monitor, Github, Dribbble, BookOpen } from "lucide-astro";
+import { Monitor, Github, BookOpen } from "lucide-astro";
 const currentYear = new Date().getFullYear();
 
 const footerLinks = [
@@ -12,7 +12,7 @@ const footerLinks = [
 ];
 ---
 
-<footer class="py-8 bg-dark-950 border-t border-dark-800">
+<footer class="py-8 bg-dark-950  -t  -dark-800">
     <div class="container-custom">
         <!-- Footer Links -->
         <div class="flex flex-wrap justify-center gap-6 mb-6">
@@ -58,15 +58,6 @@ const footerLinks = [
                     aria-label="GitHub"
                 >
                     <Github class="w-5 h-5" />
-                </a>
-                <a
-                    href="https://dribbble.com/Ens0"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="text-secondary hover:text-primary-400 transition-colors"
-                    aria-label="Dribbble"
-                >
-                    <Dribbble class="w-5 h-5" />
                 </a>
             </div>
         </div>

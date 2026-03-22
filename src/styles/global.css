@@ -39,7 +39,7 @@
   --transition-standard: 0.6s var(--ease-out-expo);
 
   --animate-fade-in: fade-in 0.8s var(--ease-out-expo);
-  --animate-slide-up: slide-up 0.8s var(--ease-out-expo);
+  --animate-slide-up: slide-up 0.8s var(--ease-out-expo) both;
   --animate-float: float 6s ease-in-out infinite;
 
   @keyframes fade-in {
@@ -211,47 +211,37 @@
 /* ===== GLASSMORPHISM CARD ===== */
 .glass-card {
   background: var(--color-dark-800);
-  /* Use simple transparency/blur override if needed, but solid color works better for light mode switch simplicity unless we use rgba vars */
   background: color-mix(in srgb, var(--color-dark-800), transparent 20%);
   backdrop-filter: blur(16px);
   border: none;
-  /* ~0.08 opacity equivalent */
   border-radius: 1rem;
-  box-shadow: none; /* Smoother transition */
+  box-shadow: 0px 3px 8px -1px rgba(0,0,0,0.07), 0px 2px 5px rgba(0,0,0,0.05);
 }
 
-/* Dark mode specific override if needed to match exact previous look */
+/* Dark mode specific override */
 :root:not([data-theme="light"]) .glass-card {
   background: rgba(36, 36, 36, 0.5);
   border: none;
 }
 
 .glass-card:hover {
-  transform: translateY(-1px); /* Softer float */
-   /* More subtle hover border instead of blue */
-  box-shadow: none;
-}
-
-.glass-card--static:hover {
   transform: none;
-  box-shadow: none;
-  
+  box-shadow: 0px 3px 8px -1px rgba(0,0,0,0.07), 0px 2px 5px rgba(0,0,0,0.05);
 }
 
 :root:not([data-theme="light"]) .glass-card:hover {
-  background: rgba(36, 36, 36, 0.7);
+  background: rgba(36, 36, 36, 0.5);
 }
 
 :root[data-theme="light"] .glass-card {
   background: rgba(255, 255, 255, 0.8);
   border: none;
-  box-shadow: none;
+  box-shadow: 0px 3px 8px -1px rgba(0,0,0,0.07), 0px 2px 5px rgba(0,0,0,0.05);
 }
 
 :root[data-theme="light"] .glass-card:hover {
-  background: rgba(255, 255, 255, 0.95);
-  
-  box-shadow: none;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0px 3px 8px -1px rgba(0,0,0,0.07), 0px 2px 5px rgba(0,0,0,0.05);
 }
 
 
@@ -331,13 +321,12 @@
   color: var(--color-text-secondary);
   /* Secondary text */
   transition: all 0.2s ease;
-  box-shadow: none;
+  box-shadow: 0px 3px 8px -1px rgba(0,0,0,0.07), 0px 2px 5px rgba(0,0,0,0.05);
 }
 
 .tech-badge:hover {
-  background: var(--color-dark-700);
-  color: var(--color-primary-400);
-  
+  background: var(--color-dark-800);
+  color: var(--color-text-secondary);
 }
 
 /* ===== RESPONSIVE CONTAINER ===== */
