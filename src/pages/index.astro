@@ -3,66 +3,59 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "../components/Header.astro";
 import Hero from "../components/Hero.astro";
 import ServiceCard from "../components/ServiceCard.astro";
-import TechStack from "../components/TechStack.astro";
 import LocationSection from "../components/LocationSection.astro";
 import CTASection from "../components/CTASection.astro";
 import Footer from "../components/Footer.astro";
-import { Lightbulb } from "lucide-astro";
+import { Lightbulb, Users } from "lucide-astro";
 
 // Services data - icon names map to Lucide icons in ServiceCard
 const services = [
 	{
-		icon: "globe",
-		title: "Sites web & WordPress",
-		highlight: "Création, maintenance et optimisation :",
+		icon: "monitor",
+		title: "Votre site est lent, vieux ou inexistant",
+		highlight: "Site web :",
 		items: [
-			"Sites WordPress, Astro ou sur mesure",
-			"Maintenance corrective et évolutive",
-			"Optimisation vitesse et Core Web Vitals",
-			"Refonte et modernisation de sites",
-			"Mises à jour, sécurité et sauvegardes",
+			"Création, refonte ou maintenance de votre site",
+			"Pages rapides, mises à jour automatiques, sauvegardes incluses",
+			"Vous ne vous en occupez plus",
 		],
 	},
 	{
-		icon: "rocket",
-		title: "Platform Engineering & Infrastructure VPS",
-		highlight: "Base technique propre pour héberger et déployer :",
+		icon: "server",
+		title: "Votre hébergement coûte trop cher ou tombe en panne",
+		highlight: "Serveur & hébergement :",
 		items: [
-			"Mise en place VPS Linux Debian/Ubuntu",
-			"Déploiement Docker et Kamal",
-			"Configuration Nginx, HTTPS et DNS",
-			"CI/CD léger avec GitHub Actions",
+			"Configuration de serveurs VPS simples et robustes",
+			"Moins cher que les solutions cloud",
+			"Plus fiable que l'hébergement mutualisé de base",
 		],
 	},
 	{
 		icon: "shield",
-		title: "Cybersécurité & Hardening serveur",
-		highlight:
-			"Approche défensive pragmatique pour PME et projets web :",
+		title: "Vous avez peur d'un piratage ou d'une perte de données",
+		highlight: "Sécurité :",
 		items: [
-			"Hardening de serveurs Linux",
-			"Audit de configuration VPS",
-			"Scripts et outils défensifs sur mesure",
-			"Réponse à incident basique pour PME",
+			"Sécurisation des postes, des serveurs et des accès",
+			"Sauvegardes automatiques, audit de configuration",
+			"Suppression de malwares",
 		],
 	},
 	{
 		icon: "zap",
-		title: "Performance & Optimisation",
-		highlight: "Application et infrastructure optimisées :",
+		title: "Votre ordinateur rame, plante ou se comporte bizarrement",
+		highlight: "Dépannage & assistance :",
 		items: [
-			"Optimisation front et back",
-			"Réduction des temps de chargement",
-			"Ajustements Nginx, cache et compression",
-			"Suivi des métriques techniques",
+			"Diagnostic, réparation et optimisation de vos machines",
+			"Windows, macOS ou Linux",
+			"Déplacement à domicile ou en entreprise sur Perpignan et environs",
 		],
 	},
 ];
 ---
 
 <BaseLayout
-	title="E Informatique | Développeur Web & Administrateur Systèmes Freelance"
-	description="Sites web, WordPress, infrastructure Linux, automatisation, cybersécurité défensive et déploiement VPS. Intervention en présentiel à Perpignan ou à distance partout en France."
+	title="Elian — Informatique & Web pour les TPE/PME à Perpignan"
+	description="Dépannage, site web, serveur, sécurité : un seul interlocuteur pour tous vos problèmes informatiques. Intervention à Perpignan et à distance partout en France."
 >
 	<Header />
 
@@ -81,11 +74,10 @@ const services = [
 						<Lightbulb class="w-7 h-7 text-primary-400" />
 					</div>
 					<h2 class="section-title text-main">
-						Ce que je construis pour vous
-					</h2>
-					<p class="text-secondary max-w-2xl mx-auto">
-						Des solutions sur mesure pour développer votre activité
-						en ligne et gagner en efficacité.
+					Les problèmes que je règle
+				</h2>
+				<p class="text-secondary max-w-2xl mx-auto">
+					Pas de jargon, pas de devis incompréhensible. Vous avez un problème, je le règle.
 					</p>
 				</div>
 
@@ -110,8 +102,29 @@ const services = [
 			</div>
 		</section>
 
-		<!-- Tech Stack Section -->
-		<TechStack />
+		<!-- Pourquoi travailler avec un seul prestataire Section -->
+		<section class="py-20 md:py-28 bg-dark-900/50">
+			<div class="container-custom">
+				<div class="max-w-3xl mx-auto">
+					<div class="flex items-center justify-center mb-4">
+						<div class="w-14 h-14 rounded-xl bg-primary-600/10 flex items-center justify-center">
+							<Users class="w-7 h-7 text-primary-400" />
+						</div>
+					</div>
+					<h2 class="section-title text-main text-center mb-10">
+						Pourquoi travailler avec un seul prestataire ?
+					</h2>
+					<div class="space-y-6 text-lg text-secondary leading-relaxed">
+						<p>
+							Quand quelque chose ne fonctionne pas, il faut souvent chercher à la fois du côté du code, du serveur et du réseau. Avoir une seule personne qui connaît ces trois aspects permet de trouver la cause plus vite et d'éviter les allers-retours.
+						</p>
+						<p>
+							Je ne suis pas un généraliste qui fait tout à la fois. Je couvre un périmètre précis : site web, serveur, sécurité et postes de travail. Ce périmètre suffit à répondre à la plupart des besoins d'une petite entreprise.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
 
 		<!-- Location Section -->
 		<LocationSection />

@@ -3,12 +3,11 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { CheckCircle2, ArrowRight } from "lucide-astro";
-import { Wordpress, Linux, Gnubash, Rust } from "simple-icons-astro";
 ---
 
 <BaseLayout
-    title="À propos | Elian Développeur Web & Administrateur Systèmes"
-    description="Parcours d'un technicien informatique en transition vers un profil ingénierie systèmes : web, Linux, automatisation et sécurité infrastructure."
+    title="À propos | Elian — Technicien et développeur indépendant à Perpignan"
+    description="Technicien informatique et développeur web freelance à Perpignan. Un seul interlocuteur pour vos sites web, vos serveurs, votre sécurité et vos postes de travail."
 >
     <Header />
 
@@ -20,28 +19,16 @@ import { Wordpress, Linux, Gnubash, Rust } from "simple-icons-astro";
                     <h1
                         class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-main reveal"
                     >
-                        À propos
+                        Elian — Technicien et développeur indépendant à Perpignan
                     </h1>
-                    <p
-                        class="text-xl md:text-2xl text-secondary font-medium reveal delay-100"
-                    >
-                        Elian Technicien informatique, développeur web & administrateur systèmes
-                    </p>
                     <div
                         class="pt-8 text-lg text-main/80 space-y-4 reveal delay-200 text-left max-w-3xl leading-relaxed"
                     >
                         <p>
-                            Je m'appelle Elian. J'accompagne les solopreneurs,
-                            PME et entreprises tech sur des besoins concrets :
-                            sites web fiables, maintenance, déploiement et
-                            infrastructure Linux.
+                            Je m'appelle Elian. J'interviens en informatique et développement web pour les particuliers et les petites entreprises à Perpignan et dans les Pyrénées-Orientales.
                         </p>
                         <p>
-                            Mon parcours de technicien informatique m'a donné
-                            une base solide en systèmes et exploitation.
-                            Aujourd'hui, je combine cette base avec le
-                            développement web pour intervenir à la fois sur le
-                            code et sur le système qui le fait tourner.
+                            J'ai une formation en maintenance informatique et j'ai développé des compétences en développement web et administration système. Ça me permet de couvrir site web, serveur, sécurité et postes de travail sans renvoyer vers un autre prestataire.
                         </p>
                     </div>
                 </div>
@@ -54,273 +41,117 @@ import { Wordpress, Linux, Gnubash, Rust } from "simple-icons-astro";
             </div>
         </section>
 
-        <!-- Section: De la technique pure au service direct -->
+        <!-- Section: Pourquoi cette approche ? -->
         <section class="py-16 md:py-24 bg-dark-900/50">
             <div class="container-custom">
-                <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <div class="order-2 md:order-1 reveal">
-                        <h2 class="section-title text-3xl md:text-4xl mb-12">
-                            De la technique pure au service direct
-                        </h2>
-                        <div
-                            class="space-y-4 text-secondary text-lg leading-relaxed"
-                        >
-                            <p>
-                                Mon parcours m'a appris à traiter les sujets
-                                d'exploitation que l'on voit peu en surface :
-                                serveurs, configuration système, déploiement,
-                                sécurité et automatisation.
-                            </p>
-                            <p>
-                                Aujourd'hui, je mets cette approche au service
-                                de mes clients pour livrer :
-                            </p>
-                            <ul class="space-y-3 mt-8">
-                                <li class="flex items-start gap-3">
-                                    <CheckCircle2
-                                        class="w-6 h-6 text-primary-400 shrink-0 mt-0.5"
-                                    />
-                                    <span
-                                        >des sites web performants (WordPress,
-                                        Astro ou sur mesure), avec maintenance
-                                        et optimisation continues,</span
-                                    >
-                                </li>
-                                <li class="flex items-start gap-3">
-                                    <CheckCircle2
-                                        class="w-6 h-6 text-primary-400 shrink-0 mt-0.5"
-                                    />
-                                    <span
-                                        >de l'administration VPS Linux,
-                                        l'automatisation de tâches et des
-                                        déploiements plus fiables,</span
-                                    >
-                                </li>
-                                <li class="flex items-start gap-3">
-                                    <CheckCircle2
-                                        class="w-6 h-6 text-primary-400 shrink-0 mt-0.5"
-                                    />
-                                    <span
-                                        >du hardening serveur et des scripts
-                                        défensifs sur mesure pour améliorer la
-                                        sécurité opérationnelle.</span
-                                    >
-                                </li>
-                            </ul>
-                            <p class="pt-6 font-medium text-main">
-                                Je suis en transition vers un profil ingénieur
-                                systèmes polyvalent. J'évolue vers des systèmes
-                                plus bas niveau, l'automatisation avancée et la
-                                sécurité infrastructure, avec un apprentissage
-                                actif de Rust et Bash.
-                            </p>
-                        </div>
-                    </div>
-                    <!-- Tech Icons Section -->
-                    <div class="order-1 md:order-2 relative reveal delay-200">
-                        <div class="grid grid-cols-2 gap-2">
-                            <!-- Linux -->
-                            <div class="glass-card flex items-center justify-center aspect-square p-6">
-                                <Linux
-                                    class="w-24 h-24 md:w-28 md:h-28 text-primary-600"
-                                />
-                            </div>
-
-                            <!-- Rust -->
-                            <div class="glass-card flex items-center justify-center aspect-square p-6">
-                                <Rust
-                                    class="w-24 h-24 md:w-28 md:h-28 text-primary-600"
-                                />
-                            </div>
-
-                            <!-- WordPress -->
-                            <div class="glass-card flex items-center justify-center aspect-square p-6">
-                                <Wordpress
-                                    class="w-24 h-24 md:w-28 md:h-28 text-primary-600"
-                                />
-                            </div>
-
-                            <!-- Bash -->
-                            <div class="glass-card flex items-center justify-center aspect-square p-6">
-                                <Gnubash
-                                    class="w-24 h-24 md:w-28 md:h-28 text-primary-600"
-                                />
-                            </div>
-                        </div>
+                <div class="max-w-3xl space-y-8 reveal">
+                    <h2 class="section-title text-3xl md:text-4xl mb-12">
+                        Pourquoi cette approche ?
+                    </h2>
+                    <div
+                        class="space-y-4 text-secondary text-lg leading-relaxed"
+                    >
+                        <p>
+                            J'ai une formation initiale en maintenance informatique. J'ai ensuite appris le développement web et l'administration de serveurs en travaillant sur des projets réels.
+                        </p>
+                        <p>
+                            Le fait de couvrir ces deux domaines n'est pas un argument commercial. C'est simplement utile quand un problème touche à la fois le code et le serveur, ce qui arrive plus souvent qu'on ne croit.
+                        </p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Section: Philosophie -->
+        <!-- Section: Comment je travaille -->
         <section class="py-16 md:py-24">
             <div class="container-custom">
                 <div class="max-w-3xl space-y-10 reveal">
                     <h2 class="section-title text-3xl md:text-4xl mb-12">
-                        Ma philosophie : simplicité, fiabilité et pragmatisme
+                        Comment je travaille
                     </h2>
                     <div
                         class="space-y-6 text-lg text-secondary leading-relaxed"
                     >
                         <p>
-                            Je privilégie les solutions lisibles et
-                            maintenables. Pas de complexité inutile, pas de
-                            promesses floues.
+                            Je préfère les solutions simples qui durent aux solutions complexes qui impressionnent.
                         </p>
                         <p class="text-2xl text-main font-semibold">
-                            Une base technique propre, documentée et exploitable.
+                            Avant de proposer quoi que ce soit, je cherche à comprendre votre activité.
                         </p>
                         <p>
-                            Mon objectif est simple : que votre site tourne
-                            correctement dans le temps, avec une infrastructure
-                            cohérente et un niveau de sécurité défensive adapté
-                            à votre activité.
+                            Un artisan n'a pas les mêmes besoins qu'un cabinet médical. Un restaurant qui veut juste un site vitrine n'a pas besoin d'une infrastructure de startup.
+                        </p>
+                        <p>
+                            Je vous propose ce qui correspond à votre besoin, pas la solution la plus chère ou la plus technique.
                         </p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Section: Ce que j'apporte -->
+        <!-- Section: À qui je m'adresse -->
         <section class="py-16 md:py-24 bg-dark-900/50">
             <div class="container-custom">
                 <div class="max-w-5xl">
                     <h2 class="section-title text-3xl md:text-4xl mb-16 reveal">
-                        Ce que j’apporte à mes clients
+                        À qui je m'adresse
                     </h2>
 
-                    <div class="grid md:grid-cols-2 gap-2 reveal delay-100">
-                        <div class="glass-card glass-card--static card-glow p-8 space-y-6">
-                            <h3 class="text-xl font-bold text-primary-400">
-                                Objectifs
-                            </h3>
-                            <p class="text-secondary text-lg">
-                                Je veux permettre à chacun même sans
-                                compétences techniques de :
-                            </p>
-                            <ul class="space-y-3 mt-2">
-                                <li
-                                    class="flex items-center gap-2 text-main text-lg"
-                                >
-                                    <ArrowRight
-                                        class="w-4 h-4 text-primary-400"
-                                    />
-                                    lancer leur projet rapidement,
-                                </li>
-                                <li
-                                    class="flex items-center gap-2 text-main text-lg"
-                                >
-                                    <ArrowRight
-                                        class="w-4 h-4 text-primary-400"
-                                    />
-                                    développer leur activité,
-                                </li>
-                                <li
-                                    class="flex items-center gap-2 text-main text-lg"
-                                >
-                                    <ArrowRight
-                                        class="w-4 h-4 text-primary-400"
-                                    />
-                                    faire évoluer une plateforme existante,
-                                </li>
-                            </ul>
-                            <p
-                                class="text-base font-medium pt-2 text-secondary"
+                    <div class="grid md:grid-cols-3 gap-2 reveal delay-100">
+                        <!-- Card 1 -->
+                        <div
+                            class="glass-card glass-card--static card-glow p-8 flex flex-col h-full"
+                        >
+                            <div
+                                class="w-14 h-14 rounded-full bg-primary-500/20 flex items-center justify-center mb-6 text-primary-400 font-bold text-2xl"
                             >
-                                ...avec un accompagnement clair et humain.
-                            </p>
-                        </div>
-
-                        <div class="glass-card glass-card--static card-glow p-8 space-y-6">
-                            <h3 class="text-xl font-bold text-primary-400">
-                                Réalisation
-                            </h3>
+                                1
+                            </div>
+                            <h3 class="text-2xl font-bold mb-4">TPE &amp; PME locales</h3>
                             <p class="text-secondary text-lg">
-                                J’aime construire des sites, des extensions, des
-                                thèmes ou des outils qui répondent vraiment à un
-                                besoin, qui tiennent la route techniquement, et
-                                que beaucoup ne pourraient pas se permettre
-                                auprès d'une agence classique.
+                                Restaurants, artisans, commerçants, cabinets à Perpignan et dans les Pyrénées-Orientales, qui cherchent un prestataire disponible et fiable pour leurs besoins informatiques.
                             </p>
-                            <p
-                                class="font-medium text-main pt-4  -t  -white/5 text-lg"
+                        </div>
+                        <!-- Card 2 -->
+                        <div
+                            class="glass-card glass-card--static card-glow p-8 flex flex-col h-full"
+                        >
+                            <div
+                                class="w-14 h-14 rounded-full bg-primary-500/20 flex items-center justify-center mb-6 text-primary-400 font-bold text-2xl"
                             >
-                                Mon objectif : vous donner des fondations
-                                solides pour créer, vendre et scaler
-                                sereinement.
+                                2
+                            </div>
+                            <h3 class="text-2xl font-bold mb-4">Solopreneurs</h3>
+                            <p class="text-secondary text-lg">
+                                Ceux qui veulent lancer ou améliorer leur présence en ligne sans y passer des semaines.
+                            </p>
+                        </div>
+                        <!-- Card 3 -->
+                        <div
+                            class="glass-card glass-card--static card-glow p-8 flex flex-col h-full"
+                        >
+                            <div
+                                class="w-14 h-14 rounded-full bg-primary-500/20 flex items-center justify-center mb-6 text-primary-400 font-bold text-2xl"
+                            >
+                                3
+                            </div>
+                            <h3 class="text-2xl font-bold mb-4">Particuliers</h3>
+                            <p class="text-secondary text-lg">
+                                Ceux qui ont besoin d'un dépannage rapide et d'explications claires, sans jargon.
                             </p>
                         </div>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section: Pour qui je travaille ? -->
-        <section class="py-16 md:py-24">
-            <div class="container-custom">
-                <h2 class="section-title text-3xl md:text-4xl mb-16 reveal">
-                    Pour qui je travaille ?
-                </h2>
-                <div class="grid md:grid-cols-3 gap-2 reveal delay-100">
-                    <!-- Card 1 -->
                     <div
-                        class="glass-card glass-card--static card-glow p-8 flex flex-col h-full "
+                        class="mt-16 text-xl text-secondary reveal delay-200 max-w-3xl"
                     >
-                        <div
-                            class="w-14 h-14 rounded-full bg-primary-500/20 flex items-center justify-center mb-6 text-primary-400 font-bold text-2xl"
-                        >
-                            1
-                        </div>
-                        <h3 class="text-2xl font-bold mb-4">Solopreneurs</h3>
-                        <p class="text-secondary text-lg">
-                            Ceux qui veulent se lancer ou automatiser leurs
-                            tâches pour gagner du temps et de l'efficacité.
+                        <p>
+                            J'interviens à <strong
+                                class="text-main">Perpignan et sa périphérie</strong
+                            >, mais j'accompagne aussi mes clients <strong
+                                class="text-main">partout en France à distance</strong
+                            >.
                         </p>
                     </div>
-                    <!-- Card 2 -->
-                    <div
-                        class="glass-card glass-card--static card-glow p-8 flex flex-col h-full "
-                    >
-                        <div
-                            class="w-14 h-14 rounded-full bg-primary-500/20 flex items-center justify-center mb-6 text-primary-400 font-bold text-2xl"
-                        >
-                            2
-                        </div>
-                        <h3 class="text-2xl font-bold mb-4">PME</h3>
-                        <p class="text-secondary text-lg">
-                            Celles qui cherchent un site professionnel, une
-                            boutique WordPress performante ou un outil métier
-                            sur-mesure.
-                        </p>
-                    </div>
-                    <!-- Card 3 -->
-                    <div
-                        class="glass-card glass-card--static card-glow p-8 flex flex-col h-full "
-                    >
-                        <div
-                            class="w-14 h-14 rounded-full bg-primary-500/20 flex items-center justify-center mb-6 text-primary-400 font-bold text-2xl"
-                        >
-                            3
-                        </div>
-                        <h3 class="text-2xl font-bold mb-4">
-                            Entreprises tech
-                        </h3>
-                        <p class="text-secondary text-lg">
-                            Celles qui ont besoin d’un technicien capable de
-                            comprendre à la fois le code et l’infrastructure.
-                        </p>
-                    </div>
-                </div>
-                <div
-                    class="mt-16 text-xl text-secondary reveal delay-200 max-w-3xl"
-                >
-                    <p>
-                        Je travaille à <strong
-                            >Perpignan et sa périphérie</strong
-                        >, mais j’accompagne aussi mes clients <strong
-                            >partout en France à distance</strong
-                        >.
-                    </p>
                 </div>
             </div>
         </section>
@@ -362,7 +193,7 @@ import { Wordpress, Linux, Gnubash, Rust } from "simple-icons-astro";
                                     class="w-6 h-6 text-green-400 flex-shrink-0"
                                 />
                                 <span class="text-secondary text-lg"
-                                    >Projet propre, fiable et évolutif</span
+                                    >Réponse sous 24h, intervention rapide</span
                                 >
                             </div>
                             <div class="flex items-center gap-4">
@@ -383,9 +214,7 @@ import { Wordpress, Linux, Gnubash, Rust } from "simple-icons-astro";
                             </div>
                         </div>
                         <p class="mt-10 text-xl text-main leading-relaxed">
-                            Mon but est que vous puissiez avancer en confiance,
-                            avec un outil qui vous ressemble et qui soutient
-                            réellement votre activité.
+                            Mon objectif est simple : que ça fonctionne, que vous compreniez ce qui a été fait, et que vous puissiez me joindre si quelque chose change.
                         </p>
                         <div class="mt-10">
                             <a

@@ -4,12 +4,12 @@ import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import BlogCard from "../../components/BlogCard.astro";
 import { ArrowLeft, Calendar, Clock, Tag, ChevronLeft, ChevronRight } from "lucide-astro";
-import { getCollection, type CollectionEntry } from "astro:content";
+import { getCollection, render, type CollectionEntry } from "astro:content";
 
 export async function getStaticPaths() {
     const blogPosts = await getCollection("blog", ({ data }) => !data.draft);
     return blogPosts.map((post) => ({
-        params: { slug: post.slug },
+        params: { slug: post.id },
         props: { post },
     }));
 }
@@ -19,7 +19,7 @@ interface Props {
 }
 
 const { post } = Astro.props;
-const { Content } = await post.render();
+const { Content } = await render(post);
 
 // Get all posts for navigation
 const allPosts = await getCollection("blog", ({ data }) => !data.draft);
@@ -27,11 +27,11 @@ const sortedPosts = allPosts.sort((a, b) => new Date(b.data.date).getTime() - ne
 
 // Get related posts (same category, excluding current)
 const relatedPosts = sortedPosts
-    .filter((p) => p.data.category === post.data.category && p.slug !== post.slug)
+    .filter((p) => p.data.category === post.data.category && p.id !== post.id)
     .slice(0, 2);
 
 // Get prev/next posts
-const currentIndex = sortedPosts.findIndex((p) => p.slug === post.slug);
+const currentIndex = sortedPosts.findIndex((p) => p.id === post.id);
 const prevPost = currentIndex > 0 ? sortedPosts[currentIndex - 1] : null;
 const nextPost = currentIndex < sortedPosts.length - 1 ? sortedPosts[currentIndex + 1] : null;
 
@@ -58,7 +58,7 @@ const blogPostingSchema = {
     },
     mainEntityOfPage: {
         "@type": "WebPage",
-        "@id": `${siteUrl}/blog/${post.slug}/`,
+        "@id": `${siteUrl}/blog/${post.id}/`,
     },
     keywords: post.data.tags.join(", "),
     articleSection: post.data.category,
@@ -72,7 +72,7 @@ const breadcrumbSchema = {
     itemListElement: [
         { "@type": "ListItem", position: 1, name: "Accueil", item: siteUrl },
         { "@type": "ListItem", position: 2, name: "Blog", item: `${siteUrl}/blog` },
-        { "@type": "ListItem", position: 3, name: post.data.title, item: `${siteUrl}/blog/${post.slug}/` },
+        { "@type": "ListItem", position: 3, name: post.data.title, item: `${siteUrl}/blog/${post.id}/` },
     ],
 };
 
@@ -162,7 +162,7 @@ function formatDate(dateStr: string): string {
                 <nav class="flex flex-col sm:flex-row gap-4 justify-between mb-16">
                     {prevPost ? (
                         <a
-                            href={`/blog/${prevPost.slug}`}
+                            href={`/blog/${prevPost.id}`}
                             class="glass-card p-4 flex items-center gap-3 group/nav flex-1 no-hover"
                         >
                             <ChevronLeft class="w-5 h-5 text-secondary group-hover/nav:text-primary-400 transition-colors flex-shrink-0" />
@@ -176,7 +176,7 @@ function formatDate(dateStr: string): string {
                     ) : <div />}
                     {nextPost ? (
                         <a
-                            href={`/blog/${nextPost.slug}`}
+                            href={`/blog/${nextPost.id}`}
                             class="glass-card p-4 flex items-center gap-3 group/nav flex-1 text-right no-hover"
                         >
                             <div class="min-w-0 flex-1">
@@ -197,7 +197,7 @@ function formatDate(dateStr: string): string {
                         <div class="grid md:grid-cols-2 gap-2">
                             {relatedPosts.map((related) => (
                                 <BlogCard
-                                    slug={related.slug}
+                                    slug={related.id}
                                     title={related.data.title}
                                     excerpt={related.data.excerpt}
                                     date={related.data.date}

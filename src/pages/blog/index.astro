@@ -71,7 +71,7 @@ function formatDate(dateStr: string): string {
                         blogPosts.map((post) => (
                             <div data-post-category={post.data.category}>
                                 <BlogCard
-                                    slug={post.slug}
+                                    slug={post.id}
                                     title={post.data.title}
                                     excerpt={post.data.excerpt}
                                     date={post.data.date}
