@@ -12,8 +12,8 @@ export interface Props {
 }
 
 const {
-    title = "E Informatique | Développeur Web & Administrateur Systèmes Freelance",
-    description = "Sites web, WordPress, infrastructure Linux, automatisation, cybersécurité défensive et déploiement VPS. Intervention à Perpignan et partout en France.",
+    title = "E Informatique | Dépannage informatique à Rivesaltes et dans les Pyrénées-Orientales",
+    description = "Dépannage informatique, création de site web, sécurité et VPS pour TPE/PME. Intervention à Rivesaltes, Perpignan et dans les Pyrénées-Orientales, à distance partout en France.",
     ogImage = "/images/og-default.png",
     ogType = "website",
     canonicalUrl,
@@ -45,12 +45,12 @@ import "../styles/global.css";
         <meta name="author" content="Elian — E Informatique" />
         <meta
             name="keywords"
-            content="développeur web, administrateur systèmes, freelance, Perpignan, WordPress, Astro, infrastructure Linux, VPS, Docker, Kamal, Nginx, GitHub Actions, TypeScript, PHP, cybersécurité défensive, création site web, hébergement VPS, optimisation performance web"
+            content="dépannage informatique Rivesaltes, technicien informatique Rivesaltes, dépannage informatique Perpignan, informatique Pyrénées-Orientales, création site web Perpignan, sécurité informatique PME, hébergement VPS"
         />
         <meta name="geo.region" content="FR-66" />
-        <meta name="geo.placename" content="Perpignan" />
-        <meta name="geo.position" content="42.6887;2.8948" />
-        <meta name="ICBM" content="42.6887, 2.8948" />
+        <meta name="geo.placename" content="Rivesaltes" />
+        <meta name="geo.position" content="42.7705;2.8732" />
+        <meta name="ICBM" content="42.7705, 2.8732" />
 
         <!-- Canonical URL -->
         <link rel="canonical" href={currentUrl} />
@@ -115,24 +115,28 @@ import "../styles/global.css";
                 founder: {
                     "@type": "Person",
                     name: "Elian",
-                    jobTitle: "Développeur Web & Administrateur Systèmes",
+                    jobTitle: "Technicien informatique indépendant",
                 },
                 address: {
                     "@type": "PostalAddress",
-                    addressLocality: "Perpignan",
+                    addressLocality: "Rivesaltes",
                     addressRegion: "Occitanie",
-                    postalCode: "66000",
+                    postalCode: "66600",
                     addressCountry: "FR",
                 },
                 geo: {
                     "@type": "GeoCoordinates",
-                    latitude: "42.6887",
-                    longitude: "2.8948",
+                    latitude: "42.7705",
+                    longitude: "2.8732",
                 },
                 areaServed: [
                     {
                         "@type": "City",
-                        name: "Perpignan",
+                        name: "Rivesaltes",
+                    },
+                    {
+                        "@type": "AdministrativeArea",
+                        name: "Pyrénées-Orientales",
                     },
                     {
                         "@type": "Country",
@@ -140,19 +144,15 @@ import "../styles/global.css";
                     },
                 ],
                 serviceType: [
+                    "Dépannage informatique",
                     "Création de sites web",
-                    "Développement WordPress",
-                    "Développement d'applications web",
-                    "Infrastructure VPS Linux",
-                    "Automatisation et CI/CD",
-                    "Cybersécurité défensive",
-                    "Optimisation de performances web",
-                    "Déploiement Docker et Kamal",
+                    "Sécurité informatique",
+                    "Hébergement VPS Linux",
+                    "Assistance informatique TPE/PME",
                 ],
                 knowsAbout: [
-                    "TypeScript", "PHP", "React", "Astro", "WordPress",
-                    "Docker", "Kamal", "Nginx", "Linux", "GitHub Actions",
-                    "Tailwind CSS", "PostgreSQL", "MariaDB", "Cybersécurité",
+                    "Windows", "macOS", "Linux", "Réseaux", "WordPress",
+                    "Astro", "Docker", "Nginx", "Cybersécurité", "VPS",
                 ],
                 priceRange: "$$",
                 sameAs: [],
@@ -168,7 +168,7 @@ import "../styles/global.css";
                 "@id": `${siteUrl}/#website`,
                 name: siteName,
                 url: siteUrl,
-                description: "Développeur web freelance & administrateur systèmes à Perpignan. Sites web, WordPress, infrastructure Linux VPS, cybersécurité défensive.",
+                description: "Technicien informatique indépendant à Rivesaltes. Dépannage, création de site web, sécurité et VPS pour les TPE/PME.",
                 inLanguage: "fr-FR",
                 publisher: {
                     "@id": `${siteUrl}/#business`,

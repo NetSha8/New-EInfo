@@ -1,0 +1,39 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const title = "Dépannage Informatique Perpignan | TPE/PME";
+const description = "Dépannage informatique à Perpignan pour TPE/PME: assistance poste, réseau, sécurité et support à distance.";
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Dépannage informatique Perpignan",
+  serviceType: "Dépannage informatique",
+  areaServed: ["Perpignan", "Pyrénées-Orientales"],
+  provider: { "@id": "https://einformatique.fr/#business" },
+  url: "https://einformatique.fr/depannage-informatique-perpignan"
+};
+---
+
+<BaseLayout title={title} description={description} jsonLd={serviceSchema}>
+  <Header />
+  <main class="pt-28 pb-20">
+    <section class="container-custom max-w-4xl space-y-8">
+      <h1 class="text-4xl md:text-5xl font-bold text-main">Dépannage informatique à Perpignan</h1>
+      <p class="text-lg text-secondary">Pour les TPE/PME de Perpignan, j'interviens sur les pannes qui bloquent votre production: ordinateur instable, réseau aléatoire, sauvegardes absentes, messagerie en erreur.</p>
+      <p class="text-secondary">Basé à Rivesaltes, je couvre Perpignan et les communes proches en présentiel, avec une assistance à distance disponible partout en France.</p>
+    </section>
+
+    <section class="container-custom max-w-4xl mt-12 glass-card p-8">
+      <h2 class="text-2xl font-bold text-main mb-3">Accéder au service principal</h2>
+      <div class="flex flex-wrap gap-3 text-sm">
+        <a class="btn-secondary" href="/services#depannage">Service dépannage informatique</a>
+        <a class="btn-secondary" href="/technicien-informatique-rivesaltes">technicien informatique Rivesaltes</a>
+        <a class="btn-secondary" href="/depannage-informatique-canet">dépannage informatique Canet</a>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>

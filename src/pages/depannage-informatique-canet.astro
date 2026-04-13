@@ -1,0 +1,39 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const title = "Dépannage Informatique Canet-en-Roussillon | Assistance locale";
+const description = "Dépannage informatique à Canet-en-Roussillon pour professionnels: postes, réseau, sécurité et support rapide.";
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Dépannage informatique Canet-en-Roussillon",
+  serviceType: "Dépannage informatique",
+  areaServed: ["Canet-en-Roussillon", "Pyrénées-Orientales"],
+  provider: { "@id": "https://einformatique.fr/#business" },
+  url: "https://einformatique.fr/depannage-informatique-canet"
+};
+---
+
+<BaseLayout title={title} description={description} jsonLd={serviceSchema}>
+  <Header />
+  <main class="pt-28 pb-20">
+    <section class="container-custom max-w-4xl space-y-8">
+      <h1 class="text-4xl md:text-5xl font-bold text-main">Dépannage informatique à Canet-en-Roussillon</h1>
+      <p class="text-lg text-secondary">Intervention pour les TPE/PME de Canet-en-Roussillon et du littoral: panne PC, Wi-Fi instable, antivirus, sauvegardes et remise en conformité de base.</p>
+      <p class="text-secondary">Je peux intervenir en présentiel dans les Pyrénées-Orientales et à distance si le contexte le permet.</p>
+    </section>
+
+    <section class="container-custom max-w-4xl mt-12 glass-card p-8">
+      <h2 class="text-2xl font-bold text-main mb-3">Pages liées</h2>
+      <div class="flex flex-wrap gap-3 text-sm">
+        <a class="btn-secondary" href="/services#depannage">Service dépannage informatique</a>
+        <a class="btn-secondary" href="/depannage-informatique-rivesaltes">dépannage informatique Rivesaltes</a>
+        <a class="btn-secondary" href="/depannage-informatique-perpignan">dépannage informatique Perpignan</a>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>

@@ -1,0 +1,50 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const title = "Technicien Informatique Rivesaltes | Assistance TPE/PME";
+const description = "Technicien informatique à Rivesaltes pour TPE/PME: dépannage, sécurité, maintenance et conseils pragmatiques.";
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Technicien informatique Rivesaltes",
+  serviceType: "Assistance informatique TPE/PME",
+  areaServed: ["Rivesaltes", "Perpignan", "Pyrénées-Orientales"],
+  provider: { "@id": "https://einformatique.fr/#business" },
+  url: "https://einformatique.fr/technicien-informatique-rivesaltes"
+};
+---
+
+<BaseLayout title={title} description={description} jsonLd={serviceSchema}>
+  <Header />
+  <main class="pt-28 pb-20">
+    <section class="container-custom max-w-4xl space-y-8">
+      <h1 class="text-4xl md:text-5xl font-bold text-main">Technicien informatique à Rivesaltes</h1>
+      <p class="text-lg text-secondary">Un interlocuteur unique pour vos incidents informatiques du quotidien: postes, réseau, sécurité, serveur et site web.</p>
+      <p class="text-secondary">Objectif: maintenir votre activité sans blocage et sans empiler des prestataires différents sur le même problème.</p>
+    </section>
+
+    <section class="container-custom max-w-4xl mt-12">
+      <h2 class="text-2xl font-bold text-main mb-4">Approche terrain</h2>
+      <ul class="space-y-3 text-secondary list-disc pl-6">
+        <li>Audit rapide de la situation et des risques immédiats</li>
+        <li>Plan d'action priorisé selon votre urgence métier</li>
+        <li>Corrections mesurables et documentation claire</li>
+        <li>Suivi possible en présentiel dans le 66 ou à distance en France</li>
+      </ul>
+    </section>
+
+    <section class="container-custom max-w-4xl mt-12 glass-card p-8">
+      <h2 class="text-2xl font-bold text-main mb-3">Services associés</h2>
+      <div class="flex flex-wrap gap-3 text-sm">
+        <a class="btn-secondary" href="/services#depannage">dépannage informatique</a>
+        <a class="btn-secondary" href="/services#sites-web">création de site web</a>
+        <a class="btn-secondary" href="/services#hebergement">hébergement VPS</a>
+        <a class="btn-secondary" href="/informatique-pyrenees-orientales">informatique Pyrénées-Orientales</a>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>

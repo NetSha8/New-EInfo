@@ -1,0 +1,51 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const title = "Dépannage Informatique Rivesaltes (66600) | Intervention rapide";
+const description = "Dépannage informatique à Rivesaltes pour TPE/PME: pannes, lenteurs, virus, réseau et assistance à distance. Intervention locale sous 48h.";
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Dépannage informatique Rivesaltes",
+  serviceType: "Dépannage informatique",
+  areaServed: ["Rivesaltes", "Pyrénées-Orientales"],
+  provider: { "@id": "https://einformatique.fr/#business" },
+  url: "https://einformatique.fr/depannage-informatique-rivesaltes"
+};
+---
+
+<BaseLayout title={title} description={description} jsonLd={serviceSchema}>
+  <Header />
+  <main class="pt-28 pb-20">
+    <section class="container-custom max-w-4xl space-y-8">
+      <h1 class="text-4xl md:text-5xl font-bold text-main">Dépannage informatique à Rivesaltes</h1>
+      <p class="text-lg text-secondary">Ordinateur lent, panne réseau, messagerie bloquée ou poste infecté: j'interviens à Rivesaltes (66600) pour remettre votre activité en route rapidement.</p>
+      <p class="text-secondary">Je travaille principalement avec les TPE/PME locales: artisans, commerces, cabinets et indépendants. Diagnostic clair, intervention utile, pas de jargon.</p>
+    </section>
+
+    <section class="container-custom max-w-4xl mt-12">
+      <h2 class="text-2xl font-bold text-main mb-4">Ce que je prends en charge</h2>
+      <ul class="space-y-3 text-secondary list-disc pl-6">
+        <li>Diagnostic de panne et réparation poste de travail</li>
+        <li>Suppression de malwares et sécurisation de base</li>
+        <li>Optimisation Windows/macOS/Linux</li>
+        <li>Configuration box, Wi-Fi, imprimantes et réseau local</li>
+      </ul>
+    </section>
+
+    <section class="container-custom max-w-4xl mt-12 glass-card p-8">
+      <h2 class="text-2xl font-bold text-main mb-3">Maillage utile</h2>
+      <p class="text-secondary mb-4">Voir aussi les services complémentaires pour stabiliser votre SI:</p>
+      <div class="flex flex-wrap gap-3 text-sm">
+        <a class="btn-secondary" href="/services#depannage">Service dépannage informatique</a>
+        <a class="btn-secondary" href="/services#cybersecurite">Service sécurité informatique</a>
+        <a class="btn-secondary" href="/technicien-informatique-rivesaltes">technicien informatique Rivesaltes</a>
+        <a class="btn-secondary" href="/depannage-informatique-perpignan">dépannage informatique Perpignan</a>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>

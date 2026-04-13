@@ -4,8 +4,46 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { Monitor, Shield, Server, Wrench, CheckCircle2, ArrowRight } from "lucide-astro";
 
-const title = "Services informatiques pour TPE/PME à Perpignan & France · E Informatique";
-const description = "Site web, dépannage, sécurité, serveur : des services informatiques clairs et sans jargon pour les petites entreprises. Intervention à Perpignan ou à distance.";
+const title = "Services Informatiques Rivesaltes & Perpignan | TPE/PME";
+const description = "Dépannage informatique, création de site web, sécurité et VPS pour TPE/PME. Intervention à Rivesaltes, Perpignan et dans les Pyrénées-Orientales.";
+
+const servicesSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      name: "Dépannage informatique",
+      serviceType: "Assistance et dépannage informatique",
+      areaServed: ["Rivesaltes", "Perpignan", "Pyrénées-Orientales", "France"],
+      provider: { "@id": "https://einformatique.fr/#business" },
+      url: "https://einformatique.fr/services#depannage"
+    },
+    {
+      "@type": "Service",
+      name: "Création de site web",
+      serviceType: "Création et maintenance de site web",
+      areaServed: ["Rivesaltes", "Perpignan", "Pyrénées-Orientales", "France"],
+      provider: { "@id": "https://einformatique.fr/#business" },
+      url: "https://einformatique.fr/services#sites-web"
+    },
+    {
+      "@type": "Service",
+      name: "Sécurité informatique",
+      serviceType: "Audit et sécurisation informatique",
+      areaServed: ["Rivesaltes", "Perpignan", "Pyrénées-Orientales", "France"],
+      provider: { "@id": "https://einformatique.fr/#business" },
+      url: "https://einformatique.fr/services#cybersecurite"
+    },
+    {
+      "@type": "Service",
+      name: "Hébergement VPS",
+      serviceType: "Hébergement et administration serveur VPS",
+      areaServed: ["Rivesaltes", "Perpignan", "Pyrénées-Orientales", "France"],
+      provider: { "@id": "https://einformatique.fr/#business" },
+      url: "https://einformatique.fr/services#hebergement"
+    }
+  ]
+};
 
 const services = [
   {
@@ -137,7 +175,7 @@ const services = [
 ---
 
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} jsonLd={servicesSchema}>
   <Header />
 
   <main class="pt-24 pb-20">
@@ -218,6 +256,14 @@ const services = [
                       ))}
                     </ul>
                   )}
+
+                  <div class="mt-6 text-sm text-secondary flex flex-wrap gap-3">
+                    <span class="text-main">Services liés :</span>
+                    {service.id !== "depannage" && <a href="/services#depannage" class="hover:text-primary-400 transition-colors">dépannage informatique</a>}
+                    {service.id !== "sites-web" && <a href="/services#sites-web" class="hover:text-primary-400 transition-colors">création de site web</a>}
+                    {service.id !== "cybersecurite" && <a href="/services#cybersecurite" class="hover:text-primary-400 transition-colors">sécurité informatique</a>}
+                    {service.id !== "hebergement" && <a href="/services#hebergement" class="hover:text-primary-400 transition-colors">hébergement VPS</a>}
+                  </div>
                 </div>
               ))}
             </div>

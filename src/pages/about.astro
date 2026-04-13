@@ -3,11 +3,37 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { CheckCircle2, ArrowRight } from "lucide-astro";
+
+const personSchema = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Elian",
+    jobTitle: "Technicien informatique indépendant",
+    worksFor: {
+        "@id": "https://einformatique.fr/#business",
+    },
+    address: {
+        "@type": "PostalAddress",
+        addressLocality: "Rivesaltes",
+        postalCode: "66600",
+        addressRegion: "Occitanie",
+        addressCountry: "FR",
+    },
+    knowsAbout: [
+        "Dépannage informatique",
+        "Administration Linux",
+        "Sécurité informatique",
+        "Création de site web",
+        "Hébergement VPS",
+    ],
+    url: "https://einformatique.fr/about",
+};
 ---
 
 <BaseLayout
-    title="À propos | Elian — Technicien et développeur indépendant à Perpignan"
-    description="Technicien informatique et développeur web freelance à Perpignan. Un seul interlocuteur pour vos sites web, vos serveurs, votre sécurité et vos postes de travail."
+    title="Elian — Technicien Informatique à Rivesaltes | E Informatique"
+    description="Technicien informatique indépendant à Rivesaltes (66600). J'accompagne les TPE/PME des Pyrénées-Orientales sur le dépannage, la sécurité, les sites web et les VPS."
+    jsonLd={personSchema}
 >
     <Header />
 
@@ -19,16 +45,16 @@ import { CheckCircle2, ArrowRight } from "lucide-astro";
                     <h1
                         class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-main reveal"
                     >
-                        Elian — Technicien et développeur indépendant à Perpignan
+                        Technicien informatique indépendant à Rivesaltes
                     </h1>
                     <div
                         class="pt-8 text-lg text-main/80 space-y-4 reveal delay-200 text-left max-w-3xl leading-relaxed"
                     >
                         <p>
-                            Je m'appelle Elian. J'interviens en informatique et développement web pour les particuliers et les petites entreprises à Perpignan et dans les Pyrénées-Orientales.
+                            Je m'appelle Elian. J'interviens pour les TPE/PME à Rivesaltes, Perpignan et dans les Pyrénées-Orientales.
                         </p>
                         <p>
-                            J'ai une formation en maintenance informatique et j'ai développé des compétences en développement web et administration système. Ça me permet de couvrir site web, serveur, sécurité et postes de travail sans renvoyer vers un autre prestataire.
+                            Mon socle, c'est la maintenance informatique et l'administration système. Concrètement, je gère des postes clients, des serveurs Linux, des sauvegardes et des incidents de sécurité du quotidien.
                         </p>
                     </div>
                 </div>
@@ -52,10 +78,10 @@ import { CheckCircle2, ArrowRight } from "lucide-astro";
                         class="space-y-4 text-secondary text-lg leading-relaxed"
                     >
                         <p>
-                            J'ai une formation initiale en maintenance informatique. J'ai ensuite appris le développement web et l'administration de serveurs en travaillant sur des projets réels.
+                            J'ai construit mon expérience sur des cas concrets : machines instables, réseaux mal configurés, sites lents ou non maintenus, serveurs VPS mal sécurisés.
                         </p>
                         <p>
-                            Le fait de couvrir ces deux domaines n'est pas un argument commercial. C'est simplement utile quand un problème touche à la fois le code et le serveur, ce qui arrive plus souvent qu'on ne croit.
+                            Cette approche terrain permet d'aller vite : diagnostiquer, corriger et expliquer clairement ce qui a été fait, sans multiplier les intermédiaires.
                         </p>
                     </div>
                 </div>
@@ -76,10 +102,10 @@ import { CheckCircle2, ArrowRight } from "lucide-astro";
                             Je préfère les solutions simples qui durent aux solutions complexes qui impressionnent.
                         </p>
                         <p class="text-2xl text-main font-semibold">
-                            Avant de proposer quoi que ce soit, je cherche à comprendre votre activité.
+                            Avant de proposer quoi que ce soit, je regarde votre contexte réel : budget, contraintes et urgence métier.
                         </p>
                         <p>
-                            Un artisan n'a pas les mêmes besoins qu'un cabinet médical. Un restaurant qui veut juste un site vitrine n'a pas besoin d'une infrastructure de startup.
+                            Une TPE n'a pas besoin d'une architecture compliquée. Elle a besoin d'un système stable, sauvegardé et facile à faire évoluer.
                         </p>
                         <p>
                             Je vous propose ce qui correspond à votre besoin, pas la solution la plus chère ou la plus technique.
@@ -121,9 +147,9 @@ import { CheckCircle2, ArrowRight } from "lucide-astro";
                             >
                                 2
                             </div>
-                            <h3 class="text-2xl font-bold mb-4">Solopreneurs</h3>
+                            <h3 class="text-2xl font-bold mb-4">Structures en croissance</h3>
                             <p class="text-secondary text-lg">
-                                Ceux qui veulent lancer ou améliorer leur présence en ligne sans y passer des semaines.
+                                Équipes qui veulent fiabiliser leur informatique sans recruter un service interne complet.
                             </p>
                         </div>
                         <!-- Card 3 -->
@@ -146,7 +172,7 @@ import { CheckCircle2, ArrowRight } from "lucide-astro";
                     >
                         <p>
                             J'interviens à <strong
-                                class="text-main">Perpignan et sa périphérie</strong
+                                class="text-main">Rivesaltes, Perpignan et sa périphérie</strong
                             >, mais j'accompagne aussi mes clients <strong
                                 class="text-main">partout en France à distance</strong
                             >.

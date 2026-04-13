@@ -1,0 +1,39 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const title = "Création Site Web Perpignan | Site vitrine TPE/PME";
+const description = "Création et maintenance de site web à Perpignan pour TPE/PME: site rapide, sécurisé, maintenu et orienté conversion.";
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Création site web Perpignan",
+  serviceType: "Création de site web",
+  areaServed: ["Perpignan", "Pyrénées-Orientales", "France"],
+  provider: { "@id": "https://einformatique.fr/#business" },
+  url: "https://einformatique.fr/creation-site-web-perpignan"
+};
+---
+
+<BaseLayout title={title} description={description} jsonLd={serviceSchema}>
+  <Header />
+  <main class="pt-28 pb-20">
+    <section class="container-custom max-w-4xl space-y-8">
+      <h1 class="text-4xl md:text-5xl font-bold text-main">Création de site web à Perpignan</h1>
+      <p class="text-lg text-secondary">Un site web qui charge vite, inspire confiance et vous apporte des demandes qualifiées. Je conçois des sites simples à maintenir et robustes.</p>
+      <p class="text-secondary">Chaque projet inclut performance, sécurité de base, sauvegardes et maintenance pour éviter les régressions après la mise en ligne.</p>
+    </section>
+
+    <section class="container-custom max-w-4xl mt-12 glass-card p-8">
+      <h2 class="text-2xl font-bold text-main mb-3">Lien vers le service dédié</h2>
+      <div class="flex flex-wrap gap-3 text-sm">
+        <a class="btn-secondary" href="/services#sites-web">Service création de site web</a>
+        <a class="btn-secondary" href="/services#hebergement">Service hébergement VPS</a>
+        <a class="btn-secondary" href="/services#cybersecurite">Service sécurité informatique</a>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>

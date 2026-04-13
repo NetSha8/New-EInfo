@@ -51,11 +51,43 @@ const services = [
 		],
 	},
 ];
+
+const homeFaqSchema = {
+	"@context": "https://schema.org",
+	"@type": "FAQPage",
+	mainEntity: [
+		{
+			"@type": "Question",
+			name: "Intervenez-vous uniquement à Rivesaltes ?",
+			acceptedAnswer: {
+				"@type": "Answer",
+				text: "Non. J'interviens en présentiel à Rivesaltes, Perpignan, Canet-en-Roussillon, Saint-Cyprien et Cabestany, puis à distance partout en France.",
+			},
+		},
+		{
+			"@type": "Question",
+			name: "Quels services propose E Informatique ?",
+			acceptedAnswer: {
+				"@type": "Answer",
+				text: "Dépannage informatique, création de site web, sécurité informatique et hébergement VPS pour TPE/PME.",
+			},
+		},
+		{
+			"@type": "Question",
+			name: "En combien de temps pouvez-vous intervenir ?",
+			acceptedAnswer: {
+				"@type": "Answer",
+				text: "Selon la situation, une intervention à distance peut commencer le jour même. En présentiel, le délai est généralement sous 48h dans les Pyrénées-Orientales.",
+			},
+		},
+	],
+};
 ---
 
 <BaseLayout
-	title="Elian — Informatique & Web pour les TPE/PME à Perpignan"
-	description="Dépannage, site web, serveur, sécurité : un seul interlocuteur pour tous vos problèmes informatiques. Intervention à Perpignan et à distance partout en France."
+	title="Dépannage Informatique Rivesaltes & PO | E Informatique"
+	description="Dépannage informatique, création de site web, sécurité et VPS pour TPE/PME. Intervention à Rivesaltes, Perpignan et dans les Pyrénées-Orientales."
+	jsonLd={homeFaqSchema}
 >
 	<Header />
 
@@ -98,6 +130,17 @@ const services = [
 							);
 						})
 					}
+				</div>
+
+				<div class="mt-8 flex flex-wrap justify-center gap-3 text-sm">
+					<a href="/services#depannage" class="btn-secondary">dépannage informatique</a>
+					<a href="/services#sites-web" class="btn-secondary">création de site web</a>
+					<a href="/services#cybersecurite" class="btn-secondary">sécurité informatique</a>
+					<a href="/services#hebergement" class="btn-secondary">hébergement VPS</a>
+					<a href="/technicien-informatique-rivesaltes" class="btn-secondary">technicien informatique Rivesaltes</a>
+					<a href="/depannage-informatique-rivesaltes" class="btn-secondary">dépannage informatique Rivesaltes</a>
+					<a href="/depannage-informatique-perpignan" class="btn-secondary">dépannage informatique Perpignan</a>
+					<a href="/creation-site-web-perpignan" class="btn-secondary">création site web Perpignan</a>
 				</div>
 			</div>
 		</section>
