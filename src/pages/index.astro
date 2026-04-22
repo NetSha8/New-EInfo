@@ -11,41 +11,51 @@ import { Lightbulb, Users } from "lucide-astro";
 // Services data - icon names map to Lucide icons in ServiceCard
 const services = [
 	{
-		icon: "monitor",
-		title: "Votre site est lent, vieux ou inexistant",
-		highlight: "Site web :",
+		icon: "settings",
+		title: "Votre hébergement est instable ou trop coûteux",
+		highlight: "Infrastructure VPS :",
 		items: [
-			"Création, refonte ou maintenance de votre site",
-			"Pages rapides, mises à jour automatiques, sauvegardes incluses",
-			"Vous ne vous en occupez plus",
+			"Serveur Linux configuré proprement pour votre activité",
+			"Déploiement fiable de votre site et de vos outils métiers",
+			"Supervision 24/7 avec alertes en cas d'incident",
 		],
 	},
 	{
-		icon: "server",
-		title: "Votre hébergement coûte trop cher ou tombe en panne",
-		highlight: "Serveur & hébergement :",
+		icon: "bot",
+		title: "Vous perdez du temps sur des tâches répétitives",
+		highlight: "Automatisation :",
 		items: [
-			"Configuration de serveurs VPS simples et robustes",
-			"Moins cher que les solutions cloud",
-			"Plus fiable que l'hébergement mutualisé de base",
+			"Scripts Python sur mesure pour automatiser le quotidien",
+			"Monitoring et alertes Telegram pour agir rapidement",
+			"Veille et contrôles automatiques sans intervention manuelle",
 		],
 	},
 	{
 		icon: "shield",
-		title: "Vous avez peur d'un piratage ou d'une perte de données",
+		title: "Vous voulez éviter piratage, perte de données et interruptions",
 		highlight: "Sécurité :",
 		items: [
-			"Sécurisation des postes, des serveurs et des accès",
-			"Sauvegardes automatiques, audit de configuration",
-			"Suppression de malwares",
+			"Durcissement de vos serveurs, postes et accès sensibles",
+			"Sauvegardes testées et audit de configuration",
+			"Traitement des incidents et remise en état rapide",
 		],
 	},
 	{
-		icon: "zap",
-		title: "Votre ordinateur rame, plante ou se comporte bizarrement",
+		icon: "globe",
+		title: "Votre site doit rester rapide et disponible",
+		highlight: "Site web :",
+		items: [
+			"Création ou refonte orientée performance",
+			"Maintenance, mises à jour et sauvegardes automatisées",
+			"Un site fiable qui sert vraiment votre activité",
+		],
+	},
+	{
+		icon: "wrench",
+		title: "Votre informatique vous ralentit au quotidien",
 		highlight: "Dépannage & assistance :",
 		items: [
-			"Diagnostic, réparation et optimisation de vos machines",
+			"Diagnostic, réparation et optimisation de vos postes",
 			"Windows, macOS ou Linux",
 			"Déplacement à domicile ou en entreprise sur Perpignan et environs",
 		],
@@ -69,7 +79,7 @@ const homeFaqSchema = {
 			name: "Quels services propose E Informatique ?",
 			acceptedAnswer: {
 				"@type": "Answer",
-				text: "Dépannage informatique, création de site web, sécurité informatique et hébergement VPS pour TPE/PME.",
+				text: "Infrastructure VPS, automatisation et monitoring, sécurité informatique, création de site web et dépannage pour TPE/PME.",
 			},
 		},
 		{
@@ -106,10 +116,10 @@ const homeFaqSchema = {
 						<Lightbulb class="w-7 h-7 text-primary-400" />
 					</div>
 					<h2 class="section-title text-main">
-					Les problèmes que je règle
+					Le périmètre que je couvre
 				</h2>
 				<p class="text-secondary max-w-2xl mx-auto">
-					Pas de jargon, pas de devis incompréhensible. Vous avez un problème, je le règle.
+					Infrastructure, automatisation, sécurité, site web et dépannage : tout est relié pour que votre système tourne sans vous.
 					</p>
 				</div>
 
@@ -130,17 +140,6 @@ const homeFaqSchema = {
 							);
 						})
 					}
-				</div>
-
-				<div class="mt-8 flex flex-wrap justify-center gap-3 text-sm">
-					<a href="/services#depannage" class="btn-secondary">dépannage informatique</a>
-					<a href="/services#sites-web" class="btn-secondary">création de site web</a>
-					<a href="/services#cybersecurite" class="btn-secondary">sécurité informatique</a>
-					<a href="/services#hebergement" class="btn-secondary">hébergement VPS</a>
-					<a href="/technicien-informatique-rivesaltes" class="btn-secondary">technicien informatique Rivesaltes</a>
-					<a href="/depannage-informatique-rivesaltes" class="btn-secondary">dépannage informatique Rivesaltes</a>
-					<a href="/depannage-informatique-perpignan" class="btn-secondary">dépannage informatique Perpignan</a>
-					<a href="/creation-site-web-perpignan" class="btn-secondary">création site web Perpignan</a>
 				</div>
 			</div>
 		</section>

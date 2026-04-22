@@ -2,7 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import { Monitor, Shield, Server, Wrench, CheckCircle2, ArrowRight } from "lucide-astro";
+import { Monitor, Shield, Server, Wrench, CheckCircle2, ArrowRight, Bot } from "lucide-astro";
 
 const title = "Services Informatiques Rivesaltes & Perpignan | TPE/PME";
 const description = "Dépannage informatique, création de site web, sécurité et VPS pour TPE/PME. Intervention à Rivesaltes, Perpignan et dans les Pyrénées-Orientales.";
@@ -12,19 +12,19 @@ const servicesSchema = {
   "@graph": [
     {
       "@type": "Service",
-      name: "Dépannage informatique",
-      serviceType: "Assistance et dépannage informatique",
+      name: "Infrastructure VPS",
+      serviceType: "Hébergement et administration serveur VPS",
       areaServed: ["Rivesaltes", "Perpignan", "Pyrénées-Orientales", "France"],
       provider: { "@id": "https://einformatique.fr/#business" },
-      url: "https://einformatique.fr/services#depannage"
+      url: "https://einformatique.fr/services#hebergement"
     },
     {
       "@type": "Service",
-      name: "Création de site web",
-      serviceType: "Création et maintenance de site web",
+      name: "Automatisation et monitoring",
+      serviceType: "Automatisation technique et surveillance serveurs",
       areaServed: ["Rivesaltes", "Perpignan", "Pyrénées-Orientales", "France"],
       provider: { "@id": "https://einformatique.fr/#business" },
-      url: "https://einformatique.fr/services#sites-web"
+      url: "https://einformatique.fr/services#automatisation-monitoring"
     },
     {
       "@type": "Service",
@@ -36,140 +36,178 @@ const servicesSchema = {
     },
     {
       "@type": "Service",
-      name: "Hébergement VPS",
-      serviceType: "Hébergement et administration serveur VPS",
+      name: "Création de site web",
+      serviceType: "Création et maintenance de site web",
       areaServed: ["Rivesaltes", "Perpignan", "Pyrénées-Orientales", "France"],
       provider: { "@id": "https://einformatique.fr/#business" },
-      url: "https://einformatique.fr/services#hebergement"
+      url: "https://einformatique.fr/services#sites-web"
+    },
+    {
+      "@type": "Service",
+      name: "Dépannage informatique",
+      serviceType: "Assistance et dépannage informatique",
+      areaServed: ["Rivesaltes", "Perpignan", "Pyrénées-Orientales", "France"],
+      provider: { "@id": "https://einformatique.fr/#business" },
+      url: "https://einformatique.fr/services#depannage"
     }
   ]
 };
 
 const services = [
   {
-    id: "depannage",
-    title: "Dépannage & assistance informatique",
-    icon: Wrench,
-    accroche: "Votre machine plante, ralentit ou se comporte bizarrement ? Je viens ou je me connecte à distance.",
+    id: "hebergement",
+    title: "Infrastructure VPS pour TPE/PME",
+    icon: Server,
+    accroche: "Un serveur Linux propre, stable et surveillé en continu pour héberger votre site et vos outils métiers.",
     content: [
       {
-        subtitle: "Pas besoin d'attendre une semaine",
-        text: "Pas besoin d'attendre une semaine qu'un technicien se libère. Je me déplace à Perpignan et dans les Pyrénées-Orientales, ou j'interviens à distance en quelques minutes si la situation le permet."
+        subtitle: "Une base technique fiable dès le départ",
+        text: "Je configure votre VPS de manière lisible et sécurisée : système, accès, pare-feu, sauvegardes et déploiement applicatif. Vous évitez les bricolages qui provoquent des pannes en chaîne."
       },
       {
         subtitle: "Ce que je fais pour vous",
         list: [
-          { title: "Identifier et corriger la panne", desc: "Diagnostic complet et résolution du problème, sans jargon inutile." },
-          { title: "Protéger votre machine des virus et intrusions", desc: "Détection et suppression de malwares, mise en place de protections efficaces." },
-          { title: "Rendre votre machine rapide à nouveau", desc: "Nettoyage, optimisation et réglages pour retrouver les performances d'origine." },
-          { title: "Faire fonctionner box, Wi-Fi et imprimantes ensemble", desc: "Configuration réseau, partage d'imprimante, connexion des appareils." }
+          { title: "Préparer un serveur prêt à produire", desc: "Installation Linux, configuration réseau, sécurité d'accès et services essentiels." },
+          { title: "Déployer sans interruption", desc: "Déploiement avec procédure de retour arrière pour limiter le risque métier." },
+          { title: "Gérer HTTPS, DNS, base et emails", desc: "Tous les éléments techniques alignés pour un fonctionnement stable." },
+          { title: "Surveiller l'infrastructure 24/7", desc: "Détection rapide des incidents avant qu'ils bloquent votre activité." }
         ]
       },
       {
-        subtitle: "Ce qui est inclus",
+        subtitle: "Résultat pour votre entreprise",
         simpleList: [
-          "Intervention sous 48h sur Perpignan",
-          "Diagnostic clair avant toute intervention",
-          "Déplacement à domicile ou en entreprise",
-          "Intervention à distance disponible en quelques minutes"
+          "Un coût d'hébergement lisible et maîtrisé",
+          "Une infrastructure documentée, facile à faire évoluer",
+          "Une continuité de service renforcée",
+          "Un seul interlocuteur pour le site, le serveur et la sécurité"
         ]
       }
     ],
-    techs: ["Windows", "macOS", "Linux", "Réseaux", "Sécurité postes"]
+    techs: ["Linux", "Docker", "VPS", "HTTPS", "SQL"]
   },
   {
-    id: "sites-web",
-    title: "Création et maintenance de site web",
-    icon: Monitor,
-    accroche: "Un site qui charge en moins d'une seconde, sécurisé, mis à jour automatiquement. Vous n'y pensez plus.",
+    id: "automatisation-monitoring",
+    title: "Automatisation & monitoring",
+    icon: Bot,
+    accroche: "Vos contrôles techniques tournent automatiquement, avec alertes Telegram quand une action est nécessaire.",
     content: [
       {
-        subtitle: "Un site non maintenu, c'est un site vulnérable",
-        text: "Un site WordPress non maintenu se fait pirater. Un site lent perd des visiteurs avant même qu'ils lisent une ligne. Je m'occupe des mises à jour, des sauvegardes et des optimisations. Vous gardez le résultat sans avoir à vous en préoccuper."
+        subtitle: "Automatiser ce qui vous fait perdre du temps",
+        text: "Je transforme vos vérifications manuelles en routines fiables : disponibilité serveur, erreurs applicatives, espace disque, expiration de certificats, et autres contrôles adaptés à votre contexte."
       },
       {
         subtitle: "Ce que je fais pour vous",
         list: [
-          { title: "Votre site toujours à jour et sauvegardé", desc: "Mises à jour régulières, sauvegardes automatiques, surveillance des composants critiques." },
-          { title: "Un site qui charge vite sur mobile comme sur desktop", desc: "Optimisation des images, du code et du cache pour un chargement rapide." },
-          { title: "Donner un second souffle à un site vieillissant", desc: "Refonte visuelle et technique pour redonner de la valeur à un site existant." },
-          { title: "Créer votre site de zéro, adapté à votre activité", desc: "WordPress pour une gestion simple, Astro pour la performance maximale." }
+          { title: "Surveillance serveur en continu", desc: "Suivi de la santé système et des services critiques avec seuils clairs." },
+          { title: "Alerting Telegram ciblé", desc: "Notification en temps réel uniquement quand une action est utile." },
+          { title: "Scripts Python sur mesure", desc: "Automatisation de tâches récurrentes : nettoyage, export, contrôles et relances." },
+          { title: "Scraping de veille légal", desc: "Collecte automatisée d'informations publiques pour votre suivi métier." }
         ]
       },
       {
-        subtitle: "Mes garanties qualité",
+        subtitle: "Livrables concrets",
         simpleList: [
-          "Chargement rapide sur mobile et desktop",
-          "WordPress (facile à gérer vous-même après livraison)",
-          "Sauvegardes quotidiennes automatiques",
-          "Sécurité de base incluse (HTTPS, protection contre les attaques courantes)",
-          "Un seul interlocuteur pour le site, le serveur et les emails"
+          "Tableau de bord simple avec les indicateurs utiles",
+          "Historique des alertes et incidents",
+          "Procédure d'action en cas d'alerte",
+          "Maintenance mensuelle possible"
         ]
       }
     ],
-    techs: ["WordPress (gestion simple)", "Astro (performance maximale)", "HTTPS", "Sauvegardes auto"]
+    techs: ["Python", "FastAPI", "Monitoring", "Telegram", "Automatisation"]
   },
   {
     id: "cybersecurite",
     title: "Sécurité informatique pour PME",
     icon: Shield,
-    accroche: "Vous n'êtes pas une grande entreprise, mais vous êtes quand même une cible. Voici comment se protéger sans se ruiner.",
+    accroche: "Vous n'avez pas besoin d'une usine à gaz, mais d'un niveau de sécurité solide et maintenu dans le temps.",
     content: [
       {
-        subtitle: "80\u00a0% des cyberattaques visent les petites structures",
-        text: "80\u00a0% des cyberattaques visent les petites structures, justement parce qu'elles ne sont pas protégées. Pas besoin d'un budget sécurité de grand groupe\u00a0: des mesures simples et bien faites suffisent pour éliminer 90\u00a0% des risques courants."
+        subtitle: "Sécuriser sans complexifier votre quotidien",
+        text: "Je mets en place les protections qui comptent vraiment pour une TPE/PME : accès robustes, sauvegardes restaurables, durcissement des systèmes et procédures en cas d'incident."
       },
       {
         subtitle: "Ce que je fais pour vous",
         list: [
-          { title: "Trouver vos failles avant que quelqu'un d'autre le fasse", desc: "Audit de sécurité de vos systèmes, serveurs et sites avec recommandations concrètes." },
-          { title: "Bloquer les accès non autorisés à vos comptes", desc: "Mise en place de la double authentification (2FA) sur vos outils critiques." },
-          { title: "Ne plus jamais utiliser \"123456\" ou un post-it", desc: "Déploiement et formation à un gestionnaire de mots de passe adapté à votre équipe." },
-          { title: "Scripts sur mesure pour surveiller vos systèmes automatiquement", desc: "Outils automatisés pour détecter les anomalies et vous alerter avant qu'un problème devienne grave." }
+          { title: "Audit des points faibles", desc: "Analyse des postes, serveurs et services exposés avec priorités d'action." },
+          { title: "Protection des accès", desc: "2FA, politique de mots de passe et segmentation des droits." },
+          { title: "Plan de sauvegarde utile", desc: "Sauvegardes automatiques, tests de restauration et règles de conservation." },
+          { title: "Renforcement des serveurs", desc: "Durcissement Linux et réduction de la surface d'attaque." }
         ]
       },
       {
         subtitle: "Ce que vous gagnez",
         simpleList: [
-          "Moins de risques de piratage ou de rançongiciel",
-          "Vos données sauvegardées et récupérables",
-          "Vos comptes protégés contre les intrusions",
-          "Un niveau de sécurité adapté à votre taille"
+          "Moins de risques de coupure et de rançongiciel",
+          "Des accès maîtrisés et traçables",
+          "Des données récupérables en cas d'incident",
+          "Un cadre sécurité proportionné à votre activité"
         ]
       }
     ],
-    techs: ["Audit sécurité", "2FA", "Gestionnaire de mots de passe", "Backup", "Hardening"]
+    techs: ["Audit", "2FA", "Linux", "Sauvegardes", "Hardening"]
   },
   {
-    id: "hebergement",
-    title: "Hébergement & serveur pour votre activité",
-    icon: Server,
-    accroche: "Votre hébergement coûte trop cher ou tombe en panne ? Un VPS Linux bien configuré règle souvent les deux problèmes.",
+    id: "sites-web",
+    title: "Site web professionnel et maintenu",
+    icon: Monitor,
+    accroche: "Un site rapide, sécurisé et entretenu dans la durée pour soutenir votre activité locale.",
     content: [
       {
-        subtitle: "Des offres trop chères ou trop complexes",
-        text: "OVH, AWS, Infomaniak... Les offres d'hébergement sont soit trop chères, soit trop complexes pour ce dont vous avez besoin. Je configure un VPS Linux propre, sécurisé et performant, pour un coût bien inférieur à une solution cloud standard."
+        subtitle: "Un site utile avant d'être décoratif",
+        text: "Votre site doit charger vite, rester disponible et faciliter le contact client. Je conçois ou refonds votre site avec une base technique propre, des sauvegardes automatiques et un suivi continu."
       },
       {
         subtitle: "Ce que je fais pour vous",
         list: [
-          { title: "Un serveur sécurisé prêt à l'emploi", desc: "Configuration complète d'un VPS Linux : système, sécurité, pare-feu et accès." },
-          { title: "Vos applications déployées sans interruption de service", desc: "Déploiement fiable avec retour arrière possible en cas de problème." },
-          { title: "Tout configuré : domaine, HTTPS, base de données, emails", desc: "Une infrastructure complète et fonctionnelle, sans pièces manquantes." },
-          { title: "Surveillance automatique et alertes en cas de problème", desc: "Monitoring de vos services avec notification immédiate en cas d'incident." }
+          { title: "Créer ou refondre votre site", desc: "Structure claire, contenus lisibles et parcours orienté prise de contact." },
+          { title: "Optimiser les performances", desc: "Temps de chargement réduit sur mobile et desktop." },
+          { title: "Assurer la maintenance", desc: "Mises à jour, sauvegardes, surveillance des erreurs et corrections." },
+          { title: "Aligner site et infrastructure", desc: "Configuration serveur, sécurité et emails gérés dans le même périmètre." }
         ]
       },
       {
-        subtitle: "Résultat pour vous",
+        subtitle: "Ce que vous obtenez",
         simpleList: [
-          "Un hébergement fiable, à coût prévisible",
-          "Moins cher que les solutions cloud, plus fiable que l'hébergement mutualisé",
-          "Un serveur que vous comprenez et contrôlez",
-          "Un seul interlocuteur pour le site, le serveur et les emails"
+          "Un site qui reste en ligne et performant",
+          "Des contenus faciles à maintenir",
+          "Un niveau de sécurité cohérent avec votre activité",
+          "Une base prête pour vos évolutions futures"
         ]
       }
     ],
-    techs: ["VPS Linux", "HTTPS & DNS", "Docker (déploiement fiable)", "Monitoring", "Emails professionnels"]
+    techs: ["Astro", "WordPress", "Performance", "HTTPS", "Maintenance"]
+  },
+  {
+    id: "depannage",
+    title: "Dépannage & assistance informatique",
+    icon: Wrench,
+    accroche: "Quand ça bloque, j'interviens vite sur Perpignan, les Pyrénées-Orientales et à distance.",
+    content: [
+      {
+        subtitle: "Réparer sans immobiliser votre activité",
+        text: "Pannes postes, lenteurs, incidents réseau, messagerie, périphériques : je diagnostique et corrige avec une logique de continuité de travail pour votre équipe."
+      },
+      {
+        subtitle: "Ce que je fais pour vous",
+        list: [
+          { title: "Diagnostic clair", desc: "Cause identifiée, priorités d'action et estimation avant intervention lourde." },
+          { title: "Correction des incidents", desc: "Réparation logicielle et matérielle quand c'est pertinent." },
+          { title: "Optimisation des postes", desc: "Nettoyage, réglages et stabilisation des machines." },
+          { title: "Support sur site ou à distance", desc: "Intervention adaptée à l'urgence et à la localisation." }
+        ]
+      },
+      {
+        subtitle: "Ce qui est inclus",
+        simpleList: [
+          "Réponse rapide sous 24h ouvrées",
+          "Intervention locale dans le 66",
+          "Compte rendu simple en fin de mission",
+          "Préconisations pour éviter la récidive"
+        ]
+      }
+    ],
+    techs: ["Windows", "macOS", "Linux", "Réseau", "Support"]
   }
 ];
 ---
@@ -182,12 +220,12 @@ const services = [
     <!-- Page Header -->
     <section class="container-custom mb-20 md:mb-32 text-center">
       <h1 class="text-4xl md:text-6xl font-bold mb-6 mt-[150px] text-main reveal">
-        Ce que je règle<br />
-        <span class="text-highlight">pour votre entreprise</span>
+        Des services pensés pour une infrastructure autonome<br />
+        <span class="text-highlight">à Perpignan et dans les Pyrénées-Orientales</span>
       </h1>
       <p class="text-xl text-secondary max-w-3xl mx-auto leading-relaxed reveal delay-100 mb-[150px]">
-        Vous n'avez pas de service informatique interne. Vous n'avez pas envie d'apprendre à gérer un serveur. Vous voulez juste que ça fonctionne.<br /><br />
-        C'est exactement ce que je fais.
+        Vous n'avez pas de DSI interne, mais votre activité dépend d'outils qui doivent rester disponibles.<br /><br />
+        Je couvre site, serveur, sécurité, automatisation et dépannage dans un même périmètre.
       </p>
     </section>
 
@@ -256,14 +294,6 @@ const services = [
                       ))}
                     </ul>
                   )}
-
-                  <div class="mt-6 text-sm text-secondary flex flex-wrap gap-3">
-                    <span class="text-main">Services liés :</span>
-                    {service.id !== "depannage" && <a href="/services#depannage" class="hover:text-primary-400 transition-colors">dépannage informatique</a>}
-                    {service.id !== "sites-web" && <a href="/services#sites-web" class="hover:text-primary-400 transition-colors">création de site web</a>}
-                    {service.id !== "cybersecurite" && <a href="/services#cybersecurite" class="hover:text-primary-400 transition-colors">sécurité informatique</a>}
-                    {service.id !== "hebergement" && <a href="/services#hebergement" class="hover:text-primary-400 transition-colors">hébergement VPS</a>}
-                  </div>
                 </div>
               ))}
             </div>
