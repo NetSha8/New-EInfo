@@ -2,7 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import { CheckCircle2, ArrowRight } from "lucide-astro";
+import { Terminal, Server, ShieldCheck, Code, Bot, Globe, CheckCircle2, User, Workflow, LayoutList } from "lucide-astro";
 
 const personSchema = {
     "@context": "https://schema.org",
@@ -20,240 +20,218 @@ const personSchema = {
         addressCountry: "FR",
     },
     knowsAbout: [
-        "Dépannage informatique",
         "Administration Linux",
+        "Docker",
+        "Déploiement VPS",
+        "Automatisation Python",
         "Sécurité informatique",
-        "Création de site web",
-        "Hébergement VPS",
+        "WordPress",
+        "Astro",
     ],
     url: "https://einformatique.fr/about",
 };
 ---
 
 <BaseLayout
-    title="Elian — Site web, infrastructure et sécurité à Perpignan | E Informatique"
-    description="Elian accompagne les TPE/PME à Perpignan et dans les Pyrénées-Orientales sur le site web, l'infrastructure VPS, l'automatisation et la sécurité."
+    title="A propos | E Informatique"
+    description="Qui je suis, ma trajectoire de technicien informatique vers la specialisation infra et DevOps, et la facon dont j'accompagne les TPE/PME."
     jsonLd={personSchema}
 >
     <Header />
 
-    <main class="pt-24 pb-20 overflow-hidden">
-        <!-- Hero Section -->
-        <section class="relative py-12 md:py-20">
-            <div class="container-custom">
-                <div class="max-w-4xl space-y-8">
-                    <h1
-                        class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-main reveal"
-                    >
-                        Site web, infrastructure et sécurité à Perpignan
-                    </h1>
-                    <div
-                        class="pt-8 text-lg text-main/80 space-y-4 reveal delay-200 text-left max-w-3xl leading-relaxed"
-                    >
-                        <p>
-                            Je m'appelle Elian, 29 ans. J'interviens pour les TPE/PME à Perpignan, Rivesaltes et dans les Pyrénées-Orientales (66).
-                        </p>
-                        <p>
-                            Mon métier : construire des systèmes informatiques autonomes. Le principe est simple : détecter tôt, corriger vite, éviter la panne visible côté client.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Background decoration -->
+    <main class="pt-20">
+        <!-- En-tête type Hero -->
+        <section class="relative py-16 md:py-24 overflow-hidden" aria-labelledby="about-title">
+            <div class="absolute inset-0 bg-dark-950"></div>
+            <!-- Texture de fond discrète -->
             <div
-                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary-500/10 rounded-full blur-[100px] -z-10 pointer-events-none"
-            >
-            </div>
-        </section>
+                class="absolute inset-0 opacity-[0.02]"
+                style="background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSIjZmZmIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxjaXJjbGUgY3g9IjIwIiBjeT0iMjAiIHI9IjEiLz48L2c+PC9zdmc+');"
+            ></div>
+            <!-- Lueur bleue -->
+            <div
+                class="absolute top-1/2 left-1/4 -translate-y-1/2 w-96 h-96 bg-primary-500/10 rounded-full blur-[120px] pointer-events-none"
+            ></div>
 
-        <!-- Section: Parcours technique -->
-        <section class="py-16 md:py-24 bg-dark-900/50">
-            <div class="container-custom">
-                <div class="max-w-3xl space-y-8 reveal">
-                    <h2 class="section-title text-3xl md:text-4xl mb-12">
-                        Parcours technique
-                    </h2>
-                    <div
-                        class="space-y-4 text-secondary text-lg leading-relaxed"
+            <div class="container-custom relative z-10">
+                <div class="max-w-4xl space-y-8 reveal animate-slide-up">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-500/10 border border-primary-500/20 text-primary-400 text-sm font-medium mb-2">
+                        <User class="w-4 h-4" />
+                        <span>Profil</span>
+                    </div>
+                    <h1
+                        id="about-title"
+                        class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-main"
                     >
+                        A propos
+                    </h1>
+                    <div class="space-y-5 text-lg text-main/80 max-w-3xl leading-relaxed">
                         <p>
-                            J'ai commencé par l'administration système : postes de travail, réseaux locaux, serveurs Linux et incidents du quotidien en entreprise.
+                            Je suis Elian, technicien informatique indépendant à Rivesaltes, près de Perpignan.
                         </p>
                         <p>
-                            Ensuite, j'ai industrialisé les interventions avec l'automatisation : scripts Python, APIs FastAPI, déploiements Docker sur VPS 24/7, supervision continue et alertes Telegram.
+                            Je viens du terrain: dépannage, réseaux, postes et sécurité de base pour les TPE/PME.
                         </p>
                         <p>
-                            Aujourd'hui, j'interviens sur l'ensemble du cycle technique : site web, serveur, sécurité et surveillance automatique, sans renvoyer vers trois prestataires différents.
+                            Aujourd'hui, je me spécialise progressivement vers l'infrastructure et le DevOps, avec une approche simple : automatiser ce qui doit l'être, garder le reste lisible.
                         </p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Section: Stack concrète -->
-        <section class="py-16 md:py-24">
+        <!-- Parcours / Trajectoire -->
+        <section
+            class="py-20 md:py-32 bg-dark-900/50"
+            aria-labelledby="trajectoire-title"
+        >
             <div class="container-custom">
-                <div class="max-w-3xl space-y-10 reveal">
-                    <h2 class="section-title text-3xl md:text-4xl mb-12">
-                        Stack concrète
-                    </h2>
-                    <div
-                        class="space-y-6 text-lg text-secondary leading-relaxed"
-                    >
-                        <p>
-                            Je travaille avec une stack volontairement robuste : Python pour l'automatisation et les scripts métier, Docker + Linux pour des environnements stables, SQL pour la donnée utile, CI/CD pour déployer proprement, monitoring + alerting Telegram pour être prévenu avant vous.
-                        </p>
-                        <p class="text-2xl text-main font-semibold">
-                            Objectif : que vos outils tournent en continu sans dépendre d'actions manuelles répétitives.
-                        </p>
-                        <p>
-                            Concrètement, cela donne des sauvegardes vérifiées, des déploiements reproductibles, des alertes utiles et un plan d'action simple quand un incident arrive.
-                        </p>
+                <div class="max-w-4xl space-y-12 reveal">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-lg bg-primary-600/10 flex items-center justify-center">
+                            <Workflow class="w-5 h-5 text-primary-400" />
+                        </div>
+                        <h2 id="trajectoire-title" class="text-3xl md:text-4xl font-bold">
+                            Ma trajectoire
+                        </h2>
+                    </div>
+                    <div class="grid md:grid-cols-3 gap-8 text-secondary">
+                        <div class="glass-card glass-card--static p-8 space-y-4">
+                            <h3 class="text-xl font-bold text-main">Le terrain</h3>
+                            <p>Mon point de départ, c'est le métier de technicien : maintenir des postes, stabiliser des réseaux, gérer les incidents et sécuriser l'essentiel.</p>
+                        </div>
+                        <div class="glass-card glass-card--static p-8 space-y-4 border-t-2 md:border-t-0 md:border-l-2 border-primary-500/30">
+                            <h3 class="text-xl font-bold text-primary-400">L'évolution</h3>
+                            <p>L'évolution a été naturelle vers Linux, les VPS et l'automatisation : scripts Python, conteneurs Docker, déploiements propres, supervision et alertes.</p>
+                        </div>
+                        <div class="glass-card glass-card--static p-8 space-y-4 border-t-2 md:border-t-0 md:border-l-2 border-primary-500/50">
+                            <h3 class="text-xl font-bold text-main">La spécialisation</h3>
+                            <p>Je ne me présente pas comme un DevOps senior. Je suis en progression active dans cette spécialisation, avec des prestations concrètes déjà opérationnelles pour les entreprises.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Section: À qui je m'adresse -->
-        <section class="py-16 md:py-24 bg-dark-900/50">
+        <!-- Compétences -->
+        <section
+            class="py-20 md:py-32"
+            aria-labelledby="competences-title"
+        >
             <div class="container-custom">
-                <div class="max-w-5xl">
-                    <h2 class="section-title text-3xl md:text-4xl mb-16 reveal">
-                        À qui je m'adresse
-                    </h2>
-
-                    <div class="grid md:grid-cols-3 gap-2 reveal delay-100">
-                        <!-- Card 1 -->
-                        <div
-                            class="glass-card glass-card--static card-glow p-8 flex flex-col h-full"
-                        >
-                            <div
-                                class="w-14 h-14 rounded-full bg-primary-500/20 flex items-center justify-center mb-6 text-primary-400 font-bold text-2xl"
-                            >
-                                1
-                            </div>
-                            <h3 class="text-2xl font-bold mb-4">TPE &amp; PME locales</h3>
-                            <p class="text-secondary text-lg">
-                                Structures sans DSI interne à Perpignan et dans le 66, qui veulent un système informatique fiable sans multiplier les interlocuteurs.
-                            </p>
+                <div class="max-w-4xl space-y-12 reveal">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-lg bg-primary-600/10 flex items-center justify-center">
+                            <Code class="w-5 h-5 text-primary-400" />
                         </div>
-                        <!-- Card 2 -->
-                        <div
-                            class="glass-card glass-card--static card-glow p-8 flex flex-col h-full"
-                        >
-                            <div
-                                class="w-14 h-14 rounded-full bg-primary-500/20 flex items-center justify-center mb-6 text-primary-400 font-bold text-2xl"
-                            >
-                                2
-                            </div>
-                            <h3 class="text-2xl font-bold mb-4">Artisans et commerçants</h3>
-                            <p class="text-secondary text-lg">
-                                Activités avec un site qui doit rester accessible, rapide et sécurisé pour générer des demandes en continu.
-                            </p>
-                        </div>
-                        <!-- Card 3 -->
-                        <div
-                            class="glass-card glass-card--static card-glow p-8 flex flex-col h-full"
-                        >
-                            <div
-                                class="w-14 h-14 rounded-full bg-primary-500/20 flex items-center justify-center mb-6 text-primary-400 font-bold text-2xl"
-                            >
-                                3
-                            </div>
-                            <h3 class="text-2xl font-bold mb-4">PME orientées continuité</h3>
-                            <p class="text-secondary text-lg">
-                                Équipes qui veulent de la surveillance automatique pour anticiper les incidents au lieu de les subir.
-                            </p>
-                        </div>
+                        <h2 id="competences-title" class="text-3xl md:text-4xl font-bold">
+                            Ce que je sais faire aujourd'hui
+                        </h2>
                     </div>
-                    <div
-                        class="mt-16 text-xl text-secondary reveal delay-200 max-w-3xl"
-                    >
-                        <p>
-                            J'interviens à <strong
-                                class="text-main">Rivesaltes, Perpignan et sa périphérie</strong
-                            >, mais j'accompagne aussi mes clients <strong
-                                class="text-main">partout en France à distance</strong
-                            >.
-                        </p>
+                    <ul class="grid gap-6 md:grid-cols-2 text-secondary" aria-label="Compétences actuelles">
+                        <li class="glass-card glass-card--static p-6 md:p-8 flex items-start gap-5">
+                            <Terminal class="w-6 h-6 text-primary-400 shrink-0 mt-1" />
+                            <div>
+                                <strong class="text-main block mb-2">Linux (Debian/Ubuntu)</strong>
+                                <span class="leading-relaxed">Administration, hardening, maintenance</span>
+                            </div>
+                        </li>
+                        <li class="glass-card glass-card--static p-6 md:p-8 flex items-start gap-5">
+                            <Server class="w-6 h-6 text-primary-400 shrink-0 mt-1" />
+                            <div>
+                                <strong class="text-main block mb-2">Docker, Nginx & VPS</strong>
+                                <span class="leading-relaxed">Déploiements propres sur serveurs distants</span>
+                            </div>
+                        </li>
+                        <li class="glass-card glass-card--static p-6 md:p-8 flex items-start gap-5">
+                            <Code class="w-6 h-6 text-primary-400 shrink-0 mt-1" />
+                            <div>
+                                <strong class="text-main block mb-2">Python</strong>
+                                <span class="leading-relaxed">Automatisation, scripts métiers, monitoring</span>
+                            </div>
+                        </li>
+                        <li class="glass-card glass-card--static p-6 md:p-8 flex items-start gap-5">
+                            <Bot class="w-6 h-6 text-primary-400 shrink-0 mt-1" />
+                            <div>
+                                <strong class="text-main block mb-2">Bots automatisés</strong>
+                                <span class="leading-relaxed">Telegram pour notifications & alertes directes</span>
+                            </div>
+                        </li>
+                        <li class="glass-card glass-card--static p-6 md:p-8 flex items-start gap-5">
+                            <ShieldCheck class="w-6 h-6 text-primary-400 shrink-0 mt-1" />
+                            <div>
+                                <strong class="text-main block mb-2">Sécurité pratique</strong>
+                                <span class="leading-relaxed">Audit de configuration, durcissement, vraies sauvegardes</span>
+                            </div>
+                        </li>
+                        <li class="glass-card glass-card--static p-6 md:p-8 flex items-start gap-5">
+                            <Globe class="w-6 h-6 text-primary-400 shrink-0 mt-1" />
+                            <div>
+                                <strong class="text-main block mb-2">Web (WordPress & Astro)</strong>
+                                <span class="leading-relaxed">Sites sécurisés orientés performance avec infra incluse</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Philosophie de travail -->
+        <section
+            class="py-20 md:py-32 bg-dark-900/50"
+            aria-labelledby="methode-title"
+        >
+            <div class="container-custom">
+                <div class="max-w-4xl space-y-12 reveal">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-lg bg-primary-600/10 flex items-center justify-center">
+                            <LayoutList class="w-5 h-5 text-primary-400" />
+                        </div>
+                        <h2 id="methode-title" class="text-3xl md:text-4xl font-bold">
+                            Comment je travaille
+                        </h2>
+                    </div>
+                    <div class="glass-card glass-card--static p-8 md:p-12">
+                        <ul class="space-y-8 text-secondary text-lg" aria-label="Philosophie de travail">
+                            <li class="flex items-start gap-4">
+                                <CheckCircle2 class="w-7 h-7 text-green-400 flex-shrink-0 mt-0.5" />
+                                <span class="leading-relaxed"><strong class="text-main font-medium">Systèmes autonomes :</strong> le but est que ça tourne sans intervention manuelle quotidienne.</span>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <CheckCircle2 class="w-7 h-7 text-green-400 flex-shrink-0 mt-0.5" />
+                                <span class="leading-relaxed"><strong class="text-main font-medium">Simplicité et efficacité :</strong> je n'ajoute pas de complexité technologique inutile.</span>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <CheckCircle2 class="w-7 h-7 text-green-400 flex-shrink-0 mt-0.5" />
+                                <span class="leading-relaxed"><strong class="text-main font-medium">Un seul interlocuteur :</strong> je maîtrise le code, le serveur et la sécurité.</span>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <CheckCircle2 class="w-7 h-7 text-green-400 flex-shrink-0 mt-0.5" />
+                                <span class="leading-relaxed"><strong class="text-main font-medium">Transparence :</strong> j'explique ce qui est fait et pourquoi, sans jargon gratuit.</span>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Section: Collaboration -->
-        <section class="py-16 md:py-24 bg-dark-900/50">
+        <!-- Pour qui je travaille -->
+        <section
+            class="py-20 md:py-32 mb-16"
+            aria-labelledby="cible-title"
+        >
             <div class="container-custom">
-                <div class="max-w-4xl reveal">
-                    <h2 class="section-title text-3xl md:text-4xl mb-12">
-                        Simplicité, performance, sens du détail
+                <div class="max-w-4xl space-y-10 reveal">
+                    <h2 id="cible-title" class="text-3xl md:text-4xl font-bold">
+                        Pour qui je travaille
                     </h2>
-                    <div
-                        class="bg-dark-800/50 rounded-2xl p-8 md:p-12    -white/5"
-                    >
-                        <p class="text-xl mb-8 font-medium text-main">
-                            Je m’engage à :
+                    <div class="p-10 border-l-4 border-primary-500 bg-primary-500/5 rounded-r-2xl">
+                        <p class="text-secondary text-lg leading-relaxed mb-6">
+                            Principalement pour les <strong class="text-main">TPE/PME des Pyrénées-Orientales</strong> qui n'ont pas de service IT interne et qui veulent un prestataire local, disponible et technique.
                         </p>
-                        <div
-                            class="grid md:grid-cols-2 gap-y-6 gap-x-8 text-left max-w-3xl"
-                        >
-                            <div class="flex items-center gap-4">
-                                <CheckCircle2
-                                    class="w-6 h-6 text-green-400 flex-shrink-0"
-                                />
-                                <span class="text-secondary text-lg"
-                                    >Comprendre votre contrainte métier avant la solution</span
-                                >
-                            </div>
-                            <div class="flex items-center gap-4">
-                                <CheckCircle2
-                                    class="w-6 h-6 text-green-400 flex-shrink-0"
-                                />
-                                <span class="text-secondary text-lg"
-                                    >Concevoir une architecture lisible et maintenable</span
-                                >
-                            </div>
-                            <div class="flex items-center gap-4">
-                                <CheckCircle2
-                                    class="w-6 h-6 text-green-400 flex-shrink-0"
-                                />
-                                <span class="text-secondary text-lg"
-                                    >Automatiser les tâches répétitives qui créent du risque</span
-                                >
-                            </div>
-                            <div class="flex items-center gap-4">
-                                <CheckCircle2
-                                    class="w-6 h-6 text-green-400 flex-shrink-0"
-                                />
-                                <span class="text-secondary text-lg"
-                                    >Mesurer ce qui compte avec un monitoring clair</span
-                                >
-                            </div>
-                            <div class="flex items-center gap-4 md:col-span-2">
-                                <CheckCircle2
-                                    class="w-6 h-6 text-green-400 flex-shrink-0"
-                                />
-                                <span class="text-secondary text-lg"
-                                    >Documenter ce qui est fait pour rester autonome dans le temps</span
-                                >
-                            </div>
-                        </div>
-                        <p class="mt-10 text-xl text-main leading-relaxed">
-                            Exemple concret : au lieu de vérifier manuellement chaque matin si le site, les sauvegardes et les emails fonctionnent, vous recevez une alerte uniquement quand une action est nécessaire. Le reste tourne en arrière-plan.
+                        <p class="text-secondary text-lg leading-relaxed">
+                            J'accompagne également des entreprises <strong class="text-main">partout en France à distance</strong> sur les besoins en infrastructure, automatisation et sécurité.
                         </p>
-                        <p class="mt-6 text-2xl md:text-3xl font-bold text-main leading-tight">
-                            Je construis les systèmes. Vous gérez votre métier.
-                        </p>
-                        <div class="mt-10">
-                            <a
-                                href="/contact"
-                                class="btn-primary text-lg px-8 py-4"
-                            >
-                                Travaillons ensemble
-                                <ArrowRight class="w-5 h-5" />
-                            </a>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -262,43 +240,3 @@ const personSchema = {
 
     <Footer />
 </BaseLayout>
-
-<style>
-    .card-glow {
-        position: relative;
-        overflow: hidden;
-    }
-    .card-glow::before {
-        content: '';
-        position: absolute;
-        top: var(--glow-y, -100px);
-        left: var(--glow-x, -100px);
-        width: 250px;
-        height: 250px;
-        background: radial-gradient(circle, rgba(51, 133, 255, 0.08) 0%, transparent 70%);
-        transform: translate(-50%, -50%);
-        pointer-events: none;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-        z-index: 0;
-    }
-    .card-glow:hover::before {
-        opacity: 1;
-    }
-    .card-glow > * {
-        position: relative;
-        z-index: 1;
-    }
-</style>
-
-<script>
-    document.querySelectorAll('.card-glow').forEach((card) => {
-        card.addEventListener('mousemove', (e) => {
-            const el = card as HTMLElement;
-            const rect = el.getBoundingClientRect();
-            const mEvent = e as MouseEvent;
-            el.style.setProperty('--glow-x', `${mEvent.clientX - rect.left}px`);
-            el.style.setProperty('--glow-y', `${mEvent.clientY - rect.top}px`);
-        });
-    });
-</script>
