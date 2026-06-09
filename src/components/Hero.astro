@@ -1,6 +1,6 @@
 ---
 import { ArrowRight, MapPin, Clock, UserCheck, ShieldCheck } from "lucide-astro";
-import PixelatedCanvas from "./PixelatedCanvas";
+import HeroTerminal from "./HeroTerminal.astro";
 import AnimatedNetworkBg from "./AnimatedNetworkBg.astro";
 
 const reassurances = [
@@ -103,36 +103,12 @@ const reassurances = [
                 </ul>
             </div>
 
-            <!-- Right: Pixelated Logo -->
+            <!-- Right: Animated Terminal -->
             <div
                 class="hidden lg:flex justify-center items-center animate-fade-in"
                 style="animation-delay: 0.5s;"
             >
-                <div class="relative p-8">
-                    <!-- Layered glow -->
-                    <div
-                        class="absolute inset-0 bg-primary-400/15 blur-3xl rounded-full scale-90"
-                        aria-hidden="true"
-                    >
-                    </div>
-                    <div
-                        class="absolute inset-0 bg-accent-400/10 blur-3xl rounded-full scale-75 translate-x-8 translate-y-8"
-                        aria-hidden="true"
-                    >
-                    </div>
-
-                    <PixelatedCanvas
-                        client:visible
-                        src="/images/logo.svg"
-                        width={380}
-                        height={380}
-                        cellSize={5}
-                        dotScale={0.9}
-                        interactive={true}
-                        distortionStrength={25}
-                        distortionRadius={80}
-                    />
-                </div>
+                <HeroTerminal />
             </div>
         </div>
     </div>

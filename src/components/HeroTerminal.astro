@@ -1,0 +1,272 @@
+---
+// Terminal animé du hero : frappe de commandes (déploiement FTP, clin d'œil MLX)
+---
+
+<div class="hero-terminal-wrapper relative w-full max-w-xl">
+    <!-- Halo lumineux -->
+    <div
+        class="absolute inset-0 bg-primary-400/15 blur-3xl rounded-full scale-90"
+        aria-hidden="true"
+    >
+    </div>
+    <div
+        class="absolute inset-0 bg-accent-400/10 blur-3xl rounded-full scale-75 translate-x-8 translate-y-8"
+        aria-hidden="true"
+    >
+    </div>
+
+    <div
+        class="hero-terminal relative z-10 w-full max-w-xl rounded-xl overflow-hidden shadow-2xl"
+        role="img"
+        aria-label="Terminal montrant un déploiement et un appel au framework MLX d'Apple"
+    >
+        <!-- Barre de titre -->
+        <div class="terminal-bar flex items-center gap-2 px-4 py-3">
+            <span class="dot dot-red"></span>
+            <span class="dot dot-yellow"></span>
+            <span class="dot dot-green"></span>
+            <span class="terminal-title ml-3 text-xs font-mono">
+                elian@e-informatique — zsh
+            </span>
+        </div>
+
+        <!-- Corps du terminal -->
+        <div class="terminal-body font-mono text-sm leading-relaxed p-4" id="terminal-body">
+            <div class="terminal-output" id="terminal-output"></div>
+            <div class="terminal-prompt-line flex">
+                <span class="prompt-symbol">❯</span>
+                <span class="typed-line" id="typed-line"></span>
+                <span class="cursor" id="cursor">▋</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .terminal-bar {
+        background: var(--terminal-bar-bg, #1a2233);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .hero-terminal {
+        background: var(--terminal-bg, #0d1424);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 9999px;
+        display: inline-block;
+    }
+    .dot-red { background: #ff5f56; }
+    .dot-yellow { background: #ffbd2e; }
+    .dot-green { background: #27c93f; }
+
+    .terminal-title {
+        color: rgba(226, 232, 240, 0.55);
+    }
+
+    .terminal-body {
+        background: var(--terminal-bg, #0d1424);
+        color: #cbd5e1;
+        height: 360px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+
+    .prompt-symbol {
+        color: #34d399;
+        margin-right: 0.6rem;
+        font-weight: 700;
+    }
+
+    .typed-line {
+        color: #e2e8f0;
+        white-space: pre-wrap;
+        word-break: break-word;
+    }
+
+    .cursor {
+        color: #34d399;
+        animation: blink 1s step-end infinite;
+        margin-left: 1px;
+    }
+
+    @keyframes blink {
+        0%, 50% { opacity: 1; }
+        51%, 100% { opacity: 0; }
+    }
+
+    /* Couleurs de sortie */
+    :global(.t-cmd) { color: #e2e8f0; }
+    :global(.t-flag) { color: #fbbf24; }
+    :global(.t-str) { color: #34d399; }
+    :global(.t-comment) { color: #64748b; font-style: italic; }
+    :global(.t-ok) { color: #34d399; }
+    :global(.t-info) { color: #60a5fa; }
+    :global(.t-accent) { color: #f59e0b; }
+    :global(.t-dim) { color: #94a3b8; }
+
+    :global(.t-line) {
+        white-space: pre-wrap;
+        word-break: break-word;
+    }
+    :global(.t-prompt) {
+        color: #34d399;
+        font-weight: 700;
+        margin-right: 0.6rem;
+    }
+
+    /* Barre de progression simulée */
+    :global(.t-progress) {
+        color: #60a5fa;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .cursor { animation: none; }
+    }
+</style>
+
+<script>
+    type Step =
+        | { type: "type"; text: string; html?: string }
+        | { type: "out"; html: string; delay?: number };
+
+    // Scénario : un déploiement + un clin d'œil MLX
+    const script: Step[] = [
+        {
+            type: "type",
+            text: "whoami",
+        },
+        {
+            type: "out",
+            html: '<div class="t-line"><span class="t-dim">Elian — Technicien & développeur · E Informatique</span></div>',
+        },
+        {
+            type: "type",
+            text: "deploy --target vps --site e-informatique.fr",
+            html: '<span class="t-cmd">deploy</span> <span class="t-flag">--target</span> <span class="t-str">vps</span> <span class="t-flag">--site</span> <span class="t-str">e-informatique.fr</span>',
+        },
+        {
+            type: "out",
+            html: '<div class="t-line"><span class="t-info">→</span> build production… <span class="t-ok">done</span> <span class="t-dim">(1.84s)</span></div>',
+        },
+        {
+            type: "out",
+            html: '<div class="t-line t-progress">↑ FTP upload [██████████████████████] 100%  42 fichiers</div>',
+            delay: 500,
+        },
+        {
+            type: "out",
+            html: '<div class="t-line"><span class="t-ok">✓</span> Déploiement terminé · site en ligne</div>',
+        },
+        {
+            type: "type",
+            text: "python infer.py --framework mlx",
+            html: '<span class="t-cmd">python</span> <span class="t-str">infer.py</span> <span class="t-flag">--framework</span> <span class="t-accent">mlx</span>',
+        },
+        {
+            type: "out",
+            html: '<div class="t-line"><span class="t-comment"># Apple MLX · accélération sur puce M-series</span></div>',
+        },
+        {
+            type: "out",
+            html: '<div class="t-line"><span class="t-info">mlx</span> ➜ chargement du modèle… <span class="t-ok">ok</span> <span class="t-dim">(Metal GPU)</span></div>',
+            delay: 400,
+        },
+        {
+            type: "out",
+            html: '<div class="t-line"><span class="t-accent">⚡</span> 187 tokens/s · 0 fuite mémoire</div>',
+        },
+        {
+            type: "type",
+            text: "monitor --alert telegram",
+            html: '<span class="t-cmd">monitor</span> <span class="t-flag">--alert</span> <span class="t-str">telegram</span>',
+        },
+        {
+            type: "out",
+            html: '<div class="t-line"><span class="t-ok">✓</span> Supervision active · alertes 24/7 configurées</div>',
+        },
+        {
+            type: "out",
+            html: '<div class="t-line"><span class="t-dim">Tout tourne. Vous pouvez penser à autre chose. 🙂</span></div>',
+        },
+    ];
+
+    function initTerminal() {
+        const output = document.getElementById("terminal-output");
+        const typed = document.getElementById("typed-line");
+        const promptSymbol = document.querySelector(
+            ".terminal-prompt-line .prompt-symbol",
+        ) as HTMLElement | null;
+        const cursor = document.getElementById("cursor");
+        if (!output || !typed) return;
+
+        const reduced = window.matchMedia(
+            "(prefers-reduced-motion: reduce)",
+        ).matches;
+
+        const sleep = (ms: number) =>
+            new Promise((r) => setTimeout(r, ms));
+
+        function appendOutput(html: string) {
+            const div = document.createElement("div");
+            div.innerHTML = html;
+            while (div.firstChild) output!.appendChild(div.firstChild);
+        }
+
+        function pushTypedToHistory(html: string) {
+            const line = document.createElement("div");
+            line.className = "t-line";
+            line.innerHTML =
+                '<span class="t-prompt">❯</span>' + html;
+            output!.appendChild(line);
+        }
+
+        async function run() {
+            for (const step of script) {
+                if (step.type === "type") {
+                    typed!.textContent = "";
+                    if (reduced) {
+                        // Pas d'animation : afficher directement
+                    } else {
+                        for (const ch of step.text) {
+                            typed!.textContent += ch;
+                            await sleep(28 + Math.random() * 45);
+                        }
+                        await sleep(350);
+                    }
+                    // Déplacer la commande dans l'historique
+                    pushTypedToHistory(step.html ?? escapeHtml(step.text));
+                    typed!.textContent = "";
+                    await sleep(reduced ? 0 : 200);
+                } else {
+                    appendOutput(step.html);
+                    await sleep(reduced ? 0 : step.delay ?? 250);
+                }
+            }
+            // Boucle : recommencer après une pause
+            await sleep(reduced ? 4000 : 3200);
+            output!.innerHTML = "";
+            run();
+        }
+
+        function escapeHtml(s: string) {
+            return s
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;");
+        }
+
+        run();
+    }
+
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initTerminal);
+    } else {
+        initTerminal();
+    }
+</script>
