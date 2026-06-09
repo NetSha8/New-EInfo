@@ -1,40 +1,59 @@
 ---
+// Anneaux de diffusion émanant du centre de leur conteneur (la planète).
+// Le conteneur parent doit être `position: relative`.
 ---
 
-<svg
-  class="absolute inset-0 w-full h-full pointer-events-none"
-  viewBox="0 0 200 200"
-  preserveAspectRatio="xMidYMid meet"
-  xmlns="http://www.w3.org/2000/svg"
-  aria-hidden="true"
->
-  <g fill="none" stroke="oklch(0.58 0.190 250)">
-    <circle class="br" style="--d:0s"   cx="100" cy="100" r="22" stroke-width="0.9"/>
-    <circle class="br" style="--d:0.7s" cx="100" cy="100" r="40" stroke-width="0.7"/>
-    <circle class="br" style="--d:1.4s" cx="100" cy="100" r="60" stroke-width="0.5"/>
-    <circle class="br" style="--d:2.1s" cx="100" cy="100" r="82" stroke-width="0.35"/>
-  </g>
-</svg>
+<div class="broadcast-rings" aria-hidden="true">
+  <span class="br" style="--d:0s"></span>
+  <span class="br" style="--d:1s"></span>
+  <span class="br" style="--d:2s"></span>
+</div>
 
 <style>
+  .broadcast-rings {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+    z-index: 0;
+  }
+
   .br {
-    transform-box: fill-box;
-    transform-origin: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 6rem;
+    height: 6rem;
+    margin-top: -3rem;
+    margin-left: -3rem;
+    border: 1px solid oklch(0.58 0.190 250);
+    border-radius: 9999px;
     opacity: 0;
   }
 
   @media (prefers-reduced-motion: no-preference) {
     .br {
-      animation: broadcast 3.2s var(--d, 0s) cubic-bezier(0.19, 1, 0.22, 1) infinite;
+      animation: broadcast 3s var(--d, 0s) ease-out infinite;
     }
 
     @keyframes broadcast {
-      0%   { transform: scale(0.65); opacity: 0.55; }
-      100% { transform: scale(1.5);  opacity: 0;    }
+      0% {
+        transform: scale(0.55);
+        opacity: 0.5;
+      }
+      100% {
+        transform: scale(2.6);
+        opacity: 0;
+      }
     }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .br { opacity: 0.12; }
+    .br {
+      opacity: 0.1;
+      transform: scale(1.4);
+    }
   }
 </style>
