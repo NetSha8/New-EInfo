@@ -104,7 +104,7 @@ function formatDate(dateStr: string): string {
                 <!-- Back Button -->
                 <a
                     href="/blog"
-                    class="inline-flex items-center gap-2 text-secondary hover:text-primary-400 transition-colors duration-300 mb-8 reveal"
+                    class="inline-flex items-center gap-2 text-secondary hover:text-primary-600 transition-colors duration-300 mb-8 reveal"
                 >
                     <ArrowLeft class="w-4 h-4" />
                     <span class="text-sm font-medium">Retour au blog</span>
@@ -113,7 +113,7 @@ function formatDate(dateStr: string): string {
                 <!-- Article Header -->
                 <header class="mb-10 reveal delay-100">
                     <div class="flex flex-wrap items-center gap-3 mb-4">
-                        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-primary-600/15 text-primary-400    -primary-500/20">
+                        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-primary-600/12 text-primary-600">
                             {post.data.category}
                         </span>
                         <div class="flex items-center gap-1.5 text-xs text-secondary">
@@ -165,10 +165,10 @@ function formatDate(dateStr: string): string {
                             href={`/blog/${prevPost.id}`}
                             class="glass-card p-4 flex items-center gap-3 group/nav flex-1 no-hover"
                         >
-                            <ChevronLeft class="w-5 h-5 text-secondary group-hover/nav:text-primary-400 transition-colors flex-shrink-0" />
+                            <ChevronLeft class="w-5 h-5 text-secondary group-hover/nav:text-primary-600 transition-colors flex-shrink-0" />
                             <div class="min-w-0">
                                 <span class="text-xs text-secondary block">Article précédent</span>
-                                <span class="text-sm font-semibold text-main group-hover/nav:text-primary-400 transition-colors truncate block">
+                                <span class="text-sm font-semibold text-main group-hover/nav:text-primary-600 transition-colors truncate block">
                                     {prevPost.data.title}
                                 </span>
                             </div>
@@ -181,11 +181,11 @@ function formatDate(dateStr: string): string {
                         >
                             <div class="min-w-0 flex-1">
                                 <span class="text-xs text-secondary block">Article suivant</span>
-                                <span class="text-sm font-semibold text-main group-hover/nav:text-primary-400 transition-colors truncate block">
+                                <span class="text-sm font-semibold text-main group-hover/nav:text-primary-600 transition-colors truncate block">
                                     {nextPost.data.title}
                                 </span>
                             </div>
-                            <ChevronRight class="w-5 h-5 text-secondary group-hover/nav:text-primary-400 transition-colors flex-shrink-0" />
+                            <ChevronRight class="w-5 h-5 text-secondary group-hover/nav:text-primary-600 transition-colors flex-shrink-0" />
                         </a>
                     ) : <div />}
                 </nav>

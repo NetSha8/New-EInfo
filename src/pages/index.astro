@@ -6,7 +6,7 @@ import ServiceCard from "../components/ServiceCard.astro";
 import LocationSection from "../components/LocationSection.astro";
 import CTASection from "../components/CTASection.astro";
 import Footer from "../components/Footer.astro";
-import { Lightbulb, Users } from "lucide-astro";
+import { Code2, Server, ShieldCheck } from "lucide-astro";
 
 // Services data - icon names map to Lucide icons in ServiceCard
 const services = [
@@ -109,60 +109,84 @@ const homeFaqSchema = {
 		<section id="services" class="py-20 md:py-28">
 			<div class="container-custom">
 				<!-- Section Header -->
-				<div class="text-center mb-12 md:mb-16">
-					<div
-						class="w-14 h-14 rounded-xl bg-primary-600/10 flex items-center justify-center mx-auto mb-4"
-					>
-						<Lightbulb class="w-7 h-7 text-primary-400" />
-					</div>
+				<div class="max-w-2xl mb-12 md:mb-16">
+					<p class="eyebrow mb-4">Ce que je couvre</p>
 					<h2 class="section-title text-main">
-					Le périmètre que je couvre
-				</h2>
-				<p class="text-secondary max-w-2xl mx-auto">
-					Infrastructure, automatisation, sécurité, site web et dépannage : tout est relié pour que votre système tourne sans vous.
+						Toute la chaîne technique, un seul interlocuteur
+					</h2>
+					<p class="text-secondary">
+						Infrastructure, automatisation, sécurité, site web et dépannage : tout est relié pour que votre système tourne sans vous.
 					</p>
 				</div>
 
-				<!-- Services Grid -->
-				<div class="grid md:grid-cols-2 lg:grid-cols-6 gap-2">
-					{
-						services.map((service) => {
-							const actualClass = "lg:col-span-3";
-
-							return (
+				<!-- Services Bento -->
+				<div class="space-y-4">
+					<!-- Featured card -->
+					<ServiceCard
+						icon={services[0].icon}
+						title={services[0].title}
+						items={services[0].items}
+						highlight={services[0].highlight}
+						featured={true}
+						index={0}
+					/>
+					<!-- Remaining cards -->
+					<div class="grid md:grid-cols-2 gap-4">
+						{
+							services.slice(1).map((service, i) => (
 								<ServiceCard
 									icon={service.icon}
 									title={service.title}
 									items={service.items}
 									highlight={service.highlight}
-									className={actualClass}
+									index={i + 1}
 								/>
-							);
-						})
-					}
+							))
+						}
+					</div>
 				</div>
 			</div>
 		</section>
 
 		<!-- Pourquoi travailler avec un seul prestataire Section -->
-		<section class="py-20 md:py-28 bg-dark-900/50">
-			<div class="container-custom">
-				<div class="max-w-3xl mx-auto">
-					<div class="flex items-center justify-center mb-4">
-						<div class="w-14 h-14 rounded-xl bg-primary-600/10 flex items-center justify-center">
-							<Users class="w-7 h-7 text-primary-400" />
+		<section class="py-20 md:py-28 bg-dark-900 relative overflow-hidden">
+			<div class="container-custom relative z-10">
+				<div class="grid lg:grid-cols-[1fr_1fr] gap-12 lg:gap-16 items-center">
+					<!-- Text -->
+					<div class="reveal">
+						<p class="eyebrow mb-4">L'avantage d'un freelance</p>
+						<h2 class="section-title text-main mb-6">
+							Une seule personne pour le code, le serveur et le réseau
+						</h2>
+						<div class="space-y-5 text-secondary leading-relaxed">
+							<p>
+								Quand quelque chose ne fonctionne pas, il faut souvent chercher à la fois du côté du code, du serveur et du réseau. Une seule personne qui maîtrise ces trois aspects trouve la cause plus vite, sans allers-retours entre prestataires.
+							</p>
+							<p>
+								Je ne fais pas tout à la fois : je couvre un périmètre précis (site web, serveur, sécurité, postes de travail) qui suffit à la plupart des besoins d'une petite entreprise.
+							</p>
 						</div>
 					</div>
-					<h2 class="section-title text-main text-center mb-10">
-						Pourquoi travailler avec un seul prestataire ?
-					</h2>
-					<div class="space-y-6 text-lg text-secondary leading-relaxed">
-						<p>
-							Quand quelque chose ne fonctionne pas, il faut souvent chercher à la fois du côté du code, du serveur et du réseau. Avoir une seule personne qui connaît ces trois aspects permet de trouver la cause plus vite et d'éviter les allers-retours.
-						</p>
-						<p>
-							Je ne suis pas un généraliste qui fait tout à la fois. Je couvre un périmètre précis : site web, serveur, sécurité et postes de travail. Ce périmètre suffit à répondre à la plupart des besoins d'une petite entreprise.
-						</p>
+
+					<!-- Visual: three connected layers -->
+					<div class="reveal delay-200 space-y-3">
+						{
+							[
+								{ icon: Code2, title: "Code & site web", desc: "Création, refonte, maintenance." },
+								{ icon: Server, title: "Serveur & infra", desc: "VPS Linux, déploiement, supervision." },
+								{ icon: ShieldCheck, title: "Sécurité & réseau", desc: "Durcissement, sauvegardes, incidents." },
+							].map((layer) => (
+								<div class="glass-card glass-card--static flex items-center gap-4 p-5">
+									<div class="w-12 h-12 rounded-xl bg-primary-600/10 flex items-center justify-center flex-shrink-0">
+										<layer.icon class="w-6 h-6 text-primary-600" />
+									</div>
+									<div>
+										<h3 class="text-lg text-main mb-0.5">{layer.title}</h3>
+										<p class="text-secondary text-sm">{layer.desc}</p>
+									</div>
+								</div>
+							))
+						}
 					</div>
 				</div>
 			</div>

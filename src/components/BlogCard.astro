@@ -23,11 +23,11 @@ function formatDate(dateStr: string): string {
 }
 ---
 
-<article class={`glass-card reveal overflow-hidden group relative flex flex-col h-full ${className}`}>
+<article class={`glass-card glass-card--interactive reveal overflow-hidden group relative flex flex-col h-full ${className}`}>
     <!-- Category Badge -->
     <div class="p-6 md:p-8 pb-0">
         <div class="flex items-center justify-between mb-4">
-            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-primary-600/15 text-primary-400    -primary-500/20">
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-primary-600/12 text-primary-600">
                 {category}
             </span>
             <div class="flex items-center gap-1.5 text-xs text-secondary">
@@ -69,13 +69,13 @@ function formatDate(dateStr: string): string {
     </div>
 
     <!-- Footer -->
-    <div class="border-t border-dark-800 px-6 md:px-8 py-4 flex items-center justify-between">
+    <div class="border-t border-dark-700 px-6 md:px-8 py-4 flex items-center justify-between">
         <div class="flex items-center gap-1.5 text-xs text-secondary">
             <Calendar class="w-3.5 h-3.5" />
             <time datetime={date}>{formatDate(date)}</time>
         </div>
         <span
-            class="inline-flex items-center gap-1.5 text-primary-400 font-semibold text-sm transition-colors duration-300"
+            class="inline-flex items-center gap-1.5 text-primary-600 font-semibold text-sm transition-colors duration-300"
         >
             Lire l'article
             <ArrowRight class="w-4 h-4" />

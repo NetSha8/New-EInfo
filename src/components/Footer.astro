@@ -12,7 +12,7 @@ const footerLinks = [
 ];
 ---
 
-<footer class="py-8 bg-dark-950 border-t border-dark-700/40">
+<footer class="py-10 bg-dark-900 border-t border-dark-700">
     <div class="container-custom">
         <!-- Footer Links -->
         <div class="flex flex-wrap justify-center gap-6 mb-6">
@@ -20,7 +20,7 @@ const footerLinks = [
                 footerLinks.map((link) => (
                     <a
                         href={link.href}
-                        class="text-secondary hover:text-primary-400 text-sm font-medium transition-colors duration-300"
+                        class="text-secondary hover:text-primary-600 text-sm font-medium transition-colors duration-300"
                     >
                         {link.label}
                     </a>
@@ -33,7 +33,7 @@ const footerLinks = [
         >
             <!-- Logo & Copyright -->
             <div class="flex items-center gap-2">
-                <Monitor class="w-5 h-5 text-primary-400" />
+                <Monitor class="w-5 h-5 text-primary-600" />
                 <span class="text-secondary">
                     © {currentYear}
                     <strong class="text-main">E Informatique</strong> Dépannage informatique ·
@@ -45,7 +45,7 @@ const footerLinks = [
             <div class="flex items-center gap-6">
                 <a
                     href="/blog"
-                    class="text-secondary hover:text-primary-400 transition-colors"
+                    class="text-secondary hover:text-primary-600 transition-colors"
                     aria-label="Blog"
                 >
                     <BookOpen class="w-5 h-5" />
@@ -54,7 +54,7 @@ const footerLinks = [
                     href="https://github.com/NetSha8"
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="text-secondary hover:text-primary-400 transition-colors"
+                    class="text-secondary hover:text-primary-600 transition-colors"
                     aria-label="GitHub"
                 >
                     <Github class="w-5 h-5" />

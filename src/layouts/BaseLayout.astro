@@ -36,6 +36,17 @@ import "../styles/global.css";
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <!-- Theme init (avant paint, évite le flash) -->
+        <script is:inline>
+            (() => {
+                const stored = localStorage.getItem("theme");
+                const dark = stored
+                    ? stored === "dark"
+                    : window.matchMedia("(prefers-color-scheme: dark)").matches;
+                if (dark) document.documentElement.setAttribute("data-theme", "dark");
+            })();
+        </script>
         <meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"} />
 
         <!-- Primary Meta Tags -->

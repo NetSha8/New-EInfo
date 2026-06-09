@@ -1,48 +1,76 @@
 ---
-import { ArrowRight, MapPin } from "lucide-astro";
+import { ArrowRight, MapPin, Clock, UserCheck, ShieldCheck } from "lucide-astro";
 import PixelatedCanvas from "./PixelatedCanvas";
 import AnimatedNetworkBg from "./AnimatedNetworkBg.astro";
+
+const reassurances = [
+    { icon: Clock, label: "Intervention sous 48h" },
+    { icon: UserCheck, label: "Un seul interlocuteur" },
+    { icon: ShieldCheck, label: "Sur place ou à distance" },
+];
 ---
 
 <section
-    class="relative min-h-screen flex items-center pt-20 md:pt-0 overflow-hidden"
+    class="relative min-h-screen flex items-center pt-24 md:pt-20 overflow-hidden"
 >
-    <!-- Background -->
-    <div class="absolute inset-0 bg-dark-950"></div>
-
-    <!-- Animated network topology -->
+    <!-- Backdrop: subtle hairline grid + network topology -->
+    <div class="absolute inset-0 grid-texture pointer-events-none"></div>
     <AnimatedNetworkBg />
+
+    <!-- Soft accent glow, top-left -->
+    <div
+        class="absolute -top-32 -left-32 w-[32rem] h-[32rem] rounded-full bg-primary-300/20 blur-3xl pointer-events-none"
+        aria-hidden="true"
+    >
+    </div>
 
     <!-- Content -->
     <div class="container-custom relative z-10 py-12 md:py-20">
         <div
-            class="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-8 lg:gap-8 items-center"
+            class="grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-10 lg:gap-12 items-center"
         >
             <!-- Left: Text Content -->
             <div>
+                <!-- Eyebrow -->
+                <p
+                    class="eyebrow mb-6 animate-slide-up"
+                    style="animation-delay: 0.05s;"
+                >
+                    Technicien informatique · Pyrénées-Orientales
+                </p>
+
                 <!-- Title -->
                 <h1
-                    class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight animate-slide-up text-main"
+                    class="mb-6 animate-slide-up"
                     style="animation-delay: 0.1s;"
                 >
-                    J'automatise l'infrastructure de votre entreprise.
+                    Votre informatique,
+                    <span class="text-highlight">stable et sans surprise.</span>
                 </h1>
 
                 <!-- Subtitle -->
                 <p
-                    class="text-lg md:text-xl text-secondary mb-4 max-w-2xl animate-slide-up"
+                    class="text-lg text-secondary mb-7 max-w-xl animate-slide-up"
                     style="animation-delay: 0.2s;"
                 >
-                    Surveillance, alertes, déploiements et sauvegardes — vos systèmes tournent seuls, 24h/24, sans que vous ayez à y penser.
+                    Serveurs, sites web, sécurité et dépannage : je gère toute la
+                    chaîne technique de votre entreprise pour qu'elle tourne
+                    seule, sans que vous ayez à y penser.
                 </p>
 
                 <!-- Location -->
                 <p
-                    class="flex items-center gap-2 text-secondary mb-8 animate-slide-up"
+                    class="flex items-start gap-2 text-secondary mb-8 animate-slide-up text-sm"
                     style="animation-delay: 0.3s;"
                 >
-                    <MapPin class="w-5 h-5 text-primary-400" />
-                    <span>Intervention à <strong class="text-main">Rivesaltes</strong>, <strong class="text-main">Perpignan</strong> et dans les <strong class="text-main">Pyrénées-Orientales</strong> · À distance partout en <strong class="text-main">France</strong></span>
+                    <MapPin class="w-5 h-5 text-accent-600 flex-shrink-0 mt-0.5" />
+                    <span
+                        >À <strong class="text-main">Rivesaltes</strong>,
+                        <strong class="text-main">Perpignan</strong> et dans les
+                        <strong class="text-main">Pyrénées-Orientales</strong> ·
+                        à distance partout en
+                        <strong class="text-main">France</strong></span
+                    >
                 </p>
 
                 <!-- CTAs -->
@@ -50,39 +78,54 @@ import AnimatedNetworkBg from "./AnimatedNetworkBg.astro";
                     class="flex flex-col sm:flex-row gap-3 animate-slide-up"
                     style="animation-delay: 0.4s;"
                 >
-                    <a
-                        href="/contact"
-                        class="btn-primary justify-center text-base px-4 py-2"
-                    >
-                        <ArrowRight class="w-5 h-5" />
+                    <a href="/contact" class="btn-primary justify-center">
                         <span>Décrire mon problème</span>
+                        <ArrowRight class="w-5 h-5" />
                     </a>
-                    <a
-                        href="/services"
-                        class="btn-secondary justify-center text-base px-4 py-2"
-                    >
+                    <a href="/services" class="btn-secondary justify-center">
                         <span>Voir mes services</span>
                     </a>
                 </div>
+
+                <!-- Reassurance row -->
+                <ul
+                    class="flex flex-wrap gap-x-6 gap-y-3 mt-9 pt-7 border-t border-dark-700 animate-slide-up"
+                    style="animation-delay: 0.5s;"
+                >
+                    {
+                        reassurances.map((r) => (
+                            <li class="flex items-center gap-2 text-sm font-medium text-main">
+                                <r.icon class="w-4.5 h-4.5 text-primary-600" />
+                                <span>{r.label}</span>
+                            </li>
+                        ))
+                    }
+                </ul>
             </div>
 
             <!-- Right: Pixelated Logo -->
             <div
-                class="hidden lg:flex justify-end items-center animate-slide-up -mr-8"
-                style="animation-delay: 0.6s;"
+                class="hidden lg:flex justify-center items-center animate-fade-in"
+                style="animation-delay: 0.5s;"
             >
-                <div class="relative pixelated-logo-container p-12">
-                    <!-- Glow effect -->
+                <div class="relative p-8">
+                    <!-- Layered glow -->
                     <div
-                        class="absolute inset-0 bg-primary-400/20 blur-3xl rounded-full scale-75"
+                        class="absolute inset-0 bg-primary-400/15 blur-3xl rounded-full scale-90"
+                        aria-hidden="true"
+                    >
+                    </div>
+                    <div
+                        class="absolute inset-0 bg-accent-400/10 blur-3xl rounded-full scale-75 translate-x-8 translate-y-8"
+                        aria-hidden="true"
                     >
                     </div>
 
                     <PixelatedCanvas
                         client:visible
                         src="/images/logo.svg"
-                        width={360}
-                        height={360}
+                        width={380}
+                        height={380}
                         cellSize={5}
                         dotScale={0.9}
                         interactive={true}
@@ -94,16 +137,15 @@ import AnimatedNetworkBg from "./AnimatedNetworkBg.astro";
         </div>
     </div>
 
-    <!-- Scroll Indicator - Animated Mouse -->
+    <!-- Scroll Indicator -->
     <div
         class="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:block z-20"
     >
         <a
             href="#services"
-            class="flex flex-col items-center gap-2 text-secondary hover:text-primary-400 transition-colors group"
-            aria-label="Scroll down"
+            class="flex flex-col items-center gap-2 text-secondary hover:text-primary-600 transition-colors group"
+            aria-label="Voir la suite"
         >
-            <!-- Mouse Container -->
             <div class="mouse-container">
                 <svg
                     class="w-6 h-10"
@@ -111,7 +153,6 @@ import AnimatedNetworkBg from "./AnimatedNetworkBg.astro";
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                 >
-                    <!-- Mouse Body -->
                     <rect
                         x="1"
                         y="1"
@@ -120,9 +161,7 @@ import AnimatedNetworkBg from "./AnimatedNetworkBg.astro";
                         rx="11"
                         stroke="currentColor"
                         stroke-width="2"
-                        class="group-hover:stroke-primary-400 transition-colors"
-                    ></rect>
-                    <!-- Scroll Wheel (animated) -->
+                        class="group-hover:stroke-primary-600 transition-colors"></rect>
                     <rect
                         class="scroll-wheel"
                         x="10"
@@ -147,31 +186,17 @@ import AnimatedNetworkBg from "./AnimatedNetworkBg.astro";
     }
 
     @keyframes float {
-        0%,
-        100% {
-            transform: translateY(0);
-        }
-        50% {
-            transform: translateY(-5px);
-        }
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-5px); }
     }
 
     @keyframes scroll-wheel {
-        0% {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        50% {
-            opacity: 0.5;
-            transform: translateY(8px);
-        }
-        100% {
-            opacity: 0;
-            transform: translateY(12px);
-        }
+        0% { opacity: 1; transform: translateY(0); }
+        50% { opacity: 0.5; transform: translateY(8px); }
+        100% { opacity: 0; transform: translateY(12px); }
     }
 
-    .pixelated-logo-container {
-        /* Static - no floating animation */
+    @media (prefers-reduced-motion: reduce) {
+        .mouse-container, .scroll-wheel { animation: none; }
     }
 </style>

@@ -24,34 +24,29 @@ import { Sun, Moon } from "lucide-astro";
 </button>
 
 <style>
-    /* PRECISE LOGIC:
-       Default (Dark Theme):
-       - We want to show the SUN (to switch to Light).
-       - Sun: Scale 1, Rotate 0
-       - Moon: Scale 0, Rotate -90deg (hidden)
-       
-       Light Theme (data-theme="light"):
-       - We want to show the MOON (to switch to Dark).
-       - Sun: Scale 0, Rotate 90deg (hidden)
-       - Moon: Scale 1, Rotate 0
+    /* LOGIC:
+       Default (Light Theme):
+       - Show the MOON (to switch to Dark).
+       Dark Theme (data-theme="dark"):
+       - Show the SUN (to switch to Light).
     */
 
-    /* Default (Dark) State */
-    .icon-sun {
+    /* Default (Light) State */
+    .icon-moon {
         transform: rotate(0deg) scale(1);
         opacity: 1;
     }
-    .icon-moon {
-        transform: rotate(-90deg) scale(0);
-        opacity: 0;
-    }
-
-    /* Light Theme Override */
-    :global(html[data-theme="light"]) .icon-sun {
+    .icon-sun {
         transform: rotate(90deg) scale(0);
         opacity: 0;
     }
-    :global(html[data-theme="light"]) .icon-moon {
+
+    /* Dark Theme Override */
+    :global(html[data-theme="dark"]) .icon-moon {
+        transform: rotate(-90deg) scale(0);
+        opacity: 0;
+    }
+    :global(html[data-theme="dark"]) .icon-sun {
         transform: rotate(0deg) scale(1);
         opacity: 1;
     }
@@ -67,16 +62,16 @@ import { Sun, Moon } from "lucide-astro";
             ) {
                 return localStorage.getItem("theme");
             }
-            if (window.matchMedia("(prefers-color-scheme: light)").matches) {
-                return "light";
+            if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+                return "dark";
             }
-            return "dark"; // Default
+            return "light"; // Default
         }
 
         // Function to set theme
         function setTheme(theme) {
-            if (theme === "light") {
-                document.documentElement.setAttribute("data-theme", "light");
+            if (theme === "dark") {
+                document.documentElement.setAttribute("data-theme", "dark");
             } else {
                 document.documentElement.removeAttribute("data-theme");
             }
@@ -95,10 +90,10 @@ import { Sun, Moon } from "lucide-astro";
                 btn.setAttribute("data-theme-init", "true");
 
                 btn.addEventListener("click", () => {
-                    const isLight =
+                    const isDark =
                         document.documentElement.getAttribute("data-theme") ===
-                        "light";
-                    setTheme(isLight ? "dark" : "light");
+                        "dark";
+                    setTheme(isDark ? "light" : "dark");
                 });
             });
         }
@@ -119,10 +114,10 @@ import { Sun, Moon } from "lucide-astro";
         // For simplicity, let's leave it as is, or use a global flag.
         if (!window.__themeSystemListenerAdded) {
             window
-                .matchMedia("(prefers-color-scheme: light)")
+                .matchMedia("(prefers-color-scheme: dark)")
                 .addEventListener("change", (e) => {
                     if (!localStorage.getItem("theme")) {
-                        setTheme(e.matches ? "light" : "dark");
+                        setTheme(e.matches ? "dark" : "light");
                     }
                 });
             window.__themeSystemListenerAdded = true;
