@@ -1,0 +1,119 @@
+---
+---
+
+<svg
+  class="absolute inset-0 w-full h-full pointer-events-none select-none"
+  viewBox="0 0 1200 600"
+  preserveAspectRatio="xMidYMid slice"
+  xmlns="http://www.w3.org/2000/svg"
+  aria-hidden="true"
+>
+  <!-- Edges: staggered draw-in on load -->
+  <g fill="none" stroke="oklch(0.60 0.200 264)">
+    <line class="nl" style="--i:0"  x1="95"  y1="120" x2="300" y2="200" />
+    <line class="nl" style="--i:1"  x1="300" y1="200" x2="550" y2="80"  />
+    <line class="nl" style="--i:2"  x1="300" y1="200" x2="450" y2="300" />
+    <line class="nl" style="--i:3"  x1="550" y1="80"  x2="750" y2="180" />
+    <line class="nl" style="--i:4"  x1="450" y1="300" x2="750" y2="180" />
+    <line class="nl" style="--i:5"  x1="750" y1="180" x2="900" y2="100" />
+    <line class="nl" style="--i:6"  x1="750" y1="180" x2="1000" y2="280"/>
+    <line class="nl" style="--i:7"  x1="900" y1="100" x2="1100" y2="100"/>
+    <line class="nl" style="--i:8"  x1="1000" y1="280" x2="1100" y2="100"/>
+    <line class="nl" style="--i:9"  x1="1000" y1="280" x2="850" y2="380"/>
+    <line class="nl" style="--i:10" x1="200" y1="440" x2="450" y2="300" />
+    <line class="nl" style="--i:11" x1="450" y1="300" x2="600" y2="420" />
+    <line class="nl" style="--i:12" x1="600" y1="420" x2="850" y2="380" />
+  </g>
+
+  <!-- Nodes: appear after edges -->
+  <g fill="oklch(0.70 0.155 264)">
+    <circle class="nn" style="--i:0"  cx="95"   cy="120" r="2.5"/>
+    <circle class="nn" style="--i:1"  cx="300"  cy="200" r="3.5"/>
+    <circle class="nn" style="--i:2"  cx="550"  cy="80"  r="2.5"/>
+    <circle class="nn" style="--i:3"  cx="450"  cy="300" r="4"/>
+    <circle class="nn" style="--i:4"  cx="750"  cy="180" r="3"/>
+    <circle class="nn" style="--i:5"  cx="900"  cy="100" r="2.5"/>
+    <circle class="nn" style="--i:6"  cx="1000" cy="280" r="3.5"/>
+    <circle class="nn" style="--i:7"  cx="1100" cy="100" r="2.5"/>
+    <circle class="nn" style="--i:8"  cx="200"  cy="440" r="2.5"/>
+    <circle class="nn" style="--i:9"  cx="600"  cy="420" r="3"/>
+    <circle class="nn" style="--i:10" cx="850"  cy="380" r="2.5"/>
+  </g>
+
+  <!-- Pulse rings on three hub nodes -->
+  <g fill="none" stroke="oklch(0.60 0.200 264)" stroke-width="0.75">
+    <circle class="np" style="--d:0s"   cx="450"  cy="300" r="7"/>
+    <circle class="np" style="--d:1.4s" cx="750"  cy="180" r="6"/>
+    <circle class="np" style="--d:2.8s" cx="1000" cy="280" r="7"/>
+  </g>
+
+  <!-- Tech symbol glyphs — decorative texture at very low opacity -->
+  <g fill="oklch(0.70 0.155 264)" font-family="ui-monospace, 'Cascadia Code', monospace" opacity="0.055">
+    <text x="55"   y="68"  font-size="34">{ }</text>
+    <text x="1052" y="368" font-size="26">/></text>
+    <text x="28"   y="502" font-size="20">$ _</text>
+    <text x="678"  y="558" font-size="24">[ ]</text>
+  </g>
+</svg>
+
+<style>
+  .nl {
+    stroke-width: 0.8px;
+    stroke-dasharray: 500;
+    stroke-dashoffset: 500;
+    opacity: 0.17;
+  }
+
+  .nn {
+    opacity: 0;
+  }
+
+  .np {
+    transform-box: fill-box;
+    transform-origin: center;
+    opacity: 0;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .nl {
+      animation: nl-draw 1.4s calc(0.15s + var(--i, 0) * 0.1s) cubic-bezier(0.19, 1, 0.22, 1) forwards;
+    }
+
+    .nn {
+      animation: nn-pop 0.5s calc(1.1s + var(--i, 0) * 0.06s) cubic-bezier(0.19, 1, 0.22, 1) forwards;
+    }
+
+    .np {
+      animation: np-ring 4.5s var(--d, 0s) cubic-bezier(0.19, 1, 0.22, 1) infinite;
+    }
+
+    @keyframes nl-draw {
+      to { stroke-dashoffset: 0; }
+    }
+
+    @keyframes nn-pop {
+      from {
+        opacity: 0;
+        transform: scale(0.2);
+        transform-box: fill-box;
+        transform-origin: center;
+      }
+      to {
+        opacity: 0.38;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes np-ring {
+      0%   { transform: scale(1);   opacity: 0.42; }
+      80%  { transform: scale(3.2); opacity: 0;    }
+      100% { transform: scale(1);   opacity: 0;    }
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .nl { stroke-dashoffset: 0; opacity: 0.12; }
+    .nn { opacity: 0.3; }
+    .np { display: none; }
+  }
+</style>

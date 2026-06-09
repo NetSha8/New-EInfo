@@ -42,9 +42,9 @@ const IconComponent = iconMap[icon] || Globe;
 <article class={`glass-card glass-card--static reveal p-6 md:p-8 h-full group ${className}`}>
     <!-- Icon -->
     <div
-        class="w-12 h-12 rounded-xl bg-primary-600/10 flex items-center justify-center mb-4"
+        class="icon-wrap w-12 h-12 rounded-xl bg-primary-600/10 flex items-center justify-center mb-4 relative"
     >
-        <IconComponent class="w-6 h-6 text-primary-400" />
+        <IconComponent class="w-6 h-6 text-primary-400 relative z-10" />
     </div>
 
     <!-- Title -->
@@ -65,3 +65,29 @@ const IconComponent = iconMap[icon] || Globe;
         }
     </ul>
 </article>
+
+<style>
+  /*
+   * Icon draw-in: animate SVG strokes in .icon-wrap when card enters viewport.
+   * Targets only the primary icon (not the Check icons in the list).
+   * stroke-dasharray 200 covers all Lucide path lengths at 24×24px.
+   */
+  @media (prefers-reduced-motion: no-preference) {
+    .icon-wrap :global(svg path),
+    .icon-wrap :global(svg polyline),
+    .icon-wrap :global(svg line),
+    .icon-wrap :global(svg circle) {
+      stroke-dasharray: 200;
+      stroke-dashoffset: 200;
+      transition:
+        stroke-dashoffset 0.9s 0.35s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+
+    article.active .icon-wrap :global(svg path),
+    article.active .icon-wrap :global(svg polyline),
+    article.active .icon-wrap :global(svg line),
+    article.active .icon-wrap :global(svg circle) {
+      stroke-dashoffset: 0;
+    }
+  }
+</style>

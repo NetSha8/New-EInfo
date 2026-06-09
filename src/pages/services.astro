@@ -89,7 +89,7 @@ const services = [
     id: "automatisation-monitoring",
     title: "Automatisation & monitoring",
     icon: Bot,
-    accroche: "Vos contrôles techniques tournent automatiquement, avec alertes Telegram quand une action est nécessaire.",
+    accroche: "Vos contrôles techniques tournent automatiquement, avec alertes Telegram quand une action est nécessaire — et, de plus en plus, un coup de main de l'IA pour gagner du temps.",
     content: [
       {
         subtitle: "Automatiser ce qui vous fait perdre du temps",
@@ -101,6 +101,8 @@ const services = [
           { title: "Surveillance serveur en continu", desc: "Suivi de la santé système et des services critiques avec seuils clairs." },
           { title: "Alerting Telegram ciblé", desc: "Notification en temps réel uniquement quand une action est utile." },
           { title: "Scripts Python sur mesure", desc: "Automatisation de tâches récurrentes : nettoyage, export, contrôles et relances." },
+          { title: "Premiers outils boostés à l'IA", desc: "Petites automatisations s'appuyant sur des modèles d'IA pour le tri, le résumé ou la rédaction." },
+          { title: "Initiation aux outils IA", desc: "Prise en main de Claude, ChatGPT et autres assistants pour votre quotidien professionnel." },
           { title: "Scraping de veille légal", desc: "Collecte automatisée d'informations publiques pour votre suivi métier." }
         ]
       },
@@ -114,7 +116,7 @@ const services = [
         ]
       }
     ],
-    techs: ["Python", "FastAPI", "Monitoring", "Telegram", "Automatisation"]
+    techs: ["Python", "FastAPI", "Monitoring", "Telegram", "IA", "Automatisation"]
   },
   {
     id: "cybersecurite",
@@ -250,7 +252,7 @@ const services = [
 
                 <div class="flex flex-wrap gap-2">
                   {service.techs.map(tech => (
-                    <span class="px-3 py-1 rounded-full text-xs font-medium bg-dark-800/80 text-secondary    -dark-600/50 transition-colors">
+                    <span class="px-3 py-1 rounded-full text-xs font-medium bg-dark-800/80 text-secondary border border-dark-600/50 transition-colors">
                       {tech}
                     </span>
                   ))}
@@ -276,7 +278,7 @@ const services = [
                   {block.list && (
                     <div class="grid md:grid-cols-2 gap-2 mt-8">
                       {block.list.map((item) => (
-                        <div class="surface-elevated p-8 rounded-2xl    -dark-700/50 transition-all duration-300">
+                        <div class="surface-elevated p-8 rounded-2xl border border-dark-700/50 transition-all duration-300">
                           <h4 class="text-lg font-bold text-main mb-3">{item.title}</h4>
                           <p class="text-secondary text-sm leading-relaxed">{item.desc}</p>
                         </div>
@@ -322,7 +324,7 @@ const services = [
             </a>
           </div>
 
-          <div class="mt-12 pt-8  -t  -dark-700/50 flex flex-col md:flex-row items-center justify-center gap-4 text-sm text-secondary">
+          <div class="mt-12 pt-8 border-t border-dark-700/50 flex flex-col md:flex-row items-center justify-center gap-4 text-sm text-secondary">
             <span class="flex items-center gap-2">
               <div class="w-2 h-2 rounded-full bg-green-500"></div>
               Perpignan & périphérie

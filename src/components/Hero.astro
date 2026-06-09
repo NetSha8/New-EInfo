@@ -1,20 +1,17 @@
 ---
 import { ArrowRight, MapPin } from "lucide-astro";
 import PixelatedCanvas from "./PixelatedCanvas";
+import AnimatedNetworkBg from "./AnimatedNetworkBg.astro";
 ---
 
 <section
     class="relative min-h-screen flex items-center pt-20 md:pt-0 overflow-hidden"
 >
-    <!-- Background - Flat solid -->
+    <!-- Background -->
     <div class="absolute inset-0 bg-dark-950"></div>
 
-    <!-- Subtle pattern overlay for texture -->
-    <div
-        class="absolute inset-0 opacity-[0.02]"
-        style="background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSIjZmZmIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxjaXJjbGUgY3g9IjIwIiBjeT0iMjAiIHI9IjEiLz48L2c+PC9zdmc+');"
-    >
-    </div>
+    <!-- Animated network topology -->
+    <AnimatedNetworkBg />
 
     <!-- Content -->
     <div class="container-custom relative z-10 py-12 md:py-20">

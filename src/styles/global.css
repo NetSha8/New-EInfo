@@ -3,33 +3,31 @@
 
 /* ===== THEME VARIABLES ===== */
 @theme {
-  /* Colors - Modern Deep Palette */
-  --color-primary-50: #eff6ff;
-  --color-primary-100: #dbeafe;
-  --color-primary-200: #bfdbfe;
-  --color-primary-300: #93c5fd;
-  --color-primary-400: #66a3ff;
-  --color-primary-500: #3385ff;
-  /* Hover state */
-  --color-primary-600: #0066ff;
-  /* Accent principal */
-  --color-primary-700: #0052cc;
-  --color-primary-800: #003d99;
-  --color-primary-900: #002966;
+  /* Colors — OKLCH, neutrals tinted toward primary hue (H 264) */
+  --color-primary-50:  oklch(0.97 0.023 264);
+  --color-primary-100: oklch(0.94 0.044 264);
+  --color-primary-200: oklch(0.88 0.071 264);
+  --color-primary-300: oklch(0.79 0.107 264);
+  --color-primary-400: oklch(0.70 0.155 264);
+  --color-primary-500: oklch(0.60 0.200 264);
+  --color-primary-600: oklch(0.51 0.245 264);
+  --color-primary-700: oklch(0.43 0.220 264);
+  --color-primary-800: oklch(0.34 0.185 264);
+  --color-primary-900: oklch(0.24 0.130 264);
 
-  --color-dark-950: #1a1a1a;
-  /* Base Background */
-  --color-dark-900: #242424;
-  /* Section gris foncé */
-  --color-dark-800: #2a2a2a;
-  --color-dark-700: #333333;
-  --color-dark-600: #404040;
-  --color-dark-500: #a0a0a0;
-  /* Secondary Text */
+  --color-dark-950: oklch(0.16 0.006 264);
+  --color-dark-900: oklch(0.20 0.006 264);
+  --color-dark-800: oklch(0.23 0.006 264);
+  --color-dark-700: oklch(0.28 0.006 264);
+  --color-dark-600: oklch(0.34 0.006 264);
+  --color-dark-500: oklch(0.67 0.006 264);
 
   /* Semantic Text Colors (Default Dark) */
-  --color-text-main: #e8e8e8;
-  --color-text-secondary: #a0a0a0;
+  --color-text-main:      oklch(0.92 0.006 264);
+  --color-text-secondary: oklch(0.67 0.006 264);
+
+  /* Near-white for inverted surfaces — never pure #fff */
+  --color-near-white: oklch(0.99 0.003 264);
 
   /* Fonts */
   --font-sans: "Satoshi", "Inter", ui-sans-serif, system-ui, sans-serif;
@@ -79,21 +77,15 @@
 
 /* ===== LIGHT THEME OVERRIDES ===== */
 :root[data-theme="light"] {
-  --color-dark-950: #fafafa;
-  /* Background */
-  --color-dark-900: #f3f4f6;
-  /* Sections */
-  --color-dark-800: #ffffff;
-  /* Cards/Surface */
-  --color-dark-700: #e5e7eb;
-  /* Borders/Hover */
-  --color-dark-600: #d1d5db;
-  /* Stronger borders */
-  --color-dark-500: #6b7280;
-  /* Muted text equivalent */
+  --color-dark-950: oklch(0.98 0.004 264);
+  --color-dark-900: oklch(0.97 0.004 264);
+  --color-dark-800: oklch(0.99 0.003 264);
+  --color-dark-700: oklch(0.93 0.006 264);
+  --color-dark-600: oklch(0.88 0.006 264);
+  --color-dark-500: oklch(0.53 0.009 264);
 
-  --color-text-main: #1a1a1a;
-  --color-text-secondary: #4b5563;
+  --color-text-main:      oklch(0.16 0.006 264);
+  --color-text-secondary: oklch(0.45 0.010 264);
 }
 
 /* ===== ANIMATION UTILITIES ===== */
@@ -208,40 +200,16 @@
   color: var(--color-primary-400);
 }
 
-/* ===== GLASSMORPHISM CARD ===== */
+/* ===== SURFACE CARD ===== */
 .glass-card {
   background: var(--color-dark-800);
-  background: color-mix(in srgb, var(--color-dark-800), transparent 20%);
-  backdrop-filter: blur(16px);
-  border: none;
+  border: 1px solid oklch(0.32 0.006 264 / 0.55);
   border-radius: 1rem;
-  box-shadow: 0px 3px 8px -1px rgba(0,0,0,0.07), 0px 2px 5px rgba(0,0,0,0.05);
-}
-
-/* Dark mode specific override */
-:root:not([data-theme="light"]) .glass-card {
-  background: rgba(36, 36, 36, 0.5);
-  border: none;
-}
-
-.glass-card:hover {
-  transform: none;
-  box-shadow: 0px 3px 8px -1px rgba(0,0,0,0.07), 0px 2px 5px rgba(0,0,0,0.05);
-}
-
-:root:not([data-theme="light"]) .glass-card:hover {
-  background: rgba(36, 36, 36, 0.5);
 }
 
 :root[data-theme="light"] .glass-card {
-  background: rgba(255, 255, 255, 0.8);
-  border: none;
-  box-shadow: 0px 3px 8px -1px rgba(0,0,0,0.07), 0px 2px 5px rgba(0,0,0,0.05);
-}
-
-:root[data-theme="light"] .glass-card:hover {
-  background: rgba(255, 255, 255, 0.8);
-  box-shadow: 0px 3px 8px -1px rgba(0,0,0,0.07), 0px 2px 5px rgba(0,0,0,0.05);
+  background: var(--color-near-white, oklch(0.99 0.003 264));
+  border-color: oklch(0.88 0.006 264);
 }
 
 
@@ -288,8 +256,7 @@
 }
 
 .btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.05);
-  
+  background: oklch(0.99 0.003 264 / 0.06);
   transform: translateY(-1px);
   box-shadow: none;
 }

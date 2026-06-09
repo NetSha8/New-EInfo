@@ -206,9 +206,7 @@ import "../styles/global.css";
 
             const initObserver = () => {
                 const hiddenElements = document.querySelectorAll(".reveal");
-                console.log("Found reveal elements:", hiddenElements.length);
                 hiddenElements.forEach((el) => {
-                    console.log("Observing element:", el);
                     observer.observe(el);
                 });
             };
@@ -220,13 +218,8 @@ import "../styles/global.css";
                 initObserver();
             }
 
-            // Fallback: if nothing happens, apply active class directly after 100ms
             setTimeout(() => {
-                const revealElements = document.querySelectorAll(".reveal:not(.active)");
-                if (revealElements.length > 0) {
-                    console.log("Fallback: Adding active class to", revealElements.length, "elements");
-                    revealElements.forEach((el) => el.classList.add("active"));
-                }
+                document.querySelectorAll(".reveal:not(.active)").forEach((el) => el.classList.add("active"));
             }, 100);
         </script>
     </body>
