@@ -44,6 +44,13 @@ const pageSchema = {
         acceptedAnswer: { "@type": "Answer", text: f.a },
       })),
     },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Accueil", item: "https://einformatique.fr/" },
+        { "@type": "ListItem", position: 2, name: "Dépannage informatique Perpignan", item: "https://einformatique.fr/depannage-informatique-perpignan/" },
+      ],
+    },
   ],
 };
 ---
@@ -56,7 +63,7 @@ const pageSchema = {
       <p class="text-lg text-secondary">Pour les TPE/PME de Perpignan, j'interviens sur les pannes qui bloquent votre production : ordinateur instable, réseau aléatoire, sauvegardes absentes, messagerie en erreur. L'objectif est de remettre votre activité en marche le plus vite possible.</p>
       <p class="text-secondary">Basé à Rivesaltes, à dix minutes du centre, je couvre Perpignan et les communes proches en présentiel, avec une assistance à distance disponible partout en France pour les incidents logiciels.</p>
       <div class="flex flex-wrap gap-3 pt-2">
-        <a class="btn-primary" href="/contact">Demander un diagnostic</a>
+        <a class="btn-primary" href="/contact/">Demander un diagnostic</a>
         <a class="btn-secondary" href="tel:+33768535150">07 68 53 51 50</a>
       </div>
     </section>
@@ -93,10 +100,10 @@ const pageSchema = {
     <section class="container-custom max-w-4xl mt-14 glass-card p-8">
       <h2 class="text-2xl font-bold text-main mb-3">Voir aussi</h2>
       <div class="flex flex-wrap gap-3 text-sm">
-        <a class="btn-secondary" href="/services#depannage">Service dépannage informatique</a>
-        <a class="btn-secondary" href="/technicien-informatique-rivesaltes">Technicien informatique à Rivesaltes</a>
-        <a class="btn-secondary" href="/depannage-informatique-canet">Dépannage informatique à Canet</a>
-        <a class="btn-secondary" href="/creation-site-web-perpignan">Création de site web à Perpignan</a>
+        <a class="btn-secondary" href="/services/#depannage">Service dépannage informatique</a>
+        <a class="btn-secondary" href="/technicien-informatique-rivesaltes/">Technicien informatique à Rivesaltes</a>
+        <a class="btn-secondary" href="/depannage-informatique-canet/">Dépannage informatique à Canet</a>
+        <a class="btn-secondary" href="/creation-site-web-perpignan/">Création de site web à Perpignan</a>
       </div>
     </section>
   </main>

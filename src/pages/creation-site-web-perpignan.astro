@@ -44,6 +44,13 @@ const pageSchema = {
         acceptedAnswer: { "@type": "Answer", text: f.a },
       })),
     },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Accueil", item: "https://einformatique.fr/" },
+        { "@type": "ListItem", position: 2, name: "Création site web Perpignan", item: "https://einformatique.fr/creation-site-web-perpignan/" },
+      ],
+    },
   ],
 };
 ---
@@ -56,8 +63,8 @@ const pageSchema = {
       <p class="text-lg text-secondary">Un site web qui charge vite, inspire confiance et génère des demandes qualifiées. Pour les TPE/PME de Perpignan, je conçois des sites vitrines simples à maintenir, robustes et pensés pour convertir vos visiteurs en clients.</p>
       <p class="text-secondary">Chaque projet inclut performance, sécurité de base, sauvegardes et maintenance, afin d'éviter les régressions et les failles après la mise en ligne. Vous ne vous retrouvez pas seul avec un site livré puis abandonné.</p>
       <div class="flex flex-wrap gap-3 pt-2">
-        <a class="btn-primary" href="/contact">Demander un devis</a>
-        <a class="btn-secondary" href="/portfolio">Voir mes réalisations</a>
+        <a class="btn-primary" href="/contact/">Demander un devis</a>
+        <a class="btn-secondary" href="/portfolio/">Voir mes réalisations</a>
       </div>
     </section>
 
@@ -93,11 +100,11 @@ const pageSchema = {
     <section class="container-custom max-w-4xl mt-14 glass-card p-8">
       <h2 class="text-2xl font-bold text-main mb-3">Voir aussi</h2>
       <div class="flex flex-wrap gap-3 text-sm">
-        <a class="btn-secondary" href="/services#sites-web">Service création de site web</a>
-        <a class="btn-secondary" href="/services#hebergement">Hébergement VPS</a>
-        <a class="btn-secondary" href="/services#cybersecurite">Sécurité informatique</a>
-        <a class="btn-secondary" href="/portfolio">Portfolio</a>
-        <a class="btn-secondary" href="/informatique-pyrenees-orientales">Informatique dans les Pyrénées-Orientales</a>
+        <a class="btn-secondary" href="/services/#sites-web">Service création de site web</a>
+        <a class="btn-secondary" href="/services/#hebergement">Hébergement VPS</a>
+        <a class="btn-secondary" href="/services/#cybersecurite">Sécurité informatique</a>
+        <a class="btn-secondary" href="/portfolio/">Portfolio</a>
+        <a class="btn-secondary" href="/informatique-pyrenees-orientales/">Informatique dans les Pyrénées-Orientales</a>
       </div>
     </section>
   </main>

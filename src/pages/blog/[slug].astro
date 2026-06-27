@@ -103,7 +103,7 @@ function formatDate(dateStr: string): string {
             <div class="container-custom max-w-4xl">
                 <!-- Back Button -->
                 <a
-                    href="/blog"
+                    href="/blog/"
                     class="inline-flex items-center gap-2 text-secondary hover:text-primary-600 transition-colors duration-300 mb-8 reveal"
                 >
                     <ArrowLeft class="w-4 h-4" />
@@ -162,7 +162,7 @@ function formatDate(dateStr: string): string {
                 <nav class="flex flex-col sm:flex-row gap-4 justify-between mb-16">
                     {prevPost ? (
                         <a
-                            href={`/blog/${prevPost.id}`}
+                            href={`/blog/${prevPost.id}/`}
                             class="glass-card p-4 flex items-center gap-3 group/nav flex-1 no-hover"
                         >
                             <ChevronLeft class="w-5 h-5 text-secondary group-hover/nav:text-primary-600 transition-colors flex-shrink-0" />
@@ -176,7 +176,7 @@ function formatDate(dateStr: string): string {
                     ) : <div />}
                     {nextPost ? (
                         <a
-                            href={`/blog/${nextPost.id}`}
+                            href={`/blog/${nextPost.id}/`}
                             class="glass-card p-4 flex items-center gap-3 group/nav flex-1 text-right no-hover"
                         >
                             <div class="min-w-0 flex-1">

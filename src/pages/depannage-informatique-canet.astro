@@ -44,6 +44,13 @@ const pageSchema = {
         acceptedAnswer: { "@type": "Answer", text: f.a },
       })),
     },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Accueil", item: "https://einformatique.fr/" },
+        { "@type": "ListItem", position: 2, name: "Dépannage informatique Canet-en-Roussillon", item: "https://einformatique.fr/depannage-informatique-canet/" },
+      ],
+    },
   ],
 };
 ---
@@ -56,7 +63,7 @@ const pageSchema = {
       <p class="text-lg text-secondary">Commerces, restaurants, locations et professionnels du littoral : j'interviens à Canet-en-Roussillon sur les pannes PC, le Wi-Fi instable, les antivirus, les sauvegardes et la remise en conformité de base de votre installation.</p>
       <p class="text-secondary">Une activité touristique laisse peu de place à l'arrêt, surtout en été. Mon objectif est de fiabiliser votre informatique pour que les pics de fréquentation se passent sans coupure ni perte de données.</p>
       <div class="flex flex-wrap gap-3 pt-2">
-        <a class="btn-primary" href="/contact">Demander un diagnostic</a>
+        <a class="btn-primary" href="/contact/">Demander un diagnostic</a>
         <a class="btn-secondary" href="tel:+33768535150">07 68 53 51 50</a>
       </div>
     </section>
@@ -93,10 +100,10 @@ const pageSchema = {
     <section class="container-custom max-w-4xl mt-14 glass-card p-8">
       <h2 class="text-2xl font-bold text-main mb-3">Voir aussi</h2>
       <div class="flex flex-wrap gap-3 text-sm">
-        <a class="btn-secondary" href="/services#depannage">Service dépannage informatique</a>
-        <a class="btn-secondary" href="/depannage-informatique-perpignan">Dépannage informatique à Perpignan</a>
-        <a class="btn-secondary" href="/depannage-informatique-rivesaltes">Dépannage informatique à Rivesaltes</a>
-        <a class="btn-secondary" href="/informatique-pyrenees-orientales">Informatique dans les Pyrénées-Orientales</a>
+        <a class="btn-secondary" href="/services/#depannage">Service dépannage informatique</a>
+        <a class="btn-secondary" href="/depannage-informatique-perpignan/">Dépannage informatique à Perpignan</a>
+        <a class="btn-secondary" href="/depannage-informatique-rivesaltes/">Dépannage informatique à Rivesaltes</a>
+        <a class="btn-secondary" href="/informatique-pyrenees-orientales/">Informatique dans les Pyrénées-Orientales</a>
       </div>
     </section>
   </main>
