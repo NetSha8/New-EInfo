@@ -3,36 +3,100 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 
-const title = "Informatique Pyrénées-Orientales (66) | Services pour TPE/PME";
-const description = "Prestataire informatique pour TPE/PME dans les Pyrénées-Orientales: dépannage, création de site web, sécurité et hébergement VPS.";
+const title = "Informatique Pyrénées-Orientales (66) | TPE/PME";
+const description = "Prestataire informatique pour TPE/PME dans les Pyrénées-Orientales : dépannage, création de site web, sécurité et hébergement VPS. Présentiel dans le 66.";
 
-const serviceSchema = {
+const faqs = [
+  {
+    q: "Quelles communes des Pyrénées-Orientales couvrez-vous ?",
+    a: "Basé à Rivesaltes, j'interviens régulièrement à Perpignan, Canet-en-Roussillon, Saint-Cyprien, Cabestany, Pia et les communes proches. Pour les besoins logiciels, l'assistance à distance couvre tout le département et toute la France.",
+  },
+  {
+    q: "Travaillez-vous uniquement avec les entreprises ?",
+    a: "Je m'adresse en priorité aux TPE/PME, indépendants, professions libérales et associations du 66, car ce sont des structures qui ont besoin d'un partenaire fiable sans service informatique interne. Des particuliers font aussi appel à moi pour des projets précis.",
+  },
+  {
+    q: "Pouvez-vous gérer toute mon informatique de A à Z ?",
+    a: "Oui. Je couvre la chaîne complète : postes et réseau, sécurité, serveur et hébergement, jusqu'au site web. Vous évitez ainsi de coordonner plusieurs prestataires qui se renvoient la responsabilité.",
+  },
+  {
+    q: "Proposez-vous de l'hébergement et de l'infrastructure ?",
+    a: "Oui, je mets en place et administre des serveurs VPS Linux (Debian/Ubuntu), avec Docker, Nginx, HTTPS et sauvegardes. C'est utile pour héberger un site, une application métier ou des outils internes en gardant le contrôle des coûts.",
+  },
+];
+
+const pageSchema = {
   "@context": "https://schema.org",
-  "@type": "Service",
-  name: "Services informatiques Pyrénées-Orientales",
-  serviceType: "Prestataire informatique TPE/PME",
-  areaServed: ["Pyrénées-Orientales", "Rivesaltes", "Perpignan", "France"],
-  provider: { "@id": "https://einformatique.fr/#business" },
-  url: "https://einformatique.fr/informatique-pyrenees-orientales"
+  "@graph": [
+    {
+      "@type": "Service",
+      name: "Services informatiques Pyrénées-Orientales",
+      serviceType: "Prestataire informatique TPE/PME",
+      areaServed: ["Pyrénées-Orientales", "Rivesaltes", "Perpignan", "France"],
+      provider: { "@id": "https://einformatique.fr/#business" },
+      url: "https://einformatique.fr/informatique-pyrenees-orientales",
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: faqs.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+    },
+  ],
 };
 ---
 
-<BaseLayout title={title} description={description} jsonLd={serviceSchema}>
+<BaseLayout title={title} description={description} jsonLd={pageSchema}>
   <Header />
   <main class="pt-28 pb-20">
-    <section class="container-custom max-w-4xl space-y-8">
+    <section class="container-custom max-w-4xl space-y-6">
       <h1 class="text-4xl md:text-5xl font-bold text-main">Prestataire informatique dans les Pyrénées-Orientales</h1>
-      <p class="text-lg text-secondary">Vous cherchez un partenaire local pour maintenir votre informatique sans complexité inutile ? J'accompagne les TPE/PME du 66 sur l'exploitation quotidienne et les évolutions techniques.</p>
-      <p class="text-secondary">Base à Rivesaltes, interventions régulières sur Perpignan, Canet, Saint-Cyprien et Cabestany, avec support à distance dans toute la France.</p>
+      <p class="text-lg text-secondary">Vous cherchez un partenaire local pour maintenir votre informatique sans complexité inutile ? J'accompagne les TPE/PME du 66 sur l'exploitation quotidienne comme sur les évolutions techniques, avec un seul interlocuteur du dépannage jusqu'au site web.</p>
+      <p class="text-secondary">Basé à Rivesaltes, j'interviens en présentiel sur Perpignan, Canet, Saint-Cyprien et Cabestany, et j'assure le support à distance dans toute la France pour tout ce qui ne nécessite pas un déplacement.</p>
+      <div class="flex flex-wrap gap-3 pt-2">
+        <a class="btn-primary" href="/contact">Parler de votre projet</a>
+        <a class="btn-secondary" href="tel:+33768535150">07 68 53 51 50</a>
+      </div>
     </section>
 
-    <section class="container-custom max-w-4xl mt-12">
-      <h2 class="text-2xl font-bold text-main mb-4">Services disponibles</h2>
+    <section class="container-custom max-w-4xl mt-14">
+      <h2 class="text-2xl font-bold text-main mb-4">Une offre complète pour les TPE/PME du 66</h2>
+      <ul class="space-y-3 text-secondary list-disc pl-6">
+        <li><strong class="text-main">Dépannage et maintenance</strong> : postes, réseau, sauvegardes et support réactif</li>
+        <li><strong class="text-main">Création de site web</strong> : sites rapides, sécurisés et maintenus</li>
+        <li><strong class="text-main">Sécurité informatique</strong> : hardening, sauvegardes et bonnes pratiques pour PME</li>
+        <li><strong class="text-main">Hébergement VPS Linux</strong> : mise en place, administration et supervision</li>
+        <li><strong class="text-main">Automatisation</strong> : suppression des tâches manuelles répétitives</li>
+      </ul>
+    </section>
+
+    <section class="container-custom max-w-4xl mt-14">
+      <h2 class="text-2xl font-bold text-main mb-4">Local, mais avec des compétences d'infrastructure</h2>
+      <p class="text-secondary">Beaucoup de prestataires du département s'arrêtent au dépannage. Mon profil va plus loin : développement web, administration de serveurs Linux et sécurité défensive. Pour une entreprise du 66, cela signifie un seul interlocuteur capable de réparer un poste aujourd'hui et de déployer un serveur ou un site demain, avec une exigence de fiabilité et de pérennité.</p>
+    </section>
+
+    <section class="container-custom max-w-4xl mt-14">
+      <h2 class="text-2xl font-bold text-main mb-6">Questions fréquentes</h2>
+      <div class="space-y-4">
+        {faqs.map((f) => (
+          <div class="glass-card p-6">
+            <h3 class="text-lg font-semibold text-main mb-2">{f.q}</h3>
+            <p class="text-secondary">{f.a}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="container-custom max-w-4xl mt-14 glass-card p-8">
+      <h2 class="text-2xl font-bold text-main mb-3">Explorer par besoin</h2>
       <div class="flex flex-wrap gap-3 text-sm">
-        <a class="btn-secondary" href="/services#depannage">dépannage informatique Pyrénées-Orientales</a>
-        <a class="btn-secondary" href="/services#sites-web">création de site web</a>
-        <a class="btn-secondary" href="/services#cybersecurite">sécurité informatique PME</a>
-        <a class="btn-secondary" href="/services#hebergement">hébergement VPS</a>
+        <a class="btn-secondary" href="/services#depannage">Dépannage informatique</a>
+        <a class="btn-secondary" href="/services#sites-web">Création de site web</a>
+        <a class="btn-secondary" href="/services#cybersecurite">Sécurité informatique</a>
+        <a class="btn-secondary" href="/services#hebergement">Hébergement VPS</a>
+        <a class="btn-secondary" href="/depannage-informatique-perpignan">Dépannage informatique à Perpignan</a>
       </div>
     </section>
   </main>

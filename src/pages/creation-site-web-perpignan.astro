@@ -4,34 +4,100 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 
 const title = "Création Site Web Perpignan | Site vitrine TPE/PME";
-const description = "Création et maintenance de site web à Perpignan pour TPE/PME: site rapide, sécurisé, maintenu et orienté conversion.";
+const description = "Création de site web à Perpignan pour TPE/PME : site vitrine rapide, sécurisé, maintenu et orienté conversion, par un développeur local.";
 
-const serviceSchema = {
+const faqs = [
+  {
+    q: "Combien coûte un site web à Perpignan ?",
+    a: "Le prix dépend du nombre de pages, des fonctionnalités et de la maintenance souhaitée. Je travaille sur devis après un échange sur vos objectifs, plutôt qu'avec un forfait rigide. L'idée est d'investir là où ça compte pour votre activité.",
+  },
+  {
+    q: "WordPress ou site sur mesure : que choisir ?",
+    a: "WordPress convient si vous voulez gérer vous-même votre contenu régulièrement. Pour un site vitrine rapide et durable, je privilégie souvent une technologie moderne comme Astro, qui offre d'excellentes performances et une sécurité accrue. Je vous oriente selon votre besoin réel.",
+  },
+  {
+    q: "Mon site sera-t-il bien référencé sur Google ?",
+    a: "Chaque site est livré avec les bases SEO : structure de titres propre, balises meta, vitesse de chargement optimisée, données structurées et version mobile. Ce sont des fondations indispensables pour apparaître sur des recherches locales comme « à Perpignan ».",
+  },
+  {
+    q: "Assurez-vous la maintenance après la mise en ligne ?",
+    a: "Oui. Chaque projet peut inclure mises à jour, sauvegardes, surveillance et corrections. Un site sans maintenance se dégrade et devient vulnérable : je propose un suivi pour éviter les régressions et les failles.",
+  },
+];
+
+const pageSchema = {
   "@context": "https://schema.org",
-  "@type": "Service",
-  name: "Création site web Perpignan",
-  serviceType: "Création de site web",
-  areaServed: ["Perpignan", "Pyrénées-Orientales", "France"],
-  provider: { "@id": "https://einformatique.fr/#business" },
-  url: "https://einformatique.fr/creation-site-web-perpignan"
+  "@graph": [
+    {
+      "@type": "Service",
+      name: "Création site web Perpignan",
+      serviceType: "Création de site web",
+      areaServed: ["Perpignan", "Pyrénées-Orientales", "France"],
+      provider: { "@id": "https://einformatique.fr/#business" },
+      url: "https://einformatique.fr/creation-site-web-perpignan",
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: faqs.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+    },
+  ],
 };
 ---
 
-<BaseLayout title={title} description={description} jsonLd={serviceSchema}>
+<BaseLayout title={title} description={description} jsonLd={pageSchema}>
   <Header />
   <main class="pt-28 pb-20">
-    <section class="container-custom max-w-4xl space-y-8">
+    <section class="container-custom max-w-4xl space-y-6">
       <h1 class="text-4xl md:text-5xl font-bold text-main">Création de site web à Perpignan</h1>
-      <p class="text-lg text-secondary">Un site web qui charge vite, inspire confiance et vous apporte des demandes qualifiées. Je conçois des sites simples à maintenir et robustes.</p>
-      <p class="text-secondary">Chaque projet inclut performance, sécurité de base, sauvegardes et maintenance pour éviter les régressions après la mise en ligne.</p>
+      <p class="text-lg text-secondary">Un site web qui charge vite, inspire confiance et génère des demandes qualifiées. Pour les TPE/PME de Perpignan, je conçois des sites vitrines simples à maintenir, robustes et pensés pour convertir vos visiteurs en clients.</p>
+      <p class="text-secondary">Chaque projet inclut performance, sécurité de base, sauvegardes et maintenance, afin d'éviter les régressions et les failles après la mise en ligne. Vous ne vous retrouvez pas seul avec un site livré puis abandonné.</p>
+      <div class="flex flex-wrap gap-3 pt-2">
+        <a class="btn-primary" href="/contact">Demander un devis</a>
+        <a class="btn-secondary" href="/portfolio">Voir mes réalisations</a>
+      </div>
     </section>
 
-    <section class="container-custom max-w-4xl mt-12 glass-card p-8">
-      <h2 class="text-2xl font-bold text-main mb-3">Lien vers le service dédié</h2>
+    <section class="container-custom max-w-4xl mt-14">
+      <h2 class="text-2xl font-bold text-main mb-4">Ce qu'un site E Informatique vous apporte</h2>
+      <ul class="space-y-3 text-secondary list-disc pl-6">
+        <li>Chargement quasi instantané (scores Lighthouse élevés)</li>
+        <li>Design clair, professionnel et adapté au mobile</li>
+        <li>Référencement local soigné pour Perpignan et le 66</li>
+        <li>Sécurité et sauvegardes intégrées dès le départ</li>
+        <li>Contenu orienté conversion : appels à l'action et mise en avant de vos atouts</li>
+        <li>Maintenance dans la durée, sans dépendance à une agence opaque</li>
+      </ul>
+    </section>
+
+    <section class="container-custom max-w-4xl mt-14">
+      <h2 class="text-2xl font-bold text-main mb-4">Développeur local, pas une usine à sites</h2>
+      <p class="text-secondary">À Perpignan, beaucoup de sites sont produits en masse sur des modèles lourds et lents. Mon approche est différente : un échange direct sur vos objectifs, des technologies modernes (Astro, WordPress optimisé) choisies selon votre cas, et un site que vous comprenez. Étant aussi administrateur systèmes, je gère l'hébergement et la sécurité de bout en bout, sans intermédiaire.</p>
+    </section>
+
+    <section class="container-custom max-w-4xl mt-14">
+      <h2 class="text-2xl font-bold text-main mb-6">Questions fréquentes</h2>
+      <div class="space-y-4">
+        {faqs.map((f) => (
+          <div class="glass-card p-6">
+            <h3 class="text-lg font-semibold text-main mb-2">{f.q}</h3>
+            <p class="text-secondary">{f.a}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="container-custom max-w-4xl mt-14 glass-card p-8">
+      <h2 class="text-2xl font-bold text-main mb-3">Voir aussi</h2>
       <div class="flex flex-wrap gap-3 text-sm">
         <a class="btn-secondary" href="/services#sites-web">Service création de site web</a>
-        <a class="btn-secondary" href="/services#hebergement">Service hébergement VPS</a>
-        <a class="btn-secondary" href="/services#cybersecurite">Service sécurité informatique</a>
+        <a class="btn-secondary" href="/services#hebergement">Hébergement VPS</a>
+        <a class="btn-secondary" href="/services#cybersecurite">Sécurité informatique</a>
+        <a class="btn-secondary" href="/portfolio">Portfolio</a>
+        <a class="btn-secondary" href="/informatique-pyrenees-orientales">Informatique dans les Pyrénées-Orientales</a>
       </div>
     </section>
   </main>

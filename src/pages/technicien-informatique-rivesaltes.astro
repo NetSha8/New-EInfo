@@ -3,46 +3,100 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 
-const title = "Technicien Informatique Rivesaltes | Assistance TPE/PME";
-const description = "Technicien informatique à Rivesaltes pour TPE/PME: dépannage, sécurité, maintenance et conseils pragmatiques.";
+const title = "Technicien Informatique Rivesaltes | TPE/PME";
+const description = "Technicien informatique indépendant à Rivesaltes pour TPE/PME : dépannage, sécurité, maintenance, réseau et site web. Un seul interlocuteur de confiance.";
 
-const serviceSchema = {
+const faqs = [
+  {
+    q: "Quelle est la différence avec un simple dépanneur ?",
+    a: "Un dépanneur règle une panne ponctuelle. En tant que technicien, je prends en charge l'ensemble de votre informatique dans la durée : postes, réseau, sécurité, serveur et site web. Vous avez un seul interlocuteur qui comprend votre installation et anticipe les problèmes.",
+  },
+  {
+    q: "Proposez-vous des contrats de maintenance ?",
+    a: "Oui, au-delà des interventions ponctuelles, je peux mettre en place un suivi régulier adapté à votre taille : surveillance, mises à jour, sauvegardes et points périodiques. L'idée est d'éviter les pannes plutôt que de les subir.",
+  },
+  {
+    q: "Travaillez-vous avec Windows, macOS et Linux ?",
+    a: "Oui, j'interviens sur les trois environnements ainsi que sur les serveurs Linux (Debian/Ubuntu). Cette polyvalence est utile pour les structures qui mélangent plusieurs systèmes.",
+  },
+  {
+    q: "Faut-il être basé à Rivesaltes pour faire appel à vous ?",
+    a: "Non. Je suis basé à Rivesaltes et j'interviens en présentiel dans tout le département (66), mais une grande partie de l'accompagnement se fait à distance, partout en France.",
+  },
+];
+
+const pageSchema = {
   "@context": "https://schema.org",
-  "@type": "Service",
-  name: "Technicien informatique Rivesaltes",
-  serviceType: "Assistance informatique TPE/PME",
-  areaServed: ["Rivesaltes", "Perpignan", "Pyrénées-Orientales"],
-  provider: { "@id": "https://einformatique.fr/#business" },
-  url: "https://einformatique.fr/technicien-informatique-rivesaltes"
+  "@graph": [
+    {
+      "@type": "Service",
+      name: "Technicien informatique Rivesaltes",
+      serviceType: "Assistance informatique TPE/PME",
+      areaServed: ["Rivesaltes", "Perpignan", "Pyrénées-Orientales"],
+      provider: { "@id": "https://einformatique.fr/#business" },
+      url: "https://einformatique.fr/technicien-informatique-rivesaltes",
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: faqs.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+    },
+  ],
 };
 ---
 
-<BaseLayout title={title} description={description} jsonLd={serviceSchema}>
+<BaseLayout title={title} description={description} jsonLd={pageSchema}>
   <Header />
   <main class="pt-28 pb-20">
-    <section class="container-custom max-w-4xl space-y-8">
+    <section class="container-custom max-w-4xl space-y-6">
       <h1 class="text-4xl md:text-5xl font-bold text-main">Technicien informatique à Rivesaltes</h1>
-      <p class="text-lg text-secondary">Un interlocuteur unique pour vos incidents informatiques du quotidien: postes, réseau, sécurité, serveur et site web.</p>
-      <p class="text-secondary">Objectif: maintenir votre activité sans blocage et sans empiler des prestataires différents sur le même problème.</p>
+      <p class="text-lg text-secondary">Un interlocuteur unique pour vos incidents informatiques du quotidien : postes, réseau, sécurité, serveur et site web. Plutôt que d'empiler les prestataires sur un même problème, vous gardez le même technicien qui connaît votre installation.</p>
+      <p class="text-secondary">Mon objectif est de maintenir votre activité sans blocage, avec des explications claires et des décisions techniques justifiées par votre besoin métier, pas par la mode du moment.</p>
+      <div class="flex flex-wrap gap-3 pt-2">
+        <a class="btn-primary" href="/contact">Échanger sur votre besoin</a>
+        <a class="btn-secondary" href="tel:+33768535150">07 68 53 51 50</a>
+      </div>
     </section>
 
-    <section class="container-custom max-w-4xl mt-12">
-      <h2 class="text-2xl font-bold text-main mb-4">Approche terrain</h2>
+    <section class="container-custom max-w-4xl mt-14">
+      <h2 class="text-2xl font-bold text-main mb-4">Mon approche terrain</h2>
       <ul class="space-y-3 text-secondary list-disc pl-6">
         <li>Audit rapide de la situation et des risques immédiats</li>
         <li>Plan d'action priorisé selon votre urgence métier</li>
-        <li>Corrections mesurables et documentation claire</li>
+        <li>Corrections mesurables et documentation claire de ce qui a été fait</li>
+        <li>Choix techniques durables, faciles à maintenir dans le temps</li>
         <li>Suivi possible en présentiel dans le 66 ou à distance en France</li>
       </ul>
     </section>
 
-    <section class="container-custom max-w-4xl mt-12 glass-card p-8">
+    <section class="container-custom max-w-4xl mt-14">
+      <h2 class="text-2xl font-bold text-main mb-4">Du dépannage à l'infrastructure</h2>
+      <p class="text-secondary">Au-delà du dépannage, mon parcours couvre l'administration de serveurs Linux, le déploiement d'applications (Docker, Nginx), la sécurité défensive et le développement web. Cette vue d'ensemble me permet d'intervenir aussi bien sur un poste lent que sur un serveur, un site web ou l'automatisation d'une tâche répétitive, sans renvoyer chaque sujet à un prestataire différent.</p>
+    </section>
+
+    <section class="container-custom max-w-4xl mt-14">
+      <h2 class="text-2xl font-bold text-main mb-6">Questions fréquentes</h2>
+      <div class="space-y-4">
+        {faqs.map((f) => (
+          <div class="glass-card p-6">
+            <h3 class="text-lg font-semibold text-main mb-2">{f.q}</h3>
+            <p class="text-secondary">{f.a}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="container-custom max-w-4xl mt-14 glass-card p-8">
       <h2 class="text-2xl font-bold text-main mb-3">Services associés</h2>
       <div class="flex flex-wrap gap-3 text-sm">
-        <a class="btn-secondary" href="/services#depannage">dépannage informatique</a>
-        <a class="btn-secondary" href="/services#sites-web">création de site web</a>
-        <a class="btn-secondary" href="/services#hebergement">hébergement VPS</a>
-        <a class="btn-secondary" href="/informatique-pyrenees-orientales">informatique Pyrénées-Orientales</a>
+        <a class="btn-secondary" href="/services#depannage">Dépannage informatique</a>
+        <a class="btn-secondary" href="/services#sites-web">Création de site web</a>
+        <a class="btn-secondary" href="/services#hebergement">Hébergement VPS</a>
+        <a class="btn-secondary" href="/depannage-informatique-rivesaltes">Dépannage informatique à Rivesaltes</a>
+        <a class="btn-secondary" href="/informatique-pyrenees-orientales">Informatique dans les Pyrénées-Orientales</a>
       </div>
     </section>
   </main>

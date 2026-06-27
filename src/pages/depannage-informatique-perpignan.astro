@@ -4,34 +4,99 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 
 const title = "Dépannage Informatique Perpignan | TPE/PME";
-const description = "Dépannage informatique à Perpignan pour TPE/PME: assistance poste, réseau, sécurité et support à distance.";
+const description = "Dépannage informatique à Perpignan pour TPE/PME : assistance poste, réseau, sécurité et support à distance. Intervention rapide par un technicien indépendant.";
 
-const serviceSchema = {
+const faqs = [
+  {
+    q: "Vous déplacez-vous dans tout Perpignan ?",
+    a: "Oui, j'interviens sur l'ensemble de Perpignan et sa périphérie (Cabestany, Saint-Estève, Bompas, Toulouges), depuis Rivesaltes situé à une dizaine de minutes. Les quartiers d'activité comme Polygone Nord ou le Mas Guérido sont rapidement accessibles.",
+  },
+  {
+    q: "Êtes-vous une alternative aux grandes sociétés d'infogérance ?",
+    a: "Oui. Pour une TPE ou une PME, un indépendant offre un contact direct, des tarifs plus mesurés et une réactivité sans passer par un ticket anonyme. Vous parlez toujours à la personne qui intervient réellement sur votre matériel.",
+  },
+  {
+    q: "Que faire en cas d'urgence pendant les heures de bureau ?",
+    a: "Contactez-moi par téléphone : pour les pannes bloquantes, je donne la priorité au dépannage et lance souvent un diagnostic à distance immédiat afin de limiter le temps d'arrêt de votre activité.",
+  },
+  {
+    q: "Proposez-vous un suivi après l'intervention ?",
+    a: "Oui, au-delà du dépannage ponctuel, je peux mettre en place de la maintenance préventive (sauvegardes, mises à jour, surveillance) pour éviter que les mêmes incidents ne se reproduisent.",
+  },
+];
+
+const pageSchema = {
   "@context": "https://schema.org",
-  "@type": "Service",
-  name: "Dépannage informatique Perpignan",
-  serviceType: "Dépannage informatique",
-  areaServed: ["Perpignan", "Pyrénées-Orientales"],
-  provider: { "@id": "https://einformatique.fr/#business" },
-  url: "https://einformatique.fr/depannage-informatique-perpignan"
+  "@graph": [
+    {
+      "@type": "Service",
+      name: "Dépannage informatique Perpignan",
+      serviceType: "Dépannage informatique",
+      areaServed: ["Perpignan", "Pyrénées-Orientales"],
+      provider: { "@id": "https://einformatique.fr/#business" },
+      url: "https://einformatique.fr/depannage-informatique-perpignan",
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: faqs.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+    },
+  ],
 };
 ---
 
-<BaseLayout title={title} description={description} jsonLd={serviceSchema}>
+<BaseLayout title={title} description={description} jsonLd={pageSchema}>
   <Header />
   <main class="pt-28 pb-20">
-    <section class="container-custom max-w-4xl space-y-8">
+    <section class="container-custom max-w-4xl space-y-6">
       <h1 class="text-4xl md:text-5xl font-bold text-main">Dépannage informatique à Perpignan</h1>
-      <p class="text-lg text-secondary">Pour les TPE/PME de Perpignan, j'interviens sur les pannes qui bloquent votre production: ordinateur instable, réseau aléatoire, sauvegardes absentes, messagerie en erreur.</p>
-      <p class="text-secondary">Basé à Rivesaltes, je couvre Perpignan et les communes proches en présentiel, avec une assistance à distance disponible partout en France.</p>
+      <p class="text-lg text-secondary">Pour les TPE/PME de Perpignan, j'interviens sur les pannes qui bloquent votre production : ordinateur instable, réseau aléatoire, sauvegardes absentes, messagerie en erreur. L'objectif est de remettre votre activité en marche le plus vite possible.</p>
+      <p class="text-secondary">Basé à Rivesaltes, à dix minutes du centre, je couvre Perpignan et les communes proches en présentiel, avec une assistance à distance disponible partout en France pour les incidents logiciels.</p>
+      <div class="flex flex-wrap gap-3 pt-2">
+        <a class="btn-primary" href="/contact">Demander un diagnostic</a>
+        <a class="btn-secondary" href="tel:+33768535150">07 68 53 51 50</a>
+      </div>
     </section>
 
-    <section class="container-custom max-w-4xl mt-12 glass-card p-8">
-      <h2 class="text-2xl font-bold text-main mb-3">Accéder au service principal</h2>
+    <section class="container-custom max-w-4xl mt-14">
+      <h2 class="text-2xl font-bold text-main mb-4">Mes interventions à Perpignan</h2>
+      <ul class="space-y-3 text-secondary list-disc pl-6">
+        <li>Réparation et optimisation de postes lents ou instables</li>
+        <li>Nettoyage de virus et sécurisation des accès</li>
+        <li>Mise en place et fiabilisation des sauvegardes</li>
+        <li>Réseau professionnel : Wi-Fi, switch, partage de fichiers et imprimantes</li>
+        <li>Configuration de messagerie professionnelle et résolution des erreurs d'envoi</li>
+        <li>Conseil sur le renouvellement de matériel adapté à votre usage réel</li>
+      </ul>
+    </section>
+
+    <section class="container-custom max-w-4xl mt-14">
+      <h2 class="text-2xl font-bold text-main mb-4">Pourquoi un indépendant plutôt qu'une grande enseigne</h2>
+      <p class="text-secondary">Perpignan compte plusieurs sociétés d'infogérance, souvent dimensionnées pour de grandes structures. Pour un commerce, un cabinet ou un artisan, cela se traduit par des contrats lourds et un support distant. En tant que technicien indépendant, je propose l'inverse : un interlocuteur unique qui connaît votre installation, des interventions à la carte et une facturation transparente, sans engagement superflu.</p>
+    </section>
+
+    <section class="container-custom max-w-4xl mt-14">
+      <h2 class="text-2xl font-bold text-main mb-6">Questions fréquentes</h2>
+      <div class="space-y-4">
+        {faqs.map((f) => (
+          <div class="glass-card p-6">
+            <h3 class="text-lg font-semibold text-main mb-2">{f.q}</h3>
+            <p class="text-secondary">{f.a}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="container-custom max-w-4xl mt-14 glass-card p-8">
+      <h2 class="text-2xl font-bold text-main mb-3">Voir aussi</h2>
       <div class="flex flex-wrap gap-3 text-sm">
         <a class="btn-secondary" href="/services#depannage">Service dépannage informatique</a>
-        <a class="btn-secondary" href="/technicien-informatique-rivesaltes">technicien informatique Rivesaltes</a>
-        <a class="btn-secondary" href="/depannage-informatique-canet">dépannage informatique Canet</a>
+        <a class="btn-secondary" href="/technicien-informatique-rivesaltes">Technicien informatique à Rivesaltes</a>
+        <a class="btn-secondary" href="/depannage-informatique-canet">Dépannage informatique à Canet</a>
+        <a class="btn-secondary" href="/creation-site-web-perpignan">Création de site web à Perpignan</a>
       </div>
     </section>
   </main>

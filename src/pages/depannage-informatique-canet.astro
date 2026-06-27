@@ -3,35 +3,100 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 
-const title = "Dépannage Informatique Canet-en-Roussillon | Assistance locale";
-const description = "Dépannage informatique à Canet-en-Roussillon pour professionnels: postes, réseau, sécurité et support rapide.";
+const title = "Dépannage Informatique Canet-en-Roussillon | TPE/PME";
+const description = "Dépannage informatique à Canet-en-Roussillon pour commerces et pros du littoral : postes, Wi-Fi, sécurité et support rapide sur place ou à distance.";
 
-const serviceSchema = {
+const faqs = [
+  {
+    q: "Intervenez-vous sur les commerces saisonniers de Canet-plage ?",
+    a: "Oui. Les commerces du littoral ont des pics d'activité l'été où une panne de caisse, de Wi-Fi ou de terminal de paiement est critique. Je privilégie la réactivité et, quand c'est possible, un diagnostic à distance immédiat pour ne pas immobiliser votre commerce.",
+  },
+  {
+    q: "Le Wi-Fi de mon établissement est instable, pouvez-vous aider ?",
+    a: "C'est l'un des problèmes les plus fréquents en bord de mer (interférences, locaux étendus, terrasses). Je diagnostique la couverture réseau et propose une installation adaptée : bornes, répéteurs ou câblage selon la configuration des lieux.",
+  },
+  {
+    q: "À quelle distance vous trouvez-vous de Canet ?",
+    a: "Je suis basé à Rivesaltes, à environ 20 minutes de Canet-en-Roussillon. Je couvre tout le littoral proche : Saint-Cyprien, Sainte-Marie-la-Mer et Le Barcarès, en présentiel, ou à distance pour les incidents logiciels.",
+  },
+  {
+    q: "Faites-vous de la maintenance préventive hors saison ?",
+    a: "Oui. La basse saison est le moment idéal pour mettre à jour les postes, vérifier les sauvegardes et sécuriser le réseau, afin d'aborder la haute saison sans incident.",
+  },
+];
+
+const pageSchema = {
   "@context": "https://schema.org",
-  "@type": "Service",
-  name: "Dépannage informatique Canet-en-Roussillon",
-  serviceType: "Dépannage informatique",
-  areaServed: ["Canet-en-Roussillon", "Pyrénées-Orientales"],
-  provider: { "@id": "https://einformatique.fr/#business" },
-  url: "https://einformatique.fr/depannage-informatique-canet"
+  "@graph": [
+    {
+      "@type": "Service",
+      name: "Dépannage informatique Canet-en-Roussillon",
+      serviceType: "Dépannage informatique",
+      areaServed: ["Canet-en-Roussillon", "Saint-Cyprien", "Pyrénées-Orientales"],
+      provider: { "@id": "https://einformatique.fr/#business" },
+      url: "https://einformatique.fr/depannage-informatique-canet",
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: faqs.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+    },
+  ],
 };
 ---
 
-<BaseLayout title={title} description={description} jsonLd={serviceSchema}>
+<BaseLayout title={title} description={description} jsonLd={pageSchema}>
   <Header />
   <main class="pt-28 pb-20">
-    <section class="container-custom max-w-4xl space-y-8">
+    <section class="container-custom max-w-4xl space-y-6">
       <h1 class="text-4xl md:text-5xl font-bold text-main">Dépannage informatique à Canet-en-Roussillon</h1>
-      <p class="text-lg text-secondary">Intervention pour les TPE/PME de Canet-en-Roussillon et du littoral: panne PC, Wi-Fi instable, antivirus, sauvegardes et remise en conformité de base.</p>
-      <p class="text-secondary">Je peux intervenir en présentiel dans les Pyrénées-Orientales et à distance si le contexte le permet.</p>
+      <p class="text-lg text-secondary">Commerces, restaurants, locations et professionnels du littoral : j'interviens à Canet-en-Roussillon sur les pannes PC, le Wi-Fi instable, les antivirus, les sauvegardes et la remise en conformité de base de votre installation.</p>
+      <p class="text-secondary">Une activité touristique laisse peu de place à l'arrêt, surtout en été. Mon objectif est de fiabiliser votre informatique pour que les pics de fréquentation se passent sans coupure ni perte de données.</p>
+      <div class="flex flex-wrap gap-3 pt-2">
+        <a class="btn-primary" href="/contact">Demander un diagnostic</a>
+        <a class="btn-secondary" href="tel:+33768535150">07 68 53 51 50</a>
+      </div>
     </section>
 
-    <section class="container-custom max-w-4xl mt-12 glass-card p-8">
-      <h2 class="text-2xl font-bold text-main mb-3">Pages liées</h2>
+    <section class="container-custom max-w-4xl mt-14">
+      <h2 class="text-2xl font-bold text-main mb-4">Besoins typiques sur le littoral</h2>
+      <ul class="space-y-3 text-secondary list-disc pl-6">
+        <li>Wi-Fi professionnel fiable sur grande surface et terrasses</li>
+        <li>Caisses, terminaux de paiement et postes en panne</li>
+        <li>Sauvegardes des données clients et de la comptabilité</li>
+        <li>Suppression de virus et sécurisation des accès</li>
+        <li>Préparation des postes avant la haute saison</li>
+        <li>Assistance à distance rapide en cas d'urgence</li>
+      </ul>
+    </section>
+
+    <section class="container-custom max-w-4xl mt-14">
+      <h2 class="text-2xl font-bold text-main mb-4">Un interlocuteur de proximité</h2>
+      <p class="text-secondary">Depuis Rivesaltes, Canet-en-Roussillon et le littoral roussillonnais sont à une vingtaine de minutes. Vous bénéficiez d'un technicien indépendant joignable directement, sans plateforme téléphonique, qui connaît votre installation et peut réagir vite lorsque la saison bat son plein.</p>
+    </section>
+
+    <section class="container-custom max-w-4xl mt-14">
+      <h2 class="text-2xl font-bold text-main mb-6">Questions fréquentes</h2>
+      <div class="space-y-4">
+        {faqs.map((f) => (
+          <div class="glass-card p-6">
+            <h3 class="text-lg font-semibold text-main mb-2">{f.q}</h3>
+            <p class="text-secondary">{f.a}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="container-custom max-w-4xl mt-14 glass-card p-8">
+      <h2 class="text-2xl font-bold text-main mb-3">Voir aussi</h2>
       <div class="flex flex-wrap gap-3 text-sm">
         <a class="btn-secondary" href="/services#depannage">Service dépannage informatique</a>
-        <a class="btn-secondary" href="/depannage-informatique-rivesaltes">dépannage informatique Rivesaltes</a>
-        <a class="btn-secondary" href="/depannage-informatique-perpignan">dépannage informatique Perpignan</a>
+        <a class="btn-secondary" href="/depannage-informatique-perpignan">Dépannage informatique à Perpignan</a>
+        <a class="btn-secondary" href="/depannage-informatique-rivesaltes">Dépannage informatique à Rivesaltes</a>
+        <a class="btn-secondary" href="/informatique-pyrenees-orientales">Informatique dans les Pyrénées-Orientales</a>
       </div>
     </section>
   </main>

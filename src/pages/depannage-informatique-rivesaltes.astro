@@ -3,47 +3,101 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 
-const title = "Dépannage Informatique Rivesaltes (66600) | Intervention rapide";
-const description = "Dépannage informatique à Rivesaltes pour TPE/PME: pannes, lenteurs, virus, réseau et assistance à distance. Intervention locale sous 48h.";
+const title = "Dépannage Informatique Rivesaltes (66) | TPE/PME";
+const description = "Dépannage informatique à Rivesaltes pour TPE/PME : pannes, lenteurs, virus, réseau et assistance à distance. Diagnostic clair, intervention locale rapide.";
 
-const serviceSchema = {
+const faqs = [
+  {
+    q: "Sous quel délai pouvez-vous intervenir à Rivesaltes ?",
+    a: "Étant basé à Rivesaltes, je me déplace généralement sous 24 à 48 h selon l'urgence. Les pannes bloquantes (poste hors service, réseau coupé, messagerie en panne) sont traitées en priorité, et un premier diagnostic à distance est souvent possible le jour même.",
+  },
+  {
+    q: "Intervenez-vous chez les particuliers ou seulement les entreprises ?",
+    a: "Je travaille principalement avec les TPE/PME locales (artisans, commerces, cabinets et indépendants), car ce sont des contextes où une panne a un coût direct. J'accompagne aussi ponctuellement des particuliers sur des problèmes précis.",
+  },
+  {
+    q: "Combien coûte un dépannage informatique ?",
+    a: "Cela dépend de la nature du problème et du temps nécessaire. Je commence toujours par un diagnostic et un devis clair avant toute intervention : pas de jargon, pas de mauvaise surprise sur la facture.",
+  },
+  {
+    q: "Pouvez-vous résoudre le problème à distance ?",
+    a: "Oui, une grande partie des incidents logiciels, configurations et optimisations se traitent à distance, ce qui évite un déplacement et fait gagner du temps. Le présentiel reste réservé aux pannes matérielles et réseau.",
+  },
+];
+
+const pageSchema = {
   "@context": "https://schema.org",
-  "@type": "Service",
-  name: "Dépannage informatique Rivesaltes",
-  serviceType: "Dépannage informatique",
-  areaServed: ["Rivesaltes", "Pyrénées-Orientales"],
-  provider: { "@id": "https://einformatique.fr/#business" },
-  url: "https://einformatique.fr/depannage-informatique-rivesaltes"
+  "@graph": [
+    {
+      "@type": "Service",
+      name: "Dépannage informatique Rivesaltes",
+      serviceType: "Dépannage informatique",
+      areaServed: ["Rivesaltes", "Pyrénées-Orientales"],
+      provider: { "@id": "https://einformatique.fr/#business" },
+      url: "https://einformatique.fr/depannage-informatique-rivesaltes",
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: faqs.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+    },
+  ],
 };
 ---
 
-<BaseLayout title={title} description={description} jsonLd={serviceSchema}>
+<BaseLayout title={title} description={description} jsonLd={pageSchema}>
   <Header />
   <main class="pt-28 pb-20">
-    <section class="container-custom max-w-4xl space-y-8">
+    <section class="container-custom max-w-4xl space-y-6">
       <h1 class="text-4xl md:text-5xl font-bold text-main">Dépannage informatique à Rivesaltes</h1>
-      <p class="text-lg text-secondary">Ordinateur lent, panne réseau, messagerie bloquée ou poste infecté: j'interviens à Rivesaltes (66600) pour remettre votre activité en route rapidement.</p>
-      <p class="text-secondary">Je travaille principalement avec les TPE/PME locales: artisans, commerces, cabinets et indépendants. Diagnostic clair, intervention utile, pas de jargon.</p>
+      <p class="text-lg text-secondary">Ordinateur lent, panne réseau, messagerie bloquée ou poste infecté : basé à Rivesaltes (66600), j'interviens auprès des TPE/PME locales pour remettre votre activité en route rapidement et sans jargon inutile.</p>
+      <p class="text-secondary">Artisans, commerces, cabinets et indépendants : je connais les contraintes des petites structures, où chaque heure d'arrêt a un coût. Mon approche est simple : diagnostic clair, intervention utile, et conseils pour éviter que la panne se reproduise.</p>
+      <div class="flex flex-wrap gap-3 pt-2">
+        <a class="btn-primary" href="/contact">Demander un diagnostic</a>
+        <a class="btn-secondary" href="tel:+33768535150">07 68 53 51 50</a>
+      </div>
     </section>
 
-    <section class="container-custom max-w-4xl mt-12">
-      <h2 class="text-2xl font-bold text-main mb-4">Ce que je prends en charge</h2>
+    <section class="container-custom max-w-4xl mt-14">
+      <h2 class="text-2xl font-bold text-main mb-4">Les pannes que je prends en charge à Rivesaltes</h2>
       <ul class="space-y-3 text-secondary list-disc pl-6">
-        <li>Diagnostic de panne et réparation poste de travail</li>
-        <li>Suppression de malwares et sécurisation de base</li>
-        <li>Optimisation Windows/macOS/Linux</li>
-        <li>Configuration box, Wi-Fi, imprimantes et réseau local</li>
+        <li>Diagnostic de panne et réparation de poste de travail (Windows, macOS, Linux)</li>
+        <li>Ordinateur lent : nettoyage, optimisation et remplacement de disque (SSD)</li>
+        <li>Suppression de virus, malwares et sécurisation de base du poste</li>
+        <li>Problèmes de messagerie, de sauvegarde absente ou de fichiers perdus</li>
+        <li>Configuration box, Wi-Fi, imprimantes et réseau local instable</li>
+        <li>Installation et migration de postes lors d'un changement de matériel</li>
       </ul>
     </section>
 
-    <section class="container-custom max-w-4xl mt-12 glass-card p-8">
-      <h2 class="text-2xl font-bold text-main mb-3">Maillage utile</h2>
-      <p class="text-secondary mb-4">Voir aussi les services complémentaires pour stabiliser votre SI:</p>
+    <section class="container-custom max-w-4xl mt-14">
+      <h2 class="text-2xl font-bold text-main mb-4">Un technicien réellement local</h2>
+      <p class="text-secondary">Contrairement à un centre d'appel ou à une enseigne nationale, vous avez affaire à un seul interlocuteur qui connaît votre installation. Depuis Rivesaltes, je rayonne facilement sur l'agglomération de Perpignan, Pia, Espira-de-l'Agly, Salses et Le Barcarès. Pour les besoins purement logiciels, l'assistance à distance permet d'agir immédiatement, partout en France.</p>
+    </section>
+
+    <section class="container-custom max-w-4xl mt-14">
+      <h2 class="text-2xl font-bold text-main mb-6">Questions fréquentes</h2>
+      <div class="space-y-4">
+        {faqs.map((f) => (
+          <div class="glass-card p-6">
+            <h3 class="text-lg font-semibold text-main mb-2">{f.q}</h3>
+            <p class="text-secondary">{f.a}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="container-custom max-w-4xl mt-14 glass-card p-8">
+      <h2 class="text-2xl font-bold text-main mb-3">Voir aussi</h2>
+      <p class="text-secondary mb-4">Pour stabiliser durablement votre système d'information :</p>
       <div class="flex flex-wrap gap-3 text-sm">
         <a class="btn-secondary" href="/services#depannage">Service dépannage informatique</a>
-        <a class="btn-secondary" href="/services#cybersecurite">Service sécurité informatique</a>
-        <a class="btn-secondary" href="/technicien-informatique-rivesaltes">technicien informatique Rivesaltes</a>
-        <a class="btn-secondary" href="/depannage-informatique-perpignan">dépannage informatique Perpignan</a>
+        <a class="btn-secondary" href="/services#cybersecurite">Sécurité informatique</a>
+        <a class="btn-secondary" href="/technicien-informatique-rivesaltes">Technicien informatique à Rivesaltes</a>
+        <a class="btn-secondary" href="/depannage-informatique-perpignan">Dépannage informatique à Perpignan</a>
       </div>
     </section>
   </main>
