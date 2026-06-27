@@ -40,4 +40,4 @@ Limites:
 - Site vitrine simple, budget serré: mutualisé peut suffire.
 - Site critique, besoin de performance et stabilité: VPS conseillé.
 
-Pour être guidé, consultez le [service hébergement VPS](/services#hebergement) et la page [création de site web Perpignan](/creation-site-web-perpignan).
+Pour être guidé, consultez le [service hébergement VPS](/services/#hebergement) et la page [création de site web Perpignan](/creation-site-web-perpignan/).
